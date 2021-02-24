@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HardwareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +15,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-route::view('/','v_home');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/hardware/workstations/', [HardwareController::class, 'atWorkstations']);
+Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
+Route::get('/hardware/addhw', [HardwareController::class, 'add']);
 
-route::view('/hardware/workstations/','hardware.v_workstations');
-route::view('/hardware/server/','hardware.v_server');
-route::view('/hardware/printer/','hardware.v_printer');
-route::view('/hardware/sparepart/','hardware.v_sparepart');
-route::view('/hardware/other/','hardware.v_other');
 
-route::view('/software/subscription/','software.v_subscription');
-route::view('/software/sekalibayar/','software.v_sekalibayar');
+// route::view('/','v_home');
 
-route::view('/user/admin/','user.v_admin');
-route::view('/user/staff/','user.v_staff');
+// route::view('/hardware/workstations/','hardware.v_workstations');
+// route::view('/hardware/server/','hardware.v_server');
+// route::view('/hardware/printer/','hardware.v_printer');
+// route::view('/hardware/sparepart/','hardware.v_sparepart');
+// route::view('/hardware/other/','hardware.v_other');
 
-route::view('/pemakai','v_pemakai');
+// route::view('/software/subscription/','software.v_subscription');
+// route::view('/software/sekalibayar/','software.v_sekalibayar');
+
+// route::view('/user/admin/','user.v_admin');
+// route::view('/user/staff/','user.v_staff');
+
+// route::view('/pemakai','v_pemakai');
