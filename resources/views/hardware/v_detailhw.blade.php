@@ -13,52 +13,52 @@
             <div class="box-body">
 				<table class="table table-hover">
 					<tr>
-						<th width="150px">Nama Hardware</th>
+						<th width="200px">Nama Hardware</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->nama_hw }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Merk Hardware</th>
+						<th width="200px">Merk Hardware</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->merk_hw }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Seri Hardware</th>
+						<th width="200px">Seri Hardware</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->seri_hw }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Kategori</th>
+						<th width="200px">Kategori</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->kategori }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Harga</th>
+						<th width="200px">Harga</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->harga_hw }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Lokasi</th>
+						<th width="200px">Lokasi</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->lokasi }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Departemen</th>
+						<th width="200px">Departemen</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->departemen }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Tanggal Beli</th>
+						<th width="200px">Tanggal Beli</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->tgl_beli_hw }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Tanggal Batas Garansi</th>
+						<th width="200px">Tanggal Batas Garansi</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->tgl_batas_garansi }}</th>
 					</tr>
 					<tr>
-						<th width="150px">Pemakai</th>
+						<th width="200px">Pemakai</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->id_pemakai }}</th>
 					</tr>

@@ -22,4 +22,19 @@ class HardwareModel extends Model
     {
         return DB::table('tbl_hardware')->where('id_hw', $id_hw)->first();
     }
+    
+    public function addData($data)
+    {
+        return DB::table('tbl_hardware')->insert($data);
+    }
+    
+    public function editData($id_hw, $data)
+    {
+        return DB::table('tbl_hardware')->where('id_hw', $id_hw)->update($data);
+    }
+    
+    public function deleteData($id_hw)
+    {
+        return DB::table('tbl_hardware')->where('id_hw', $id_hw)->delete();
+    }
 }

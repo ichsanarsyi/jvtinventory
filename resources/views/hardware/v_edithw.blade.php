@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Tambah Data Hardware')
+@section('title','Edit Data Hardware')
 @section('content')
 	<div class="row">
         <div class="col-xs-12">
@@ -11,14 +11,14 @@
 				</a>
 			<!-- /.box-header -->
             <div class="box-body">
-				<form action="/hardware/inserthw" method="POST" enctype="multipart/form-data">
+				<form action="/hardware/updatehw/{{ $hardware->id_hw }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Nama Hardware</label>
-								<input name="nama_hw" class="form-control" value="{{ old('nama_hw') }}">
+								<input name="nama_hw" class="form-control" value="{{ $hardware->nama_hw }}">
 								<div class="text-danger">
 									@error('nama_hw')
 										{{ $message }}
@@ -30,7 +30,7 @@
 							<div class="form-group">
 								<label>Lokasi</label>
 								<select name="lokasi" class="form-control select2" style="width: 100%;" >
-									<option value="">{{ old('lokasi') }}</option>
+									<option value="">{{ $hardware->lokasi }}</option>
 									<option>R. Staf</option>
 									<option>R. Tamu</option>
 									<option>R. Security</option>
@@ -51,7 +51,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Merk Hardware</label>
-								<input name="merk_hw" class="form-control" value="{{ old('merk_hw') }}">
+								<input name="merk_hw" class="form-control" value="{{ $hardware->merk_hw }}">
 								<div class="text-danger">
 									@error('merk_hw')
 										{{ $message }}
@@ -63,7 +63,7 @@
 							<div class="form-group">
 								<label>Departemen</label>
 								<select name="departemen" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('departemen') }}</option>
+									<option value="">{{ $hardware->departemen }}</option>
 									<option>Infrastruktur</option>
 									<option>Software</option>
 									<option>Administrasi</option>
@@ -83,7 +83,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Seri Hardware</label>
-								<input name="seri_hw" class="form-control" value="{{ old('seri_hw') }}">
+								<input name="seri_hw" class="form-control" value="{{ $hardware->seri_hw }}">
 								<div class="text-danger">
 									@error('seri_hw')
 										{{ $message }}
@@ -95,7 +95,7 @@
 							<div class="form-group">
 								<label>Tanggal Beli Hardware</label>
 								<div class="input-group date">									
-									<input name="tgl_beli_hw" type="text" class="form-control pull-right" id="datepicker1" value="{{ old('tgl_beli_hw') }}">
+									<input name="tgl_beli_hw" type="text" class="form-control pull-right" id="datepicker1" value="{{ $hardware->tgl_beli_hw }}">
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
@@ -114,7 +114,7 @@
 							<div class="form-group">
 								<label>Kategori</label>
 								<select name="kategori" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('kategori') }}</option>
+									<option value="">{{ $hardware->kategori }}</option>
 									<option>Workstations</option>
 									<option>Server</option>
 									<option>Printer</option>
@@ -132,7 +132,7 @@
 							<div class="form-group">
 								<label>Tanggal Batas Garansi</label>
 								<div class="input-group date">									
-									<input name="tgl_batas_garansi" type="text" class="form-control pull-right" id="datepicker2" value="{{ old('tgl_batas_garansi') }}">
+									<input name="tgl_batas_garansi" type="text" class="form-control pull-right" id="datepicker2" value="{{ $hardware->tgl_batas_garansi }}">
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
@@ -150,7 +150,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Harga</label>
-								<input name="harga_hw" class="form-control" value="{{ old('harga_hw') }}">
+								<input name="harga_hw" class="form-control" value="{{ $hardware->harga_hw }}">
 								<div class="text-danger">
 									@error('harga_hw')
 										{{ $message }}
@@ -162,7 +162,7 @@
 							<div class="form-group">
 								<label>Pemakai</label>
 								<select name="id_pemakai" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_pemakai') }}</option>
+									<option value="">{{ $hardware->id_pemakai }}</option>
 									<option>1</option>
 									<option>2</option>
 								</select>

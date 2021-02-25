@@ -16,9 +16,13 @@ use App\Http\Controllers\HardwareController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/hardware/workstations/', [HardwareController::class, 'atWorkstations']);
+Route::get('/hardware/workstations/', [HardwareController::class, 'atWorkstations'])->name('workstations');
 Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 Route::get('/hardware/addhw', [HardwareController::class, 'add']);
+Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
+Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
+Route::post('/hardware/updatehw/{id_hw}', [HardwareController::class, 'update']);
+Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
 
 
 // route::view('/','v_home');
