@@ -25,6 +25,49 @@
 									@enderror
 								</div>
 							</div>
+							<div class="form-group">
+								<label>Merk Hardware</label>
+								<input name="merk_hw" class="form-control" value="{{ old('merk_hw') }}">
+								<div class="text-danger">
+									@error('merk_hw')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Seri Hardware</label>
+								<input name="seri_hw" class="form-control" value="{{ old('seri_hw') }}">
+								<div class="text-danger">
+									@error('seri_hw')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Kategori</label>
+								<select name="kategori" class="form-control select2" style="width: 100%;">
+									<option value="">{{ old('kategori') }}</option>
+									<option>Workstations</option>
+									<option>Server</option>
+									<option>Printer</option>
+									<option>Sparepart</option>
+									<option>Other</option>
+								</select>
+								<div class="text-danger">
+									@error('kategori')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Harga</label>
+								<input name="harga_hw" class="form-control" value="{{ old('harga_hw') }}">
+								<div class="text-danger">
+									@error('harga_hw')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="form-group">
@@ -44,22 +87,6 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label>Merk Hardware</label>
-								<input name="merk_hw" class="form-control" value="{{ old('merk_hw') }}">
-								<div class="text-danger">
-									@error('merk_hw')
-										{{ $message }}
-									@enderror
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Departemen</label>
 								<select name="departemen" class="form-control select2" style="width: 100%;">
@@ -76,22 +103,6 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label>Seri Hardware</label>
-								<input name="seri_hw" class="form-control" value="{{ old('seri_hw') }}">
-								<div class="text-danger">
-									@error('seri_hw')
-										{{ $message }}
-									@enderror
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Tanggal Beli Hardware</label>
 								<div class="input-group date">									
@@ -106,29 +117,6 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label>Kategori</label>
-								<select name="kategori" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('kategori') }}</option>
-									<option>Workstations</option>
-									<option>Server</option>
-									<option>Printer</option>
-									<option>Sparepart</option>
-									<option>Other</option>
-								</select>
-								<div class="text-danger">
-									@error('kategori')
-										{{ $message }}
-									@enderror
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Tanggal Batas Garansi</label>
 								<div class="input-group date">									
@@ -143,22 +131,6 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label>Harga</label>
-								<input name="harga_hw" class="form-control" value="{{ old('harga_hw') }}">
-								<div class="text-danger">
-									@error('harga_hw')
-										{{ $message }}
-									@enderror
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Pemakai</label>
 								<select name="id_pemakai" class="form-control select2" style="width: 100%;">
