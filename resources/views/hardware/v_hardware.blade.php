@@ -30,7 +30,7 @@
             </thead>
             <tbody>
             <?php $no=1; ?>
-            @foreach ($allData as $data)
+            @foreach ($hardware as $data)
                 <tr>
                     <td>{{$no++}}</td>
                     <td>{{$data->nama_hw}}</td>
@@ -56,7 +56,7 @@
     <!-- /.col -->
   </div>
   <!-- /.row -->
-@foreach($allData as $data)
+@foreach($hardware as $data)
     <div class="modal modal-danger fade" id="modal-delete{{ $data->id_hw }}">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">

@@ -22,21 +22,13 @@ class HardwareController extends Controller
     // }
 
     public function index()
-    {
-        $data = [
-            'hardware' => $this->HardwareModel->allData()
-        ];
-        return view('hardware.v_hardware', $data);
+     {
+         $data = [
+             'hardware' => $this->HardwareModel->allData()
+         ];
+         return view('hardware.v_hardware', $data);
     }
 
-    public function getHardware()
-    {
-        $data = [
-            'allData' => $this->HardwareModel->allData()
-        ];
-        return view('hardware.v_hardware', $data);
-    }
-    
     public function detail($id_hw)
     {
         if (!$this->HardwareModel->detailData($id_hw))
