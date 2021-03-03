@@ -14,33 +14,9 @@
       </div>      
         <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview {{ (request()->is('hardware/*')) ? 'active' : '' }}">
-            <a href="#">
-                <i class="glyphicon glyphicon-lock"></i> <span>Hardware</span>
-                <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-                </span>
-            </a>
-            <ul class="treeview-menu">
-                <li class="{{ (request()->is('hardware/workstations')) ? 'active bg-black' : '' }}" ><a href="/hardware/workstations"><i class="fa fa-circle-o"></i>Workstations</a></li>
-                <li class="{{ (request()->is('hardware/server')) ? 'active bg-black' : '' }}"><a href="/hardware/server"><i class="fa fa-circle-o"></i>Server</a></li>
-                <li class="{{ (request()->is('hardware/printer')) ? 'active bg-black' : '' }}"><a href="/hardware/printer"><i class="fa fa-circle-o"></i>Printer</a></li>
-                <li class="{{ (request()->is('hardware/sparepart')) ? 'active bg-black' : '' }}"><a href="/hardware/sparepart"><i class="fa fa-circle-o"></i>Sparepart</a></li>
-                <li class="{{ (request()->is('hardware/other')) ? 'active bg-black' : '' }}"><a href="/hardware/other"><i class="fa fa-circle-o"></i>Other</a></li>
-            </ul>
-            </li>
-            <li class="treeview {{ (request()->is('software/*')) ? 'active' : '' }}">
-                <a href="#">
-                <i class="fa fa-cloud"></i> <span>Software</span>
-                <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                </a>
-                <ul class="treeview-menu">
-                <li class="{{ (request()->is('software/subscription')) ? 'active bg-black' : '' }}"><a href="/software/subscription"><i class="fa fa-circle-o"></i>Subscription</a></li>
-                <li class="{{ (request()->is('software/sekalibayar')) ? 'active bg-black' : '' }}"><a href="/software/sekalibayar"><i class="fa fa-circle-o"></i>One-Time Purchase</a></li>
-                </ul>
-            </li>
+            <li class="{{ Request::segment(1) === 'hardware' ? 'active bg-navy' : null }}"><a href="/hardware"><i class="glyphicon glyphicon-lock"></i> <span>Hardware</span></a></li>
+            <li class="{{ Request::segment(1) === 'software' ? 'active bg-navy' : null }}"><a href="/software"><i class="fa fa-cloud"></i> <span>Software</span></a></li>
+            
             <li class="treeview {{ (request()->is('user/*')) ? 'active' : '' }}">
             <a href="#">
                 <i class="glyphicon glyphicon-user"></i> <span>User</span>
@@ -55,7 +31,7 @@
                         
             <li class="treeview {{ (request()->is('masterdata/*')) ? 'active' : '' }}">
               <a href="#">
-              <i class="fa fa-cloud"></i> <span>Master Data</span>
+              <i class="fa fa-th-list"></i> <span>Master Data</span>
               <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
               </span>
