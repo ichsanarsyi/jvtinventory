@@ -15,17 +15,17 @@
         <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
             <li class="header">MAIN NAVIGATION</li>
             <li class="{{ (request()->is('hardware/*')) ? 'active' : '' }}">
-              <a href="/hardware/index">
+              <a href="/hardware">
                   <i class="glyphicon glyphicon-lock"></i> <span>Hardware</span>
               </a>
             </li>
             <li class="{{ (request()->is('software/*')) ? 'active' : '' }}">
-              <a href="/software/index/">
+              <a href="/software">
                 <i class="fa fa-cloud"></i> <span>Software</span>
               </a>                
             </li>
             <li class="{{ (request()->is('user/*')) ? 'active' : '' }}">
-              <a href="/user/index/">
+              <a href="/user/index">
                 <i class="glyphicon glyphicon-user"></i> <span>User</span>
                 <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>

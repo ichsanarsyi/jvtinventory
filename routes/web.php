@@ -20,14 +20,21 @@ Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
     Route::get('/hardware/workstations/', [HardwareController::class, 'atWorkstations'])->name('workstations');
     Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 
+//CRUD Software:
+Route::get('/software', [SoftwareController::class, 'index'])->name('software');
+Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail']);
+Route::get('/software/addsw', [SoftwareController::class, 'add']);
+Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
+Route::get('/software/editsw/{id_sw}', [SoftwareController::class, 'edit']);
+Route::post('/software/updatesw/{id_sw}', [SoftwareController::class, 'update']);
+Route::get('/software/deletesw/{id_sw}', [SoftwareController::class, 'delete']);
 
-Route::get('/software/index/', [SoftwareController::class, 'index']);
 
 Route::get('/user/index/', [UserController::class, 'index']);
 
 Route::get('/pemakai', [PemakaiController::class, 'index']);
 
-// route::view('/','v_home');
+route::view('/apalah','v_apalah');
 
 // route::view('/hardware/workstations/','hardware.v_workstations');
 // route::view('/hardware/server/','hardware.v_server');

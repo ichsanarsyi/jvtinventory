@@ -12,4 +12,24 @@ class SoftwareModel extends Model
     {
         return DB::table('tbl_software')->get();
     }
+
+    public function detailData($id_sw)
+    {
+        return DB::table('tbl_software')->where('id_sw', $id_sw)->first();
+    }
+    
+    public function addData($data)
+    {
+        return DB::table('tbl_software')->insert($data);
+    }
+    
+    public function editData($id_sw, $data)
+    {
+        return DB::table('tbl_software')->where('id_sw', $id_sw)->update($data);
+    }
+    
+    public function deleteData($id_sw)
+    {
+        return DB::table('tbl_software')->where('id_sw', $id_sw)->delete();
+    }
 }
