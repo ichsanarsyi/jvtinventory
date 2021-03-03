@@ -14,45 +14,26 @@
       </div>      
         <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview {{ (request()->is('hardware/*')) ? 'active' : '' }}">
-            <a href="#">
-                <i class="glyphicon glyphicon-lock"></i> <span>Hardware</span>
-                <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-                </span>
-            </a>
-            <ul class="treeview-menu">
-                <li class="{{ (request()->is('hardware/workstations')) ? 'active bg-black' : '' }}" ><a href="/hardware/workstations"><i class="fa fa-circle-o"></i>Workstations</a></li>
-                <li class="{{ (request()->is('hardware/server')) ? 'active bg-black' : '' }}"><a href="/hardware/server"><i class="fa fa-circle-o"></i>Server</a></li>
-                <li class="{{ (request()->is('hardware/printer')) ? 'active bg-black' : '' }}"><a href="/hardware/printer"><i class="fa fa-circle-o"></i>Printer</a></li>
-                <li class="{{ (request()->is('hardware/sparepart')) ? 'active bg-black' : '' }}"><a href="/hardware/sparepart"><i class="fa fa-circle-o"></i>Sparepart</a></li>
-                <li class="{{ (request()->is('hardware/other')) ? 'active bg-black' : '' }}"><a href="/hardware/other"><i class="fa fa-circle-o"></i>Other</a></li>
-            </ul>
+            <li class="{{ (request()->is('hardware/*')) ? 'active' : '' }}">
+              <a href="/hardware/index">
+                  <i class="glyphicon glyphicon-lock"></i> <span>Hardware</span>
+              </a>
             </li>
-            <li class="treeview {{ (request()->is('software/*')) ? 'active' : '' }}">
-                <a href="#">
+            <li class="{{ (request()->is('software/*')) ? 'active' : '' }}">
+              <a href="/software/index/">
                 <i class="fa fa-cloud"></i> <span>Software</span>
-                <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                </span>
-                </a>
-                <ul class="treeview-menu">
-                <li class="{{ (request()->is('software/subscription')) ? 'active bg-black' : '' }}"><a href="/software/subscription"><i class="fa fa-circle-o"></i>Subscription</a></li>
-                <li class="{{ (request()->is('software/sekalibayar')) ? 'active bg-black' : '' }}"><a href="/software/sekalibayar"><i class="fa fa-circle-o"></i>One-Time Purchase</a></li>
-                </ul>
+              </a>                
             </li>
-            <li class="treeview {{ (request()->is('user/*')) ? 'active' : '' }}">
-            <a href="#">
+            <li class="{{ (request()->is('user/*')) ? 'active' : '' }}">
+              <a href="/user/index/">
                 <i class="glyphicon glyphicon-user"></i> <span>User</span>
-                <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-                </span>
-            </a>
-            <ul class="treeview-menu">
-                <li class="{{ (request()->is('user/admin')) ? 'active bg-black' : '' }}"><a href="/user/admin"><i class="fa fa-circle-o"></i> Admin</a></li>
-                <li class="{{ (request()->is('user/staff')) ? 'active bg-black' : '' }}"><a href="/user/staff"><i class="fa fa-circle-o"></i> Staff</a></li>
-            </ul>
-            <li class="{{ Request::segment(1) === 'pemakai' ? 'active bg-navy' : null }}"><a href="/pemakai"><i class="fa fa-th-list"></i> <span>Pemakai</span></a></li>
+              </a>
+            </li>
+            <li class="{{ Request::segment(1) === 'pemakai' ? 'active bg-navy' : null }}">
+              <a href="/pemakai"><i class="fa fa-th-list"></i>
+                <span>Pemakai</span>
+              </a>
+            </li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>

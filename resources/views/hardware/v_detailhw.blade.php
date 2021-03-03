@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Detail')
+@section('title','Detail Hardware')
 @section('content')
     <div class="row">
         <div class="col-xs-12">
@@ -35,7 +35,7 @@
 					<tr>
 						<th width="200px">Harga</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->harga_hw }}</th>
+						<th>@currency($hardware->harga_hw)</th>
 					</tr>
 					<tr>
 						<th width="200px">Lokasi</th>

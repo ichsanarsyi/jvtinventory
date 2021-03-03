@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Workstations')
+@section('title','Hardware')
 @section('content')
     <div class="row">
         <div class="col-xs-12">
@@ -23,17 +23,19 @@
                   <th>Nama Hardware</th>
                   <th>Merk Hardware</th>
                   <th>Seri Hardware</th>
+                  <th>Kategori</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
 				<?php $no=1; ?>
-				@foreach ($workstations as $data)
+				@foreach ($hardware as $data)
 					<tr>
 						<td>{{$no++}}</td>
 						<td>{{$data->nama_hw}}</td>
 						<td>{{$data->merk_hw}}</td>
 						<td>{{$data->seri_hw}}</td>
+						<td>{{$data->kategori}}</td>
 						<td>
 							<a href="/hardware/detailhw/{{ $data->id_hw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
 							<a href="/hardware/edithw/{{ $data->id_hw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
@@ -53,7 +55,7 @@
         <!-- /.col -->
       </div>
       <!-- /.row -->
-	@foreach($workstations as $data)
+	@foreach($hardware as $data)
 		<div class="modal modal-danger fade" id="modal-delete{{ $data->id_hw }}">
 			<div class="modal-dialog modal-sm">
 				<div class="modal-content">

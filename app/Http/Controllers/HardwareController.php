@@ -13,12 +13,20 @@ class HardwareController extends Controller
         $this->HardwareModel = new HardwareModel();
     }
     
-    public function atWorkstations()
+    // public function atWorkstations()
+    // {
+    //     $data = [
+    //         'workstations' => $this->HardwareModel->workstations()
+    //     ];
+    //     return view('hardware.v_workstations', $data);
+    // }
+
+    public function index()
     {
         $data = [
-            'workstations' => $this->HardwareModel->workstations()
+            'hardware' => $this->HardwareModel->allData()
         ];
-        return view('hardware.v_workstations', $data);
+        return view('hardware.v_hardware', $data);
     }
     
     public function detail($id_hw)
@@ -45,7 +53,7 @@ class HardwareController extends Controller
             'merk_hw' => 'required',
             'seri_hw' => 'required',
             'kategori' => 'required',
-            'harga_hw' => 'required',
+            'harga_hw' => 'required|numeric',
             'lokasi' => 'required',
             'departemen' => 'required',
             'tgl_beli_hw' => 'required',
@@ -57,6 +65,7 @@ class HardwareController extends Controller
             'seri_hw.required' => 'Seri Hardware wajib diisi',
             'kategori.required' => 'Kategori wajib diisi',
             'harga_hw.required' => 'Harga Hardware wajib diisi',
+            'harga_hw.numeric' => 'Harga Hardware berupa angka',
             'lokasi.required' => 'Lokasi wajib diisi',
             'departemen.required' => 'Departemen wajib diisi',
             'tgl_beli_hw.required' => 'Tanggal Beli Hardware wajib diisi',
@@ -100,7 +109,7 @@ class HardwareController extends Controller
             'nama_hw' => 'required',
             'merk_hw' => 'required',
             'seri_hw' => 'required',
-            'harga_hw' => 'required',
+            'harga_hw' => 'required|numeric',
             'tgl_beli_hw' => 'required',
             'tgl_batas_garansi' => 'required'
         ],[
@@ -108,6 +117,7 @@ class HardwareController extends Controller
             'merk_hw.required' => 'Merk Hardware wajib diisi',
             'seri_hw.required' => 'Seri Hardware wajib diisi',
             'harga_hw.required' => 'Harga Hardware wajib diisi',
+            'harga_hw.numeric' => 'Harga Hardware berupa angka',
             'tgl_beli_hw.required' => 'Tanggal Beli Hardware wajib diisi',
             'tgl_batas_garansi.required' => 'Tanggal Batas Garansi Hardware wajib diisi'
         ]);

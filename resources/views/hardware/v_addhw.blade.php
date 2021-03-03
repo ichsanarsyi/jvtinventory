@@ -61,7 +61,12 @@
 							</div>
 							<div class="form-group">
 								<label>Harga</label>
-								<input name="harga_hw" class="form-control" value="{{ old('harga_hw') }}">
+								<div class="input-group">
+									<div class="input-group-addon">
+										<b>Rp</b>
+									</div>
+									<input name="harga_hw" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ old('harga_hw') }}">
+								</div>								
 								<div class="text-danger">
 									@error('harga_hw')
 										{{ $message }}

@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Data Admin')
+@section('title','User')
 @section('content')
-    <h1>Database Admin</h1>
+    <h1>Database User</h1>
 @endsection

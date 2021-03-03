@@ -3,20 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HardwareController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\PemakaiController;
+use App\Http\Controllers\SoftwareController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/hardware/workstations/', [HardwareController::class, 'atWorkstations'])->name('workstations');
+
+// Route::get('/hardware/index', [HardwareController::class, 'index'])->name('hardware');
+Route::get('/hardware/index', [HardwareController::class, 'index']);
 Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 Route::get('/hardware/addhw', [HardwareController::class, 'add']);
 Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
@@ -24,6 +18,11 @@ Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
 Route::post('/hardware/updatehw/{id_hw}', [HardwareController::class, 'update']);
 Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
 
+Route::get('/software/index/', [SoftwareController::class, 'index']);
+
+Route::get('/user/index/', [UserController::class, 'index']);
+
+Route::get('/pemakai', [PemakaiController::class, 'index']);
 
 // route::view('/','v_home');
 
