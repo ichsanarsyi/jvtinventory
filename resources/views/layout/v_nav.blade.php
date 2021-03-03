@@ -52,7 +52,28 @@
                 <li class="{{ (request()->is('user/admin')) ? 'active bg-black' : '' }}"><a href="/user/admin"><i class="fa fa-circle-o"></i> Admin</a></li>
                 <li class="{{ (request()->is('user/staff')) ? 'active bg-black' : '' }}"><a href="/user/staff"><i class="fa fa-circle-o"></i> Staff</a></li>
             </ul>
+<<<<<<< Updated upstream
             <li class="{{ Request::segment(1) === 'pemakai' ? 'active bg-navy' : null }}"><a href="/pemakai"><i class="fa fa-th-list"></i> <span>Pemakai</span></a></li>
+=======
+                        
+            <li class="treeview {{ (request()->is('masterdata/*')) ? 'active' : '' }}">
+              <a href="#">
+              <i class="fa fa-th-list"></i> <span>Master Data</span>
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+              </span>
+              </a>
+              <ul class="treeview-menu">
+              <li class="{{ (request()->is('masterdata/departemen')) ? 'active bg-black' : '' }}"><a href="/masterdata/departemen"><i class="fa fa-circle-o"></i>Departemen</a></li>
+              <li class="{{ (request()->is('masterdata/lokasi')) ? 'active bg-black' : '' }}"><a href="/masterdata/lokasi"><i class="fa fa-circle-o"></i>Lokasi</a></li>
+              <li class="{{ (request()->is('masterdata/merkhw')) ? 'active bg-black' : '' }}"><a href="/masterdata/merkhw"><i class="fa fa-circle-o"></i>Merk Hardware</a></li>
+              <li class="{{ (request()->is('masterdata/merksw')) ? 'active bg-black' : '' }}"><a href="/masterdata/merksw"><i class="fa fa-circle-o"></i>Merk Software</a></li>
+              <li class="{{ (request()->is('masterdata/kategorihw')) ? 'active bg-black' : '' }}"><a href="/masterdata/kategorihw"><i class="fa fa-circle-o"></i>Kategori Hardware</a></li>
+              <li class="{{ (request()->is('masterdata/kategorisw')) ? 'active bg-black' : '' }}"><a href="/masterdata/kategorisw"><i class="fa fa-circle-o"></i>Kategori Software</a></li>
+              <li class="{{ (request()->is('masterdata/pemakai')) ? 'active bg-black' : '' }}"><a href="/masterdata/pemakai"><i class="fa fa-circle-o"></i>Pemakai</a></li>
+              </ul>
+          </li>
+>>>>>>> Stashed changes
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>

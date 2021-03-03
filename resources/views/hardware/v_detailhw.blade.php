@@ -5,10 +5,7 @@
         <div class="col-xs-12">
 			<div class="box box-primary">
 			<div class="box-header">
-				<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-xs btn-primary">
-					<i class="fa fa-chevron-circle-left fa-fw"></i>
-					Kembali
-				</a>
+
 			<!-- /.box-header -->
             <div class="box-body">
 				<table class="table table-hover">
@@ -30,7 +27,7 @@
 					<tr>
 						<th width="200px">Kategori</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->kategori }}</th>
+						<th>{{ $hardware->id_kategori_hw }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Harga</th>
@@ -63,6 +60,11 @@
 						<th>{{ $hardware->id_pemakai }}</th>
 					</tr>
 				</table>
+			</div>
+			<div class="col col-sm-6">
+				<div class="form-group">
+					<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+				</div>
 			</div>
 			</div>
 			</div>
