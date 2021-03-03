@@ -28,6 +28,14 @@ class HardwareController extends Controller
         ];
         return view('hardware.v_hardware', $data);
     }
+
+    public function getHardware()
+    {
+        $data = [
+            'allData' => $this->HardwareModel->allData()
+        ];
+        return view('hardware.v_hardware', $data);
+    }
     
     public function detail($id_hw)
     {
@@ -52,7 +60,7 @@ class HardwareController extends Controller
             'nama_hw' => 'required',
             'merk_hw' => 'required',
             'seri_hw' => 'required',
-            'kategori' => 'required',
+            'id_kategori_hw' => 'required',
             'harga_hw' => 'required|numeric',
             'lokasi' => 'required',
             'departemen' => 'required',
@@ -63,7 +71,7 @@ class HardwareController extends Controller
             'nama_hw.required' => 'Nama Hardware wajib diisi',
             'merk_hw.required' => 'Merk Hardware wajib diisi',
             'seri_hw.required' => 'Seri Hardware wajib diisi',
-            'kategori.required' => 'Kategori wajib diisi',
+            'id_kategori_hw.required' => 'Kategori wajib diisi',
             'harga_hw.required' => 'Harga Hardware wajib diisi',
             'harga_hw.numeric' => 'Harga Hardware berupa angka',
             'lokasi.required' => 'Lokasi wajib diisi',
@@ -77,7 +85,7 @@ class HardwareController extends Controller
             'nama_hw' => Request()->nama_hw,
             'merk_hw' => Request()->merk_hw,
             'seri_hw' => Request()->seri_hw,
-            'kategori' => Request()->kategori,
+            'id_kategori_hw' => Request()->id_kategori_hw,
             'harga_hw' => Request()->harga_hw,
             'lokasi' => Request()->lokasi,
             'departemen' => Request()->departemen,
@@ -87,7 +95,7 @@ class HardwareController extends Controller
         ];
         
         $this->HardwareModel->addData($data);
-        return redirect()->route('workstations')->with('pesan', 'Data berhasil ditambahkan.');
+        return redirect()->route('hardware')->with('pesan', 'Data berhasil ditambahkan.');
 
     }
     
@@ -109,13 +117,17 @@ class HardwareController extends Controller
             'nama_hw' => 'required',
             'merk_hw' => 'required',
             'seri_hw' => 'required',
+
+            'id_kategori_hw' => 'required',
             'harga_hw' => 'required|numeric',
+
             'tgl_beli_hw' => 'required',
             'tgl_batas_garansi' => 'required'
         ],[
             'nama_hw.required' => 'Nama Hardware wajib diisi',
             'merk_hw.required' => 'Merk Hardware wajib diisi',
             'seri_hw.required' => 'Seri Hardware wajib diisi',
+            'id_kategori_hw.required' => 'Kategori Hardware wajib diisi',
             'harga_hw.required' => 'Harga Hardware wajib diisi',
             'harga_hw.numeric' => 'Harga Hardware berupa angka',
             'tgl_beli_hw.required' => 'Tanggal Beli Hardware wajib diisi',
@@ -126,20 +138,21 @@ class HardwareController extends Controller
             'nama_hw' => Request()->nama_hw,
             'merk_hw' => Request()->merk_hw,
             'seri_hw' => Request()->seri_hw,
+            'id_kategori_hw' => Request()->id_kategori_hw,
             'harga_hw' => Request()->harga_hw,
             'tgl_beli_hw' => Request()->tgl_beli_hw,
             'tgl_batas_garansi' => Request()->tgl_batas_garansi     
         ];
         
         $this->HardwareModel->editData($id_hw, $data);       
-        return redirect()->route('workstations')->with('pesan', 'Data berhasil diedit.');
+        return redirect()->route('hardware')->with('pesan', 'Data berhasil diedit.');
 
     }
     
     public function delete($id_hw)
     {
         $this->HardwareModel->deleteData($id_hw);
-        return redirect()->route('workstations')->with('pesan', 'Data berhasil dihapus.');
+        return redirect()->route('hardware')->with('pesan', 'Data berhasil dihapus.');
     }
     
 }  

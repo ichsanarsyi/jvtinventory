@@ -17,7 +17,7 @@ class HardwareModel extends Model
     {
         return DB::table('tbl_hardware')->where('kategori', 'workstations')->get();
     }
-    
+
     public function detailData($id_hw)
     {
         return DB::table('tbl_hardware')->where('id_hw', $id_hw)->first();

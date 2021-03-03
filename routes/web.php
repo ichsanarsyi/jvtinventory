@@ -17,6 +17,10 @@ Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
 Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
 Route::post('/hardware/updatehw/{id_hw}', [HardwareController::class, 'update']);
 Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
+    Route::get('/hardware', [HardwareController::class, 'getHardware'])->name('hardware');
+    Route::get('/hardware/workstations/', [HardwareController::class, 'atWorkstations'])->name('workstations');
+    Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
+
 
 Route::get('/software/index/', [SoftwareController::class, 'index']);
 

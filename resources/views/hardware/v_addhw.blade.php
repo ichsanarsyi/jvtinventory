@@ -5,10 +5,6 @@
         <div class="col-xs-12">
 			<div class="box box-primary">
 			<div class="box-header">
-				<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-xs btn-primary">
-					<i class="fa fa-chevron-circle-left fa-fw"></i>
-					Kembali
-				</a>
 			<!-- /.box-header -->
             <div class="box-body">
 				<form action="/hardware/inserthw" method="POST" enctype="multipart/form-data">
@@ -45,8 +41,8 @@
 							</div>
 							<div class="form-group">
 								<label>Kategori</label>
-								<select name="kategori" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('kategori') }}</option>
+								<select name="id_kategori_hw" class="form-control select2" style="width: 100%;">
+									<option value="">{{ old('id_kategori_hw') }}</option>
 									<option>Workstations</option>
 									<option>Server</option>
 									<option>Printer</option>
@@ -54,7 +50,7 @@
 									<option>Other</option>
 								</select>
 								<div class="text-danger">
-									@error('kategori')
+									@error('id_kategori_hw')
 										{{ $message }}
 									@enderror
 								</div>
@@ -153,10 +149,9 @@
 					</div>
 					
 					<div class="row">
-						<div class="col-sm-6">
-							<div class="form-group">
-								<button type="submit" class="btn btn-xs btn-success"><i class="fa fa-save fa-fw"></i>Simpan</button>
-							</div>
+						<div class="col-sm-12">
+								<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+								<button type="submit" class="btn btn-success pull-right"><i class="fa fa-save fa-fw"></i>Simpan</button>
 						</div>
 					</div>
 					
