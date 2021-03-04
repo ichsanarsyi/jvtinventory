@@ -27,12 +27,12 @@
                     <tr>
 						<th width="200px">Tanggal Pembelian</th>
 						<th width="20px">:</th>
-						<th>{{ $software->tgl_pembelian }}</th>
+						<th>{{ date('D, d M Y', strtotime($software->tgl_pembelian)) }}</th>
 					</tr>
                     <tr>
 						<th width="200px">Tanggal Batas Lisensi</th>
 						<th width="20px">:</th>
-						<th>{{ $software->tgl_batas_lisensi }}</th>
+						<th>{{ date('D, d M Y', strtotime($software->tgl_batas_lisensi)) }}</th>
 					</tr>
                     <tr>
 						<th width="200px">Harga Software</th>
@@ -54,11 +54,16 @@
 						<th width="20px">:</th>
 						<th>{{ $software->versi_sw }}</th>
 					</tr>
+                    <tr>
+						<th width="200px">Nama Hardware</th>
+						<th width="20px">:</th>
+						<th>{{ $software->nama_hw }}</th>
+					</tr>
 				</table>
 			</div>
 			<div class="col col-sm-6">
 				<div class="form-group">
-					<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+					<a href="{{ url('software') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 				</div>
 			</div>
 			</div>

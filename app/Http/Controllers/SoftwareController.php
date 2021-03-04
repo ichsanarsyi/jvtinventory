@@ -37,7 +37,8 @@ class SoftwareController extends Controller
     {
         $data = [
             'merk' => $this->SoftwareModel->allMerk(),
-            'lisensi' => $this->SoftwareModel->allLisensi()
+            'lisensi' => $this->SoftwareModel->allLisensi(),
+            'hardware' => $this->SoftwareModel->allHardware()
         ];
         return view('software.v_addsw', $data);
     }
@@ -53,7 +54,8 @@ class SoftwareController extends Controller
             'harga_sw' => 'required|numeric',
             'kode_lisensi' => 'required',
             'deskripsi_sw' => 'required',
-            'versi_sw' => 'required'
+            'versi_sw' => 'required',
+            'id_hw' => 'required'
         ],[
             'nama_sw.required' => 'Nama Software wajib diisi',
             'id_merk_sw.required' => 'Merk Software wajib diisi',
@@ -64,7 +66,8 @@ class SoftwareController extends Controller
             'harga_sw.numeric' => 'Harga Software berupa angka',
             'kode_lisensi.required' => 'Kode lisensi wajib diisi',
             'deskripsi_sw.required' => 'Deskripsi wajib diisi',
-            'versi_sw.required' => 'Versi Software wajib diisi'
+            'versi_sw.required' => 'Versi Software wajib diisi',
+            'id_hw.required' => 'Nama Hardware wajib diisi'
         ]);
         
         $data=[
@@ -76,7 +79,8 @@ class SoftwareController extends Controller
             'harga_sw' => Request()->harga_sw,
             'kode_lisensi' => Request()->kode_lisensi,
             'deskripsi_sw' => Request()->deskripsi_sw,
-            'versi_sw' => Request()->versi_sw          
+            'versi_sw' => Request()->versi_sw,
+            'id_hw' => Request()->id_hw          
         ];
         
         $this->SoftwareModel->addData($data);
@@ -93,7 +97,8 @@ class SoftwareController extends Controller
         $data = [
             'software' => $this->SoftwareModel->detailData($id_sw),
             'merk' => $this->SoftwareModel->allMerk(),
-            'lisensi' => $this->SoftwareModel->allLisensi()
+            'lisensi' => $this->SoftwareModel->allLisensi(),
+            'hardware' => $this->SoftwareModel->allHardware()
         ];
         return view('software.v_editsw', $data);
     }
@@ -128,7 +133,8 @@ class SoftwareController extends Controller
             'harga_sw' => Request()->harga_sw,
             'kode_lisensi' => Request()->kode_lisensi,
             'deskripsi_sw' => Request()->deskripsi_sw,
-            'versi_sw' => Request()->versi_sw          
+            'versi_sw' => Request()->versi_sw,
+            'id_hw' => Request()->id_hw                 
         ];
         
         $this->SoftwareModel->editData($id_sw, $data);       

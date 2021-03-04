@@ -18,7 +18,7 @@ class MerkswController extends Controller
         $data = [
             'merksw' => $this->MerkswModel->allData()
         ];
-        return view('merksw.v_merksw', $data);
+        return view('software.v_merksw', $data);
     }
 
     public function insert()

@@ -24,6 +24,7 @@
               <th>Merk</th>
               <th>Jenis Lisensi</th>
               <th>Versi</th>
+              <th>Nama Hardware</th>
               <th>Aksi</th>
               
             </tr>
@@ -37,6 +38,7 @@
                     <td>{{$data->nama_merk_sw}}</td>
                     <td>{{$data->jenis_lisensi}}</td>
                     <td>{{$data->versi_sw}}</td>
+                    <td>{{$data->nama_hw}}</td>
                     <td>
                         <a href="/software/detailsw/{{ $data->id_sw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
                         <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>

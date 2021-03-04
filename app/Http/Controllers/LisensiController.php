@@ -18,7 +18,7 @@ class LisensiController extends Controller
         $data = [
             'lisensi' => $this->LisensiModel->allData()
         ];
-        return view('lisensi.v_lisensi', $data);
+        return view('software.v_lisensi', $data);
     }
 
     public function insert()
