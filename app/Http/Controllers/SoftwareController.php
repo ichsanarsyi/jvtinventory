@@ -51,9 +51,9 @@ class SoftwareController extends Controller
             'tgl_pembelian' => 'required',
             'tgl_batas_lisensi' => 'required',
             'harga_sw' => 'required|numeric',
-            'doc_lisensi' => 'required',
-            'deskripsi_sw' => 'required',
-            'versi_sw' => 'required'
+            //'kode_lisensi' => 'required',
+            //'deskripsi_sw' => 'required',
+            //'versi_sw' => 'required'
         ],[
             'nama_sw.required' => 'Nama Software wajib diisi',
             'id_merk_sw.required' => 'Merk Software wajib diisi',
@@ -62,9 +62,9 @@ class SoftwareController extends Controller
             'tgl_batas_lisensi.required' => 'Tanggal Batas Lisensi Software wajib diisi',
             'harga_sw.required' => 'Harga Software wajib diisi',
             'harga_sw.numeric' => 'Harga Software berupa angka',
-            'doc_lisensi.required' => 'Dokumen lisensi wajib diisi',
-            'deskripsi_sw.required' => 'Deskripsi wajib diisi',
-            'versi_sw.required' => 'Versi Software wajib diisi'
+            //'kode_lisensi.required' => 'Kode lisensi wajib diisi',
+            //'deskripsi_sw.required' => 'Deskripsi wajib diisi',
+            //'versi_sw.required' => 'Versi Software wajib diisi'
         ]);
         
         $data=[
@@ -74,7 +74,7 @@ class SoftwareController extends Controller
             'tgl_pembelian' => Request()->tgl_pembelian,
             'tgl_batas_lisensi' => Request()->tgl_batas_lisensi,
             'harga_sw' => Request()->harga_sw,
-            'doc_lisensi' => Request()->doc_lisensi,
+            'kode_lisensi' => Request()->kode_lisensi,
             'deskripsi_sw' => Request()->deskripsi_sw,
             'versi_sw' => Request()->versi_sw          
         ];
@@ -105,18 +105,18 @@ class SoftwareController extends Controller
             'tgl_pembelian' => 'required',
             'tgl_batas_lisensi' => 'required',
             'harga_sw' => 'required|numeric',
-            'doc_lisensi' => 'required',
-            'deskripsi_sw' => 'required',
-            'versi_sw' => 'required'
+            //'kode_lisensi' => 'required',
+            //'deskripsi_sw' => 'required',
+            //'versi_sw' => 'required'
         ],[
             'nama_sw.required' => 'Nama Software wajib diisi',
             'tgl_pembelian.required' => 'Tanggal Pembelian Software wajib diisi',
             'tgl_batas_lisensi.required' => 'Tanggal Batas Lisensi Software wajib diisi',
             'harga_sw.required' => 'Harga Software wajib diisi',
             'harga_sw.numeric' => 'Harga Software berupa angka',
-            'doc_lisensi.required' => 'Dokumen lisensi wajib diisi',
-            'deskripsi_sw.required' => 'Deskripsi wajib diisi',
-            'versi_sw.required' => 'Versi Software wajib diisi'
+            //'kode_lisensi.required' => 'Kode lisensi wajib diisi',
+            //'deskripsi_sw.required' => 'Deskripsi wajib diisi',
+            //'versi_sw.required' => 'Versi Software wajib diisi'
         ]);
         
         $data=[
@@ -126,7 +126,7 @@ class SoftwareController extends Controller
             'tgl_pembelian' => Request()->tgl_pembelian,
             'tgl_batas_lisensi' => Request()->tgl_batas_lisensi,
             'harga_sw' => Request()->harga_sw,
-            'doc_lisensi' => Request()->doc_lisensi,
+            'kode_lisensi' => Request()->kode_lisensi,
             'deskripsi_sw' => Request()->deskripsi_sw,
             'versi_sw' => Request()->versi_sw          
         ];

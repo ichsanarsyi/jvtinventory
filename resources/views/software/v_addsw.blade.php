@@ -94,10 +94,10 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Dokumen Lisensi</label>
-								<input name="doc_lisensi" class="form-control" value="{{ old('doc_lisensi') }}">
+								<label>Kode Lisensi</label>
+								<input name="kode_lisensi" class="form-control" value="{{ old('kode_lisensi') }}">
 								<div class="text-danger">
-									@error('doc_lisensi')
+									@error('kode_lisensi')
 										{{ $message }}
 									@enderror
 								</div>

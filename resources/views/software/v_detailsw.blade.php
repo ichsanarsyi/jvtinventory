@@ -40,9 +40,9 @@
 						<th>@currency($software->harga_sw)</th>
 					</tr>
                     <tr>
-						<th width="200px">Dokumen Lisensi</th>
+						<th width="200px">Kode Lisensi</th>
 						<th width="20px">:</th>
-						<th>{{ $software->doc_lisensi }}</th>
+						<th>{{ $software->kode_lisensi }}</th>
 					</tr>
                     <tr>
 						<th width="200px">Deskripsi Software</th>

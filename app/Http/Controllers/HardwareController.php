@@ -117,7 +117,7 @@ class HardwareController extends Controller
             //'id_departemen' => 'required',
             'tgl_beli_hw' => 'required',
             'tgl_batas_garansi' => 'required',
-            'deskripsi_hw' => 'required',
+            //'deskripsi_hw' => 'required',
             //'id_pemakai' => 'required'
         ],[
             'nama_hw.required' => 'Nama Hardware wajib diisi',
@@ -127,7 +127,7 @@ class HardwareController extends Controller
             'harga_hw.numeric' => 'Harga Hardware berupa angka',
             'tgl_beli_hw.required' => 'Tanggal Beli Hardware wajib diisi',
             'tgl_batas_garansi.required' => 'Tanggal Batas Garansi Hardware wajib diisi',
-            'deskripsi_hw.required' => 'Tanggal Batas Garansi Hardware wajib diisi'
+            //'deskripsi_hw.required' => 'Tanggal Batas Garansi Hardware wajib diisi'
         ]);
         
         $data=[
