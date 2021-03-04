@@ -177,6 +177,7 @@
 <script>
   $(function () {
     $('#tbl_hardware').DataTable()
+    $('#tbl_software').DataTable()
     $('.select2').select2()
     //Date picker
     $('#datepicker1').datepicker({

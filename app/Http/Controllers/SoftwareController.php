@@ -36,7 +36,8 @@ class SoftwareController extends Controller
     public function add()
     {
         $data = [
-            'software' => $this->SoftwareModel->allData()
+            'merk' => $this->SoftwareModel->allMerk(),
+            'lisensi' => $this->SoftwareModel->allLisensi()
         ];
         return view('software.v_addsw', $data);
     }
@@ -90,7 +91,9 @@ class SoftwareController extends Controller
             abort(404);
         }
         $data = [
-            'software' => $this->SoftwareModel->detailData($id_sw)
+            'software' => $this->SoftwareModel->detailData($id_sw),
+            'merk' => $this->SoftwareModel->allMerk(),
+            'lisensi' => $this->SoftwareModel->allLisensi()
         ];
         return view('software.v_editsw', $data);
     }
