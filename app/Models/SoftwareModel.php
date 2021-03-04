@@ -18,7 +18,10 @@ class SoftwareModel extends Model
 
     public function detailData($id_sw)
     {
-        return DB::table('tbl_software')->where('id_sw', $id_sw)->first();
+        return DB::table('tbl_software')
+        ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
+        ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
+        ->where('id_sw', $id_sw)->first();
     }
     
     public function addData($data)

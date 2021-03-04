@@ -17,12 +17,12 @@
                     <tr>
 						<th width="200px">Merk Software</th>
 						<th width="20px">:</th>
-						<th>{{ $software->id_merk_sw }}</th>
+						<th>{{ $software->nama_merk_sw }}</th>
 					</tr>
                     <tr>
 						<th width="200px">Jenis Lisensi</th>
 						<th width="20px">:</th>
-						<th>{{ $software->id_jenis_lisensi }}</th>
+						<th>{{ $software->jenis_lisensi }}</th>
 					</tr>
                     <tr>
 						<th width="200px">Tanggal Pembelian</th>
