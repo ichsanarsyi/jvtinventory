@@ -24,6 +24,13 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/skins/_all-skins.min.css">
 
+  <style>
+    input:focus {
+      background-color:#efeeff;
+      outline-color: #77f;
+      outline-width: 2px;
+    }
+    </style>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -181,20 +188,7 @@
     $('.select2').select2()
     //Date picker
     $('#datepicker1').datepicker({
-      autoclose: true
-    })
-    $('#datepicker2').datepicker({
-      autoclose: true
-    })
-  })
-</script>
-
-<script>
-  $(function () {
-    $('#tbl_software').DataTable()
-    $('.select2').select2()
-    //Date picker
-    $('#datepicker1').datepicker({
+      locale: 'id',
       autoclose: true
     })
     $('#datepicker2').datepicker({

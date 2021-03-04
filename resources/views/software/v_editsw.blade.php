@@ -24,9 +24,8 @@
 							<div class="form-group">
 								<label>Merk Software</label>
                                 <select name="id_merk_sw" class="form-control select2" style="width: 100%;">
-									<option value="{{ $software->id_merk_sw }}">{{ $software->nama_merk_sw }}</option>
 									@foreach ($merk as $data)
-										<option value="{{ $data->id_merk_sw }}">{{ $data->nama_merk_sw }}</option>
+										<option value="{{ $data->id_merk_sw }}"{{ ($software->id_merk_sw == $data->id_merk_sw ? 'selected="selected"' :'')}}>{{ $data->nama_merk_sw }}</option>
 									@endforeach
 								</select>								
 								<div class="text-danger">
@@ -38,9 +37,8 @@
 							<div class="form-group">
 								<label>Jenis Lisensi</label>
                                 <select name="id_jenis_lisensi" class="form-control select2" style="width: 100%;">
-									<option value="{{ $software->id_jenis_lisensi }}">{{ $software->jenis_lisensi }}</option>
 									@foreach ($lisensi as $data)
-										<option value="{{ $data->id_jenis_lisensi }}">{{ $data->jenis_lisensi }}</option>
+										<option value="{{ $data->id_jenis_lisensi }}"{{ ($software->id_jenis_lisensi == $data->id_jenis_lisensi ? 'selected="selected"' :'')}}>{{ $data->jenis_lisensi }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">

@@ -15,7 +15,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Nama Hardware</label>
-								<input name="nama_hw" class="form-control" value="{{ old('nama_hw') }}">
+								<input name="nama_hw" class="form-control" value="{{ $hardware->nama_hw }}">
 								<div class="text-danger">
 									@error('nama_hw')
 										{{ $message }}
@@ -25,15 +25,14 @@
 							<div class="form-group">
 								<label>Merk Hardware</label>
 								<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_merk_hw') }}</option>
-									@foreach ($hardware as $data)
-										<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
+									@foreach ($merk as $data)
+										<option value="{{ $data->id_merk_hw }}"{{ ($hardware->id_merk_hw == $data->id_merk_hw ? 'selected="selected"' :'')}}>{{ $data->nama_merk_hw }}</option>
 									@endforeach
 								</select>
 							</div>
 							<div class="form-group">
 								<label>Seri Hardware</label>
-								<input name="seri_hw" class="form-control" value="{{ old('seri_hw') }}">
+								<input name="seri_hw" class="form-control" value="{{ $hardware->seri_hw }}">
 								<div class="text-danger">
 									@error('seri_hw')
 										{{ $message }}
@@ -42,10 +41,9 @@
 							</div>
 							<div class="form-group">
 								<label>Kategori</label>
-								<select name="id_kategori_hw" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_kategori_hw') }}</option>
-									@foreach ($hardware as $data)
-										<option value="{{ $data->id_kategori_hw }}">{{ $data->nama_kategori_hw }}</option>
+								<select name="id_kategori_hw" class="form-control select2" style="width: 100%;">\
+									@foreach ($kategori as $data)
+										<option value="{{ $data->id_kategori_hw }}"{{ ($hardware->id_kategori_hw == $data->id_kategori_hw ? 'selected="selected"' :'')}}>{{ $data->nama_kategori_hw }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -56,7 +54,7 @@
 							</div>
 							<div class="form-group">
 								<label>Kode Asset</label>
-								<input name="kode_asset" class="form-control" value="{{ old('kode_asset') }}">
+								<input name="kode_asset" class="form-control" value="{{ $hardware->kode_asset }}">
 								<div class="text-danger">
 									@error('kode_asset')
 										{{ $message }}
@@ -66,9 +64,8 @@
 							<div class="form-group">
 								<label>Kondisi</label>
 								<select name="id_kondisi" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_kondisi') }}</option>
-									@foreach ($hardware as $data)
-										<option value="{{ $data->id_kondisi }}">{{ $data->nama_kondisi }}</option>
+									@foreach ($kondisi as $data)
+										<option value="{{ $data->id_kondisi }}"{{ ($hardware->id_kondisi == $data->id_kondisi ? 'selected="selected"' :'')}}>{{ $data->nama_kondisi }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -85,7 +82,7 @@
 									<div class="input-group-addon">
 										<b>Rp</b>
 									</div>
-									<input name="harga_hw" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ old('harga_hw') }}">
+									<input name="harga_hw" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ $hardware->harga_hw }}">
 								</div>								
 								<div class="text-danger">
 									@error('harga_hw')
@@ -96,9 +93,8 @@
 							<div class="form-group">
 								<label>Lokasi</label>
 								<select name="id_lokasi" class="form-control select2" style="width: 100%;" >
-									<option value="">{{ old('id_lokasi') }}</option>
-									@foreach ($hardware as $data)
-										<option value="{{ $data->id_lokasi }}">{{ $data->nama_lokasi }}</option>
+									@foreach ($lokasi as $data)
+										<option value="{{ $data->id_lokasi }}"{{ ($hardware->id_lokasi == $data->id_lokasi ? 'selected="selected"' :'')}}>{{ $data->nama_lokasi }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -110,9 +106,8 @@
 							<div class="form-group">
 								<label>Departemen</label>
 								<select name="id_departemen" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_departemen') }}</option>
-									@foreach ($hardware as $data)
-										<option value="{{ $data->id_departemen }}">{{ $data->nama_departemen }}</option>
+									@foreach ($departemen as $data)
+										<option value="{{ $data->id_departemen }}"{{ ($hardware->id_departemen == $data->id_departemen ? 'selected="selected"' :'')}}>{{ $data->nama_departemen }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -124,7 +119,7 @@
 							<div class="form-group">
 								<label>Tanggal Beli Hardware</label>
 								<div class="input-group date">									
-									<input name="tgl_beli_hw" type="text" class="form-control pull-right" id="datepicker1" value="{{ old('tgl_beli_hw') }}">
+									<input name="tgl_beli_hw" type="text" class="form-control pull-right" id="datepicker1" value="{{ $hardware->tgl_beli_hw }}">
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
@@ -138,7 +133,7 @@
 							<div class="form-group">
 								<label>Tanggal Batas Garansi</label>
 								<div class="input-group date">									
-									<input name="tgl_batas_garansi" type="text" class="form-control pull-right" id="datepicker2" value="{{ old('tgl_batas_garansi') }}">
+									<input name="tgl_batas_garansi" type="text" class="form-control pull-right" id="datepicker2" value="{{ $hardware->tgl_batas_garansi }}">
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
@@ -152,9 +147,8 @@
 							<div class="form-group">
 								<label>Pemakai</label>
 								<select name="id_pemakai" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_pemakai') }}</option>
-									@foreach ($hardware as $data)
-										<option value="{{ $data->id_pemakai }}">{{ $data->nama_pemakai }}</option>
+									@foreach ($pemakai as $data)
+										<option value="{{ $data->id_pemakai }}"{{ ($hardware->id_pemakai == $data->id_pemakai ? 'selected="selected"' :'')}}>{{ $data->nama_pemakai }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">

@@ -25,7 +25,7 @@
 								<label>Merk Hardware</label>
 								<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_merk_hw') }}</option>
-									@foreach ($hardware as $data)
+									@foreach ($merk as $data)
 										<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
 									@endforeach
 								</select>
@@ -43,7 +43,7 @@
 								<label>Kategori</label>
 								<select name="id_kategori_hw" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_kategori_hw') }}</option>
-									@foreach ($hardware as $data)
+									@foreach ($kategori as $data)
 										<option value="{{ $data->id_kategori_hw }}">{{ $data->nama_kategori_hw }}</option>
 									@endforeach
 								</select>
@@ -66,7 +66,7 @@
 								<label>Kondisi</label>
 								<select name="id_kondisi" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_kondisi') }}</option>
-									@foreach ($hardware as $data)
+									@foreach ($kondisi as $data)
 										<option value="{{ $data->id_kondisi }}">{{ $data->nama_kondisi }}</option>
 									@endforeach
 								</select>
@@ -96,7 +96,7 @@
 								<label>Lokasi</label>
 								<select name="id_lokasi" class="form-control select2" style="width: 100%;" >
 									<option value="">{{ old('id_lokasi') }}</option>
-									@foreach ($hardware as $data)
+									@foreach ($lokasi as $data)
 										<option value="{{ $data->id_lokasi }}">{{ $data->nama_lokasi }}</option>
 									@endforeach
 								</select>
@@ -110,7 +110,7 @@
 								<label>Departemen</label>
 								<select name="id_departemen" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_departemen') }}</option>
-									@foreach ($hardware as $data)
+									@foreach ($departemen as $data)
 										<option value="{{ $data->id_departemen }}">{{ $data->nama_departemen }}</option>
 									@endforeach
 								</select>
@@ -152,7 +152,7 @@
 								<label>Pemakai</label>
 								<select name="id_pemakai" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_pemakai') }}</option>
-									@foreach ($hardware as $data)
+									@foreach ($pemakai as $data)
 										<option value="{{ $data->id_pemakai }}">{{ $data->nama_pemakai }}</option>
 									@endforeach
 								</select>

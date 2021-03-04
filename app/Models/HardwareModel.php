@@ -32,6 +32,36 @@ class HardwareModel extends Model
         ->where('id_hw', $id_hw)->first();
     }
     
+    public function allMerk()
+    {
+        return DB::table('tbl_merk_hw')->get();
+    }
+
+    public function allKategori()
+    {
+        return DB::table('tbl_kategori_hw')->get();
+    }
+
+    public function allLokasi()
+    {
+        return DB::table('tbl_lokasi')->get();
+    }
+
+    public function allKondisi()
+    {
+        return DB::table('tbl_kondisi')->get();
+    }
+
+    public function allDepartemen()
+    {
+        return DB::table('tbl_departemen')->get();
+    }
+
+    public function allPemakai()
+    {
+        return DB::table('tbl_pemakai')->get();
+    }
+
     public function addData($data)
     {
         return DB::table('tbl_hardware')->insert($data);

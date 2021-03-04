@@ -47,12 +47,12 @@
 					<tr>
 						<th width="200px">Tanggal Beli</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->tgl_beli_hw }}</th>
+						<th>{{ date('D, d M Y', strtotime($hardware->tgl_beli_hw)) }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Tanggal Batas Garansi</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->tgl_batas_garansi }}</th>
+						<th>{{ date('D, d M Y', strtotime($hardware->tgl_batas_garansi)) }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Pemakai</th>

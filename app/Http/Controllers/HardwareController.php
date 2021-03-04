@@ -36,7 +36,12 @@ class HardwareController extends Controller
     public function add()
     {
         $data = [
-            'hardware' => $this->HardwareModel->allData()
+            'merk' => $this->HardwareModel->allMerk(),
+            'kategori' => $this->HardwareModel->allKategori(),
+            'kondisi' => $this->HardwareModel->allKondisi(),
+            'lokasi' => $this->HardwareModel->allLokasi(),
+            'departemen' => $this->HardwareModel->allDepartemen(),
+            'pemakai' => $this->HardwareModel->allPemakai()
         ];
         return view('hardware.v_addhw', $data);
     }
@@ -98,7 +103,13 @@ class HardwareController extends Controller
             abort(404);
         }
         $data = [
-            'hardware' => $this->HardwareModel->detailData($id_hw)
+            'hardware' => $this->HardwareModel->detailData($id_hw),
+            'merk' => $this->HardwareModel->allMerk(),
+            'kategori' => $this->HardwareModel->allKategori(),
+            'kondisi' => $this->HardwareModel->allKondisi(),
+            'lokasi' => $this->HardwareModel->allLokasi(),
+            'departemen' => $this->HardwareModel->allDepartemen(),
+            'pemakai' => $this->HardwareModel->allPemakai()
         ];
         return view('hardware.v_edithw', $data);
     }
