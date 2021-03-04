@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HardwareController;
+use App\Http\Controllers\LisensiController;
+use App\Http\Controllers\MerkswController;
 use App\Http\Controllers\PemakaiController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\UserController;
@@ -28,6 +30,19 @@ Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
 Route::get('/software/editsw/{id_sw}', [SoftwareController::class, 'edit']);
 Route::post('/software/updatesw/{id_sw}', [SoftwareController::class, 'update']);
 Route::get('/software/deletesw/{id_sw}', [SoftwareController::class, 'delete']);
+
+//CRUD Lisensi Software:
+Route::get('/masterdata/lisensisw', [LisensiController::class, 'index'])->name('lisensi');
+Route::post('/masterdata/lisensisw/insertlisensi', [LisensiController::class, 'insert']);
+Route::post('/masterdata/lisensisw/updatelisensi/{id_jenis_lisensi}', [LisensiController::class, 'update']);
+Route::get('/masterdata/lisensisw/deletelisensi/{id_jenis_lisensi}', [LisensiController::class, 'delete']);
+
+//CRUD Merk Software:
+Route::get('/masterdata/merksw', [MerkswController::class, 'index'])->name('merksw');
+Route::post('/masterdata/merksw/insertmerksw', [MerkswController::class, 'insert']);
+Route::post('/masterdata/merksw/updatemerksw/{id_merk_sw}', [MerkswController::class, 'update']);
+Route::get('/masterdata/merksw/deletemerksw/{id_merk_sw}', [MerkswController::class, 'delete']);
+
 
 
 Route::get('/user/index/', [UserController::class, 'index']);
