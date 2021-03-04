@@ -34,8 +34,8 @@
                 <tr>
                     <td>{{$no++}}</td>
                     <td>{{$data->nama_sw}}</td>
-                    <td>{{$data->id_merk_sw}}</td>
-                    <td>{{$data->id_jenis_lisensi}}</td>
+                    <td>{{$data->nama_merk_sw}}</td>
+                    <td>{{$data->jenis_lisensi}}</td>
                     <td>{{$data->versi_sw}}</td>
                     <td>
                         <a href="/software/detailsw/{{ $data->id_sw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
