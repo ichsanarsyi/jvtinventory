@@ -63,7 +63,7 @@
 			</div>
 			<div class="col col-sm-6">
 				<div class="form-group">
-					<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+					<a href="{{ url('hardware') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 				</div>
 			</div>
 			</div>

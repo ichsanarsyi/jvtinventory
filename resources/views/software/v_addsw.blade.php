@@ -24,9 +24,9 @@
 							<div class="form-group">
 								<label>Merk Software</label>
                                 <select name="id_merk_sw" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_merk_sw') }}</option>
+									<option value="{{ old('id_merk_sw') }}"></option>
 									@foreach ($merk as $data)
-										<option value="{{ $data->id_merk_sw }}">{{ $data->nama_merk_sw }}</option>
+										<option value="{{ $data->id_merk_sw }}"  {{ (old('id_merk_sw') == $data->id_merk_sw ? 'selected="selected"' : '') }}>{{ $data->nama_merk_sw }}</option>
 									@endforeach
 								</select>								
 								<div class="text-danger">
@@ -38,9 +38,9 @@
 							<div class="form-group">
 								<label>Jenis Lisensi</label>
                                 <select name="id_jenis_lisensi" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_jenis_lisensi') }}</option>
+									<option value="{{ old('id_jenis_lisensi') }}"></option>
 									@foreach ($lisensi as $data)
-										<option value="{{ $data->id_jenis_lisensi }}">{{ $data->jenis_lisensi }}</option>
+										<option value="{{ $data->id_jenis_lisensi }}"  {{ (old('id_jenis_lisensi') == $data->id_jenis_lisensi ? 'selected="selected"' : '') }}>{{ $data->jenis_lisensi }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -120,13 +120,28 @@
 									@enderror
 								</div>
 							</div>
+							<div class="form-group">
+								<label>Nama Hardware</label>
+                                <select name="id_hw" class="form-control select2" style="width: 100%;">
+									<option value="{{ old('id_hw') }}"></option>
+									@foreach ($hardware as $data)
+										<option value="{{$data->id_hw}}"  {{ (old('id_hw') == $data->id_hw ? 'selected="selected"' : '') }}>{{ $data->nama_hw }}</option>
+									@endforeach	
+									
+								</select>
+								<div class="text-danger">
+									@error('id_hw')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
 							
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-12">
-								<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+								<a href="{{ url('software') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 								<button type="submit" class="btn btn-success pull-right"><i class="fa fa-save fa-fw"></i>Simpan</button>
 						</div>
 					</div>

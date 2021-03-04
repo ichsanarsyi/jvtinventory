@@ -118,13 +118,26 @@
 									@enderror
 								</div>
 							</div>
+							<div class="form-group">
+								<label>Nama Hardware</label>
+                                <select name="id_hw" class="form-control select2" style="width: 100%;">
+									@foreach ($hardware as $data)
+										<option value="{{ $data->id_hw }}"{{ ($software->id_hw == $data->id_hw ? 'selected="selected"' :'')}}>{{ $data->nama_hw }}</option>
+									@endforeach
+								</select>
+								<div class="text-danger">
+									@error('id_hw')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
 							
 						</div>
 					</div>
 					
 					<div class="row">
 						<div class="col-sm-12">
-								<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+								<a href="{{ url('software') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 								<button type="submit" class="btn btn-success pull-right"><i class="fa fa-save fa-fw"></i>Simpan</button>
 						</div>
 					</div>

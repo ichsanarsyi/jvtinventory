@@ -185,6 +185,8 @@
   $(function () {
     $('#tbl_hardware').DataTable()
     $('#tbl_software').DataTable()
+    $('#tbl_jenis_lisensi').DataTable()
+    $('#tbl_merk_sw').DataTable()
     $('.select2').select2()
     //Date picker
     $('#datepicker1').datepicker({
