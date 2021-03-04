@@ -40,6 +40,11 @@
 						<th>{{ $hardware->nama_lokasi }}</th>
 					</tr>
 					<tr>
+						<th width="200px">Kondisi</th>
+						<th width="20px">:</th>
+						<th>{{ $hardware->nama_kondisi }}</th>
+					</tr>
+					<tr>
 						<th width="200px">Departemen</th>
 						<th width="20px">:</th>
 						<th>{{ $hardware->nama_departemen }}</th>

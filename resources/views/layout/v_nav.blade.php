@@ -14,12 +14,12 @@
       </div>      
         <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
             <li class="header">MAIN NAVIGATION</li>
-            <li class="{{ (request()->is('hardware/*')) ? 'active' : '' }}">
+            <li class="{{ Request::segment(1) === 'hardware' ? 'active' : null }}">
               <a href="/hardware">
                   <i class="glyphicon glyphicon-lock"></i> <span>Hardware</span>
               </a>
             </li>
-            <li class="{{ (request()->is('software/*')) ? 'active' : '' }}">
+            <li class="{{ Request::segment(1) === 'software' ? 'active' : null }}">
               <a href="/software">
                 <i class="fa fa-cloud"></i> <span>Software</span>
               </a>                

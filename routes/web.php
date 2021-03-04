@@ -5,12 +5,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\LisensiController;
 use App\Http\Controllers\MerkswController;
+use App\Http\Controllers\MerkhwController;
 use App\Http\Controllers\PemakaiController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+//CRUD Software:
 Route::get('/hardware', [HardwareController::class, 'index'])->name('hardware');
 Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 Route::get('/hardware/addhw', [HardwareController::class, 'add']);
@@ -18,9 +20,6 @@ Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
 Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
 Route::post('/hardware/updatehw/{id_hw}', [HardwareController::class, 'update']);
 Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
-    // Route::get('/hardware', [HardwareController::class, 'getHardware'])->name('allData');
-    Route::get('/hardware/workstations/', [HardwareController::class, 'atWorkstations'])->name('workstations');
-    Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 
 //CRUD Software:
 Route::get('/software', [SoftwareController::class, 'index'])->name('software');
@@ -42,6 +41,12 @@ Route::get('/masterdata/merksw', [MerkswController::class, 'index'])->name('merk
 Route::post('/masterdata/merksw/insertmerksw', [MerkswController::class, 'insert']);
 Route::post('/masterdata/merksw/updatemerksw/{id_merk_sw}', [MerkswController::class, 'update']);
 Route::get('/masterdata/merksw/deletemerksw/{id_merk_sw}', [MerkswController::class, 'delete']);
+
+//CRUD Merk Hardware:
+Route::get('/masterdata/merkhw', [MerkhwController::class, 'index'])->name('merkhw');
+Route::post('/masterdata/merkhw/insertmerkhw', [MerkhwController::class, 'insert']);
+Route::post('/masterdata/merkhw/updatemerkhw/{id_merk_hw}', [MerkhwController::class, 'update']);
+Route::get('/masterdata/merkhw/deletemerkhw/{id_merk_hw}', [MerkhwController::class, 'delete']);
 
 
 

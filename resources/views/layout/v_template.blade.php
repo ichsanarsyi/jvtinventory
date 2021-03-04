@@ -27,7 +27,7 @@
   <style>
     input:focus {
       background-color:#efeeff;
-      outline-color: #77f;
+      outline-color: rgb(6, 6, 153);
       outline-width: 2px;
     }
     </style>
@@ -181,6 +181,7 @@
 <script src="{{asset('template/')}}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('template/')}}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+
 <script>
   $(function () {
     $('#tbl_hardware').DataTable()
@@ -188,7 +189,6 @@
     $('.select2').select2()
     //Date picker
     $('#datepicker1').datepicker({
-      locale: 'id',
       autoclose: true
     })
     $('#datepicker2').datepicker({
@@ -202,6 +202,8 @@
     $('.sidebar-menu').tree()
   })
 </script>
+
+{{-- Script Untuk mengingat status "Collapse" sidebar Navigation --}}
 <script type="text/javascript">
     (function ($) {
         /* Store sidebar state */
@@ -215,7 +217,6 @@
          });
     })(jQuery);
 </script>
-
 <script type="text/javascript">
     /* Recover sidebar state */
      (function () {
@@ -225,7 +226,50 @@
         }
     })();
 </script>
+{{---------------------------------------------------------------------}}
 
+{{-- Script Untuk Auto Focus saat Modal muncul --}}
+<script>
+  $('.modal').on('shown.bs.modal', function() {
+  $(this).find('[autofocus]').focus();
+  });
+</script>
+{{-----------------------------------------------}}
+
+{{-- Script Untuk memunculkan Dropdown otomatis saat focus --}}
+<script>
+// on first focus (bubbles up to document), open the menu
+$(document).on('focus', '.select2-selection.select2-selection--single', function (e) {
+  $(this).closest(".select2-container").siblings('select:enabled').select2('open');
+});
+// steal focus during close - only capture once and stop propogation
+$('select.select2').on('select2:closing', function (e) {
+  $(e.target).data("select2").$selection.one('focus focusin', function (e) {
+    e.stopPropagation();
+  });
+});
+</script>
+
+{{-- <script>
+$("#first").keyup(function(event) {
+
+// skip for arrow keys
+if(event.which >= 37 && event.which <= 40) return;
+
+// format number
+$(this).val(function(index, value) {
+     return value
+     .replace(/\D/g, "")
+     .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+     ;
+     });
+});
+
+$("#btn").click(function(event) {
+var firstValue = Number($('#first').val().replace(/./, ''));
+console.log(firstValue);
+});
+</script> --}}
 
 </body>
 </html>

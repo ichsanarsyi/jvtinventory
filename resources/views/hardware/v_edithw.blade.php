@@ -82,7 +82,7 @@
 									<div class="input-group-addon">
 										<b>Rp</b>
 									</div>
-									<input name="harga_hw" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ $hardware->harga_hw }}">
+									<input id='first' name="harga_hw" class="form-control" value="{{ $hardware->harga_hw }}">
 								</div>								
 								<div class="text-danger">
 									@error('harga_hw')
