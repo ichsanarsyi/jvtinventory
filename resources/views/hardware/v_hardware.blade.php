@@ -34,9 +34,9 @@
                 <tr>
                     <td>{{$no++}}</td>
                     <td>{{$data->nama_hw}}</td>
-                    <td>{{$data->id_merk_hw}}</td>
+                    <td>{{$data->nama_merk_hw}}</td>
                     <td>{{$data->seri_hw}}</td>
-                    <td>{{$data->id_kategori_hw}}</td>
+                    <td>{{$data->nama_kategori_hw}}</td>
                     <td>
                         <a href="/hardware/detailhw/{{ $data->id_hw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
                         <a href="/hardware/edithw/{{ $data->id_hw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>

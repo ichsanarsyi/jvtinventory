@@ -189,6 +189,20 @@
 </script>
 
 <script>
+  $(function () {
+    $('#tbl_software').DataTable()
+    $('.select2').select2()
+    //Date picker
+    $('#datepicker1').datepicker({
+      autoclose: true
+    })
+    $('#datepicker2').datepicker({
+      autoclose: true
+    })
+  })
+</script>
+
+<script>
   $(document).ready(function () {
     $('.sidebar-menu').tree()
   })

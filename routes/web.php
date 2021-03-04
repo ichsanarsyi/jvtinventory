@@ -9,7 +9,7 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/hardware', [HardwareController::class, 'index'])->name('allData');
+Route::get('/hardware', [HardwareController::class, 'index'])->name('hardware');
 Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 Route::get('/hardware/addhw', [HardwareController::class, 'add']);
 Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
