@@ -25,7 +25,7 @@
 								<label>Merk Software</label>
                                 <select name="id_merk_sw" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_merk_sw') }}</option>
-									@foreach ($software as $data)
+									@foreach ($merk as $data)
 										<option value="{{ $data->id_merk_sw }}">{{ $data->nama_merk_sw }}</option>
 									@endforeach
 								</select>								
@@ -39,7 +39,7 @@
 								<label>Jenis Lisensi</label>
                                 <select name="id_jenis_lisensi" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_jenis_lisensi') }}</option>
-									@foreach ($software as $data)
+									@foreach ($lisensi as $data)
 										<option value="{{ $data->id_jenis_lisensi }}">{{ $data->jenis_lisensi }}</option>
 									@endforeach
 								</select>

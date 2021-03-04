@@ -24,6 +24,16 @@ class SoftwareModel extends Model
         ->where('id_sw', $id_sw)->first();
     }
     
+    public function allMerk()
+    {
+        return DB::table('tbl_merk_sw')->get();
+    }
+
+    public function allLisensi()
+    {
+        return DB::table('tbl_jenis_lisensi')->get();
+    }
+
     public function addData($data)
     {
         return DB::table('tbl_software')->insert($data);
