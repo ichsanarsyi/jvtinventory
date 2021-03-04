@@ -35,7 +35,10 @@ class SoftwareController extends Controller
 
     public function add()
     {
-        return view('software.v_addsw');
+        $data = [
+            'software' => $this->SoftwareModel->allData()
+        ];
+        return view('software.v_addsw', $data);
     }
     
     public function insert()
