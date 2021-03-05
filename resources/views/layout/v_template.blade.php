@@ -195,6 +195,7 @@
     $('#tbl_kategori_hw').DataTable()
     $('#tbl_departemen').DataTable()
     $('#tbl_pemakai').DataTable()
+    $('#tbl_kondisi').DataTable()
     $('.select2').select2()
     //Date picker
     $('#datepicker1').datepicker({
