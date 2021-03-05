@@ -191,6 +191,10 @@
     $('#tbl_jenis_lisensi').DataTable()
     $('#tbl_merk_sw').DataTable()
     $('#tbl_merk_hw').DataTable()
+    $('#tbl_lokasi').DataTable()
+    $('#tbl_kategori_hw').DataTable()
+    $('#tbl_departemen').DataTable()
+    $('#tbl_pemakai').DataTable()
     $('.select2').select2()
     //Date picker
     $('#datepicker1').datepicker({
@@ -265,7 +269,7 @@ $(document).submit(function() {
   $('.uang').unmask();
 });
 </script>
-{{------------------------}}
+{{------------------------------}}
 
 </body>
 </html>
