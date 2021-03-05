@@ -13,44 +13,44 @@
 		  <div class="box-body">
 			<table class="table table-striped table-hover">
 				<tr>
-					<th width="200px">Merk Hardware</th>
+					<th width="170px">Merk Hardware</th>
 					<th width="20px">:</th>
-					<th>{{ $hardware->nama_merk_hw }}</th>
+					<td>{{ $hardware->nama_merk_hw }}</td>
 				</tr>
 				<tr>
-					<th width="200px">Seri Hardware</th>
+					<th width="170px">Seri Hardware</th>
 					<th width="20px">:</th>
-					<th>{{ $hardware->seri_hw }}</th>
+					<td>{{ $hardware->seri_hw }}</td>
 				</tr>
 				<tr>
-					<th width="200px">Kategori</th>
+					<th width="170px">Kategori</th>
 					<th width="20px">:</th>
-					<th>{{ $hardware->nama_kategori_hw }}</th>
+					<td>{{ $hardware->nama_kategori_hw }}</td>
 				</tr>
 				<tr>
-					<th width="200px">Harga</th>
+					<th width="170px">Harga</th>
 					<th width="20px">:</th>
-					<th>@currency($hardware->harga_hw)</th>
+					<td>@currency($hardware->harga_hw)</td>
 				</tr>
 				<tr>
-					<th width="200px">Departemen</th>
+					<th width="170px">Departemen</th>
 					<th width="20px">:</th>
-					<th>{{ $hardware->nama_departemen }}</th>
+					<td>{{ $hardware->nama_departemen }}</td>
 				</tr>
 				<tr>
-					<th width="200px">Lokasi</th>
+					<th width="170px">Lokasi</th>
 					<th width="20px">:</th>
-					<th>{{ $hardware->nama_lokasi }}</th>
+					<td>{{ $hardware->nama_lokasi }}</td>
 				</tr>
 				<tr>
-					<th width="200px">Kondisi</th>
+					<th width="170px">Kondisi</th>
 					<th width="20px">:</th>
-					<th>{{ $hardware->nama_kondisi }}</th>
+					<td>{{ $hardware->nama_kondisi }}</td>
 				</tr>
 				<tr>
-					<th width="200px">Deskripsi</th>
+					<th width="170px">Deskripsi</th>
 					<th width="20px">:</th>
-					<th>{{ $hardware->deskripsi_hw }}</th>
+					<td>{{ $hardware->deskripsi_hw }}</td>
 				</tr>
 			</table>
 		</div>
