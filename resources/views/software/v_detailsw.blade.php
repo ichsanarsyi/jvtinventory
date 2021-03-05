@@ -27,12 +27,12 @@
                     <tr>
 						<th width="200px">Tanggal Pembelian</th>
 						<th width="20px">:</th>
-						<th>{{ date('D, d M Y', strtotime($software->tgl_pembelian)) }}</th>
+						<th>{{ date('d F Y', strtotime($software->tgl_pembelian)) }}</th>
 					</tr>
                     <tr>
 						<th width="200px">Tanggal Batas Lisensi</th>
 						<th width="20px">:</th>
-						<th>{{ date('D, d M Y', strtotime($software->tgl_batas_lisensi)) }}</th>
+						<th>{{ date('d F Y', strtotime($software->tgl_batas_lisensi)) }}</th>
 					</tr>
                     <tr>
 						<th width="200px">Harga Software</th>
