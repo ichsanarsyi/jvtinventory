@@ -72,7 +72,7 @@ Route::get('/masterdata/departemen/deletedepartemen/{id_departemen}', [Departeme
 
 //CRUD Pemakai Hardware:
 Route::get('/masterdata/pemakai', [PemakaiController::class, 'index'])->name('pemakai');
-Route::post('/masterdata/pemakai/insert', [PemakaiController::class, 'insert']);
+Route::post('/masterdata/pemakai/insertpemakai', [PemakaiController::class, 'insert']);
 Route::post('/masterdata/pemakai/updatepemakai/{id_pemakai}', [PemakaiController::class, 'update']);
 Route::get('/masterdata/pemakai/deletepemakai/{id_pemakai}', [PemakaiController::class, 'delete']);
 

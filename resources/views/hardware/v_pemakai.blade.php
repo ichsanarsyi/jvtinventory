@@ -22,8 +22,9 @@
             <thead>
             <tr>
               <th>No</th>
-              <th>ID Pemakai Hardware</th>
-              <th>Nama Pemakai Hardware</th>
+              <th>ID Pemakai</th>
+              <th>Nama Pemakai</th>
+              <th>Nomor Telepon Pemakai</th>
               <th>Aksi</th>
               
             </tr>
@@ -35,6 +36,7 @@
                     <td>{{$no++}}</td>
                     <td>{{$data->id_pemakai}}</td>
                     <td>{{$data->nama_pemakai}}</td>
+                    <td>{{$data->no_telp_pemakai}}</td>
                     <td>
                         <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_pemakai }}"><i class="fa fa-edit fa-fw"></i>
                         Edit
@@ -69,10 +71,19 @@
         @csrf
         <div class="modal-body">            
             <div class="form-group">
-                <label>Nama Pemakai Hardware</label>                                
+                <label>Nama Pemakai</label>                                
                 <input autofocus="autofocus" name="nama_pemakai" class="form-control" value="{{ old('nama_pemakai') }}">
                 <div class="text-danger">
                     @error('nama_pemakai')
+                        {{ $message }}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Nomor Telepon Pemakai</label>                                
+                <input name="no_telp_pemakai" class="form-control" value="{{ old('no_telp_pemakai') }}">
+                <div class="text-danger">
+                    @error('no_telp_pemakai')
                         {{ $message }}
                     @enderror
                 </div>
@@ -104,10 +115,19 @@
         @csrf
         <div class="modal-body">            
             <div class="form-group">
-                <label>Nama Pemakai Hardware</label>                                
+                <label>Nama Pemakai</label>                                
                 <input autofocus="autofocus" name="nama_pemakai" class="form-control" value="{{ $data->nama_pemakai }}">
                 <div class="text-danger">
                     @error('nama_pemakai')
+                        {{ $message }}
+                    @enderror
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Nomor Telepon Pemakai</label>                                
+                <input name="no_telp_pemakai" class="form-control" value="{{ $data->no_telp_pemakai }}">
+                <div class="text-danger">
+                    @error('no_telp_pemakai')
                         {{ $message }}
                     @enderror
                 </div>

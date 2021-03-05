@@ -25,11 +25,13 @@ class PemakaiController extends Controller
         Request()->validate([
             'nama_pemakai' => 'required'
         ],[
-            'nama_pemakai.required' => 'Pemakai Hardware wajib diisi'
+            'nama_pemakai.required' => 'Pemakai Hardware wajib diisi',
+            'no_telp_pemakai.required' => 'Nomor Telepon Pemakai wajib diisi'
         ]);
         
         $data=[
-            'nama_pemakai' => Request()->nama_pemakai    
+            'nama_pemakai' => Request()->nama_pemakai,
+            'no_telp_pemakai' => Request()->no_telp_pemakai  
         ];
         
         $this->PemakaiModel->addData($data);
@@ -40,13 +42,16 @@ class PemakaiController extends Controller
     public function update($id_pemakai)
     {
         Request()->validate([
-            'nama_pemakai' => 'required'
+            'nama_pemakai' => 'required',
+            'no_telp_pemakai' => 'required'
         ],[
-            'nama_pemakai.required' => 'Pemakai Hardware wajib diisi'
+            'nama_pemakai.required' => 'Pemakai Hardware wajib diisi',
+            'no_telp_pemakai.required' => 'Nomor Telepon Pemakai wajib diisi'
         ]);
         
         $data=[
-            'nama_pemakai' => Request()->nama_pemakai    
+            'nama_pemakai' => Request()->nama_pemakai,
+            'no_telp_pemakai' => Request()->no_telp_pemakai
         ];
         
         $this->PemakaiModel->editData($id_pemakai, $data);       

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DepartemenModel;
+use App\Models\LokasiModel;
 use Illuminate\Http\Request;
 
 class DepartemenController extends Controller

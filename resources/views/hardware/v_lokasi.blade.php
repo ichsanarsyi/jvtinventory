@@ -22,8 +22,9 @@
             <thead>
             <tr>
               <th>No</th>
-              <th>ID Lokasi Hardware</th>
-              <th>Nama Lokasi Hardware</th>
+              <th>ID Lokasi</th>
+              <th>Asal Departemen</th>
+              <th>Nama Lokasi</th>
               <th>Aksi</th>
               
             </tr>
@@ -34,6 +35,7 @@
                 <tr>
                     <td>{{$no++}}</td>
                     <td>{{$data->id_lokasi}}</td>
+                    <td>{{$data->nama_departemen}}</td>
                     <td>{{$data->nama_lokasi}}</td>
                     <td>
                         <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_lokasi }}"><i class="fa fa-edit fa-fw"></i>
@@ -68,16 +70,30 @@
         <form action="/masterdata/lokasi/insertlokasi" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
+          <div class="form-group">
             <div class="form-group">
-                <label>Nama Lokasi Hardware</label>                                
-                <input autofocus="autofocus" name="nama_lokasi" class="form-control" value="{{ old('nama_lokasi') }}">
-                <div class="text-danger">
-                    @error('nama_lokasi')
-                        {{ $message }}
-                    @enderror
-                </div>
+                  <label>Nama Lokasi Hardware</label>                                
+                  <input autofocus="autofocus" name="nama_lokasi" class="form-control" value="{{ old('nama_lokasi') }}">
+                  <div class="text-danger">
+                      @error('nama_lokasi')
+                          {{ $message }}
+                      @enderror
+                  </div>
+              </div>
+          </div>
+            <label>Departemen</label>
+            <select name="id_departemen" class="form-control select2" style="width: 100%;">
+              <option value="">{{ old('id_departemen') }}</option>
+              @foreach ($departemen as $data)
+                <option value="{{ $data->id_departemen }}">{{ $data->nama_departemen }}</option>
+              @endforeach
+            </select>
+            <div class="text-danger">
+              @error('departemen')
+                {{ $message }}
+              @enderror
             </div>
-        </div>
+          </div>  
         <div class="modal-footer">
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-primary">Save</button>

@@ -10,7 +10,8 @@ class DepartemenModel extends Model
 {
     public function allData()
     {
-        return DB::table('tbl_departemen')->get();
+        return DB::table('tbl_departemen')
+        ->get();
     }
 
     public function addData($data)

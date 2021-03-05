@@ -24,17 +24,16 @@
                 <i class="fa fa-cloud"></i> <span>Software</span>
               </a>                
             </li>
-            <li class="treeview {{ (request()->is('user/*')) ? 'active' : '' }}">
-              <a href="#">
-                <i class="glyphicon glyphicon-user"></i> <span>User</span>
-                <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-                </span>
-            </a>
-            <ul class="treeview-menu">
-                <li class="{{ (request()->is('user/admin')) ? 'active bg-black' : '' }}"><a href="/user/admin"><i class="fa fa-circle-o"></i> Admin</a></li>
-                <li class="{{ (request()->is('user/staff')) ? 'active bg-black' : '' }}"><a href="/user/staff"><i class="fa fa-circle-o"></i> Staff</a></li>
-            </ul>            
+            <li class="{{ Request::segment(1) === 'admin' ? 'active' : null }}">
+              <a href="/admin">
+                  <i class="glyphicon glyphicon-user"></i> <span>Admin</span>
+              </a>
+            </li>
+            <li class="{{ Request::segment(1) === 'staff' ? 'active' : null }}">
+              <a href="/staff">
+                  <i class="glyphicon glyphicon-user"></i> <span>Staff</span>
+              </a>
+            </li>         
             <li class="treeview {{ (request()->is('masterdata/*')) ? 'active' : '' }}">
               <a href="#">
               <i class="fa fa-th-list"></i> <span>Master Data</span>
@@ -52,11 +51,6 @@
               <li class="{{ (request()->is('masterdata/pemakai')) ? 'active bg-black' : '' }}"><a href="/masterdata/pemakai"><i class="fa fa-circle-o"></i>Pemakai</a></li>
               </ul>
           </li>
-              </a>
-            </li>
-            <li class="{{ Request::segment(1) === 'pemakai' ? 'active bg-navy' : null }}">
-              <a href="/pemakai"><i class="fa fa-th-list"></i>
-                <span>Pemakai</span>
               </a>
             </li>
 
