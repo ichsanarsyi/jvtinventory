@@ -16,7 +16,8 @@ class HardwareController extends Controller
     public function index()
      {
          $data = [
-             'hardware' => $this->HardwareModel->allData()
+             'hardware' => $this->HardwareModel->allData(),
+             'pemakai' => $this->HardwareModel->allPemakai()
          ];
          return view('hardware.v_hardware', $data);
     }
@@ -28,7 +29,8 @@ class HardwareController extends Controller
             abort(404);
         }
         $data = [
-            'hardware' => $this->HardwareModel->detailData($id_hw)
+            'hardware' => $this->HardwareModel->detailData($id_hw),
+            'pemakai' => $this->HardwareModel->detailData($id_hw)
         ];
         return view('hardware.v_detailhw', $data);
     }

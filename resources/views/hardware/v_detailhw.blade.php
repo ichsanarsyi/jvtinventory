@@ -11,7 +11,7 @@
 		  </div>
 		  <!-- /.box-header -->
 		  <div class="box-body">
-			<table class="table table-hover">
+			<table class="table table-striped table-hover">
 				<tr>
 					<th width="200px">Merk Hardware</th>
 					<th width="20px">:</th>
