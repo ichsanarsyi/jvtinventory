@@ -24,6 +24,13 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/skins/_all-skins.min.css">
 
+  <style>
+    input:focus {
+      background-color:#efeeff;
+      outline-color: rgb(6, 6, 153);
+      outline-width: 2px;
+    }
+    </style>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -156,6 +163,8 @@
 
 <!-- jQuery 3 -->
 <script src="{{asset('template')}}/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- jQuery Mask -->
+<script src="{{asset('template')}}/bower_components/jquery/dist/jquery.mask.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('template')}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
@@ -174,9 +183,18 @@
 <script src="{{asset('template/')}}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('template/')}}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+
 <script>
   $(function () {
     $('#tbl_hardware').DataTable()
+    $('#tbl_software').DataTable()
+    $('#tbl_jenis_lisensi').DataTable()
+    $('#tbl_merk_sw').DataTable()
+    $('#tbl_merk_hw').DataTable()
+    $('#tbl_lokasi').DataTable()
+    $('#tbl_kategori_hw').DataTable()
+    $('#tbl_departemen').DataTable()
+    $('#tbl_pemakai').DataTable()
     $('.select2').select2()
     //Date picker
     $('#datepicker1').datepicker({
@@ -193,6 +211,8 @@
     $('.sidebar-menu').tree()
   })
 </script>
+
+{{-- Script Untuk mengingat status "Collapse" sidebar Navigation --}}
 <script type="text/javascript">
     (function ($) {
         /* Store sidebar state */
@@ -206,7 +226,6 @@
          });
     })(jQuery);
 </script>
-
 <script type="text/javascript">
     /* Recover sidebar state */
      (function () {
@@ -216,7 +235,41 @@
         }
     })();
 </script>
+{{---------------------------------------------------------------------}}
 
+{{-- Script Untuk Auto Focus & Select saat Modal muncul --}}
+<script>
+  $('.modal').on('shown.bs.modal', function() {
+  $(this).find('[autofocus]').focus().select();
+  });
+</script>
+{{-----------------------------------------------}}
+
+{{-- Script Untuk memunculkan Dropdown otomatis saat focus --}}
+<script>
+// on first focus (bubbles up to document), open the menu
+$(document).on('focus', '.select2-selection.select2-selection--single', function (e) {
+  $(this).closest(".select2-container").siblings('select:enabled').select2('open');
+});
+// steal focus during close - only capture once and stop propogation
+$('select.select2').on('select2:closing', function (e) {
+  $(e.target).data("select2").$selection.one('focus focusin', function (e) {
+    e.stopPropagation();
+  });
+});
+</script>
+{{----------------------------------------------------------}}
+
+{{-- Script Format Input Uang --}}
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.uang').mask('000.000.000.000', {reverse: true});
+})
+$(document).submit(function() {
+  $('.uang').unmask();
+});
+</script>
+{{------------------------------}}
 
 </body>
 </html>

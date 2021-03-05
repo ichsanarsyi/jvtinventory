@@ -1,14 +1,11 @@
 @extends('layout.v_template')
-@section('title','Detail')
+@section('title','Detail Hardware')
 @section('content')
     <div class="row">
         <div class="col-xs-12">
 			<div class="box box-primary">
 			<div class="box-header">
-				<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-xs btn-primary">
-					<i class="fa fa-chevron-circle-left fa-fw"></i>
-					Kembali
-				</a>
+
 			<!-- /.box-header -->
             <div class="box-body">
 				<table class="table table-hover">
@@ -20,7 +17,7 @@
 					<tr>
 						<th width="200px">Merk Hardware</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->merk_hw }}</th>
+						<th>{{ $hardware->nama_merk_hw }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Seri Hardware</th>
@@ -30,39 +27,49 @@
 					<tr>
 						<th width="200px">Kategori</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->kategori }}</th>
+						<th>{{ $hardware->nama_kategori_hw }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Harga</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->harga_hw }}</th>
+						<th>@currency($hardware->harga_hw)</th>
 					</tr>
 					<tr>
 						<th width="200px">Lokasi</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->lokasi }}</th>
+						<th>{{ $hardware->nama_lokasi }}</th>
+					</tr>
+					<tr>
+						<th width="200px">Kondisi</th>
+						<th width="20px">:</th>
+						<th>{{ $hardware->nama_kondisi }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Departemen</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->departemen }}</th>
+						<th>{{ $hardware->nama_departemen }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Tanggal Beli</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->tgl_beli_hw }}</th>
+						<th>{{ date('D, d M Y', strtotime($hardware->tgl_beli_hw)) }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Tanggal Batas Garansi</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->tgl_batas_garansi }}</th>
+						<th>{{ date('D, d M Y', strtotime($hardware->tgl_batas_garansi)) }}</th>
 					</tr>
 					<tr>
 						<th width="200px">Pemakai</th>
 						<th width="20px">:</th>
-						<th>{{ $hardware->id_pemakai }}</th>
+						<th>{{ $hardware->nama_pemakai }}</th>
 					</tr>
 				</table>
+			</div>
+			<div class="col col-sm-6">
+				<div class="form-group">
+					<a href="{{ url('hardware') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+				</div>
 			</div>
 			</div>
 			</div>
