@@ -128,10 +128,10 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
+    <section class="content-header text-secondary">
+      <h3 style="margin:-0px;">
         @yield('title')
-      </h1>
+      </h3>
 
     </section>
 
