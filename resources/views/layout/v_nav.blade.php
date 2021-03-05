@@ -49,6 +49,7 @@
               <li class="{{ (request()->is('masterdata/kategorihw')) ? 'active bg-black' : '' }}"><a href="/masterdata/kategorihw"><i class="fa fa-circle-o"></i>Kategori Hardware</a></li>
               <li class="{{ (request()->is('masterdata/lisensisw')) ? 'active bg-black' : '' }}"><a href="/masterdata/lisensisw"><i class="fa fa-circle-o"></i>Lisensi Software</a></li>
               <li class="{{ (request()->is('masterdata/pemakai')) ? 'active bg-black' : '' }}"><a href="/masterdata/pemakai"><i class="fa fa-circle-o"></i>Pemakai</a></li>
+              <li class="{{ (request()->is('masterdata/kondisi')) ? 'active bg-black' : '' }}"><a href="/masterdata/kondisi"><i class="fa fa-circle-o"></i>Kondisi</a></li>
               </ul>
           </li>
               </a>

@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategorihwController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\DepartemenController;
+use App\Http\Controllers\KondisiController;
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -76,6 +77,11 @@ Route::post('/masterdata/pemakai/insertpemakai', [PemakaiController::class, 'ins
 Route::post('/masterdata/pemakai/updatepemakai/{id_pemakai}', [PemakaiController::class, 'update']);
 Route::get('/masterdata/pemakai/deletepemakai/{id_pemakai}', [PemakaiController::class, 'delete']);
 
+//CRUD Kondisi Hardware:
+Route::get('/masterdata/kondisi', [KondisiController::class, 'index'])->name('kondisi');
+Route::post('/masterdata/kondisi/insertkondisi', [KondisiController::class, 'insert']);
+Route::post('/masterdata/kondisi/updatekondisi/{id_kondisi}', [KondisiController::class, 'update']);
+Route::get('/masterdata/kondisi/deletekondisi/{id_kondisi}', [KondisiController::class, 'delete']);
 
 Route::get('/user/index/', [UserController::class, 'index']);
 
