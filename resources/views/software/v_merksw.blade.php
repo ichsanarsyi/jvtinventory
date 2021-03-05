@@ -65,7 +65,7 @@
             <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Tambah Merk Software</h4>
         </div>
-        <form action="/masterdata/merksw/insertmerksw" method="POST" enctype="multipart/form-data">
+        <form autofocus="autofocus" action="/masterdata/merksw/insertmerksw" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
             <div class="form-group">
@@ -105,7 +105,7 @@
         <div class="modal-body">            
             <div class="form-group">
                 <label>Nama Merk Software</label>                                
-                <input name="nama_merk_sw" class="form-control" value="{{ $data->nama_merk_sw }}">
+                <input autofocus="autofocus" name="nama_merk_sw" class="form-control" value="{{ $data->nama_merk_sw }}">
                 <div class="text-danger">
                     @error('nama_merk_sw')
                         {{ $message }}

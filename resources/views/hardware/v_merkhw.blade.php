@@ -105,7 +105,7 @@
         <div class="modal-body">            
             <div class="form-group">
                 <label>Nama Merk Hardware</label>                                
-                <input name="nama_merk_hw" class="form-control" value="{{ $data->nama_merk_hw }}">
+                <input autofocus="autofocus" name="nama_merk_hw" class="form-control" value="{{ $data->nama_merk_hw }}">
                 <div class="text-danger">
                     @error('nama_merk_hw')
                         {{ $message }}

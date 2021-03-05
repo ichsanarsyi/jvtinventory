@@ -83,7 +83,7 @@
 									<div class="input-group-addon">
 										<b>Rp</b>
 									</div>
-									<input name="harga_sw" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ $software->harga_sw }}">
+									<input name="harga_sw" class="form-control uang" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ $software->harga_sw }}">
 								</div>
 								<div class="text-danger">
 									@error('harga_sw')

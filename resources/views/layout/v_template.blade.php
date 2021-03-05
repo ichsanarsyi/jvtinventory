@@ -163,6 +163,8 @@
 
 <!-- jQuery 3 -->
 <script src="{{asset('template')}}/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- jQuery Mask -->
+<script src="{{asset('template')}}/bower_components/jquery/dist/jquery.mask.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('template')}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
@@ -231,10 +233,10 @@
 </script>
 {{---------------------------------------------------------------------}}
 
-{{-- Script Untuk Auto Focus saat Modal muncul --}}
+{{-- Script Untuk Auto Focus & Select saat Modal muncul --}}
 <script>
   $('.modal').on('shown.bs.modal', function() {
-  $(this).find('[autofocus]').focus();
+  $(this).find('[autofocus]').focus().select();
   });
 </script>
 {{-----------------------------------------------}}
@@ -252,27 +254,18 @@ $('select.select2').on('select2:closing', function (e) {
   });
 });
 </script>
+{{----------------------------------------------------------}}
 
-{{-- <script>
-$("#first").keyup(function(event) {
-
-// skip for arrow keys
-if(event.which >= 37 && event.which <= 40) return;
-
-// format number
-$(this).val(function(index, value) {
-     return value
-     .replace(/\D/g, "")
-     .replace(/\B(?=(\d{3})+(?!\d))/g, ".")
-     ;
-     });
+{{-- Script Format Input Uang --}}
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.uang').mask('000.000.000.000', {reverse: true});
+})
+$(document).submit(function() {
+  $('.uang').unmask();
 });
-
-$("#btn").click(function(event) {
-var firstValue = Number($('#first').val().replace(/./, ''));
-console.log(firstValue);
-});
-</script> --}}
+</script>
+{{------------------------}}
 
 </body>
 </html>

@@ -75,15 +75,15 @@
 								</div>
 							</div>
 						</div>
-							<div class="col-sm-6">
+						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Harga</label>
 								<div class="input-group">
 									<div class="input-group-addon">
 										<b>Rp</b>
 									</div>
-									<input id='first' name="harga_hw" class="form-control" value="{{ $hardware->harga_hw }}">
-								</div>								
+									<input name="harga_hw" class="form-control uang" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ $hardware->harga_hw }}">
+								</div>
 								<div class="text-danger">
 									@error('harga_hw')
 										{{ $message }}
@@ -162,7 +162,7 @@
 					
 					<div class="row">
 						<div class="col-sm-12">
-								<a href="{{ url('hardware') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+								<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 								<button type="submit" class="btn btn-success pull-right"><i class="fa fa-save fa-fw"></i>Simpan</button>
 						</div>
 					</div>
