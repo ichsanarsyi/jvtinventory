@@ -70,7 +70,7 @@
         <div class="modal-body">            
             <div class="form-group">
                 <label>Jenis Lisensi</label>                                
-                <input name="jenis_lisensi" class="form-control" value="{{ old('jenis_lisensi') }}">
+                <input name="jenis_lisensi" autofocus="autofocus" class="form-control" value="{{ old('jenis_lisensi') }}">
                 <div class="text-danger">
                     @error('jenis_lisensi')
                         {{ $message }}
@@ -105,7 +105,7 @@
         <div class="modal-body">            
             <div class="form-group">
                 <label>Jenis Lisensi</label>                                
-                <input name="jenis_lisensi" class="form-control" value="{{ $data->jenis_lisensi }}">
+                <input name="jenis_lisensi" autofocus="autofocus" class="form-control" value="{{ $data->jenis_lisensi }}">
                 <div class="text-danger">
                     @error('jenis_lisensi')
                         {{ $message }}

@@ -70,7 +70,7 @@
         <div class="modal-body">            
             <div class="form-group">
                 <label>Nama Merk Software</label>                                
-                <input name="nama_merk_sw" class="form-control" value="{{ old('nama_merk_sw') }}">
+                <input name="nama_merk_sw" autofocus="autofocus" class="form-control" value="{{ old('nama_merk_sw') }}">
                 <div class="text-danger">
                     @error('nama_merk_sw')
                         {{ $message }}
