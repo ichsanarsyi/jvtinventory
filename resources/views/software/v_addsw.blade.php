@@ -37,7 +37,7 @@
 							</div>
 							<div class="form-group">
 								<label>Jenis Lisensi</label>
-                                <select name="id_jenis_lisensi" class="form-control select2" style="width: 100%;">
+                                <select id="lisensi" name="id_jenis_lisensi" class="form-control select2" style="width: 100%;">
 									<option value="{{ old('id_jenis_lisensi') }}"></option>
 									@foreach ($lisensi as $data)
 										<option value="{{ $data->id_jenis_lisensi }}"  {{ (old('id_jenis_lisensi') == $data->id_jenis_lisensi ? 'selected="selected"' : '') }}>{{ $data->jenis_lisensi }}</option>

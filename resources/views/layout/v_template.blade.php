@@ -29,9 +29,18 @@
       background-color:#efeeff;
       outline-color: rgb(6, 6, 153);
       outline-width: 2px;
+    }    
+  </style>
+
+  <style type="text/css">
+    .divider{
+      width: 100%;
+      height: 1px;
+      background: #BBB;
+      margin: 1rem 0;
     }
-    
-    </style>
+
+  </style>
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -185,6 +194,7 @@
 <script src="{{asset('template/')}}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 
+
 <script>
   $(function () {
     $('#tbl_hardware').DataTable()
@@ -262,16 +272,88 @@ $('select.select2').on('select2:closing', function (e) {
 </script>
 {{----------------------------------------------------------}}
 
-{{-- Script Format Input Uang --}}
+{{-- Script Format Input Uang & FILTER--}} 
 <script type="text/javascript">
-$(document).ready(function(){
-    $('.uang').mask('000.000.000.000', {reverse: true});
-})
-$(document).submit(function() {
-  $('.uang').unmask();
-});
+  $(document).ready(function(){
+      $('.uang').mask('000.000.000.000', {reverse: true});
+  })
+  $(document).submit(function() {
+    $('.uang').unmask();
+  });
+
+  // ini buat filter DataTable tapi error
+  // let merk = $('#filter_merk').val()
+  // ,jenis_lisensi = $('#filter_jenis_lisensi').val()
+
+  // const table = $('#tbl_software').DataTable({
+  //   "ajax":{
+  //     url: "{{url('software')}}",
+  //     type: "POST",
+  //     data:function(d){
+  //       d.merk = merk;
+  //       d.jenis_lisensi = jenis_lisensi;
+  //       return d
+  //     }
+  //   }
+  // })
+
+  // $(".filter").on('change', function(){
+  //   merk = $('#filter_merk').val()
+  //   jenis_lisensi = $('#filter_jenis_lisensi').val()
+  // })
 </script>
+
 {{------------------------------}}
+
+{{-- disable datepicker2 jika pilihan onetime subscribtion --}}
+{{-- <script type="text/javascript">
+  $(function () {
+      $("#lisensi").change(function () {
+          if ($(this).val() == 1) {
+            $("#datepicker2").removeAttr("disabled");
+          } else {            
+            $("#datepicker2").attr("disabled", "disabled");
+          }
+      });
+  });
+</script> --}}
+
+{{-- Percobaan di bawah ini --}}
+{{-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> --}}
+{{-- <script type="text/javascript">
+    $(function () {
+        $("#ddlModels").change(function () {
+            if ($(this).val() == 5) {
+                $("#txtOther").removeAttr("disabled");
+                $("#txtOther").focus();
+            } else {
+                $("#txtOther").attr("disabled", "disabled");
+            }
+        });
+    });
+</script>
+
+<script src="script.js">
+  var form = document.getElementById('userInfo'),
+  gender = form.elements.gender;
+
+  gender.onchange = function () {
+    var form = this.form;
+    if (this.value === 'male') {
+        form.elements.pregnant.disabled = true;
+    } else {
+        form.elements.pregnant.disabled = false;
+    }
+  };
+</script>
+
+<script>
+  function myFunction() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("demo").innerHTML = "You selected: " + x;
+  }
+</script> --}}
+
 
 </body>
 </html>

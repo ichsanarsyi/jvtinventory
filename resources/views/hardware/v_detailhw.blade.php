@@ -81,7 +81,7 @@
 		</div>
 		<!-- /.box -->
 	  </div>
-<div class="col-md-2">
+	<div class="col-md-2">
 	<div class="box box-primary box-solid">
 	  <div class="box-header with-border">
 		<h3 class="box-title">Kode Asset</h3>
@@ -145,5 +145,12 @@
 	</div>
 	<!-- /.box -->
   </div>
+</div>
+<div class="row">
+	<div class="col col-sm-6">
+		<div class="form-group">
+			<a href="{{ url('hardware') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+		</div>
+	</div>
 </div>
 @endsection
