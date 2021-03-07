@@ -18,8 +18,8 @@
                 </div> 
                 <div class="col-md-3">
                     <select name="tbl_hardware" class="form-control select2 select-filter">
-                        <option selected disabled>Filter Kategori</option>
-                        @foreach ($hardware as $data)
+                        <option selected>Filter Kategori Off</option>
+                        @foreach ($kategori as $data)
                         <option value="{{ $data->id_kategori_hw }}">{{ $data->nama_kategori_hw }}</option>
                         @endforeach
                     </select>
@@ -30,6 +30,16 @@
         <!-- /.box-header -->
         <div class="box-body">
           <table id="tbl_hardware" class="display table table-bordered table-striped">
+            <tfoot>
+                <tr>
+                  <th></th>
+                  <th>Nama Hardware</th>
+                  <th>Merk</th>
+                  <th>Seri</th>
+                  <th>Kategori</th>
+                  <th></th>
+                </tr>
+            </tfoot>
             <thead>
             <tr>
               <th>No</th>
@@ -38,7 +48,6 @@
               <th>Seri</th>
               <th>Kategori</th>
               <th>Aksi</th>
-              
             </tr>
             </thead>
             <tbody>
@@ -60,7 +69,6 @@
                 </tr>
             @endforeach
             </tbody>
-            <tfoot></tfoot>
           </table>
         </div>
         <!-- /.box-body -->

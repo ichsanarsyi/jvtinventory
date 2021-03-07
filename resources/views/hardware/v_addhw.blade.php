@@ -30,6 +30,22 @@
 									@endforeach
 								</select>
 							</div>
+							{{-- 
+							<div class="form-group">
+								<label>Merk Hardware</label>
+								<input name="id_merk_hw" list="merk_hw" class="form-control" value="{{ old('id_merk_hw') }}">
+									<datalist id="merk_hw">
+									@foreach ($merk as $data)
+										<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
+									@endforeach
+									</datalist>
+									<div class="text-danger">
+										@error('id_merk_hw')
+											{{ $message }}
+										@enderror
+									</div>
+							</div>
+							 --}}
 							<div class="form-group">
 								<label>Seri Hardware</label>
 								<input name="seri_hw" class="form-control" value="{{ old('seri_hw') }}">
