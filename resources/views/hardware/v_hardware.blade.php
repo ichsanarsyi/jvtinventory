@@ -11,12 +11,35 @@
         </div>
         @endif
       <div class="box box-primary">
-        <div class="box-header">
-            <a href="/hardware/addhw/" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
+        <div class="box-header with-border text-blue">
+            <div class="row">
+                <div class="col-md-1" style="margin-right: 20px">
+                    <a href="/hardware/addhw/" class="btn btn-md btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
+                </div> 
+                <div class="col-md-3">
+                    <select name="tbl_hardware" class="form-control select2 select-filter">
+                        <option selected>Filter Kategori Off</option>
+                        @foreach ($kategori as $data)
+                        <option value="{{ $data->id_kategori_hw }}">{{ $data->nama_kategori_hw }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
         </div>
+     
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="tbl_hardware" class="table table-bordered table-striped">
+          <table id="tbl_hardware" class="display table table-bordered table-striped">
+            <tfoot>
+                <tr>
+                  <th></th>
+                  <th>Nama Hardware</th>
+                  <th>Merk</th>
+                  <th>Seri</th>
+                  <th>Kategori</th>
+                  <th></th>
+                </tr>
+            </tfoot>
             <thead>
             <tr>
               <th>No</th>
@@ -25,7 +48,6 @@
               <th>Seri</th>
               <th>Kategori</th>
               <th>Aksi</th>
-              
             </tr>
             </thead>
             <tbody>

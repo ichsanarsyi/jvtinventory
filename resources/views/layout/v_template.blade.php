@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>JVT Inventory | @yield('title')</title>
+  <title>@yield('title') | JVT Inventory</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -40,7 +40,12 @@
       margin: 1rem 0;
     }
 
-  </style>
+    tfoot {
+        display: table-header-group;
+    }
+
+    </style>
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -197,7 +202,6 @@
 
 <script>
   $(function () {
-    $('#tbl_hardware').DataTable()
     $('#tbl_software').DataTable()
     $('#tbl_jenis_lisensi').DataTable()
     $('#tbl_merk_sw').DataTable()
@@ -305,6 +309,62 @@ $('select.select2').on('select2:closing', function (e) {
 
 {{------------------------------}}
 
+
+{{-- Filter tfoot --}}
+<script>
+  $(document).ready( function () {
+    var table = $('#tbl_hardware').DataTable( {
+      orderCellsTop: true,
+		"order": [[ 1, "desc" ]],
+		"oLanguage": {
+			"sInfo": "Showing _START_ to _END_ of _TOTAL_ items."
+		}
+	});
+
+    $("tfoot th").each( function ( i ) {
+		
+		if ($(this).text() !== '') {
+	        var isStatusColumn = (($(this).text() == 'Status') ? true : false);
+			var select = $('<select><option value=""></option></select>')
+	            .appendTo( $(this).empty() )
+	            .on( 'change', function () {
+	                var val = $(this).val();
+					
+	                table.column( i )
+	                    .search( val ? '^'+$(this).val()+'$' : val, true, false )
+	                    .draw();
+	            } );
+	 		
+			// Get the Status values a specific way since the status is a anchor/image
+			if (isStatusColumn) {
+				var statusItems = [];
+				
+                /* ### IS THERE A BETTER/SIMPLER WAY TO GET A UNIQUE ARRAY OF <TD> data-filter ATTRIBUTES? ### */
+				table.column( i ).nodes().to$().each( function(d, j){
+					var thisStatus = $(j).attr("data-filter");
+					if($.inArray(thisStatus, statusItems) === -1) statusItems.push(thisStatus);
+				} );
+				
+				statusItems.sort();
+								
+				$.each( statusItems, function(i, item){
+				    select.append( '<option value="'+item+'">'+item+'</option>' );
+				});
+
+			}
+            // All other non-Status columns (like the example)
+			else {
+				table.column( i ).data().unique().sort().each( function ( d, j ) {  
+					select.append( '<option value="'+d+'">'+d+'</option>' );
+		        } );	
+			}
+	        
+		}
+    } ); 
+} );
+
+</script>
+
 {{-- disable datepicker2 jika pilihan onetime subscribtion --}}
 {{-- <script type="text/javascript">
   $(function () {
@@ -353,7 +413,6 @@ $('select.select2').on('select2:closing', function (e) {
     document.getElementById("demo").innerHTML = "You selected: " + x;
   }
 </script> --}}
-
 
 </body>
 </html>

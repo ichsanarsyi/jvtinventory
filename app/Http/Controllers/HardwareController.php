@@ -17,7 +17,7 @@ class HardwareController extends Controller
      {
          $data = [
              'hardware' => $this->HardwareModel->allData(),
-             'pemakai' => $this->HardwareModel->allPemakai()
+             'kategori' => $this->HardwareModel->allKategori()
          ];
          return view('hardware.v_hardware', $data);
     }
@@ -66,7 +66,7 @@ class HardwareController extends Controller
             'id_pemakai' => 'required'
         ],[
             'nama_hw.required' => 'Nama Hardware wajib diisi',
-            'merk_hw.required' => 'Merk Hardware wajib diisi',
+            'id_merk_hw.required' => 'Merk Hardware wajib diisi',
             'seri_hw.required' => 'Seri Hardware wajib diisi',
             'id_kategori_hw.required' => 'Kategori wajib diisi',
             'harga_hw.required' => 'Harga Hardware wajib diisi',

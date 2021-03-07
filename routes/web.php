@@ -67,7 +67,7 @@ Route::get('/masterdata/lokasi/deletelokasi/{id_lokasi}', [LokasiController::cla
 
 //CRUD Departemen Hardware:
 Route::get('/masterdata/departemen', [DepartemenController::class, 'index'])->name('departemen');
-Route::post('/masterdata/departemen/insert', [DepartemenController::class, 'insert']);
+Route::post('/masterdata/departemen/insertdepartemen', [DepartemenController::class, 'insert']);
 Route::post('/masterdata/departemen/updatedepartemen/{id_departemen}', [DepartemenController::class, 'update']);
 Route::get('/masterdata/departemen/deletedepartemen/{id_departemen}', [DepartemenController::class, 'delete']);
 
