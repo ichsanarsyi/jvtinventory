@@ -16,6 +16,27 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
+            <div class="row">  
+                <div class="col-md-4">
+                    <label>Filter Merk</label>
+                    <select id="filter_merk" class="form-control filter">
+                        <option value="">Pilih Merk</option>
+                        @foreach ($merk as $data)
+                        <option value="{{$data->id_merk_sw}}">{{$data->nama_merk_sw}}</option>                           
+                        @endforeach
+                    </select>
+                </div>              
+                <div class="col-md-4">
+                    <label>Filter Jenis Lisensi</label>
+                    <select id="filter_jenis_lisensi" class="form-control filter">
+                        <option value="">Pilih Jenis Lisensi</option>
+                        @foreach ($lisensi as $data)
+                        <option value="{{$data->id_jenis_lisensi}}">{{$data->jenis_lisensi}}</option>                           
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+            <div class="divider"></div>
           <table id="tbl_software" class="table table-bordered table-striped">
             <thead>
             <tr>
