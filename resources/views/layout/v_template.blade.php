@@ -44,6 +44,9 @@
         display: table-header-group;
     }
 
+    table.dataTable thead tr {
+     background-color: rgba(233, 239, 255, 0.672);
+    }
     </style>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -315,7 +318,7 @@ $('select.select2').on('select2:closing', function (e) {
   $(document).ready( function () {
     var table = $('#tbl_hardware').DataTable( {
       orderCellsTop: true,
-		"order": [[ 1, "desc" ]],
+		"order": [[ 0, "asc" ]],
 		"oLanguage": {
 			"sInfo": "Showing _START_ to _END_ of _TOTAL_ items."
 		}
@@ -363,6 +366,14 @@ $('select.select2').on('select2:closing', function (e) {
     } ); 
 } );
 
+</script>
+
+<script>
+  jQuery(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
 </script>
 
 {{-- disable datepicker2 jika pilihan onetime subscribtion --}}

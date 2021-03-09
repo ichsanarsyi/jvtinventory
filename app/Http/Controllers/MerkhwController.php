@@ -34,7 +34,22 @@ class MerkhwController extends Controller
         
         $this->MerkhwModel->addData($data);
         return redirect()->route('merkhw')->with('pesan', 'Data berhasil ditambahkan.');
+    }
 
+    public function insert2()
+    {
+        Request()->validate([
+            'nama_merk_hw' => 'required'
+        ],[
+            'nama_merk_hw.required' => 'Merk Hardware wajib diisi'
+        ]);
+        
+        $data=[
+            'nama_merk_hw' => Request()->nama_merk_hw    
+        ];
+        
+        $this->MerkhwModel->addData($data);
+        return redirect()->to('hardware/addhw');
     }
 
     public function update($id_merk_sw)

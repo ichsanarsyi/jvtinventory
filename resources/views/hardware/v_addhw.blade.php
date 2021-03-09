@@ -23,29 +23,23 @@
 							</div>
 							<div class="form-group">
 								<label>Merk Hardware</label>
-								<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_merk_hw') }}</option>
-									@foreach ($merk as $data)
-										<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
-									@endforeach
-								</select>
+								<div class="row">
+										<div class="form-group">
+											<div class="col-sm-11">
+											<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
+												<option value="">{{ old('id_merk_hw') }}</option>
+												@foreach ($merk as $data)
+													<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
+												@endforeach
+											</select>
+											</div>
+											<div class="col-sm-1">
+											<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw"></i></button>
+											</div>
+										</div>
+
+								</div>
 							</div>
-							{{-- 
-							<div class="form-group">
-								<label>Merk Hardware</label>
-								<input name="id_merk_hw" list="merk_hw" class="form-control" value="{{ old('id_merk_hw') }}">
-									<datalist id="merk_hw">
-									@foreach ($merk as $data)
-										<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
-									@endforeach
-									</datalist>
-									<div class="text-danger">
-										@error('id_merk_hw')
-											{{ $message }}
-										@enderror
-									</div>
-							</div>
-							 --}}
 							<div class="form-group">
 								<label>Seri Hardware</label>
 								<input name="seri_hw" class="form-control" value="{{ old('seri_hw') }}">
@@ -194,4 +188,38 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Modal Merk Add -->
+<div class="modal fade" id="modal-add">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Tambah Merk Hardware</h4>
+        </div>
+        <form action="insertmerkinhw" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="modal-body">            
+            <div class="form-group">
+                <label>Nama Merk Hardware</label>                                
+                <input autofocus="autofocus" name="nama_merk_hw" class="form-control" value="{{ old('nama_merk_hw') }}">
+                <div class="text-danger">
+                    @error('nama_merk_hw')
+                        {{ $message }}
+                    @enderror
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->  
 @endsection
