@@ -13,7 +13,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Nama Hardware</label>
+								<label>Nama Hardware<span style="color:red;">*</span></label>
 								<input autofocus name="nama_hw" class="form-control" value="{{ old('nama_hw') }}">
 								<div class="text-danger">
 									@error('nama_hw')
@@ -22,22 +22,26 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Merk Hardware</label>
+								<label>Merk Hardware<span style="color:red;">*</span></label>
 								<div class="row">
-										<div class="form-group">
-											<div class="col-sm-11">
-											<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
-												<option value="">{{ old('id_merk_hw') }}</option>
-												@foreach ($merk as $data)
-													<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
-												@endforeach
-											</select>
-											</div>
-											<div class="col-sm-1">
-											<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw"></i></button>
-											</div>
+									<div class="form-group">
+										<div class="col-sm-11">
+										<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
+											<option value="">{{ old('id_merk_hw') }}</option>
+											@foreach ($merk as $data)
+												<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
+											@endforeach
+										</select>
 										</div>
-
+										<div class="col-sm-1">
+										<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw"></i></button>
+										</div>
+									</div>
+								</div>
+								<div class="text-danger">
+									@error('id_merk_hw')
+										{{ $message }}
+									@enderror
 								</div>
 							</div>
 							<div class="form-group">
@@ -50,7 +54,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Kategori</label>
+								<label>Kategori<span style="color:red;">*</span></label>
 								<select name="id_kategori_hw" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_kategori_hw') }}</option>
 									@foreach ($kategori as $data)
@@ -111,7 +115,7 @@
 									@endforeach
 								</select>
 								<div class="text-danger">
-									@error('lokasi')
+									@error('id_lokasi')
 										{{ $message }}
 									@enderror
 								</div>
@@ -125,15 +129,15 @@
 									@endforeach
 								</select>
 								<div class="text-danger">
-									@error('departemen')
+									@error('id_departemen')
 										{{ $message }}
 									@enderror
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Tanggal Beli Hardware</label>
+								<label>Tanggal Beli Hardware<span style="color:red;">*</span></label>
 								<div class="input-group date">									
-									<input name="tgl_beli_hw" type="text" class="form-control pull-right" id="datepicker1" value="{{ old('tgl_beli_hw') }}">
+									<input autocomplete="off" name="tgl_beli_hw" type="text" class="form-control pull-right" id="datepicker1" value="{{ old('tgl_beli_hw') }}">
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
@@ -145,9 +149,9 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Tanggal Batas Garansi</label>
+								<label>Tanggal Batas Garansi<span style="color:red;">*</span></label>
 								<div class="input-group date">									
-									<input name="tgl_batas_garansi" type="text" class="form-control pull-right" id="datepicker2" value="{{ old('tgl_batas_garansi') }}">
+									<input autocomplete="off" name="tgl_batas_garansi" type="text" class="form-control pull-right" id="datepicker2" value="{{ old('tgl_batas_garansi') }}">
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
@@ -159,7 +163,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Pemakai</label>
+								<label>Pemakai<span style="color:red;">*</span></label>
 								<select name="id_pemakai" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_pemakai') }}</option>
 									@foreach ($pemakai as $data)

@@ -367,14 +367,14 @@ $('select.select2').on('select2:closing', function (e) {
 } );
 
 </script>
-
+{{-- 
 <script>
   jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");
     });
 });
-</script>
+</script> --}}
 
 {{-- disable datepicker2 jika pilihan onetime subscribtion --}}
 {{-- <script type="text/javascript">
