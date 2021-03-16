@@ -17,7 +17,7 @@
         <!-- /.box-header -->
         <div class="box-body">
             <div class="row">  
-                <div class="col-md-4">
+                <div class="col-md-4 category-filter">
                     <label>Filter Merk</label>
                     <select id="filter_merk" class="form-control filter">
                         <option value="">Pilih Merk</option>
@@ -37,17 +37,26 @@
                 </div>
             </div>
             <div class="divider"></div>
-          <table id="tbl_software" class="table table-bordered table-striped">
+          <table id="tbl_software" class="table table-bordered table-striped table-hover">
+            <tfoot>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tfoot>
             <thead>
-            <tr>
-              <th>No</th>
-              <th>Nama Software</th>
-              <th>Merk</th>
-              <th>Jenis Lisensi</th>
-              <th>Versi</th>
-              <th>Aksi</th>
-              
-            </tr>
+                <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Software</th>
+                    <th scope="col">Merk</th>
+                    <th scope="col">Jenis Lisensi</th>
+                    <th scope="col">Versi</th>
+                    <th scope="col">Aksi</th>                
+                </tr>
             </thead>
             <tbody>
             <?php $no=1; ?>
@@ -67,7 +76,7 @@
                     </td>
                 </tr>
             @endforeach
-            </tbody>
+            </tbody>            
           </table>
         </div>
         <!-- /.box-body -->

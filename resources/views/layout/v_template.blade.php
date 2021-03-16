@@ -24,6 +24,8 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/skins/_all-skins.min.css">
 
+  
+
   <style>
     input:focus {
       background-color:#efeeff;
@@ -199,10 +201,9 @@
 <script src="{{asset('template/')}}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 
-
 <script>
   $(function () {
-    $('#tbl_software').DataTable()
+    // $('#tbl_software').DataTable()
     $('#tbl_jenis_lisensi').DataTable()
     $('#tbl_merk_sw').DataTable()
     $('#tbl_merk_hw').DataTable()
@@ -362,6 +363,88 @@ $('select.select2').on('select2:closing', function (e) {
 		}
     } ); 
 } );
+
+//[Works] filter per kolom
+// $(document).ready(function() {
+//     $('#tbl_software').DataTable( {
+//         initComplete: function () {            
+//             this.api().columns([2,3]).every( function () {
+//                 var column = this;
+//                 var select = $('<select><option value="">Show All</option></select>')
+//                     .appendTo( $(column.footer()).empty() )
+//                     .on( 'change', function () {
+//                         var val = $.fn.dataTable.util.escapeRegex(
+//                             $(this).val()
+//                         );
+ 
+//                         column
+//                             .search( val ? '^'+val+'$' : '', true, false )
+//                             .draw();
+//                     } );
+ 
+//                 column.data().unique().sort().each( function ( d, j ) {
+//                     select.append( '<option value="'+d+'">'+d+'</option>' )
+//                 } );
+//             } );
+//         }
+//     } );
+// } );
+
+// Filter dropdown works but can't catch the wanted value
+// $(document).ready(function() {
+//     var table =  $('#tbl_software').DataTable();
+
+//     $('#filter_merk').on('change', function () {
+//         table.columns([2,3]).search( this.value ).draw();
+//     } );
+//     $('#filter_jenis_lisensi').on('change', function () {
+//         table.columns([2,3]).search( this.value ).draw();
+//     } );
+// });
+
+$("document").ready(function () {
+
+  $("#tbl_software").dataTable({
+    "searching": true
+  });
+
+  //Get a reference to the new datatable
+  var table = $('#tbl_software').DataTable();
+
+  //Take the category filter drop down and append it to the datatables_filter div. 
+  //You can use this same idea to move the filter anywhere withing the datatable that you want.
+  //$("#tbl_software_filter.dataTables_filter").append($("#filter_merk"));
+
+  //Get the column index for the Category column to be used in the method below ($.fn.dataTable.ext.search.push)
+  //This tells datatables what column to filter on when a user selects a value from the dropdown.
+  //It's important that the text used here (Category) is the same for used in the header of the column to filter
+  var categoryIndex = 0;
+  $("#tbl_software th").each(function (i) {
+    if ($($(this)).html() == "Merk") { //if 'Category' is changed into 'Merk', dataTable will not give any response
+      categoryIndex = i; return false;
+    }
+  });
+
+  //Use the built in datatables API to filter the existing rows by the Category column
+  $.fn.dataTable.ext.search.push(
+    function (settings, data, dataIndex) {
+      var selectedItem = $('#filter_merk').val()
+      var category = data[categoryIndex];
+      if (selectedItem === "" || category.includes(selectedItem)) {
+        return true;
+      }
+      return false;
+    }
+);
+
+//Set the change event for the Category Filter dropdown to redraw the datatable each time
+//a user selects a new filter.
+$("#filter_merk").change(function (e) {
+  table.draw();
+});
+
+table.draw();
+});
 
 </script>
 
