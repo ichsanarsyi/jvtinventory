@@ -60,7 +60,9 @@ Route::post('/masterdata/staff/insertstaff', [StaffController::class, 'insert'])
 Route::get('/masterdata/kondisi', [KondisiController::class, 'index'])->name('kondisi');
 Route::post('/masterdata/kondisi/insertkondisi', [KondisiController::class, 'insert']);
 
-Route::get('/staff', [StaffController::class, 'index']);
+//CRUD User:
+Route::get('/admin', [UserController::class, 'indexAdmin'])->name('user');
+Route::get('/user', [UserController::class, 'indexUser'])->name('user');
 
 Auth::routes();
 
@@ -99,10 +101,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
     
     Route::post('/masterdata/kondisi/updatekondisi/{id_kondisi}', [KondisiController::class, 'update']);
     Route::get('/masterdata/kondisi/deletekondisi/{id_kondisi}', [KondisiController::class, 'delete']);
-    
-    Route::get('/user', [UserController::class, 'index'])->name('user');
-    Route::get('/admin', [UserController::class, 'index'])->name('user');
-    Route::get('/user/detailsw/{id_sw}', [UserController::class, 'detail']);
-    Route::post('/user/insertsw', [UserController::class, 'insert']);
-    Route::get('/user/addsw', [UserController::class, 'add']);    
+  
 });

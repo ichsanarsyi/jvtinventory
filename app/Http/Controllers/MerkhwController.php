@@ -53,7 +53,7 @@ class MerkhwController extends Controller
         return redirect()->to('hardware/addhw');
     }
 
-    public function update($id_merk_sw)
+    public function update($id_merk_hw)
     {
         Request()->validate([
             'nama_merk_hw' => 'required'
@@ -65,14 +65,14 @@ class MerkhwController extends Controller
             'nama_merk_hw' => Request()->nama_merk_hw    
         ];
         
-        $this->MerkhwModel->editData($id_merk_sw, $data);       
+        $this->MerkhwModel->editData($id_merk_hw, $data);       
         return redirect()->route('merkhw')->with('pesan', 'Data berhasil diedit.');
 
     }
     
-    public function delete($id_merk_sw)
+    public function delete($id_merk_hw)
     {
-        $this->MerkhwModel->deleteData($id_merk_sw);
+        $this->MerkhwModel->deleteData($id_merk_hw);
         return redirect()->route('merkhw')->with('pesan', 'Data berhasil dihapus.');
     }
 }
