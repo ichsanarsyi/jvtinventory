@@ -10,6 +10,7 @@ class MerkhwController extends Controller
     public function __construct()
     {
         $this->MerkhwModel = new MerkhwModel();
+        $this->middleware('auth');
     }
 
     public function index()

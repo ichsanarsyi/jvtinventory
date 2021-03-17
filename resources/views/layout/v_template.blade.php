@@ -106,7 +106,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Alexander Pierce</span>
+              <span class="hidden-xs">{{ Auth::user()->name }} <span style="color: rgb(225, 225, 225)"> - Admin</span></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -114,7 +114,7 @@
                 <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                 <p>
-                  Alexander Pierce - Web Developer
+                  {{ Auth::user()->name }} <br>{{ Auth::user()->email }}
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -125,7 +125,10 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                    <button type="submit" class="btn btn-default btn-flat">Log out</button>
+                  </form>
                 </div>
               </li>
             </ul>
@@ -145,6 +148,18 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+
+    {{-- <div class="card-body">
+      @if (session('status'))
+          <div class="alert alert-success" role="alert">
+              {{ session('status') }}
+          </div>
+      @endif
+      <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <p><i class="icon fa fa-check"></i>{{ __('Login Berhasil!') }}</p>
+    </div> --}}
+
     <section class="content-header text-secondary">
       <h3 style="margin:-0px;">
         @yield('title')
@@ -156,7 +171,7 @@
     <section class="content" container-fluid>
 
     @yield('content')
-    
+
     <!--------------------------
         | Your Page Content Here |
         -------------------------->

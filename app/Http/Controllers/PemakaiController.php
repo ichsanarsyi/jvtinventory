@@ -10,6 +10,7 @@ class PemakaiController extends Controller
     public function __construct()
     {
         $this->PemakaiModel = new PemakaiModel();
+        $this->middleware('auth');
     }
 
     public function index()

@@ -11,6 +11,7 @@ class DepartemenController extends Controller
     public function __construct()
     {
         $this->DepartemenModel = new DepartemenModel();
+        $this->middleware('auth');
     }
 
     public function index()

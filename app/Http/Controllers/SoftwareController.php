@@ -11,6 +11,7 @@ class SoftwareController extends Controller
     public function __construct()
     {
         $this->SoftwareModel = new SoftwareModel();
+        $this->middleware('auth');
     }
 
     public function index()

@@ -11,6 +11,7 @@ class MerkswController extends Controller
     public function __construct()
     {
         $this->MerkswModel = new MerkswModel();
+        $this->middleware('auth');
     }
 
     public function index()

@@ -11,6 +11,7 @@ class HardwareController extends Controller
     public function __construct()
     {
         $this->HardwareModel = new HardwareModel();
+        $this->middleware('auth');
     }
     
     public function index()

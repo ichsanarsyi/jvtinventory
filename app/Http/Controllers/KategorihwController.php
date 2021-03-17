@@ -10,6 +10,7 @@ class KategorihwController extends Controller
     public function __construct()
     {
         $this->KategorihwModel = new KategorihwModel();
+        $this->middleware('auth');
     }
 
     public function index()
