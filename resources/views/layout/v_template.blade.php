@@ -326,58 +326,106 @@ $('select.select2').on('select2:closing', function (e) {
 
 {{------------------------------}}
 
-
-{{-- Filter tfoot --}}
 <script>
-  $(document).ready( function () {
-    var table = $('#tbl_hardware').DataTable( {
-      orderCellsTop: true,
-		"order": [[ 0, "asc" ]],
-		"oLanguage": {
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ items."
-		}
-	});
+  {{-- Filter tfoot Hardware Lama --}}
+//   $(document).ready( function () {
+//     var table = $('#tbl_hardware').DataTable( {
+//       orderCellsTop: true,
+// 		"order": [[ 0, "asc" ]],
+// 		"oLanguage": {
+// 			"sInfo": "Showing _START_ to _END_ of _TOTAL_ items."
+// 		}
+// 	});
 
-    $("tfoot th").each( function ( i ) {
+//     $("tfoot th").each( function ( i ) {
 		
-		if ($(this).text() !== '') {
-	        var isStatusColumn = (($(this).text() == 'Status') ? true : false);
-			var select = $('<select><option value=""></option></select>')
-	            .appendTo( $(this).empty() )
-	            .on( 'change', function () {
-	                var val = $(this).val();
+// 		if ($(this).text() !== '') {
+// 	        var isStatusColumn = (($(this).text() == 'Status') ? true : false);
+// 			var select = $('<select><option value=""></option></select>')
+// 	            .appendTo( $(this).empty() )
+// 	            .on( 'change', function () {
+// 	                var val = $(this).val();
 					
-	                table.column( i )
-	                    .search( val ? '^'+$(this).val()+'$' : val, true, false )
-	                    .draw();
-	            } );
+// 	                table.column( i )
+// 	                    .search( val ? '^'+$(this).val()+'$' : val, true, false )
+// 	                    .draw();
+// 	            } );
 	 		
-			// Get the Status values a specific way since the status is a anchor/image
-			if (isStatusColumn) {
-				var statusItems = [];
+// 			// Get the Status values a specific way since the status is a anchor/image
+// 			if (isStatusColumn) {
+// 				var statusItems = [];
 				
-                /* ### IS THERE A BETTER/SIMPLER WAY TO GET A UNIQUE ARRAY OF <TD> data-filter ATTRIBUTES? ### */
-				table.column( i ).nodes().to$().each( function(d, j){
-					var thisStatus = $(j).attr("data-filter");
-					if($.inArray(thisStatus, statusItems) === -1) statusItems.push(thisStatus);
-				} );
+//                 /* ### IS THERE A BETTER/SIMPLER WAY TO GET A UNIQUE ARRAY OF <TD> data-filter ATTRIBUTES? ### */
+// 				table.column( i ).nodes().to$().each( function(d, j){
+// 					var thisStatus = $(j).attr("data-filter");
+// 					if($.inArray(thisStatus, statusItems) === -1) statusItems.push(thisStatus);
+// 				} );
 				
-				statusItems.sort();
+// 				statusItems.sort();
 								
-				$.each( statusItems, function(i, item){
-				    select.append( '<option value="'+item+'">'+item+'</option>' );
-				});
+// 				$.each( statusItems, function(i, item){
+// 				    select.append( '<option value="'+item+'">'+item+'</option>' );
+// 				});
 
-			}
-            // All other non-Status columns (like the example)
-			else {
-				table.column( i ).data().unique().sort().each( function ( d, j ) {  
-					select.append( '<option value="'+d+'">'+d+'</option>' );
-		        } );	
-			}
+// 			}
+//             // All other non-Status columns (like the example)
+// 			else {
+// 				table.column( i ).data().unique().sort().each( function ( d, j ) {  
+// 					select.append( '<option value="'+d+'">'+d+'</option>' );
+// 		        } );	
+// 			}
 	        
-		}
-    } ); 
+// 		}
+//     } ); 
+// } );
+
+//[Works] filter per kolom HW & SW
+$(document).ready(function() {
+  $('#tbl_hardware').DataTable( {
+        initComplete: function () {            
+            this.api().columns([2,3,4,5]).every( function () {
+                var column = this;
+                var select = $('<select><option value="">Show All</option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+
+    $('#tbl_software').DataTable( {
+        initComplete: function () {            
+            this.api().columns([2,3]).every( function () {
+                var column = this;
+                var select = $('<select><option value="">Show All</option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
 } );
 
 </script>

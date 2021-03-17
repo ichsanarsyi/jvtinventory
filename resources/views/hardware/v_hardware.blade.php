@@ -17,8 +17,7 @@
                     <a href="/hardware/addhw/" class="btn btn-md btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
                 </div> 
             </div>
-        </div>
-     
+        </div>     
         <!-- /.box-header -->
         <div class="box-body">
           <table id="tbl_hardware" class="display table table-bordered table-hover">
@@ -26,10 +25,10 @@
                 <tr>
                   <th></th>
                   <th></th>
-                  <th>Nama Hardware</th>
-                  <th>Merk</th>
-                  <th>Seri</th>
-                  <th>Kategori</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                   <th></th>
                 </tr>
             </tfoot>
