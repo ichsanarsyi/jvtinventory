@@ -25,7 +25,9 @@
               <th>ID Lokasi</th>
               <th>Asal Departemen</th>
               <th>Nama Lokasi</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
               
             </tr>
             </thead>

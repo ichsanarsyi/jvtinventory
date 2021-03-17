@@ -25,7 +25,9 @@
               <th>ID Pemakai</th>
               <th>Nama Pemakai</th>
               <th>Nomor Telepon Pemakai</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
               
             </tr>
             </thead>

@@ -9,7 +9,11 @@
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+          <a href="#"><i class="fa fa-circle text-success"></i>
+          @if (auth()->user()->level == 'Admin') 
+          Admin
+          @else User
+          @endif</a>
         </div>
       </div>      
         <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
@@ -24,16 +28,20 @@
                 <i class="fa fa-cloud"></i> <span>Software</span>
               </a>                
             </li>
+            
+            @if (auth()->user()->level == 'Admin') 
             <li class="{{ Request::segment(1) === 'admin' ? 'active' : null }}">
               <a href="/admin">
-                  <i class="glyphicon glyphicon-user"></i> <span>Admin</span>
+                <i class="glyphicon glyphicon-user"></i> <span>Admin</span>
               </a>
             </li>
             <li class="{{ Request::segment(1) === 'staff' ? 'active' : null }}">
               <a href="/staff">
-                  <i class="glyphicon glyphicon-user"></i> <span>Staff</span>
+                <i class="glyphicon glyphicon-user"></i> <span>Staff</span>
               </a>
             </li>         
+            @endif
+
             <li class="treeview {{ (request()->is('masterdata/*')) ? 'active' : '' }}">
               <a href="#">
               <i class="fa fa-th-list"></i> <span>Master Data</span>

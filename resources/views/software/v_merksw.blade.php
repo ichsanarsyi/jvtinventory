@@ -24,7 +24,9 @@
               <th>No</th>
               <th>ID Merk Software</th>
               <th>Nama Merk Software</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
               
             </tr>
             </thead>

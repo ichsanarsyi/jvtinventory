@@ -24,7 +24,9 @@
               <th>No</th>
               <th>ID Kategori Hardware</th>
               <th>Nama Kategori Hardware</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
               
             </tr>
             </thead>
@@ -36,12 +38,12 @@
                     <td>{{$data->id_kategori_hw}}</td>
                     <td>{{$data->nama_kategori_hw}}</td>
                     <td>
-                        <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_kategori_hw }}"><i class="fa fa-edit fa-fw"></i>
+                      <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_kategori_hw }}"><i class="fa fa-edit fa-fw"></i>
                         Edit
-                        </button>
-                        <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_kategori_hw }}"><i class="fa fa-trash fa-fw"></i>
+                      </button>
+                      <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_kategori_hw }}"><i class="fa fa-trash fa-fw"></i>
                         Delete
-                        </button>
+                      </button>
                     </td>
                 </tr>
             @endforeach

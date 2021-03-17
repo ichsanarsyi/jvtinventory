@@ -24,7 +24,9 @@
               <th>No</th>
               <th>ID Kondisi Hardware</th>
               <th>Nama Kondisi Hardware</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
               
             </tr>
             </thead>

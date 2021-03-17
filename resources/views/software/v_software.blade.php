@@ -12,7 +12,7 @@
         @endif
       <div class="box box-primary">
         <div class="box-header">
-            <a href="/software/addsw/" class="btn btn-sm btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
+            <a href="/software/addsw/" class="btn btn btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
@@ -60,10 +60,12 @@
                     <td>{{$data->versi_sw}}</td>
                     <td>
                         <a href="/software/detailsw/{{ $data->id_sw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
+                        @if (auth()->user()->level == 'Admin') 
                         <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                         <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_sw }}"><i class="fa fa-trash fa-fw"></i>
-                        Delete
+                            Delete
                         </button>
+                        @endif
                     </td>
                 </tr>
             @endforeach

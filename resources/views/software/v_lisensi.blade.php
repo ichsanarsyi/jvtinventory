@@ -24,7 +24,9 @@
               <th>No</th>
               <th>ID Jenis Lisensi</th>
               <th>Jenis Lisensi</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
               
             </tr>
             </thead>
