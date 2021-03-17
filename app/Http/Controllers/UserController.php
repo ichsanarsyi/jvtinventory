@@ -8,10 +8,11 @@ use App\Models\UserModel;
 
 class UserController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->UserModel = new UserModel();
-    // }
+    public function __construct()
+    {
+        $this->UserModel = new UserModel();
+        $this->middleware('auth');
+    }
 
     public function index()
     {

@@ -16,22 +16,15 @@
                 <div class="col-md-1" style="margin-right: 20px">
                     <a href="/hardware/addhw/" class="btn btn-md btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
                 </div> 
-                <div class="col-md-3">
-                    <select name="tbl_hardware" class="form-control select2 select-filter">
-                        <option selected>Filter Kategori Off</option>
-                        @foreach ($kategori as $data)
-                        <option value="{{ $data->id_kategori_hw }}">{{ $data->nama_kategori_hw }}</option>
-                        @endforeach
-                    </select>
-                </div>
             </div>
         </div>
      
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="tbl_hardware" class="display table table-bordered table-striped">
+          <table id="tbl_hardware" class="display table table-bordered table-hover">
             <tfoot>
                 <tr>
+                  <th></th>
                   <th></th>
                   <th>Nama Hardware</th>
                   <th>Merk</th>
@@ -43,6 +36,7 @@
             <thead>
             <tr>
               <th>No</th>
+              <th>Kode Asset</th>
               <th>Nama Hardware</th>
               <th>Merk</th>
               <th>Seri</th>
@@ -55,6 +49,7 @@
             @foreach ($hardware as $data)
                 <tr>
                     <td>{{$no++}}</td>
+                    <td>{{$data->kode_asset}}</td>
                     <td>{{$data->nama_hw}}</td>
                     <td>{{$data->nama_merk_hw}}</td>
                     <td>{{$data->seri_hw}}</td>

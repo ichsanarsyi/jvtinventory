@@ -11,13 +11,13 @@ class HardwareController extends Controller
     public function __construct()
     {
         $this->HardwareModel = new HardwareModel();
+        $this->middleware('auth');
     }
     
     public function index()
      {
          $data = [
-             'hardware' => $this->HardwareModel->allData(),
-             'kategori' => $this->HardwareModel->allKategori()
+            'hardware' => $this->HardwareModel->allData()
          ];
          return view('hardware.v_hardware', $data);
     }
@@ -53,13 +53,13 @@ class HardwareController extends Controller
         Request()->validate([
             'nama_hw' => 'required',
             'id_merk_hw' => 'required',
-            'seri_hw' => 'required',
+            // 'seri_hw' => 'required',
             'id_kategori_hw' => 'required',
             //'kode_asset' => 'required',
             //'id_kondisi' => 'required',
-            'harga_hw' => 'required',
-            'id_lokasi' => 'required',
-            'id_departemen' => 'required',
+            // 'harga_hw' => 'required',
+            // 'id_lokasi' => 'required',
+            // 'id_departemen' => 'required',
             'tgl_beli_hw' => 'required',
             'tgl_batas_garansi' => 'required',
             //'deskripsi_hw' => 'required',

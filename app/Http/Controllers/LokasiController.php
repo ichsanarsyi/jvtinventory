@@ -10,6 +10,7 @@ class LokasiController extends Controller
     public function __construct()
     {
         $this->LokasiModel = new LokasiModel();
+        $this->middleware('auth');
     }
 
     public function index()

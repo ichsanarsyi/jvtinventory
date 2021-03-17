@@ -11,6 +11,7 @@ class LisensiController extends Controller
     public function __construct()
     {
         $this->LisensiModel = new LisensiModel();
+        $this->middleware('auth');
     }
 
     public function index()

@@ -10,6 +10,7 @@ class KondisiController extends Controller
     public function __construct()
     {
         $this->KondisiModel = new KondisiModel();
+        $this->middleware('auth');
     }
 
     public function index()

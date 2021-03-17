@@ -17,7 +17,7 @@ use App\Http\Controllers\KondisiController;
 
 Route::get('/', [HomeController::class, 'index']);
 
-//CRUD Software:
+//CRUD Hardware:
 Route::get('/hardware', [HardwareController::class, 'index'])->name('hardware');
 Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 Route::get('/hardware/addhw', [HardwareController::class, 'add']);
@@ -50,6 +50,7 @@ Route::get('/masterdata/merksw/deletemerksw/{id_merk_sw}', [MerkswController::cl
 //CRUD Merk Hardware:
 Route::get('/masterdata/merkhw', [MerkhwController::class, 'index'])->name('merkhw');
 Route::post('/masterdata/merkhw/insertmerkhw', [MerkhwController::class, 'insert']);
+Route::post('/hardware/addhw/insertmerkinhw', [MerkhwController::class, 'insert2']);
 Route::post('/masterdata/merkhw/updatemerkhw/{id_merk_hw}', [MerkhwController::class, 'update']);
 Route::get('/masterdata/merkhw/deletemerkhw/{id_merk_hw}', [MerkhwController::class, 'delete']);
 
@@ -89,16 +90,6 @@ Route::get('/pemakai', [PemakaiController::class, 'index']);
 
 route::view('/apalah','v_apalah');
 
-// route::view('/hardware/workstations/','hardware.v_workstations');
-// route::view('/hardware/server/','hardware.v_server');
-// route::view('/hardware/printer/','hardware.v_printer');
-// route::view('/hardware/sparepart/','hardware.v_sparepart');
-// route::view('/hardware/other/','hardware.v_other');
+Auth::routes();
 
-// route::view('/software/subscription/','software.v_subscription');
-// route::view('/software/sekalibayar/','software.v_sekalibayar');
-
-// route::view('/user/admin/','user.v_admin');
-// route::view('/user/staff/','user.v_staff');
-
-// route::view('/pemakai','v_pemakai');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
