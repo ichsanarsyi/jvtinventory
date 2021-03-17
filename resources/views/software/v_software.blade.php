@@ -37,7 +37,17 @@
                 </div>
             </div>
             <div class="divider"></div>
-          <table id="tbl_software" class="table table-bordered table-striped">
+          <table id="tbl_software" class="display table table-bordered table-striped">
+              <tfoot>
+                <tr>
+                <th></th>
+                <th></th>
+                <th>Merk</th>
+                <th>Jenis Lisensi</th>
+                <th></th>
+                <th></th>
+                </tr>
+              </tfoot>
             <thead>
             <tr>
               <th>No</th>
@@ -45,8 +55,9 @@
               <th>Merk</th>
               <th>Jenis Lisensi</th>
               <th>Versi</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
-              
+              @endif
             </tr>
             </thead>
             <tbody>

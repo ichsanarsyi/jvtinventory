@@ -163,15 +163,15 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Pemakai<span style="color:red;">*</span></label>
-								<select name="id_pemakai" class="form-control select2" style="width: 100%;">
-									<option value="">{{ old('id_pemakai') }}</option>
-									@foreach ($pemakai as $data)
-										<option value="{{ $data->id_pemakai }}">{{ $data->nama_pemakai }}</option>
+								<label>Staff<span style="color:red;">*</span></label>
+								<select name="id_staff" class="form-control select2" style="width: 100%;">
+									<option value="">{{ old('id_staff') }}</option>
+									@foreach ($staff as $data)
+										<option value="{{ $data->id_staff }}">{{ $data->nama_staff }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
-									@error('id_pemakai')
+									@error('id_staff')
 										{{ $message }}
 									@enderror
 								</div>

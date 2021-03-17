@@ -6,7 +6,7 @@ use App\Http\Controllers\HardwareController;
 use App\Http\Controllers\LisensiController;
 use App\Http\Controllers\MerkswController;
 use App\Http\Controllers\MerkhwController;
-use App\Http\Controllers\PemakaiController;
+use App\Http\Controllers\StaffController;
 use App\Http\Controllers\SoftwareController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategorihwController;
@@ -20,16 +20,14 @@ Route::get('/', [HomeController::class, 'index']);
 //CRUD Hardware:
 Route::get('/hardware', [HardwareController::class, 'index'])->name('hardware');
 Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
-Route::get('/hardware/addhw', [HardwareController::class, 'add']);
 Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
-Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
+Route::get('/hardware/addhw', [HardwareController::class, 'add']);
 
 //CRUD Software:
 Route::get('/software', [SoftwareController::class, 'index'])->name('software');
 Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail']);
-Route::get('/software/addsw', [SoftwareController::class, 'add']);
 Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
-Route::get('/software/editsw/{id_sw}', [SoftwareController::class, 'edit']);
+Route::get('/software/addsw', [SoftwareController::class, 'add']);
 
 //CRUD Lisensi Software:
 Route::get('/masterdata/lisensisw', [LisensiController::class, 'index'])->name('lisensi');
@@ -54,17 +52,15 @@ Route::post('/masterdata/lokasi/insertlokasi', [LokasiController::class, 'insert
 //CRUD Departemen Hardware:
 Route::get('/masterdata/departemen', [DepartemenController::class, 'index'])->name('departemen');
 Route::post('/masterdata/departemen/insertdepartemen', [DepartemenController::class, 'insert']);
-//CRUD Pemakai Hardware:
-Route::get('/masterdata/pemakai', [PemakaiController::class, 'index'])->name('pemakai');
-Route::post('/masterdata/pemakai/insertpemakai', [PemakaiController::class, 'insert']);
+//CRUD staff Hardware:
+Route::get('/masterdata/staff', [StaffController::class, 'index'])->name('staff');
+Route::post('/masterdata/staff/insertstaff', [StaffController::class, 'insert']);
 
 //CRUD Kondisi Hardware:
 Route::get('/masterdata/kondisi', [KondisiController::class, 'index'])->name('kondisi');
 Route::post('/masterdata/kondisi/insertkondisi', [KondisiController::class, 'insert']);
 
-Route::get('/user/index/', [UserController::class, 'index']);
-
-Route::get('/pemakai', [PemakaiController::class, 'index']);
+Route::get('/staff', [StaffController::class, 'index']);
 
 Auth::routes();
 
@@ -72,35 +68,41 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth', 'admin'])->group(function () {
     
-Route::post('/hardware/updatehw/{id_hw}', [HardwareController::class, 'update']);
-Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
-
-Route::post('/software/updatesw/{id_sw}', [SoftwareController::class, 'update']);
-Route::get('/software/deletesw/{id_sw}', [SoftwareController::class, 'delete']);
-
-Route::post('/masterdata/lisensisw/updatelisensi/{id_jenis_lisensi}', [LisensiController::class, 'update']);
-Route::get('/masterdata/lisensisw/deletelisensi/{id_jenis_lisensi}', [LisensiController::class, 'delete']);
-
-Route::post('/masterdata/merksw/updatemerksw/{id_merk_sw}', [MerkswController::class, 'update']);
-Route::get('/masterdata/merksw/deletemerksw/{id_merk_sw}', [MerkswController::class, 'delete']);
-
-Route::post('/masterdata/merkhw/updatemerkhw/{id_merk_hw}', [MerkhwController::class, 'update']);
-Route::get('/masterdata/merkhw/deletemerkhw/{id_merk_hw}', [MerkhwController::class, 'delete']);
-
-Route::post('/masterdata/kategorihw/updatekategorihw/{id_kategori_hw}', [KategorihwController::class, 'update']);
-Route::get('/masterdata/kategorihw/deletekategorihw/{id_kategori_hw}', [KategorihwController::class, 'delete']);
-
-Route::post('/masterdata/lokasi/updatelokasi/{id_lokasi}', [LokasiController::class, 'update']);
-Route::get('/masterdata/lokasi/deletelokasi/{id_lokasi}', [LokasiController::class, 'delete']);
-
-
-Route::post('/masterdata/departemen/updatedepartemen/{id_departemen}', [DepartemenController::class, 'update']);
-Route::get('/masterdata/departemen/deletedepartemen/{id_departemen}', [DepartemenController::class, 'delete']);
-
-
-Route::post('/masterdata/pemakai/updatepemakai/{id_pemakai}', [PemakaiController::class, 'update']);
-Route::get('/masterdata/pemakai/deletepemakai/{id_pemakai}', [PemakaiController::class, 'delete']);
-
-Route::post('/masterdata/kondisi/updatekondisi/{id_kondisi}', [KondisiController::class, 'update']);
-Route::get('/masterdata/kondisi/deletekondisi/{id_kondisi}', [KondisiController::class, 'delete']);
+    Route::post('/hardware/updatehw/{id_hw}', [HardwareController::class, 'update']);
+    Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
+    Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
+    
+    Route::post('/software/updatesw/{id_sw}', [SoftwareController::class, 'update']);
+    Route::get('/software/deletesw/{id_sw}', [SoftwareController::class, 'delete']);
+    Route::get('/software/editsw/{id_sw}', [SoftwareController::class, 'edit']);
+    
+    Route::post('/masterdata/lisensisw/updatelisensi/{id_jenis_lisensi}', [LisensiController::class, 'update']);
+    Route::get('/masterdata/lisensisw/deletelisensi/{id_jenis_lisensi}', [LisensiController::class, 'delete']);
+    
+    Route::post('/masterdata/merksw/updatemerksw/{id_merk_sw}', [MerkswController::class, 'update']);
+    Route::get('/masterdata/merksw/deletemerksw/{id_merk_sw}', [MerkswController::class, 'delete']);
+    
+    Route::post('/masterdata/merkhw/updatemerkhw/{id_merk_hw}', [MerkhwController::class, 'update']);
+    Route::get('/masterdata/merkhw/deletemerkhw/{id_merk_hw}', [MerkhwController::class, 'delete']);
+    
+    Route::post('/masterdata/kategorihw/updatekategorihw/{id_kategori_hw}', [KategorihwController::class, 'update']);
+    Route::get('/masterdata/kategorihw/deletekategorihw/{id_kategori_hw}', [KategorihwController::class, 'delete']);
+    
+    Route::post('/masterdata/lokasi/updatelokasi/{id_lokasi}', [LokasiController::class, 'update']);
+    Route::get('/masterdata/lokasi/deletelokasi/{id_lokasi}', [LokasiController::class, 'delete']);
+    
+    Route::post('/masterdata/departemen/updatedepartemen/{id_departemen}', [DepartemenController::class, 'update']);
+    Route::get('/masterdata/departemen/deletedepartemen/{id_departemen}', [DepartemenController::class, 'delete']);
+    
+    Route::post('/masterdata/staff/updatestaff/{id_staff}', [StaffController::class, 'update']);
+    Route::get('/masterdata/staff/deletestaff/{id_staff}', [StaffController::class, 'delete']);
+    
+    Route::post('/masterdata/kondisi/updatekondisi/{id_kondisi}', [KondisiController::class, 'update']);
+    Route::get('/masterdata/kondisi/deletekondisi/{id_kondisi}', [KondisiController::class, 'delete']);
+    
+    Route::get('/user', [UserController::class, 'index'])->name('user');
+    Route::get('/admin', [UserController::class, 'index'])->name('user');
+    Route::get('/user/detailsw/{id_sw}', [UserController::class, 'detail']);
+    Route::post('/user/insertsw', [UserController::class, 'insert']);
+    Route::get('/user/addsw', [UserController::class, 'add']);    
 });

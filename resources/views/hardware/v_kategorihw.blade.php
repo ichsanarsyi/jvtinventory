@@ -37,6 +37,7 @@
                     <td>{{$no++}}</td>
                     <td>{{$data->id_kategori_hw}}</td>
                     <td>{{$data->nama_kategori_hw}}</td>
+                    @if (auth()->user()->level == 'Admin') 
                     <td>
                       <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_kategori_hw }}"><i class="fa fa-edit fa-fw"></i>
                         Edit
@@ -45,6 +46,7 @@
                         Delete
                       </button>
                     </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

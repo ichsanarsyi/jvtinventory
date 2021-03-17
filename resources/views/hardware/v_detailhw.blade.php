@@ -81,12 +81,12 @@
   <div class="col-md-2">
 	<div class="box box-primary box-solid">
 	  <div class="box-header with-border">
-		<h3 class="box-title">Pemakai</h3>
+		<h3 class="box-title">Staff</h3>
 	  </div>
 	  <!-- /.box-header -->
 	  <div class="box-body" align=center>
 		<div class="col">
-			<span class="h4 font-weight-bold mb-0">{{ $hardware->nama_pemakai }}</span>
+			<span class="h4 font-weight-bold mb-0">{{ $hardware->nama_staff }}</span>
 		</div>
 	  </div>
 	  <!-- /.box-body -->

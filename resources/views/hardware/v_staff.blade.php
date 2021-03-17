@@ -1,5 +1,5 @@
 @extends('layout.v_template')
-@section('title','Pemakai Hardware')
+@section('title','staff Hardware')
 @section('content')
 <div class="row">
     <div class="col-xs-12">
@@ -18,13 +18,13 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="tbl_pemakai" class="table table-bordered table-striped">
+          <table id="tbl_staff" class="table table-bordered table-striped">
             <thead>
             <tr>
               <th>No</th>
-              <th>ID Pemakai</th>
-              <th>Nama Pemakai</th>
-              <th>Nomor Telepon Pemakai</th>
+              <th>ID Staff</th>
+              <th>Nama Staff</th>
+              <th>Nomor Telepon Staff</th>
               @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
               @endif
@@ -33,21 +33,23 @@
             </thead>
             <tbody>
             <?php $no=1; ?>
-            @foreach ($pemakai as $data)
+            @foreach ($staff as $data)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$data->id_pemakai}}</td>
-                    <td>{{$data->nama_pemakai}}</td>
-                    <td>{{$data->no_telp_pemakai}}</td>
+                    <td>{{$data->id_staff}}</td>
+                    <td>{{$data->nama_staff}}</td>
+                    <td>{{$data->no_telp_staff}}</td>
+                    @if (auth()->user()->level == 'Admin') 
                     <td>
-                        <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_pemakai }}"><i class="fa fa-edit fa-fw"></i>
+                      <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_staff }}"><i class="fa fa-edit fa-fw"></i>
                         Edit
-                        </button>
-                        <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_pemakai }}"><i class="fa fa-trash fa-fw"></i>
+                      </button>
+                      <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_staff }}"><i class="fa fa-trash fa-fw"></i>
                         Delete
-                        </button>
+                      </button>
                     </td>
-                </tr>
+                    @endif
+                  </tr>
             @endforeach
             </tbody>
           </table>
@@ -67,25 +69,25 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Tambah Pemakai Hardware</h4>
+          <h4 class="modal-title">Tambah Staff Hardware</h4>
         </div>
-        <form action="/masterdata/pemakai/insertpemakai" method="POST" enctype="multipart/form-data">
+        <form action="/masterdata/staff/insertstaff" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
             <div class="form-group">
-                <label>Nama Pemakai</label>                                
-                <input autofocus="autofocus" name="nama_pemakai" class="form-control" value="{{ old('nama_pemakai') }}">
+                <label>Nama Staff</label>                                
+                <input autofocus="autofocus" name="nama_staff" class="form-control" value="{{ old('nama_staff') }}">
                 <div class="text-danger">
-                    @error('nama_pemakai')
+                    @error('nama_staff')
                         {{ $message }}
                     @enderror
                 </div>
             </div>
             <div class="form-group">
-                <label>Nomor Telepon Pemakai</label>                                
-                <input name="no_telp_pemakai" class="form-control" value="{{ old('no_telp_pemakai') }}">
+                <label>Nomor Telepon Staff</label>                                
+                <input name="no_telp_staff" class="form-control" value="{{ old('no_telp_staff') }}">
                 <div class="text-danger">
-                    @error('no_telp_pemakai')
+                    @error('no_telp_staff')
                         {{ $message }}
                     @enderror
                 </div>
@@ -104,32 +106,32 @@
   <!-- /.modal -->  
 
 <!-- Modal Edit -->
-@foreach ($pemakai as $data)
-<div class="modal fade" id="modal-edit{{ $data->id_pemakai }}">
+@foreach ($staff as $data)
+<div class="modal fade" id="modal-edit{{ $data->id_staff }}">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Edit Pemakai Hardware</h4>
+          <h4 class="modal-title">Edit staff Hardware</h4>
         </div>
-        <form action="/masterdata/pemakai/updatepemakai/{{ $data->id_pemakai }}" method="POST" enctype="multipart/form-data">
+        <form action="/masterdata/staff/updatestaff/{{ $data->id_staff }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
             <div class="form-group">
-                <label>Nama Pemakai</label>                                
-                <input autofocus="autofocus" name="nama_pemakai" class="form-control" value="{{ $data->nama_pemakai }}">
+                <label>Nama staff</label>                                
+                <input autofocus="autofocus" name="nama_staff" class="form-control" value="{{ $data->nama_staff }}">
                 <div class="text-danger">
-                    @error('nama_pemakai')
+                    @error('nama_staff')
                         {{ $message }}
                     @enderror
                 </div>
             </div>
             <div class="form-group">
-                <label>Nomor Telepon Pemakai</label>                                
-                <input name="no_telp_pemakai" class="form-control" value="{{ $data->no_telp_pemakai }}">
+                <label>Nomor Telepon staff</label>                                
+                <input name="no_telp_staff" class="form-control" value="{{ $data->no_telp_staff }}">
                 <div class="text-danger">
-                    @error('no_telp_pemakai')
+                    @error('no_telp_staff')
                         {{ $message }}
                     @enderror
                 </div>
@@ -149,21 +151,21 @@
 @endforeach
   
 <!-- Modal Delete -->
-@foreach($pemakai as $data)
-    <div class="modal modal-danger fade" id="modal-delete{{ $data->id_pemakai }}">
+@foreach($staff as $data)
+    <div class="modal modal-danger fade" id="modal-delete{{ $data->id_staff }}">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Hapus pemakai Hardware {{ $data->nama_pemakai }}</h4>
+                    <h4 class="modal-title">Hapus staff Hardware {{ $data->nama_staff }}</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Apakah Anda yakin ingin menghapus pemakai Hardware {{ $data->nama_pemakai }}?</p>
+                    <p>Apakah Anda yakin ingin menghapus staff Hardware {{ $data->nama_staff }}?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
-                    <a href="/masterdata/pemakai/deletepemakai/{{ $data->id_pemakai }}" class="btn btn-danger">Ya</a>
+                    <a href="/masterdata/staff/deletestaff/{{ $data->id_staff }}" class="btn btn-danger">Ya</a>
                 </div>
             </div>
             <!-- /.modal-content -->

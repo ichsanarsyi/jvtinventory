@@ -30,7 +30,7 @@ class HardwareController extends Controller
         }
         $data = [
             'hardware' => $this->HardwareModel->detailData($id_hw),
-            'pemakai' => $this->HardwareModel->detailData($id_hw)
+            'staff' => $this->HardwareModel->detailData($id_hw)
         ];
         return view('hardware.v_detailhw', $data);
     }
@@ -43,7 +43,7 @@ class HardwareController extends Controller
             'kondisi' => $this->HardwareModel->allKondisi(),
             'lokasi' => $this->HardwareModel->allLokasi(),
             'departemen' => $this->HardwareModel->allDepartemen(),
-            'pemakai' => $this->HardwareModel->allPemakai()
+            'staff' => $this->HardwareModel->allstaff()
         ];
         return view('hardware.v_addhw', $data);
     }
@@ -63,7 +63,7 @@ class HardwareController extends Controller
             'tgl_beli_hw' => 'required',
             'tgl_batas_garansi' => 'required',
             //'deskripsi_hw' => 'required',
-            'id_pemakai' => 'required'
+            'id_staff' => 'required'
         ],[
             'nama_hw.required' => 'Nama Hardware wajib diisi',
             'id_merk_hw.required' => 'Merk Hardware wajib diisi',
@@ -75,7 +75,7 @@ class HardwareController extends Controller
             'departemen.required' => 'Departemen wajib diisi',
             'tgl_beli_hw.required' => 'Tanggal Beli Hardware wajib diisi',
             'tgl_batas_garansi.required' => 'Tanggal Batas Garansi Hardware wajib diisi',
-            'id_pemakai.required' => 'Pemakai wajib diisi'
+            'id_staff.required' => 'staff wajib diisi'
         ]);
         
         $data=[
@@ -90,7 +90,7 @@ class HardwareController extends Controller
             'id_departemen' => Request()->id_departemen,
             'tgl_beli_hw' => Request()->tgl_beli_hw,
             'tgl_batas_garansi' => Request()->tgl_batas_garansi,
-            'id_pemakai' => Request()->id_pemakai            
+            'id_staff' => Request()->id_staff            
         ];
         
         $this->HardwareModel->addData($data);
@@ -111,7 +111,7 @@ class HardwareController extends Controller
             'kondisi' => $this->HardwareModel->allKondisi(),
             'lokasi' => $this->HardwareModel->allLokasi(),
             'departemen' => $this->HardwareModel->allDepartemen(),
-            'pemakai' => $this->HardwareModel->allPemakai()
+            'staff' => $this->HardwareModel->allstaff()
         ];
         return view('hardware.v_edithw', $data);
     }
@@ -131,7 +131,7 @@ class HardwareController extends Controller
             'tgl_beli_hw' => 'required',
             'tgl_batas_garansi' => 'required',
             //'deskripsi_hw' => 'required',
-            //'id_pemakai' => 'required'
+            //'id_staff' => 'required'
         ],[
             'nama_hw.required' => 'Nama Hardware wajib diisi',
             'seri_hw.required' => 'Seri Hardware wajib diisi',
@@ -155,7 +155,7 @@ class HardwareController extends Controller
             'id_departemen' => Request()->id_departemen,
             'tgl_beli_hw' => Request()->tgl_beli_hw,
             'tgl_batas_garansi' => Request()->tgl_batas_garansi,
-            'id_pemakai' => Request()->id_pemakai       
+            'id_staff' => Request()->id_staff       
         ];
         
         $this->HardwareModel->editData($id_hw, $data);       

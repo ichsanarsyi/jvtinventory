@@ -220,14 +220,13 @@
 
 <script>
   $(function () {
-    $('#tbl_software').DataTable()
     $('#tbl_jenis_lisensi').DataTable()
     $('#tbl_merk_sw').DataTable()
     $('#tbl_merk_hw').DataTable()
     $('#tbl_lokasi').DataTable()
     $('#tbl_kategori_hw').DataTable()
     $('#tbl_departemen').DataTable()
-    $('#tbl_pemakai').DataTable()
+    $('#tbl_staff').DataTable()
     $('#tbl_kondisi').DataTable()
     $('.select2').select2()
     //Date picker
