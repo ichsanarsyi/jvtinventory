@@ -46,8 +46,13 @@ class User extends Authenticatable
 
 class UserModel extends Model
 {
-    public function allData()
+    public function allDataUser()
     {
-        return DB::table('users')->get();
+        return DB::table('users')->where('level','User')->get();
     }
+    public function allDataAdmin()
+    {
+        return DB::table('users')->where('level','Admin')->get();
+    }
+
 }
