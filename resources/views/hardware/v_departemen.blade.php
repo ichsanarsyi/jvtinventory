@@ -24,7 +24,9 @@
               <th>No</th>
               <th>ID Departemen</th>
               <th>Nama Departemen</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
               
             </tr>
             </thead>
@@ -35,14 +37,16 @@
                     <td>{{$no++}}</td>
                     <td>{{$data->id_departemen}}</td>
                     <td>{{$data->nama_departemen}}</td>
+                    @if (auth()->user()->level == 'Admin') 
                     <td>
-                        <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_departemen }}"><i class="fa fa-edit fa-fw"></i>
+                      <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_departemen }}"><i class="fa fa-edit fa-fw"></i>
                         Edit
-                        </button>
-                        <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_departemen }}"><i class="fa fa-trash fa-fw"></i>
+                      </button>
+                      <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_departemen }}"><i class="fa fa-trash fa-fw"></i>
                         Delete
-                        </button>
+                      </button>
                     </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

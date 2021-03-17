@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\UserModel;
+use App\Models\User;
 
 class UserController extends Controller
 {
     public function __construct()
     {
-        $this->UserModel = new UserModel();
+        $this->UserModel = new User();
         $this->middleware('auth');
     }
 

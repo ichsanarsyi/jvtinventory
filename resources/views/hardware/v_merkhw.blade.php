@@ -24,7 +24,9 @@
               <th>No</th>
               <th>ID Merk Hardware</th>
               <th>Nama Merk Hardware</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
               
             </tr>
             </thead>
@@ -35,14 +37,16 @@
                     <td>{{$no++}}</td>
                     <td>{{$data->id_merk_hw}}</td>
                     <td>{{$data->nama_merk_hw}}</td>
+                    @if (auth()->user()->level == 'Admin') 
                     <td>
-                        <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_merk_hw }}"><i class="fa fa-edit fa-fw"></i>
+                      <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id_merk_hw }}"><i class="fa fa-edit fa-fw"></i>
                         Edit
-                        </button>
-                        <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_merk_hw }}"><i class="fa fa-trash fa-fw"></i>
+                      </button>
+                      <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_merk_hw }}"><i class="fa fa-trash fa-fw"></i>
                         Delete
-                        </button>
+                      </button>
                     </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

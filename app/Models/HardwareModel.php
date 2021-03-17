@@ -16,7 +16,7 @@ class HardwareModel extends Model
         ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'tbl_hardware.id_lokasi')
         ->leftJoin('tbl_kondisi', 'tbl_kondisi.id_kondisi', '=', 'tbl_hardware.id_kondisi')
         ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'tbl_hardware.id_departemen')
-        ->leftJoin('tbl_pemakai', 'tbl_pemakai.id_pemakai', '=', 'tbl_hardware.id_pemakai')
+        ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'tbl_hardware.id_staff')
         ->get();
     }
     
@@ -28,7 +28,7 @@ class HardwareModel extends Model
         ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'tbl_hardware.id_lokasi')
         ->leftJoin('tbl_kondisi', 'tbl_kondisi.id_kondisi', '=', 'tbl_hardware.id_kondisi')
         ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'tbl_hardware.id_departemen')
-        ->leftJoin('tbl_pemakai', 'tbl_pemakai.id_pemakai', '=', 'tbl_hardware.id_pemakai')
+        ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'tbl_hardware.id_staff')
         ->where('id_hw', $id_hw)->first();
     }
     
@@ -57,9 +57,9 @@ class HardwareModel extends Model
         return DB::table('tbl_departemen')->get();
     }
 
-    public function allPemakai()
+    public function allstaff()
     {
-        return DB::table('tbl_pemakai')->get();
+        return DB::table('tbl_staff')->get();
     }
 
     public function addData($data)

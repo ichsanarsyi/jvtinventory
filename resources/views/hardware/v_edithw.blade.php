@@ -145,14 +145,14 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Pemakai</label>
-								<select name="id_pemakai" class="form-control select2" style="width: 100%;">
-									@foreach ($pemakai as $data)
-										<option value="{{ $data->id_pemakai }}"{{ ($hardware->id_pemakai == $data->id_pemakai ? 'selected="selected"' :'')}}>{{ $data->nama_pemakai }}</option>
+								<label>Staff</label>
+								<select name="id_staff" class="form-control select2" style="width: 100%;">
+									@foreach ($staff as $data)
+										<option value="{{ $data->id_staff }}"{{ ($hardware->id_staff == $data->id_staff ? 'selected="selected"' :'')}}>{{ $data->nama_staff }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
-									@error('id_pemakai')
+									@error('id_staff')
 										{{ $message }}
 									@enderror
 								</div>

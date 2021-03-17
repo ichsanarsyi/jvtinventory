@@ -106,7 +106,7 @@
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->name }} <span style="color: rgb(225, 225, 225)"> - Admin</span></span>
+              <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -220,14 +220,13 @@
 
 <script>
   $(function () {
-    $('#tbl_software').DataTable()
     $('#tbl_jenis_lisensi').DataTable()
     $('#tbl_merk_sw').DataTable()
     $('#tbl_merk_hw').DataTable()
     $('#tbl_lokasi').DataTable()
     $('#tbl_kategori_hw').DataTable()
     $('#tbl_departemen').DataTable()
-    $('#tbl_pemakai').DataTable()
+    $('#tbl_staff').DataTable()
     $('#tbl_kondisi').DataTable()
     $('.select2').select2()
     //Date picker
