@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
+    public $timestamps = true;
     use HasFactory, Notifiable;
 
     /**
@@ -22,6 +23,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level',
+        'created_at',
+        'updated_at',
     ];
 
     /**
@@ -47,6 +51,7 @@ class User extends Authenticatable
 
 class UserModel extends Model
 {
+    public $timestamps = true;
     public function allData()
     {
         return DB::table('users')->get();

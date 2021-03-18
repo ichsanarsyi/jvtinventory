@@ -108,6 +108,16 @@
                         @enderror
                     </div>
                 </div> 
+                {{-- <div class="form-group">
+                    <input id="created_at" value="{{ $data->created_at }}" name="created_at" type="hidden" class="form-control" placeholder="created_at">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    @error('created_at')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                  </div> --}}
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

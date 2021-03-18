@@ -113,7 +113,7 @@
                 <p>
                   {{ Auth::user()->name }} <br>{{ Auth::user()->email }} 
                 </p>
-                <p><small class="">Member sejak {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d-m-Y h:i:s A') : Auth::user()->email }}</small></p>
+                <p><small class="">Member sejak {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d-m-Y h:i:s A') : '-' }}</small></p>
               </li>
               <!-- Menu Body -->
               <!-- Menu Footer-->

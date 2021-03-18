@@ -68,7 +68,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth', 'admin'])->group(function () {
     //Hak Akses Crud User
     Route::get('/user', [UserController::class, 'index'])->name('user');
-    Route::post('/user/insertuser', [UserController::class, 'insert']);
     Route::post('/user/updateuser/{id}', [UserController::class, 'update']);
     Route::get('/user/deleteuser/{id}', [UserController::class, 'delete']);
     

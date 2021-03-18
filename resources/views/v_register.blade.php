@@ -83,9 +83,10 @@
       </div>
 
       <div class="form-group has-feedback">
-        <select name="level" class="form-control select2" style="width: 100%;">
+        <select id="level" name="level" class="form-control select2" style="width: 100%;">
+            <option selected disabled value="Admin">Pilih Role (Default : User)</option>
             <option value="Admin">Admin</option>
-            <option selected value="User">User</option>
+            <option value="User">User</option>
         </select>
         <div class="text-danger">
             @error('level')

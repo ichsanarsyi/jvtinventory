@@ -46,7 +46,6 @@ class UserController extends Controller
                     'email' => Request()->email,    
                     'password' => Hash::make(Request()->email), 
                     'level' => Request()->level,  
-                    'created_at'  => Request()->created_at,
                 ];
 
                 $this->UserModel = new UserModel();
@@ -54,9 +53,10 @@ class UserController extends Controller
                 return redirect()->route('user')->with('pesan', 'Data berhasil ditambahkan.');
     }
 
-
+    public $timestamps = true;
     public function update($id)
     {
+        
         Request()->validate([
             'name' => 'required'
         ],[
@@ -66,8 +66,7 @@ class UserController extends Controller
         $data=[
             'name' => Request()->name,    
             'email' => Request()->email,
-            'level' => Request()->level,  
-            'created_at'  => Request()->created_at,
+            'level' => Request()->level,
         ];
         
         $this->UserModel = new UserModel();

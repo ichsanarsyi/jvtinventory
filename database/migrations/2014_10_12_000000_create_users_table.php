@@ -21,7 +21,11 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->timestamps('created_at');
+            $table->timestamps('updated_at');
             $table->string('level');
+            $table->DB::update();
+            
         });
     }
 
