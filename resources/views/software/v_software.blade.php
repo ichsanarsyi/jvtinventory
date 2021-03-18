@@ -11,7 +11,7 @@
         </div>
         @endif
       <div class="box box-primary">
-        <div class="box-header">
+        <div class="box-header with-border text-blue">
             <a href="/software/addsw/" class="btn btn btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
         </div>
         <!-- /.box-header -->
@@ -34,9 +34,7 @@
               <th>Merk</th>
               <th>Jenis Lisensi</th>
               <th>Versi</th>
-              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
-              @endif
             </tr>
             </thead>
             <tbody>

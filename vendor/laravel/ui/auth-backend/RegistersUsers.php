@@ -30,19 +30,11 @@ trait RegistersUsers
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
-
         event(new Registered($user = $this->create($request->all())));
-
-        $this->guard()->login($user);
-
-        if ($response = $this->registered($request, $user)) {
-            return $response;
-        }
-
-        return $request->wantsJson()
-                    ? new JsonResponse([], 201)
-                    : redirect($this->redirectPath());
-    }
+        // $this->guard()->login($user);
+        return $this->registered($request, $user)
+                            ?: redirect()->route('user')->with('pesan', 'Data berhasil ditambahkan.');
+     }
 
     /**
      * Get the guard to be used during registration.

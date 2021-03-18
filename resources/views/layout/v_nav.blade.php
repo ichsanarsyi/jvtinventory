@@ -5,7 +5,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <div style="border-radius:50%; width:3em; height:3em;" class="letterpic user-image" alt="User Image" title="{{ Auth::user()->name }}"></div>
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
@@ -28,19 +28,13 @@
                 <i class="fa fa-cloud"></i> <span>Software</span>
               </a>                
             </li>
-            
             @if (auth()->user()->level == 'Admin') 
-            <li class="{{ Request::segment(1) === 'admin' ? 'active' : null }}">
-              <a href="/admin">
-                <i class="glyphicon glyphicon-user"></i> <span>Admin</span>
-              </a>
-            </li>
             <li class="{{ Request::segment(1) === 'user' ? 'active' : null }}">
               <a href="/user">
                 <i class="glyphicon glyphicon-user"></i> <span>User</span>
-              </a>
-            </li>         
-            @endif
+              </a>                
+            </li>
+            @endif  
 
             <li class="treeview {{ (request()->is('masterdata/*')) ? 'active' : '' }}">
               <a href="#">

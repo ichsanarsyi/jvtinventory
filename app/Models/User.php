@@ -42,17 +42,29 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
 }
 
 class UserModel extends Model
 {
-    public function allDataUser()
+    public function allData()
     {
-        return DB::table('users')->where('level','User')->get();
+        return DB::table('users')->get();
     }
-    public function allDataAdmin()
+
+    public function addData($data)
     {
-        return DB::table('users')->where('level','Admin')->get();
+        return DB::table('users')->insert($data);
+    }
+
+    public function editData($id, $data)
+    {
+        return DB::table('users')->where('id', $id)->update($data);
+    }
+    
+    public function deleteData($id)
+    {
+        return DB::table('users')->where('id', $id)->delete();
     }
 
 }
