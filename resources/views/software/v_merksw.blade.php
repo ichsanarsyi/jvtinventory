@@ -12,7 +12,7 @@
         @endif
       <div class="box box-primary">
         <div class="box-header">
-            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw"></i>
+            <button type="button" class="btn btn btn-primary" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw"></i>
             Tambah
             </button>
         </div>

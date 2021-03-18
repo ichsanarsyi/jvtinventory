@@ -35,12 +35,12 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
+    <p class="login-box-msg">Log In untuk masuk ke JVT</p>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
       <div class="form-group has-feedback">
-        <input type="email" name="email" class="form-control" placeholder="Email">
+        <input autofocus type="email" name="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         @error('email')
         <span class="invalid-feedback" role="alert">
@@ -72,8 +72,6 @@
         <!-- /.col -->
       </div>
     </form>
-
-    <a href="{{ route('register') }}" class="text-center">Register</a>
 
   </div>
   <!-- /.login-box-body -->

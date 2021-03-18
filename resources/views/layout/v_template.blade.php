@@ -29,10 +29,8 @@
       background-color:#efeeff;
       outline-color: rgb(6, 6, 153);
       outline-width: 2px;
-    }    
-  </style>
+    }
 
-  <style type="text/css">
     .divider{
       width: 100%;
       height: 1px;
@@ -105,18 +103,17 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <span style="border-radius:50%; width:2.5em; height:2.5em; margin-top:-8px; margin-bottom:-12px; margin-right:3px" class="letterpic" title="{{ Auth::user()->name }}"></span>
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="{{asset('template')}}/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
+                <div style="border-radius:50%; width:5em; height:5em; font-weight:bold; margin-bottom:-8px;" class="letterpic" alt="User Image" title="{{ Auth::user()->name }}"></div>
                 <p>
-                  {{ Auth::user()->name }} <br>{{ Auth::user()->email }}
-                  <small>Member since Nov. 2012</small>
+                  {{ Auth::user()->name }} <br>{{ Auth::user()->email }} 
                 </p>
+                <p><small class="">Member sejak {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d-m-Y h:i:s A') : '-' }}</small></p>
               </li>
               <!-- Menu Body -->
               <!-- Menu Footer-->
@@ -127,7 +124,7 @@
                 <div class="pull-right">
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
-                    <button type="submit" class="btn btn-default btn-flat">Log out</button>
+                    <button type="submit" class="btn btn-danger btn-flat">Log out</button>
                   </form>
                 </div>
               </li>
@@ -149,17 +146,6 @@
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
 
-    {{-- <div class="card-body">
-      @if (session('status'))
-          <div class="alert alert-success" role="alert">
-              {{ session('status') }}
-          </div>
-      @endif
-      <div class="alert alert-success alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-        <p><i class="icon fa fa-check"></i>{{ __('Login Berhasil!') }}</p>
-    </div> --}}
-
     <section class="content-header text-secondary">
       <h3 style="margin:-0px;">
         @yield('title')
@@ -180,9 +166,9 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+  
   <!-- Main Footer -->
-  <footer class="main-footer">
+  <footer style="position: relative;" class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
       About
@@ -198,6 +184,8 @@
 <script src="{{asset('template')}}/bower_components/jquery/dist/jquery.min.js"></script>
 <!-- jQuery Mask -->
 <script src="{{asset('template')}}/bower_components/jquery/dist/jquery.mask.min.js"></script>
+<!-- jQuery Letterpic -->
+<script src="{{asset('template')}}/bower_components/jquery/dist/jquery.letterpic.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('template')}}/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- Select2 -->
@@ -210,13 +198,20 @@
 <script src="{{asset('template')}}/bower_components/fastclick/lib/fastclick.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('template')}}/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('template')}}/dist/js/demo.js"></script>
+<!-- AdminLTE for avatar purposes -->
+<script src="{{asset('template')}}/dist/js/avatar.js"></script>
 <!-- DataTables -->
 <script src="{{asset('template/')}}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('template/')}}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
-
+{{-- Avatar Letterpic --}}
+<script>
+  $(".letterpic").letterpic({
+    fill: 'color',
+    colors: [ "#4B0082"],
+    fontSize: 0.55,
+  });
+</script>
 
 <script>
   $(function () {
@@ -302,84 +297,10 @@ $('select.select2').on('select2:closing', function (e) {
     $('.uang').unmask();
   });
 
-  // ini buat filter DataTable tapi error
-  // let merk = $('#filter_merk').val()
-  // ,jenis_lisensi = $('#filter_jenis_lisensi').val()
-
-  // const table = $('#tbl_software').DataTable({
-  //   "ajax":{
-  //     url: "{{url('software')}}",
-  //     type: "POST",
-  //     data:function(d){
-  //       d.merk = merk;
-  //       d.jenis_lisensi = jenis_lisensi;
-  //       return d
-  //     }
-  //   }
-  // })
-
-  // $(".filter").on('change', function(){
-  //   merk = $('#filter_merk').val()
-  //   jenis_lisensi = $('#filter_jenis_lisensi').val()
-  // })
 </script>
 
-{{------------------------------}}
-
+{{-- [Works] filter per kolom HW & SW --}}
 <script>
-  {{-- Filter tfoot Hardware Lama --}}
-//   $(document).ready( function () {
-//     var table = $('#tbl_hardware').DataTable( {
-//       orderCellsTop: true,
-// 		"order": [[ 0, "asc" ]],
-// 		"oLanguage": {
-// 			"sInfo": "Showing _START_ to _END_ of _TOTAL_ items."
-// 		}
-// 	});
-
-//     $("tfoot th").each( function ( i ) {
-		
-// 		if ($(this).text() !== '') {
-// 	        var isStatusColumn = (($(this).text() == 'Status') ? true : false);
-// 			var select = $('<select><option value=""></option></select>')
-// 	            .appendTo( $(this).empty() )
-// 	            .on( 'change', function () {
-// 	                var val = $(this).val();
-					
-// 	                table.column( i )
-// 	                    .search( val ? '^'+$(this).val()+'$' : val, true, false )
-// 	                    .draw();
-// 	            } );
-	 		
-// 			// Get the Status values a specific way since the status is a anchor/image
-// 			if (isStatusColumn) {
-// 				var statusItems = [];
-				
-//                 /* ### IS THERE A BETTER/SIMPLER WAY TO GET A UNIQUE ARRAY OF <TD> data-filter ATTRIBUTES? ### */
-// 				table.column( i ).nodes().to$().each( function(d, j){
-// 					var thisStatus = $(j).attr("data-filter");
-// 					if($.inArray(thisStatus, statusItems) === -1) statusItems.push(thisStatus);
-// 				} );
-				
-// 				statusItems.sort();
-								
-// 				$.each( statusItems, function(i, item){
-// 				    select.append( '<option value="'+item+'">'+item+'</option>' );
-// 				});
-
-// 			}
-//             // All other non-Status columns (like the example)
-// 			else {
-// 				table.column( i ).data().unique().sort().each( function ( d, j ) {  
-// 					select.append( '<option value="'+d+'">'+d+'</option>' );
-// 		        } );	
-// 			}
-	        
-// 		}
-//     } ); 
-// } );
-
-//[Works] filter per kolom HW & SW
 $(document).ready(function() {
   $('#tbl_hardware').DataTable( {
         initComplete: function () {            
@@ -429,6 +350,16 @@ $(document).ready(function() {
 } );
 
 </script>
+
+
+{{-- Jika Modal Error Auto Muncul --}}
+@if (Session::has('errors'))
+<script>
+  $(document).ready(function(){
+    $('#modal-add').modal({show: true});
+})
+</script>
+@endif
 {{-- 
 <script>
   jQuery(document).ready(function($) {
@@ -483,7 +414,7 @@ $(document).ready(function() {
 <script>
   function myFunction() {
     var x = document.getElementById("mySelect").value;
-    document.getElementById("demo").innerHTML = "You selected: " + x;
+    document.getElementById("avatar").innerHTML = "You selected: " + x;
   }
 </script> --}}
 
