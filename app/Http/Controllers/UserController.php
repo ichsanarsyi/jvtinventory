@@ -13,12 +13,12 @@ class UserController extends Controller
     public function __construct()
     {
         $this->User = new User();
+        $this->UserModel = new UserModel();
         $this->middleware('auth');
     }
 
     public function index()
     {   
-        $this->UserModel = new UserModel();
         $data = [
             'user' => $this->UserModel->allData()
         ];
@@ -48,7 +48,6 @@ class UserController extends Controller
                     'level' => Request()->level,  
                 ];
 
-                $this->UserModel = new UserModel();
                 $this->UserModel->addData($data);
                 return redirect()->route('user')->with('pesan', 'Data berhasil ditambahkan.');
     }
@@ -68,8 +67,7 @@ class UserController extends Controller
             'email' => Request()->email,
             'level' => Request()->level,
         ];
-        
-        $this->UserModel = new UserModel();
+
         $this->UserModel->editData($id, $data);       
         return redirect()->route('user')->with('pesan', 'Data berhasil diedit.');
 
@@ -77,7 +75,6 @@ class UserController extends Controller
     
     public function delete($id)
     {
-        $this->UserModel = new UserModel();
         $this->UserModel->deleteData($id);
         return redirect()->route('user')->with('pesan', 'Data berhasil dihapus.');
     }

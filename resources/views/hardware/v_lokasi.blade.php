@@ -132,6 +132,20 @@
                     @enderror
                 </div>
             </div>
+            <div class="form-group">
+              <label>Departemen</label>
+              <select name="id_departemen" class="form-control select2" style="width: 100%;">
+                <option disabled selected value="{{ $data->id_departemen_lokasi }}">{{ $data->nama_departemen }}</option>
+                @foreach ($departemen as $data)
+                 <option value="{{ $data->id_departemen }}">{{ $data->nama_departemen }}</option>
+                @endforeach
+              </select>
+              <div class="text-danger">
+                @error('id_departemen')
+                  {{ $message }}
+                @enderror
+              </div>
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

@@ -144,8 +144,8 @@
                     <p>Apakah Anda yakin ingin menghapus merk Hardware {{ $data->nama_merk_hw }}?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
-                    <a href="/masterdata/merkhw/deletemerkhw/{{ $data->id_merk_hw }}" class="btn btn-danger">Ya</a>
+                  <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
+                  <a href="/masterdata/merkhw/deletemerkhw/{{ $data->id_merk_hw }}" class="btn btn-danger">Ya</a>
                 </div>
             </div>
             <!-- /.modal-content -->

@@ -14,7 +14,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Nama Software</label>                                
-								<input name="nama_sw" class="form-control" value="{{ old('nama_sw') }}">
+								<input autofocus name="nama_sw" class="form-control" value="{{ old('nama_sw') }}">
 								<div class="text-danger">
 									@error('nama_sw')
 										{{ $message }}

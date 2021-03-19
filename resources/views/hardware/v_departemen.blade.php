@@ -144,9 +144,9 @@
                     <p>Apakah Anda yakin ingin menghapus merk Hardware {{ $data->nama_departemen }}?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
+                    <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
                     <a href="/masterdata/departemen/deletedepartemen/{{ $data->id_departemen }}" class="btn btn-danger">Ya</a>
-                </div>
+                    </div>
             </div>
             <!-- /.modal-content -->
         </div>

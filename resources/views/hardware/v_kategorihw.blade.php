@@ -144,7 +144,8 @@
                     <p>Apakah Anda yakin ingin menghapus Kategori Hardware {{ $data->nama_kategori_hw }}?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
+                  <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
+                  <a href="/masterdata/kategorihw/deletekategorihw/{{ $data->id_kategori_hw }}" class="btn btn-danger">Ya</a>
                     <a href="/masterdata/kategorihw/deletekategorihw/{{ $data->id_kategori_hw }}" class="btn btn-danger">Ya</a>
                 </div>
             </div>

@@ -3,18 +3,12 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <div style="border-radius:50%; width:3em; height:3em;" class="letterpic user-image" alt="User Image" title="{{ Auth::user()->name }}"></div>
-        </div>
-        <div class="pull-left info">
-          <p>{{ Auth::user()->name }}</p>
-          <a href="#"><i class="fa fa-circle text-success"></i>
-          @if (auth()->user()->level == 'Admin') 
-          Admin
-          @else User
-          @endif</a>
-        </div>
+      <div style="margin-left: -5px" class="user-panel">
+            <div style="border-radius:50%; width:2.9em; height:2.9em;" class="letterpic pull-left" alt="User Image" title="{{ Auth::user()->name }}"></div>
+          <div style="margin-left: -8px;" class="pull-left info">
+            <p style="margin-bottom: 3px;">{{ Auth::user()->name }}</p>
+            <a> @if (auth()->user()->level == 'Admin') Admin @else User @endif</a>
+          </div>
       </div>      
         <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
             <li class="header">MAIN NAVIGATION</li>

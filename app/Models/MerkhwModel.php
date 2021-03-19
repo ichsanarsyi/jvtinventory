@@ -17,6 +17,7 @@ class MerkhwModel extends Model
     {
         return DB::table('tbl_merk_hw')->insert($data);
         return DB::table('tbl_merk_hw')->insert2($data);
+        return DB::table('tbl_merk_hw')->insert3($data);
     }
 
     public function editData($id_merk_hw, $data)

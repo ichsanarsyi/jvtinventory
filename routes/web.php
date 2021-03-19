@@ -41,6 +41,7 @@ Route::post('/masterdata/merksw/insertmerksw', [MerkswController::class, 'insert
 Route::get('/masterdata/merkhw', [MerkhwController::class, 'index'])->name('merkhw');
 Route::post('/masterdata/merkhw/insertmerkhw', [MerkhwController::class, 'insert']);
 Route::post('/hardware/addhw/insertmerkinhw', [MerkhwController::class, 'insert2']);
+Route::post('/hardware/edithw/insertmerkinhw', [MerkhwController::class, 'insert3']);
 
 //CRUD Ktegori Hardware:
 Route::get('/masterdata/kategorihw', [KategorihwController::class, 'index'])->name('kategorihw');

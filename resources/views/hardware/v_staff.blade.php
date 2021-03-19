@@ -164,8 +164,8 @@
                     <p>Apakah Anda yakin ingin menghapus staff Hardware {{ $data->nama_staff }}?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
-                    <a href="/masterdata/staff/deletestaff/{{ $data->id_staff }}" class="btn btn-danger">Ya</a>
+                  <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
+                  <a href="/masterdata/staff/deletestaff/{{ $data->id_staff }}" class="btn btn-danger">Ya</a>
                 </div>
             </div>
             <!-- /.modal-content -->
