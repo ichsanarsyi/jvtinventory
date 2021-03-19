@@ -45,7 +45,10 @@
     border-color: #1060d8;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 132, 255, 0.6);
     }
-    
+  
+    .select2-container {
+	font-weight: normal;
+}
     </style>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -223,6 +226,11 @@
     $('#tbl_departemen').DataTable()
     $('#tbl_staff').DataTable()
     $('#tbl_kondisi').DataTable()
+    $('#tbl_user').DataTable({
+      initComplete: function () {
+        $('#tbl_user_filter [type="search"]').focus()
+      }
+    });
     $('.select2').select2()
     //Date picker
     $('#datepicker1').datepicker({
@@ -296,9 +304,8 @@ $('select.select2').on('select2:closing', function (e) {
   $(document).ready(function(){
   $( ".btn" ).not( "#btndeleteuser{{ Auth::user()->id }}, #btnedituser{{ Auth::user()->id }}" )
     .css( "visibility", "visible" );
-  var textTd;
-  textTd = "User sedang Login";
-  document.getElementById("cellaksi{{Auth::user()->id}}").innerHTML = textTd;
+  var textTd = document.getElementById("cellaksi{{Auth::user()->id}}");
+  textTd.innerHTML = '<i class="fa fa-circle text-success"></i> User sedang Login';
   document.getElementById("cellaksi{{Auth::user()->id}}").style.color = "green";
   })
 </script>
@@ -341,7 +348,7 @@ $(document).ready(function() {
         initComplete: function () {            
             this.api().columns([2,3,4,5]).every( function () {
                 var column = this;
-                var select = $('<select><option value="">Show All</option></select>')
+                var select = $('<select class="f" style="width:100%;"><option value="">Show All</option></select>')
                     .appendTo( $(column.footer()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
@@ -366,7 +373,7 @@ $(document).ready(function() {
         initComplete: function () {            
             this.api().columns([2,3]).every( function () {
                 var column = this;
-                var select = $('<select><option value="">Show All</option></select>')
+                var select = $('<select class="f" style="width:100%"><option value="">Show All</option></select>')
                     .appendTo( $(column.footer()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
@@ -386,7 +393,10 @@ $(document).ready(function() {
         }
     } );
 } );
-
+$(document).ready(function($) {
+  $('.f').select2();
+  $('.dataTables_length select').select2();
+});
 </script>
 
 
