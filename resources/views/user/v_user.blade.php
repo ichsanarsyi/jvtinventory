@@ -45,11 +45,11 @@
                             <td>{{$data->email}}</td>
                             <td>{{$data->level}}</td>
                             @if ((auth()->user()->level == 'Admin'))
-                            <td>
-                                <button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id }}"><i class="fa fa-edit fa-fw"></i>
-                                Edit
+                            <td id="cellaksi{{$data->id}}">
+                                <button id="btnedituser{{$data->id}}" style="visibility:hidden" type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id }}"><i class="fa fa-edit fa-fw"></i>
+                                    Edit
                                 </button>
-                                <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id }}"><i class="fa fa-trash fa-fw"></i>
+                                <button id="btndeleteuser{{$data->id}}" style="visibility:hidden" type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id }}"><i class="fa fa-trash fa-fw"></i>
                                     Delete
                                 </button>
                             </td>
@@ -108,16 +108,6 @@
                         @enderror
                     </div>
                 </div> 
-                {{-- <div class="form-group">
-                    <input id="created_at" value="{{ $data->created_at }}" name="created_at" type="hidden" class="form-control" placeholder="created_at">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                    @error('created_at')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                  </div> --}}
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

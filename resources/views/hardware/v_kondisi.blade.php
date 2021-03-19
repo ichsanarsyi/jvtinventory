@@ -144,8 +144,8 @@
                     <p>Apakah Anda yakin ingin menghapus Kondisi Hardware {{ $data->nama_kondisi }}?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
-                    <a href="/masterdata/kondisi/deletekondisi/{{ $data->id_kondisi }}" class="btn btn-danger">Ya</a>
+                  <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
+                  <a href="/masterdata/kondisi/deletekondisi/{{ $data->id_kondisi }}" class="btn btn-danger">Ya</a>
                 </div>
             </div>
             <!-- /.modal-content -->

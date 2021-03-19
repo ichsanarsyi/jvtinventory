@@ -16,8 +16,21 @@ class LokasiController extends Controller
     public function index()
     {
         $data = [
+            'departemen' => $this->LokasiModel->allDepartemen(),
             'lokasi' => $this->LokasiModel->allData(),
-            'departemen' => $this->LokasiModel->allDepartemen()
+            
+        ];
+        return view('hardware.v_lokasi', $data);
+    }
+
+    public function edit($id_lokasi)
+    {
+        if (!$this->LokasiModel->detailData($id_lokasi))
+        {
+            abort(404);
+        }
+        $data = [
+            'lokasi' => $this->LokasiModel->allLokasi()
         ];
         return view('hardware.v_lokasi', $data);
     }
@@ -34,7 +47,7 @@ class LokasiController extends Controller
         
         $data=[
             'nama_lokasi' => Request()->nama_lokasi,
-            'id_departemen' => Request()->id_departemen
+            'id_departemen_lokasi' => Request()->id_departemen_lokasi
         ];
         
         $this->LokasiModel->addData($data);
@@ -52,7 +65,7 @@ class LokasiController extends Controller
         
         $data=[
             'nama_lokasi' => Request()->nama_lokasi,
-            'id_departemen' => Request()->id_departemen
+            'id_departemen_lokasi' => Request()->id_departemen
         ];
         
         $this->LokasiModel->editData($id_lokasi, $data);       

@@ -54,25 +54,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-2">
-			<div class="box box-default collapsed-box box-solid">
-			  <div class="box-header with-border">
-				<h3 class="box-title">ID Software</h3>
-	
-				<div class="box-tools pull-right">
-				  <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i></button>
-				</div>
-				<!-- /.box-tools -->
-			  </div>
-			  <!-- /.box-header -->
-			  <div class="box-body" align=center>
-				<div class="col">
-					<span class="h4 font-weight-bold mb-0">{{ $software->id_sw }}</span>
-				</div>
-			  </div>
-			  <!-- /.box-body -->
-			</div>
-			<!-- /.box -->
-		  </div>
+		</div>
 		<div class="col-md-4">
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">

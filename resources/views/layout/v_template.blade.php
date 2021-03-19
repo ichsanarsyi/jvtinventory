@@ -25,11 +25,6 @@
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/skins/_all-skins.min.css">
 
   <style>
-    input:focus {
-      background-color:#efeeff;
-      outline-color: rgb(6, 6, 153);
-      outline-width: 2px;
-    }
 
     .divider{
       width: 100%;
@@ -45,6 +40,12 @@
     table.dataTable thead tr {
      background-color: rgba(233, 239, 255, 0.672);
     }
+
+    button:focus, .form-control:focus, .select2-container *:focus{
+    border-color: #1060d8;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 132, 255, 0.6);
+    }
+    
     </style>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -144,13 +145,12 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
 
+    <!-- Content Header (Page header) -->
     <section class="content-header text-secondary">
       <h3 style="margin:-0px;">
         @yield('title')
       </h3>
-
     </section>
 
     <!-- Main content -->
@@ -265,14 +265,6 @@
 </script>
 {{---------------------------------------------------------------------}}
 
-{{-- Script Untuk Auto Focus & Select saat Modal muncul --}}
-<script>
-  $('.modal').on('shown.bs.modal', function() {
-  $(this).find('[autofocus]').focus().select();
-  });
-</script>
-{{-----------------------------------------------}}
-
 {{-- Script Untuk memunculkan Dropdown otomatis saat focus --}}
 <script>
 // on first focus (bubbles up to document), open the menu
@@ -299,6 +291,49 @@ $('select.select2').on('select2:closing', function (e) {
 
 </script>
 
+{{-- Script User sedang login - Hilangkan Aksi --}}
+<script>
+  $(document).ready(function(){
+  $( ".btn" ).not( "#btndeleteuser{{ Auth::user()->id }}, #btnedituser{{ Auth::user()->id }}" )
+    .css( "visibility", "visible" );
+  var textTd;
+  textTd = "User sedang Login";
+  document.getElementById("cellaksi{{Auth::user()->id}}").innerHTML = textTd;
+  document.getElementById("cellaksi{{Auth::user()->id}}").style.color = "green";
+  })
+</script>
+
+{{-- Script untuk Enter tidak Submit --}}
+<script>
+$('form').on('keydown', 'input, select', function(e) {
+  
+    if (e.key === "Enter") {
+        var self = $(this), form = self.parents('form:eq(0)'), focusable, next;
+        focusable = form.find('input,a,select,textarea').filter(':visible');
+        next = focusable.eq(focusable.index(this)+1);
+        if (next.length) {
+         // next.focus();
+        } else {
+            form.submit();
+        }
+        return false;
+    }
+});
+</script>
+
+
+{{-- Script Untuk Auto Focus & Select saat Modal muncul --}}
+<script>
+  $('.modal').on('shown.bs.modal', function() {
+  $(this).find('[autofocus], #button-tidak').focus().select();
+  });
+</script>
+
+<script>
+
+</script>
+{{-----------------------------------------------}}
+
 {{-- [Works] filter per kolom HW & SW --}}
 <script>
 $(document).ready(function() {
@@ -321,7 +356,9 @@ $(document).ready(function() {
                 column.data().unique().sort().each( function ( d, j ) {
                     select.append( '<option value="'+d+'">'+d+'</option>' )
                 } );
+            
             } );
+            $('#tbl_hardware_filter [type="search"]').focus()
         }
     } );
 
@@ -345,6 +382,7 @@ $(document).ready(function() {
                     select.append( '<option value="'+d+'">'+d+'</option>' )
                 } );
             } );
+            $('#tbl_software_filter [type="search"]').focus()
         }
     } );
 } );
