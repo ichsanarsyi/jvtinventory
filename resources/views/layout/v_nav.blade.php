@@ -1,9 +1,9 @@
   <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar">
+  <aside class="main-sidebar fixed">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div style="margin-left: -5px" class="user-panel">
+      <div style="margin-left: -6px" class="user-panel">
             <div style="border-radius:50%; width:2.9em; height:2.9em;" class="letterpic pull-left" alt="User Image" title="{{ Auth::user()->name }}"></div>
           <div style="margin-left: -8px;" class="pull-left info">
             <p style="margin-bottom: 3px;">{{ Auth::user()->name }}</p>
@@ -29,7 +29,7 @@
               </a>                
             </li>
             @endif  
-
+            <li class="header">MASTER DATA</li>
             <li class="treeview {{ (request()->is('masterdata/*')) ? 'active' : '' }}">
               <a href="#">
               <i class="fa fa-th-list"></i> <span>Master Data</span>
@@ -38,14 +38,14 @@
               </span>
               </a>
               <ul class="treeview-menu">
-              <li class="{{ (request()->is('masterdata/departemen')) ? 'active bg-black' : '' }}"><a href="/masterdata/departemen"><i class="fa fa-circle-o"></i>Departemen</a></li>
-              <li class="{{ (request()->is('masterdata/lokasi')) ? 'active bg-black' : '' }}"><a href="/masterdata/lokasi"><i class="fa fa-circle-o"></i>Lokasi</a></li>
-              <li class="{{ (request()->is('masterdata/merkhw')) ? 'active bg-black' : '' }}"><a href="/masterdata/merkhw"><i class="fa fa-circle-o"></i>Merk Hardware</a></li>
-              <li class="{{ (request()->is('masterdata/merksw')) ? 'active bg-black' : '' }}"><a href="/masterdata/merksw"><i class="fa fa-circle-o"></i>Merk Software</a></li>
-              <li class="{{ (request()->is('masterdata/kategorihw')) ? 'active bg-black' : '' }}"><a href="/masterdata/kategorihw"><i class="fa fa-circle-o"></i>Kategori Hardware</a></li>
-              <li class="{{ (request()->is('masterdata/lisensisw')) ? 'active bg-black' : '' }}"><a href="/masterdata/lisensisw"><i class="fa fa-circle-o"></i>Lisensi Software</a></li>
-              <li class="{{ (request()->is('masterdata/staff')) ? 'active bg-black' : '' }}"><a href="/masterdata/staff"><i class="fa fa-circle-o"></i>Staff</a></li>
-              <li class="{{ (request()->is('masterdata/kondisi')) ? 'active bg-black' : '' }}"><a href="/masterdata/kondisi"><i class="fa fa-circle-o"></i>Kondisi</a></li>
+              <li class="{{ (request()->is('masterdata/departemen')) ? 'active' : '' }}"><a href="/masterdata/departemen"><i class="fa fa-circle-o"></i>Departemen</a></li>
+              <li class="{{ (request()->is('masterdata/lokasi')) ? 'active' : '' }}"><a href="/masterdata/lokasi"><i class="fa fa-circle-o"></i>Lokasi</a></li>
+              <li class="{{ (request()->is('masterdata/merkhw')) ? 'active' : '' }}"><a href="/masterdata/merkhw"><i class="fa fa-circle-o"></i>Merk Hardware</a></li>
+              <li class="{{ (request()->is('masterdata/merksw')) ? 'active' : '' }}"><a href="/masterdata/merksw"><i class="fa fa-circle-o"></i>Merk Software</a></li>
+              <li class="{{ (request()->is('masterdata/kategorihw')) ? 'active' : '' }}"><a href="/masterdata/kategorihw"><i class="fa fa-circle-o"></i>Kategori Hardware</a></li>
+              <li class="{{ (request()->is('masterdata/lisensisw')) ? 'active' : '' }}"><a href="/masterdata/lisensisw"><i class="fa fa-circle-o"></i>Lisensi Software</a></li>
+              <li class="{{ (request()->is('masterdata/staff')) ? 'active' : '' }}"><a href="/masterdata/staff"><i class="fa fa-circle-o"></i>Staff</a></li>
+              <li class="{{ (request()->is('masterdata/kondisi')) ? 'active' : '' }}"><a href="/masterdata/kondisi"><i class="fa fa-circle-o"></i>Kondisi</a></li>
               </ul>
           </li>
               </a>

@@ -60,7 +60,7 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
       <div class="form-group has-feedback">
-        <input autofocus type="email" name="email" class="form-control" placeholder="Email">
+        <input autofocus type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         @error('email')
         <span class="invalid-feedback" role="alert">

@@ -33,7 +33,7 @@ trait RegistersUsers
         event(new Registered($user = $this->create($request->all())));
         // $this->guard()->login($user);
         return $this->registered($request, $user)
-                            ?: redirect()->route('user')->with('pesan', 'Data berhasil ditambahkan.');
+                            ?: redirect()->route('user')->with('pesan', 'User baru Berhasil Ditambahkan.');
      }
 
     /**

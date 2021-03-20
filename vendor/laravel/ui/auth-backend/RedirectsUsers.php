@@ -14,7 +14,9 @@ trait RedirectsUsers
         if (method_exists($this, 'redirectTo')) {
             return $this->redirectTo();
         }
-
+        
+        session()->flash('message', 'Anda login sebagai - '.auth()->user()->level.'.');
         return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+        return $this->laravelRedirectPath();
     }
 }

@@ -26,6 +26,9 @@
 
   <style>
 
+    body{
+      background: #BBB;
+    }
     .divider{
       width: 100%;
       height: 1px;
@@ -35,21 +38,23 @@
 
     tfoot {
         display: table-header-group;
+        border: none;
     }
 
     table.dataTable thead tr {
-     background-color: rgba(233, 239, 255, 0.672);
+     background-color: #e6e6e6;
     }
 
     button:focus, .form-control:focus, .select2-container *:focus{
-    border-color: #1060d8;
+    border-color: #3c8dbc;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 132, 255, 0.6);
     }
   
     .select2-container {
-	font-weight: normal;
-}
-    </style>
+	  font-weight: normal;
+    }
+  
+</style>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -107,8 +112,8 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span style="border-radius:50%; width:2.5em; height:2.5em; margin-top:-8px; margin-bottom:-12px; margin-right:3px" class="letterpic" title="{{ Auth::user()->name }}"></span>
-              <span class="hidden-xs">{{ Auth::user()->name }}</span>
+                <span style="border-radius:50%; width:2.5em; height:2.5em; margin-top:-8px; margin-bottom:-12px; margin-right:3px" class="letterpic" title="{{ Auth::user()->name }}"></span>
+                <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
@@ -151,9 +156,7 @@
 
     <!-- Content Header (Page header) -->
     <section class="content-header text-secondary">
-      <h3 style="margin:-0px;">
-        @yield('title')
-      </h3>
+      @yield('headertitle')
     </section>
 
     <!-- Main content -->
@@ -164,22 +167,28 @@
     <!--------------------------
         | Your Page Content Here |
         -------------------------->
-
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-  
-  <!-- Main Footer -->
-  <footer style="position: relative;" class="main-footer">
-    <!-- To the right -->
+  <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      About
+      <b>Version</b> 2.3.12
     </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
+    reserved.
   </footer>
 
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Create the tabs -->
+    <div class="pad">
+      This is an example of the control sidebar.
+    </div>
+  </aside><!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
@@ -217,19 +226,20 @@
 </script>
 
 <script>
-  $(function () {
-    $('#tbl_jenis_lisensi').DataTable()
-    $('#tbl_merk_sw').DataTable()
-    $('#tbl_merk_hw').DataTable()
-    $('#tbl_lokasi').DataTable()
-    $('#tbl_kategori_hw').DataTable()
-    $('#tbl_departemen').DataTable()
-    $('#tbl_staff').DataTable()
-    $('#tbl_kondisi').DataTable()
-    $('#tbl_user').DataTable({
+ $(function() {
+    $("#tbl_user,#tbl_jenis_lisensi,#tbl_merk_sw,#tbl_merk_hw,#tbl_kategori_hw,#tbl_departemen,#tbl_staff,#tbl_kondisi,#tbl_lokasi").DataTable({
       initComplete: function () {
         $('#tbl_user_filter [type="search"]').focus()
-      }
+        $('#tbl_jenis_lisensi_filter [type="search"]').focus()
+        $('#tbl_merk_sw_filter [type="search"]').focus()
+        $('#tbl_merk_hw_filter [type="search"]').focus()
+        $('#tbl_kategori_hw_filter [type="search"]').focus()
+        $('#tbl_departemen_filter [type="search"]').focus()
+        $('#tbl_staff_filter [type="search"]').focus()
+        $('#tbl_kondisi_filter [type="search"]').focus()
+        $('#tbl_lokasi_filter [type="search"]').focus()
+      },
+      stateSave: true
     });
     $('.select2').select2()
     //Date picker

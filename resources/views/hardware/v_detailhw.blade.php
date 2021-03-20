@@ -1,7 +1,11 @@
 @extends('layout.v_template')
+@section('headertitle')
 @section('title','Detail Hardware')
+<h3 style="margin:-0px;">
+    @yield('title')
+</h3>
+@endsection
 @section('content')
-
 <div class="row">
 	<div class="col-md-12">
 		<div class="box box-primary text-info box-solid">
@@ -12,6 +16,11 @@
 		  <!-- /.box-header -->
 		  <div class="box-body">
 			<table class="table table-striped table-hover">
+				<tr>
+					<th width="170px">Nama Hardware</th>
+					<th width="20px">:</th>
+					<td>{{ $hardware->nama_hw }}</td>
+				</tr>
 				<tr>
 					<th width="170px">Merk Hardware</th>
 					<th width="20px">:</th>

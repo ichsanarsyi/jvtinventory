@@ -52,9 +52,7 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  
-}
-}
+  }
 </style>
 <body class="hold-transition login-page">
 <div style="margin-top:40px" class="login-box">

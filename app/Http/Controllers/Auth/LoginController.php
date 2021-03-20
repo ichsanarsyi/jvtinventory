@@ -19,7 +19,9 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers {
+        redirectPath as laravelRedirectPath;
+    }
 
     /**
      * Where to redirect users after login.

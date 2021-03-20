@@ -1,5 +1,10 @@
 @extends('layout.v_template')
+@section('headertitle')
 @section('title','Detail Software')
+<h3 style="margin:-0px;">
+	@yield('title')
+  </h3>
+  @endsection
 @section('content')
 
     <div class="row">
@@ -53,9 +58,9 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-1">
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-5">
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">
 			<h3 class="box-title">Kode Lisensi</h3>
