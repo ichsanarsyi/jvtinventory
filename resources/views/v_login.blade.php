@@ -28,19 +28,39 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<style>
+  button:focus, .form-control:focus, .select2-container *:focus{
+    border-color: #1060d8;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 132, 255, 0.6);
+    }
+
+  .login-page{
+    background: linear-gradient(
+          rgba(0, 0, 0, 0.2), 
+          rgba(0, 0, 0, 0.2)
+        ), url("jvtbg.png"),rgb(97, 97, 97);
+    backdrop-filter: blur(6px);
+    background-size: cover;
+    -webkit-backdrop-filter: blur(6px);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+</style>
 <body class="hold-transition login-page">
+  <div class="bg-image"></div>
 <div class="login-box">
   <div class="login-logo">
-    <a href="/"><b>Login</b> - JVT Inventory</a>
+    <a style="color: white" href="/"><b>Login</b> - JVT Inventory</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">Log In untuk masuk ke JVT</p>
+    <p class="login-box-msg">Log In untuk masuk ke JVT Inventory</p>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
       <div class="form-group has-feedback">
-        <input autofocus type="email" name="email" class="form-control" placeholder="Email">
+        <input autofocus type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         @error('email')
         <span class="invalid-feedback" role="alert">

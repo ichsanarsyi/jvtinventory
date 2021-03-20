@@ -1,5 +1,10 @@
 @extends('layout.v_template')
+@section('headertitle')
 @section('title','Kategori Hardware')
+<h3 style="margin:-0px;">
+  @yield('title')
+</h3>
+@endsection
 @section('content')
 <div class="row">
     <div class="col-xs-12">
@@ -146,8 +151,7 @@
                 <div class="modal-footer">
                   <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
                   <a href="/masterdata/kategorihw/deletekategorihw/{{ $data->id_kategori_hw }}" class="btn btn-danger">Ya</a>
-                    <a href="/masterdata/kategorihw/deletekategorihw/{{ $data->id_kategori_hw }}" class="btn btn-danger">Ya</a>
-                </div>
+                  </div>
             </div>
             <!-- /.modal-content -->
         </div>

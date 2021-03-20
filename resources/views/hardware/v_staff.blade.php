@@ -1,5 +1,10 @@
 @extends('layout.v_template')
+@section('headertitle')
 @section('title','staff Hardware')
+<h3 style="margin:-0px;">
+  @yield('title')
+</h3>
+@endsection
 @section('content')
 <div class="row">
     <div class="col-xs-12">

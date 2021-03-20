@@ -1,5 +1,10 @@
 @extends('layout.v_template')
+@section('headertitle')
 @section('title','User')
+<h3 style="margin:-0px;">
+    @yield('title')
+</h3>
+@endsection
 @section('content')
 
 <div class="row">
@@ -21,7 +26,7 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-                <table id="tbl_merk_hw" class="table table-bordered table-striped">
+                <table id="tbl_user" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th>No</th>

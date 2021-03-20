@@ -1,5 +1,10 @@
 @extends('layout.v_template')
+@section('headertitle')
 @section('title','All Hardware')
+<h3 style="margin:-0px;">
+    @yield('title')
+</h3>
+@endsection
 @section('content')
 <div class="row">
     <div class="col-xs-12">
@@ -11,7 +16,7 @@
         </div>
         @endif
       <div class="box box-primary">
-        <div class="box-header with-border text-blue">
+        <div class="box-header with-border">
             <div class="row">
                 <div class="col-md-1" style="margin-right: 20px">
                     <a href="/hardware/addhw/" class="btn btn-md btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
@@ -20,7 +25,7 @@
         </div>     
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="tbl_hardware" class="display table table-bordered table-hover">
+          <table id="tbl_hardware" class="display table table-bordered order-column table-hover">
             <tfoot>
                 <tr>
                   <th></th>
@@ -87,7 +92,6 @@
                     <p>Apakah Anda yakin ingin menghapus data {{ $data->nama_hw }}?</p>
                 </div>
                 <div class="modal-footer">
-                    {{-- <button id="button-tidak" type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button> --}}
                     <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
                     <a href="/hardware/deletehw/{{ $data->id_hw }}" class="btn btn-danger">Ya</a>
                 </div>
