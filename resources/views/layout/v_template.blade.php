@@ -53,7 +53,7 @@
     .select2-container {
 	  font-weight: normal;
     }
-  
+
 </style>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -239,7 +239,8 @@
         $('#tbl_kondisi_filter [type="search"]').focus()
         $('#tbl_lokasi_filter [type="search"]').focus()
       },
-      stateSave: true
+      stateSave: true,
+      lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
     });
     $('.select2').select2()
     //Date picker
@@ -311,7 +312,7 @@ $('select.select2').on('select2:closing', function (e) {
 
 {{-- Script User sedang login - Hilangkan Aksi --}}
 <script>
-  $(document).ready(function(){
+  $('#tbl_user').on('draw.dt',function(){
   $( ".btn" ).not( "#btndeleteuser{{ Auth::user()->id }}, #btnedituser{{ Auth::user()->id }}" )
     .css( "visibility", "visible" );
   var textTd = document.getElementById("cellaksi{{Auth::user()->id}}");
@@ -376,7 +377,8 @@ $(document).ready(function() {
             
             } );
             $('#tbl_hardware_filter [type="search"]').focus()
-        }
+        },
+        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
     } );
 
     $('#tbl_software').DataTable( {
@@ -400,7 +402,9 @@ $(document).ready(function() {
                 } );
             } );
             $('#tbl_software_filter [type="search"]').focus()
-        }
+            
+        },
+        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
     } );
 } );
 $(document).ready(function($) {
