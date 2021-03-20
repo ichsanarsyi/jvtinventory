@@ -1,11 +1,11 @@
   <!-- Left side column. contains the sidebar -->
-  <aside class="main-sidebar fixed">
+  <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-      <div style="margin-left: -6px" class="user-panel">
-            <div style="border-radius:50%; width:2.9em; height:2.9em;" class="letterpic pull-left" alt="User Image" title="{{ Auth::user()->name }}"></div>
-          <div style="margin-left: -8px;" class="pull-left info">
+      <div style="margin-left: 0px" class="user-panel">
+            <div style="border-radius:50%; width:2.9em; height:2.9em; margin-left:-6px;" class="letterpic pull-left" alt="User Image" title="{{ Auth::user()->name }}"></div>
+          <div style="margin-left: -12px;" class="pull-left info">
             <p style="margin-bottom: 3px;">{{ Auth::user()->name }}</p>
             <a> @if (auth()->user()->level == 'Admin') Admin @else User @endif</a>
           </div>
