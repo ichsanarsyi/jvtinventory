@@ -194,6 +194,8 @@
 
 <!-- jQuery 3 -->
 <script src="{{asset('template')}}/bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Natural -->
+<script src="{{asset('template')}}/bower_components/jquery/dist/natural.js"></script>
 <!-- jQuery Mask -->
 <script src="{{asset('template')}}/bower_components/jquery/dist/jquery.mask.min.js"></script>
 <!-- jQuery Letterpic -->
@@ -378,7 +380,9 @@ $(document).ready(function() {
             } );
             $('#tbl_hardware_filter [type="search"]').focus()
         },
-        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
+        stateSave: true,
+        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]],
+        columnDefs: [{ type: 'natural', targets: 0 }],
     } );
 
     $('#tbl_software').DataTable( {
@@ -404,7 +408,9 @@ $(document).ready(function() {
             $('#tbl_software_filter [type="search"]').focus()
             
         },
-        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
+        stateSave: true,
+        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]],
+        columnDefs: [{ type: 'natural', targets: 0 }],
     } );
 } );
 $(document).ready(function($) {

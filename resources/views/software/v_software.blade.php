@@ -30,6 +30,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
                 </tr>
               </tfoot>
             <thead>
@@ -39,6 +40,7 @@
               <th>Merk</th>
               <th>Jenis Lisensi</th>
               <th>Versi</th>
+              <th>Masa Aktif Lisensi</th>
               <th>Aksi</th>
             </tr>
             </thead>
@@ -51,6 +53,7 @@
                     <td>{{$data->nama_merk_sw}}</td>
                     <td>{{$data->jenis_lisensi}}</td>
                     <td>{{$data->versi_sw}}</td>
+                    <td><span style="padding-right:30%;" class="pull-right">{{$data->day_left}} Hari Tersisa</span></td>
                     <td>
                         <a href="/software/detailsw/{{ $data->id_sw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
                         @if (auth()->user()->level == 'Admin') 

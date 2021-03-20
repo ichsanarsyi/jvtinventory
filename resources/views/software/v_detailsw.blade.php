@@ -98,7 +98,7 @@
 		  <!-- /.box-header -->
 		  <div class="box-body" align=center>
 			<div class="col">
-				<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($software->tgl_batas_lisensi)) }}</span>
+				<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($software->tgl_batas_lisensi)) }} <small style="color: red"> <br>{{ $software->day_left }} Hari Tersisa</small>
 			</div>
 		  </div>
 		  <!-- /.box-body -->

@@ -14,6 +14,7 @@ class SoftwareModel extends Model
         ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
         ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
         ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'tbl_software.id_hw')
+        ->leftJoin('software_day_left', 'software_day_left.id_sw', '=', 'tbl_software.id_sw')
         ->get();
     }
 
@@ -23,7 +24,8 @@ class SoftwareModel extends Model
         ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
         ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
         ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'tbl_software.id_hw')
-        ->where('id_sw', $id_sw)->first();
+        ->leftJoin('software_day_left', 'software_day_left.id_sw', '=', 'tbl_software.id_sw')
+        ->where('tbl_software.id_sw', $id_sw)->first();
     }
     
     public function allMerk()

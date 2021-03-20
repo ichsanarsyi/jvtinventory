@@ -121,11 +121,11 @@
 	<div class="box box-danger box-solid">
 	  <div class="box-header with-border">
 		<h3 class="box-title">Tanggal Batas Garansi</h3>
-	  </div>
+		</div>
 	  <!-- /.box-header -->
 	  <div class="box-body" align=center>
 		<div class="col">
-			<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($hardware->tgl_batas_garansi)) }}</span>
+			<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($hardware->tgl_batas_garansi)) }} <small style="color: red"> <br>{{ $hardware->day_left }} Hari Tersisa</small>
 		</div>
 	  </div>
 	  <!-- /.box-body -->

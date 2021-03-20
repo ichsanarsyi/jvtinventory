@@ -10,7 +10,7 @@
             <a> @if (auth()->user()->level == 'Admin') Admin @else User @endif</a>
           </div>
       </div>      
-        <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
+        <ul id="links" class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
             <li class="header">MAIN NAVIGATION</li>
             <li class="{{ Request::segment(1) === 'hardware' ? 'active' : null }}">
               <a href="/hardware">
@@ -29,6 +29,8 @@
               </a>                
             </li>
             @endif  
+        </ul>
+        <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
             <li class="header">MASTER DATA</li>
             <li class="treeview {{ (request()->is('masterdata/*')) ? 'active' : '' }}">
               <a href="#">
@@ -37,7 +39,7 @@
                   <i class="fa fa-angle-left pull-right"></i>
               </span>
               </a>
-              <ul class="treeview-menu">
+              <ul id="links" class="treeview-menu">
               <li class="{{ (request()->is('masterdata/departemen')) ? 'active' : '' }}"><a href="/masterdata/departemen"><i class="fa fa-circle-o"></i>Departemen</a></li>
               <li class="{{ (request()->is('masterdata/lokasi')) ? 'active' : '' }}"><a href="/masterdata/lokasi"><i class="fa fa-circle-o"></i>Lokasi</a></li>
               <li class="{{ (request()->is('masterdata/merkhw')) ? 'active' : '' }}"><a href="/masterdata/merkhw"><i class="fa fa-circle-o"></i>Merk Hardware</a></li>
