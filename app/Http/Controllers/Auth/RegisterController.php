@@ -75,7 +75,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'level' => $data['level'],
             'password' => Hash::make($data['password']), 
-        ]);
-        return redirect()->route('user')->with('pesan', 'Register user baru berhasil.');
+            ]);
+
     }
 }

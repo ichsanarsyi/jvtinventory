@@ -149,7 +149,7 @@
                     <p>Apakah Anda yakin ingin menghapus jenis lisensi {{ $data->jenis_lisensi }}?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
+                  <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
                     <a href="/masterdata/lisensisw/deletelisensi/{{ $data->id_jenis_lisensi }}" class="btn btn-danger">Ya</a>
                 </div>
             </div>

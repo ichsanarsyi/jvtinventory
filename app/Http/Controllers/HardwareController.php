@@ -29,8 +29,7 @@ class HardwareController extends Controller
             abort(404);
         }
         $data = [
-            'hardware' => $this->HardwareModel->detailData($id_hw),
-            'staff' => $this->HardwareModel->detailData($id_hw)
+            'hardware' => $this->HardwareModel->detailData($id_hw)
         ];
         return view('hardware.v_detailhw', $data);
     }

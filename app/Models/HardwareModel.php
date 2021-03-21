@@ -29,7 +29,8 @@ class HardwareModel extends Model
         ->leftJoin('tbl_kondisi', 'tbl_kondisi.id_kondisi', '=', 'tbl_hardware.id_kondisi')
         ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'tbl_hardware.id_departemen')
         ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'tbl_hardware.id_staff')
-        ->where('id_hw', $id_hw)->first();
+        ->leftJoin('hardware_day_left', 'hardware_day_left.id_hw', '=', 'tbl_hardware.id_hw')
+        ->where('tbl_hardware.id_hw', $id_hw)->first();
     }
     
     public function allMerk()
@@ -75,5 +76,10 @@ class HardwareModel extends Model
     public function deleteData($id_hw)
     {
         return DB::table('tbl_hardware')->where('id_hw', $id_hw)->delete();
+    }
+    
+    public function dayLeftData($id_hw)
+    {
+        return DB::table('hardware_day_left')->get();
     }
 }

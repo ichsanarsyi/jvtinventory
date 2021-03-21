@@ -16,6 +16,7 @@ class SoftwareController extends Controller
 
     public function index()
     {
+
         $data = [
             'software' => $this->SoftwareModel->allData(),
             'merk' => $this->SoftwareModel->allMerk(),
