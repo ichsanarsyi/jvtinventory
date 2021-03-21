@@ -88,7 +88,7 @@
                     <p>Apakah Anda yakin ingin menghapus data {{ $data->nama_sw }}?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
+                    <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
                     <a href="/software/deletesw/{{ $data->id_sw }}" class="btn btn-danger">Ya</a>
                 </div>
             </div>

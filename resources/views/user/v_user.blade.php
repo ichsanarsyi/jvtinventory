@@ -140,7 +140,7 @@
                     <p>Apakah Anda yakin ingin menghapus {{ $data->level }} {{ $data->name }}?</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline pull-left" data-dismiss="modal">Tidak</button>
+                <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
                 <a href="/user/deleteuser/{{ $data->id }}" class="btn btn-danger">Ya</a>
             </div>
         </div>

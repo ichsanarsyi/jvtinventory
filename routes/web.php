@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\KategorihwController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\DepartemenController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\KondisiController;
 
 
@@ -63,10 +64,8 @@ Route::post('/masterdata/kondisi/insertkondisi', [KondisiController::class, 'ins
 
 Auth::routes();
 
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/kirim-email', [RegisterController::class, 'index'])->name('create');
     //Hak Akses Crud User
     Route::get('/user', [UserController::class, 'index'])->name('user');
     Route::post('/user/updateuser/{id}', [UserController::class, 'update']);
