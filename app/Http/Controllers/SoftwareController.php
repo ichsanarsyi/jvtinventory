@@ -195,6 +195,7 @@ class SoftwareController extends Controller
         return Excel::download(new SoftwareExport,'DaftarSoftware.xlsx');
     }
 
+    //preview
     public function tableexcel()
     {
         $data = [

@@ -19,21 +19,32 @@
   </style> --}}
 </head>
 <body>
-  <table class="table">
+  <table style="border:1px solid black; border-collapse:collapse;">
     <thead>
-    <tr>
-      <th align="center" width="5"><b>No</b></th>
-      <th align="center" width="25"><b>Nama Software</b></th>
-      <th align="center" width="15"><b>Merk</b></th>
-      <th align="center" width="20"><b>Jenis Lisensi</b></th>
-      <th align="center" width="15"><b>Harga</b></th>
-      <th align="center" width="15"><b>Versi</b></th>
-      <th align="center" width="15"><b>Nama Hardware</b></th>
-      <th align="center" width="20"><b>Tanggal Pembelian</b></th>
-      <th align="center" width="20"><b>Tanggal Batas Lisensi</b></th>
-      <th align="center" width="20"><b>Masa Aktif Lisensi</b></th>
-      <th align="center" width="40"><b>Kode Lisensi</b></th>
-    </tr>
+      <tr>
+        {{-- <th><b>No</b></th>
+        <th><b>Nama Software</b></th>
+        <th><b>Merk</b></th>
+        <th><b>Jenis Lisensi</b></th>
+        <th><b>Harga</b></th>
+        <th><b>Versi</b></th>
+        <th><b>Nama Hardware</b></th>
+        <th><b>Tanggal Pembelian</b></th>
+        <th><b>Tanggal Batas Lisensi</b></th>
+        <th><b>Masa Aktif Lisensi</b></th>
+        <th><b>Kode Lisensi</b></th> --}}
+        <th style="border:1px solid black;" align="center" width="5"><b>No</b></th>
+        <th style="border:1px solid black;" align="center" width="25"><b>Nama Software</b></th>
+        <th style="border:1px solid black;" align="center" width="15"><b>Merk</b></th>
+        <th style="border:1px solid black;" align="center" width="20"><b>Jenis Lisensi</b></th>
+        <th style="border:1px solid black;" align="center" width="15"><b>Harga</b></th>
+        <th style="border:1px solid black;" align="center" width="15"><b>Versi</b></th>
+        <th style="border:1px solid black;" align="center" width="15"><b>Nama Hardware</b></th>
+        <th style="border:1px solid black;" align="center" width="20"><b>Tanggal Pembelian</b></th>
+        <th style="border:1px solid black;" align="center" width="20"><b>Tanggal Batas Lisensi</b></th>
+        <th style="border:1px solid black;" align="center" width="20"><b>Masa Aktif Lisensi</b></th>
+        <th style="border:1px solid black;" align="center" width="40"><b>Kode Lisensi</b></th>
+      </tr>
     </thead>
     <tbody>
         @php
@@ -41,21 +52,21 @@
         @endphp
         @foreach ($software as $data)
           <tr>
-              <td>{{$no++}}</td>
-              <td>{{$data->nama_sw}}</td>
-              <td>{{$data->nama_merk_sw}}</td>
-              <td>{{$data->jenis_lisensi}}</td>
-              <td>@currency($data->harga_sw)</td>
-              <td>{{$data->versi_sw}}</td>
-              <td>{{$data->nama_hw}}</td>
-              <td>{{$data->tgl_pembelian}}</td>
-              <td>{{$data->tgl_batas_lisensi}}</td>
-              <td>
+              <td style="border:1px solid black;">{{$no++}}</td>
+              <td style="border:1px solid black;">{{$data->nama_sw}}</td>
+              <td style="border:1px solid black;">{{$data->nama_merk_sw}}</td>
+              <td style="border:1px solid black;">{{$data->jenis_lisensi}}</td>
+              <td style="border:1px solid black;">@currency($data->harga_sw)</td>
+              <td style="border:1px solid black;">{{$data->versi_sw}}</td>
+              <td style="border:1px solid black;">{{$data->nama_hw}}</td>
+              <td style="border:1px solid black;">{{$data->tgl_pembelian}}</td>
+              <td style="border:1px solid black;">{{$data->tgl_batas_lisensi}}</td>
+              <td style="border:1px solid black;">
                   <span style="padding-right:30%;" class="pull-right">
                       {{$data->day_left}} Hari Tersisa
                   </span>
               </td>
-              <td>{{$data->kode_lisensi}}</td>
+              <td style="border:1px solid black;">{{$data->kode_lisensi}}</td>
           </tr>
         @endforeach                    
     </tbody>

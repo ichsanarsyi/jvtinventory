@@ -34,7 +34,7 @@ Route::get('/software/addsw', [SoftwareController::class, 'add']);
 Route::get('/software/print', [SoftwareController::class, 'print'])->name('printsoftware');
 Route::get('/software/savepdf', [SoftwareController::class, 'savepdf'])->name('pdfsoftware');
 Route::get('/software/saveexcel', [SoftwareController::class, 'saveexcel'])->name('excelsoftware');
-Route::get('/software/htmlexcel', [SoftwareController::class, 'tableexcel']);
+Route::get('/software/htmlexcel', [SoftwareController::class, 'tableexcel']); //preview
 
 //CRUD Lisensi Software:
 Route::get('/masterdata/lisensisw', [LisensiController::class, 'index'])->name('lisensi');
