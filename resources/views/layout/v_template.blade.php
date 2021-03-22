@@ -236,6 +236,7 @@
 
 <script>
  $(function() {
+    //Autofocus SearchBox
     $("#tbl_user,#tbl_jenis_lisensi,#tbl_merk_sw,#tbl_merk_hw,#tbl_kategori_hw,#tbl_departemen,#tbl_staff,#tbl_kondisi,#tbl_lokasi").DataTable({
       initComplete: function () {
         $('#tbl_user_filter [type="search"]').focus()
@@ -251,8 +252,9 @@
       stateSave: true,
       lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
     });
+    //use select2
     $('.select2').select2()
-    //Date picker
+    //use Datepicker
     $('#datepicker1').datepicker({
       autoclose: true
     })
@@ -471,17 +473,17 @@ $('form').on('keydown', 'input, select', function(e) {
 </script> --}}
 
 {{-- disable datepicker2 jika pilihan onetime subscribtion --}}
-{{-- <script type="text/javascript">
+<script type="text/javascript">
   $(function () {
       $("#lisensi").change(function () {
-          if ($(this).val() == 1) {
-            $("#datepicker2").removeAttr("disabled");
-          } else {            
+          if ($(this).val() == 2) {
             $("#datepicker2").attr("disabled", "disabled");
+          } else {            
+            $("#datepicker2").removeAttr("disabled");
           }
       });
   });
-</script> --}}
+</script>
 
 {{-- Percobaan di bawah ini --}}
 {{-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> --}}

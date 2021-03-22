@@ -30,6 +30,12 @@ Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail']);
 Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
 Route::get('/software/addsw', [SoftwareController::class, 'add']);
 
+//Print&Save Daftar Software
+Route::get('/software/print', [SoftwareController::class, 'print'])->name('printsoftware');
+Route::get('/software/savepdf', [SoftwareController::class, 'savepdf'])->name('pdfsoftware');
+Route::get('/software/saveexcel', [SoftwareController::class, 'saveexcel'])->name('excelsoftware');
+Route::get('/software/htmlexcel', [SoftwareController::class, 'tableexcel']);
+
 //CRUD Lisensi Software:
 Route::get('/masterdata/lisensisw', [LisensiController::class, 'index'])->name('lisensi');
 Route::post('/masterdata/lisensisw/insertlisensi', [LisensiController::class, 'insert']);
@@ -44,16 +50,18 @@ Route::post('/masterdata/merkhw/insertmerkhw', [MerkhwController::class, 'insert
 Route::post('/hardware/addhw/insertmerkinhw', [MerkhwController::class, 'insert2']);
 Route::post('/hardware/edithw/insertmerkinhw', [MerkhwController::class, 'insert3']);
 
-//CRUD Ktegori Hardware:
+//CRUD Kategori Hardware:
 Route::get('/masterdata/kategorihw', [KategorihwController::class, 'index'])->name('kategorihw');
 Route::post('/masterdata/kategorihw/insertkategorihw', [KategorihwController::class, 'insert']);
 
 //CRUD Lokasi Hardware:
 Route::get('/masterdata/lokasi', [LokasiController::class, 'index'])->name('lokasi');
 Route::post('/masterdata/lokasi/insertlokasi', [LokasiController::class, 'insert']);
+
 //CRUD Departemen Hardware:
 Route::get('/masterdata/departemen', [DepartemenController::class, 'index'])->name('departemen');
 Route::post('/masterdata/departemen/insertdepartemen', [DepartemenController::class, 'insert']);
+
 //CRUD staff Hardware:
 Route::get('/masterdata/staff', [StaffController::class, 'index'])->name('staff');
 Route::post('/masterdata/staff/insertstaff', [StaffController::class, 'insert']);

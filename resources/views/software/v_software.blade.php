@@ -1,27 +1,42 @@
 @extends('layout.v_template')
 @section('headertitle')
 @section('title','All Software')
-<h3 style="margin:-0px;">
+  <h3 style="margin:-0px;">
     @yield('title')
   </h3>
-  @endsection
+@endsection
 @section('content')
 <div class="row">
     <div class="col-xs-12">
         @if (session('pesan'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h4><i class="icon fa fa-check"></i> Sukses!</h4>
-            {{ session('pesan') }}
-        </div>
+          <div class="alert alert-success alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4><i class="icon fa fa-check"></i> Sukses!</h4>
+              {{ session('pesan') }}
+          </div>
         @endif
       <div class="box box-primary">
         <div class="box-header with-border text-blue">
-            <a href="/software/addsw/" class="btn btn btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
+            <a href="/software/addsw/" class="btn btn-primary">
+              <i class="fa fa-plus-circle fa-fw"></i>
+              Tambah
+            </a>
+            <a href="/software/saveexcel/" target="_blank" class="btn btn-default pull-right">
+              <i class="fa fa-file-excel-o fa-fw"></i>
+              Simpan sebagai Excel
+            </a>
+            <a href="/software/savepdf/" target="_blank" class="btn btn-default pull-right">
+              <i class="fa fa-file-pdf-o fa-fw"></i>
+              Simpan sebagai PDF
+            </a>
+            <a href="/software/print/" target="_blank" class="btn btn-default pull-right">
+              <i class="fa fa-print fa-fw"></i>
+              Print
+            </a>
         </div>
         <!-- /.box-header -->
         <div class="box-body">            
-          <table id="tbl_software" class="display table table-bordered table-striped">
+          <table id="tbl_software" class="display table table-bordered table-hover">
               <tfoot>
                 <tr>
                 <th></th>
@@ -53,7 +68,11 @@
                     <td>{{$data->nama_merk_sw}}</td>
                     <td>{{$data->jenis_lisensi}}</td>
                     <td>{{$data->versi_sw}}</td>
-                    <td><span style="padding-right:30%;" class="pull-right">{{$data->day_left}} Hari Tersisa</span></td>
+                    <td>
+                      <span style="padding-right:30%;" class="pull-right">
+                        {{$data->day_left}} Hari Tersisa
+                      </span>
+                    </td>
                     <td>
                         <a href="/software/detailsw/{{ $data->id_sw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
                         @if (auth()->user()->level == 'Admin') 

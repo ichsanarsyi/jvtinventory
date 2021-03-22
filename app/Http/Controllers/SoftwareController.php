@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
 use App\Models\SoftwareModel;
+use App\Exports\SoftwareExport;
+
+use PDF;
+use Excel;
 
 class SoftwareController extends Controller
 {    
@@ -156,4 +161,49 @@ class SoftwareController extends Controller
         $this->SoftwareModel->deleteData($id_sw);
         return redirect()->route('software')->with('pesan', 'Data berhasil dihapus.');
     }
+
+    public function print()
+    {
+        $data = [
+            'software' => $this->SoftwareModel->allData(),
+            'merk' => $this->SoftwareModel->allMerk(),
+            'lisensi' => $this->SoftwareModel->allLisensi()
+        ];
+        return view('software.v_printsw', $data);
+    }
+    
+    public function savepdf()
+    {
+        $data = [
+            'software' => $this->SoftwareModel->allData(),
+            'merk' => $this->SoftwareModel->allMerk(),
+            'lisensi' => $this->SoftwareModel->allLisensi()
+        ];
+
+        set_time_limit(300);
+        $pdf = PDF::loadView('software.v_pdfsw', $data)->setPaper('A4','landscape')
+        ;
+
+        // download PDF file with download method
+        //return $pdf->download('DaftarSoftware.pdf');
+        //Browser's PDFviewer
+        return $pdf->stream();
+    }
+
+    public function saveexcel()
+    {
+        return Excel::download(new SoftwareExport,'DaftarSoftware.xlsx');
+    }
+
+    public function tableexcel()
+    {
+        $data = [
+            'software' => $this->SoftwareModel->allData(),
+            'merk' => $this->SoftwareModel->allMerk(),
+            'lisensi' => $this->SoftwareModel->allLisensi()
+        ];
+
+        return view('software.v_excelsw', $data);
+    }
+
 }

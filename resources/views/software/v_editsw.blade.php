@@ -1,10 +1,10 @@
 @extends('layout.v_template')
 @section('headertitle')
 @section('title','Edit Data Software')
-<h3 style="margin:-0px;">
-	@yield('title')
-  </h3>
-  @endsection
+	<h3 style="margin:-0px;">
+		@yield('title')
+  	</h3>
+@endsection
 @section('content')
 	<div class="row">
         <div class="col-xs-12">
@@ -13,8 +13,7 @@
 			<!-- /.box-header -->
             <div class="box-body">
 				<form action="/software/updatesw/{{ $software->id_sw }}" method="POST" enctype="multipart/form-data">
-					@csrf
-					
+					@csrf					
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
