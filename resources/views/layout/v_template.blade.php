@@ -54,6 +54,13 @@
 	  font-weight: normal;
     }
 
+    table#tbl_log.dataTable tbody tr:hover {
+    color: rgb(0, 94, 165);
+    background-color: rgb(231, 237, 242);
+    font-weight: 500;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
+    }
+ 
 </style>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -242,7 +249,7 @@
         $('#tbl_lokasi_filter [type="search"]').focus()
       },
       stateSave: true,
-      lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
+      lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
     });
     $('.select2').select2()
     //Date picker
@@ -254,6 +261,98 @@
     })
   })
 </script>
+
+
+{{-- [Works] filter per kolom HW & SW --}}
+<script>
+  $(document).ready(function() {
+    $('#tbl_hardware').DataTable( {
+          initComplete: function () {            
+              this.api().columns([2,3,4,5]).every( function () {
+                  var column = this;
+                  var select = $('<select class="f" style="width:100%;"><option value="">Show All</option></select>')
+                      .appendTo( $(column.footer()).empty() )
+                      .on( 'change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex(
+                              $(this).val()
+                          );
+   
+                          column
+                              .search( val ? '^'+val+'$' : '', true, false )
+                              .draw();
+                      } );
+   
+                  column.data().unique().sort().each( function ( d, j ) {
+                      select.append( '<option value="'+d+'">'+d+'</option>' )
+                  } );
+              
+              } );
+              $('#tbl_hardware_filter [type="search"]').focus()
+          },
+          stateSave: true,
+          lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
+          // columnDefs: [{ type: 'natural', targets: 0 }],
+      } );
+  
+      $('#tbl_software').DataTable( {
+          initComplete: function () {            
+              this.api().columns([2,3]).every( function () {
+                  var column = this;
+                  var select = $('<select class="f" style="width:100%"><option value="">Show All</option></select>')
+                      .appendTo( $(column.footer()).empty() )
+                      .on( 'change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex(
+                              $(this).val()
+                          );
+   
+                          column
+                              .search( val ? '^'+val+'$' : '', true, false )
+                              .draw();
+                      } );
+   
+                  column.data().unique().sort().each( function ( d, j ) {
+                      select.append( '<option value="'+d+'">'+d+'</option>' )
+                  } );
+              } );
+              $('#tbl_software_filter [type="search"]').focus()
+              
+          },
+          stateSave: true,
+          lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
+          columnDefs: [{ type: 'natural', targets: 0 }],
+      } );
+
+      $('#tbl_log').DataTable( {
+          initComplete: function () {            
+              this.api().columns([2,]).every( function () {
+                  var column = this;
+                  var select = $('<select class="f" style="width:100%"><option value="">Show All</option></select>')
+                      .appendTo( $(column.footer()).empty() )
+                      .on( 'change', function () {
+                          var val = $.fn.dataTable.util.escapeRegex(
+                              $(this).val()
+                          );
+   
+                          column
+                              .search( val ? '^'+val+'$' : '', true, false )
+                              .draw();
+                      } );
+   
+                  column.data().unique().sort().each( function ( d, j ) {
+                      select.append( '<option value="'+d+'">'+d+'</option>' )
+                  } );
+              } );
+              $('#tbl_log_filter [type="search"]').focus()   
+          },
+          lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
+      } );
+  } );
+  
+  $(document).ready(function($) {
+    $('.f').select2();
+    $('.dataTables_length select').select2();
+  });
+  </script>
 
 <script>
   $(document).ready(function () {
@@ -353,72 +452,6 @@ $('form').on('keydown', 'input, select', function(e) {
 
 </script>
 {{-----------------------------------------------}}
-
-{{-- [Works] filter per kolom HW & SW --}}
-<script>
-$(document).ready(function() {
-  $('#tbl_hardware').DataTable( {
-        initComplete: function () {            
-            this.api().columns([2,3,4,5]).every( function () {
-                var column = this;
-                var select = $('<select class="f" style="width:100%;"><option value="">Show All</option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            
-            } );
-            $('#tbl_hardware_filter [type="search"]').focus()
-        },
-        stateSave: true,
-        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]],
-        columnDefs: [{ type: 'natural', targets: 0 }],
-    } );
-
-    $('#tbl_software').DataTable( {
-        initComplete: function () {            
-            this.api().columns([2,3]).every( function () {
-                var column = this;
-                var select = $('<select class="f" style="width:100%"><option value="">Show All</option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
-            } );
-            $('#tbl_software_filter [type="search"]').focus()
-            
-        },
-        stateSave: true,
-        lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]],
-        columnDefs: [{ type: 'natural', targets: 0 }],
-    } );
-} );
-$(document).ready(function($) {
-  $('.f').select2();
-  $('.dataTables_length select').select2();
-});
-</script>
-
 
 {{-- Jika Modal Error Auto Muncul --}}
 @if (Session::has('errors'))

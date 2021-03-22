@@ -28,6 +28,15 @@ class SoftwareModel extends Model
         ->where('tbl_software.id_sw', $id_sw)->first();
     }
     
+        
+    public function logData()
+    {
+        return DB::table('log_software')
+        ->select('*','log_software.id_sw_lama','tbl_software.nama_sw AS nama_sw')
+        ->leftJoin('tbl_software', 'tbl_software.id_sw', '=', 'log_software.id_sw_lama')
+        ->get();
+    }
+
     public function allMerk()
     {
         return DB::table('tbl_merk_sw')->get();

@@ -25,6 +25,15 @@ class SoftwareController extends Controller
         return view('software.v_software', $data);
     }
 
+    public function detailLog()
+    {
+
+        $data = [
+            'logsoftware' => $this->SoftwareModel->logData(),
+        ];
+        return view('software.v_logsw', $data);
+    }
+
     public function detail($id_sw)
     {
         if (!$this->SoftwareModel->detailData($id_sw))
