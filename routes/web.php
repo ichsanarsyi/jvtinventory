@@ -65,18 +65,20 @@ Route::post('/masterdata/kondisi/insertkondisi', [KondisiController::class, 'ins
 Auth::routes();
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/kirim-email', [RegisterController::class, 'index'])->name('create');
+    //Route::get('/kirim-email', [RegisterController::class, 'index'])->name('create');
     //Hak Akses Crud User
     Route::get('/user', [UserController::class, 'index'])->name('user');
     Route::post('/user/updateuser/{id}', [UserController::class, 'update']);
     Route::get('/user/deleteuser/{id}', [UserController::class, 'delete']);
     
     //Hak Akses update+edit+delete Hardware 
+    Route::get('/log/hardware', [HardwareController::class, 'detailLog']);
     Route::post('/hardware/updatehw/{id_hw}', [HardwareController::class, 'update']);
     Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
     Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
     
     //Hak Akses update+edit+delete Software
+    Route::get('/log/software', [SoftwareController::class, 'detailLog']);
     Route::post('/software/updatesw/{id_sw}', [SoftwareController::class, 'update']);
     Route::get('/software/deletesw/{id_sw}', [SoftwareController::class, 'delete']);
     Route::get('/software/editsw/{id_sw}', [SoftwareController::class, 'edit']);

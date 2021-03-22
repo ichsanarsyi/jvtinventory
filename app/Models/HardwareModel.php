@@ -20,6 +20,36 @@ class HardwareModel extends Model
         ->get();
     }
     
+    public function logDataLama()
+    {
+        return DB::table('log_hardware')
+        ->select('log_hardware.id_hw_lama'
+        ,'tbl_hardware.nama_hw AS nama_hw'
+        ,'tbl_lokasi.nama_lokasi AS nama_lokasi_lama'
+        ,'tbl_departemen.nama_departemen AS nama_departemen_lama'
+        ,'tbl_staff.nama_staff AS nama_staff_lama'
+        ,'tgl_batas_garansi_lama'
+        ,'tgl_batas_garansi_baru'
+        ,'log_hardware.waktu_ubah')
+        ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'log_hardware.id_hw_lama')
+        ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'log_hardware.id_lokasi_lama')
+        ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'log_hardware.id_departemen_lama')
+        ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'log_hardware.id_staff_lama')
+        ->get();
+    }
+    
+    public function logDataBaru()
+    {
+        return DB::table('log_hardware')
+        ->select('tbl_lokasi.nama_lokasi AS nama_lokasi_baru'
+        ,'tbl_departemen.nama_departemen AS nama_departemen_baru'
+        ,'tbl_staff.nama_staff AS nama_staff_baru')
+        ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'log_hardware.id_lokasi_baru')
+        ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'log_hardware.id_departemen_baru')
+        ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'log_hardware.id_staff_baru')
+        ->get();
+    }
+
     public function detailData($id_hw)
     {
         return DB::table('tbl_hardware')
@@ -31,6 +61,11 @@ class HardwareModel extends Model
         ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'tbl_hardware.id_staff')
         ->leftJoin('hardware_day_left', 'hardware_day_left.id_hw', '=', 'tbl_hardware.id_hw')
         ->where('tbl_hardware.id_hw', $id_hw)->first();
+    }
+    
+    public function allHardware()
+    {
+        return DB::table('tbl_hardware')->get();
     }
     
     public function allMerk()

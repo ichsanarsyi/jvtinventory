@@ -54,7 +54,7 @@
 				<tr>
 					<th width="170px">Kondisi</th>
 					<th width="20px">:</th>
-					<td>{{ $hardware->nama_kondisi }}</td>
+					<td><span class="{{$hardware->text_kondisi}}"><i class="fa {{$hardware->icon_kondisi}} fa-fw"></i> {{ $hardware->nama_kondisi }}</span></td>
 				</tr>
 				<tr>
 					<th width="170px">Deskripsi</th>
@@ -131,8 +131,10 @@
 	  <!-- /.box-body -->
 	</div>
 	<!-- /.box -->
-  </div>
 </div>
+</div>
+
+
 <div class="row">
 	<div class="col col-sm-6">
 		<div class="form-group">

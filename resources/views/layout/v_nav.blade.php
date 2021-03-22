@@ -28,8 +28,20 @@
                 <i class="glyphicon glyphicon-user"></i> <span>User</span>
               </a>                
             </li>
+            <li class="header">RIWAYAT PERUBAHAN</li>
+            <li class="{{ (request()->is('log/hardware')) ? 'active' : '' }}">
+              <a href="/log/hardware">
+                <i class="fa fa-history"></i> <span>Log Perubahan Hardware</span>
+              </a>
+            </li>
+            <li class="{{ (request()->is('log/software')) ? 'active' : '' }}">
+              <a href="/log/software">
+                <i class="fa fa-history"></i> <span>Log Perubahan Software</span>
+              </a>                
+            </li>
             @endif  
-        </ul>
+          </ul>
+
         <ul class="sidebar-menu" data-widget="tree" data-api="tree" data-accordion=1>
             <li class="header">MASTER DATA</li>
             <li class="treeview {{ (request()->is('masterdata/*')) ? 'active' : '' }}">

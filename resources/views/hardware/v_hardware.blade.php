@@ -25,7 +25,7 @@
         </div>     
         <!-- /.box-header -->
         <div class="box-body">
-          <table id="tbl_hardware" class="display table table-bordered order-column table-hover">
+          <table id="tbl_hardware" class="display table table-bordered table-striped table-hover">
             <tfoot>
                 <tr>
                   <th></th>
