@@ -8,6 +8,18 @@
 @section('content')
 
     <div class="row">
+
+		<div class="col col-sm-2">
+			<div class="form-group">
+				<a href="{{ url('software') }}" class="btn btn-primary"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+			</div>
+		</div>
+		<div class="col col-sm-1 pull-right">
+			<div class="form-group">
+				<a onclick="window.location='/software/editsw/{{$software->id_sw}}';" class="btn btn-warning" style="width: 100%;"><i class="fa fa-edit fa-fw"></i>Edit</a>
+			</div>
+		</div>
+
         <div class="col-xs-12">
 			<div class="box box-primary text-info box-solid">
 				<div class="box-header with-border">
@@ -106,12 +118,5 @@
 		<!-- /.box -->
 	  </div>
 	</div>
-	<div class="row">
-		<div class="col col-sm-6">
-			<div class="form-group">
-				<a href="{{ url('software') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
-			</div>
-		</div>
-	</div>	
 	
 @endsection

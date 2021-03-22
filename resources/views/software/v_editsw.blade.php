@@ -19,7 +19,7 @@
 						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Nama Software</label>                                
-								<input autofocus name="nama_sw" class="form-control" value="{{ $software->nama_sw }}">
+								<input name="nama_sw" class="form-control" value="{{ $software->nama_sw }}">
 								<div class="text-danger">
 									@error('nama_sw')
 										{{ $message }}
@@ -142,7 +142,7 @@
 					
 					<div class="row">
 						<div class="col-sm-12">
-								<a href="{{ url('software') }}" class="btn btn-default"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
+								<a href="{{ redirect()->getUrlGenerator()->previous() }}" class="btn btn-primary"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 								<button type="submit" class="btn btn-success pull-right"><i class="fa fa-save fa-fw"></i>Simpan</button>
 						</div>
 					</div>
