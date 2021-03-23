@@ -6,20 +6,17 @@
 	</h3>
 @endsection
 @section('content')
-
     <div class="row">
-
-		<div class="col col-sm-2">
+		<div class="col col-md-6">
 			<div class="form-group">
 				<a href="{{ url('software') }}" class="btn btn-primary"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 			</div>
 		</div>
-		<div class="col col-sm-1 pull-right">
+		<div class="col col-md-6">
 			<div class="form-group">
-				<a onclick="window.location='/software/editsw/{{$software->id_sw}}';" class="btn btn-warning" style="width: 100%;"><i class="fa fa-edit fa-fw"></i>Edit</a>
+				<a onclick="window.location='/software/editsw/{{$software->id_sw}}';" class="btn btn-warning pull-right"><i class="fa fa-edit fa-fw"></i>Edit</a>
 			</div>
 		</div>
-
         <div class="col-xs-12">
 			<div class="box box-primary text-info box-solid">
 				<div class="box-header with-border">
@@ -62,7 +59,7 @@
 						<tr>
 							<th width="200px">Nama Hardware</th>
 							<th width="20px">:</th>
-							<th>{{ $software->nama_hw }}</th>
+							<th><a href="/hardware/detailhw/{{ $software->id_hw }}">{{ $software->nama_hw }}</a></th>
 						</tr>
 					</table>
 				</div>						
@@ -70,7 +67,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-5">
 			<div class="box box-primary box-solid">
 				<div class="box-header with-border">
 					<h3 class="box-title">Kode Lisensi</h3>
@@ -100,7 +97,7 @@
 			</div>
 			<!-- /.box -->
 	  	</div>
-	 	<div class="col-md-3">
+	 	<div class="col-md-4">
 			<div class="box box-danger box-solid">
 				<div class="box-header with-border">
 					<h3 class="box-title">Tanggal Batas Lisensi</h3>
@@ -114,7 +111,7 @@
 							@else
 								{{ date('d F Y', strtotime($software->tgl_batas_lisensi)) }}
 								<small style="color: red"> 
-									<br>{{ $software->day_left }} Hari Tersisa
+									( {{ $software->day_left }} Hari Tersisa )
 								</small>
 							@endif					
 					</div>

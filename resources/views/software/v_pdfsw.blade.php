@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Print Software | JVT Inventory</title>
+  <!-- favicon2 -->
+  <link rel="icon" href="{{ URL::asset('favicon2.png') }}" type="image/x-icon"/>
   <style>
     table {
       font-size: 10px;
