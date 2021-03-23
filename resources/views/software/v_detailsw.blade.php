@@ -1,10 +1,10 @@
 @extends('layout.v_template')
 @section('headertitle')
 @section('title','Detail Software')
-<h3 style="margin:-0px;">
-	@yield('title')
-  </h3>
-  @endsection
+	<h3 style="margin:-0px;">
+		@yield('title')
+	</h3>
+@endsection
 @section('content')
 
     <div class="row">
@@ -70,53 +70,59 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-1">
-		</div>
-		<div class="col-md-5">
-		<div class="box box-primary box-solid">
-		  <div class="box-header with-border">
-			<h3 class="box-title">Kode Lisensi</h3>
-		  </div>
-		  <!-- /.box-header -->
-		  <div class="box-body" align=center>
-			<div class="col">
-				<span class="h4 font-weight-bold mb-0">{{ $software->kode_lisensi }}</span>
+		<div class="col-md-6">
+			<div class="box box-primary box-solid">
+				<div class="box-header with-border">
+					<h3 class="box-title">Kode Lisensi</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body" align=center>
+					<div class="col">
+						<span class="h4 font-weight-bold mb-0">{{ $software->kode_lisensi }}</span>
+					</div>
+				</div>
+				<!-- /.box-body -->
 			</div>
-		  </div>
-		  <!-- /.box-body -->
-		</div>
-		<!-- /.box -->
-	  </div>
-	  <div class="col-md-3">
-		<div class="box box-primary box-solid">
-		  <div class="box-header with-border">
-			<h3 class="box-title">Tanggal Pembelian</h3>
-		  </div>
-		  <!-- /.box-header -->
-		  <div class="box-body" align=center>
-			<div class="col">
-				<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($software->tgl_pembelian)) }}</span>
+			<!-- /.box -->
+	  	</div>
+	  	<div class="col-md-3">
+			<div class="box box-primary box-solid">
+				<div class="box-header with-border">
+					<h3 class="box-title">Tanggal Pembelian</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body" align=center>
+					<div class="col">
+						<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($software->tgl_pembelian)) }}</span>
+					</div>
+				</div>
+				<!-- /.box-body -->
 			</div>
-		  </div>
-		  <!-- /.box-body -->
-		</div>
-		<!-- /.box -->
-	  </div>
-	  <div class="col-md-3">
-		<div class="box box-danger box-solid">
-		  <div class="box-header with-border">
-			<h3 class="box-title">Tanggal Batas Lisensi</h3>
-		  </div>
-		  <!-- /.box-header -->
-		  <div class="box-body" align=center>
-			<div class="col">
-				<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($software->tgl_batas_lisensi)) }} <small style="color: red"> <br>{{ $software->day_left }} Hari Tersisa</small>
+			<!-- /.box -->
+	  	</div>
+	 	<div class="col-md-3">
+			<div class="box box-danger box-solid">
+				<div class="box-header with-border">
+					<h3 class="box-title">Tanggal Batas Lisensi</h3>
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body" align=center>
+					<div class="col">
+						<span class="h4 font-weight-bold mb-0">									
+							@if (($software->tgl_batas_lisensi)=="")
+								Tanpa Batas
+							@else
+								{{ date('d F Y', strtotime($software->tgl_batas_lisensi)) }}
+								<small style="color: red"> 
+									<br>{{ $software->day_left }} Hari Tersisa
+								</small>
+							@endif					
+					</div>
+				</div>
+				<!-- /.box-body -->
 			</div>
-		  </div>
-		  <!-- /.box-body -->
-		</div>
-		<!-- /.box -->
-	  </div>
+			<!-- /.box -->
+	  	</div>
 	</div>
 	
 @endsection

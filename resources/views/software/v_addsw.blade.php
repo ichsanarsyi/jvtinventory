@@ -71,7 +71,7 @@
 							<div class="form-group">
 								<label>Tanggal Batas Lisensi</label>
 								<div class="input-group date">									
-									<input name="tgl_batas_lisensi" type="text" class="form-control pull-right" id="datepicker2" value="{{ old('tgl_batas_lisensi') }}">
+									<input name="tgl_batas_lisensi" type="text" class="form-control pull-right" id="datepicker2" value="{{ old('tgl_batas_lisensi') }}" disabled="">
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
