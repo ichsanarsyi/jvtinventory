@@ -286,7 +286,7 @@
   $(document).ready(function() {
     $('#tbl_hardware').DataTable( {
           initComplete: function () {            
-              this.api().columns([2,3,4,5]).every( function () {
+              this.api().columns([3,4,5]).every( function () {
                   var column = this;
                   var select = $('<select class="f" style="width:100%;"><option value="">Show All</option></select>')
                       .appendTo( $(column.footer()).empty() )
@@ -432,11 +432,11 @@ $('select.select2').on('select2:closing', function (e) {
 {{-- Script User sedang login - Hilangkan Aksi --}}
 <script>
   $('#tbl_user').on('draw.dt',function(){
-  $( ".btn" ).not( "#btndeleteuser{{ Auth::user()->id }}, #btnedituser{{ Auth::user()->id }}" )
+  $( ".btn" ).not( "#btndeleteuser1, #btnedituser1" )
     .css( "visibility", "visible" );
-  var textTd = document.getElementById("cellaksi{{Auth::user()->id}}");
-  textTd.innerHTML = '<i class="fa fa-circle text-success"></i> User sedang Login';
-  document.getElementById("cellaksi{{Auth::user()->id}}").style.color = "green";
+  // var textTd = document.getElementById("cellaksi{{Auth::user()->id}}");
+  // textTd.innerHTML = '<i class="fa fa-circle text-success"></i> User sedang Login';
+  // document.getElementById("cellaksi{{Auth::user()->id}}").style.color = "green";
   })
 </script>
 

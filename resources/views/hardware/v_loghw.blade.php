@@ -37,6 +37,7 @@
 						<th>No</th>
 						<th>Waktu Ubah</th>
 						<th>Nama Hardware</th>
+						<th>Kode Asset</th>
 						<th>Lokasi Lama</th>
 						<th>Lokasi Baru</th>
 						<th>Departemen Lama</th>
@@ -54,6 +55,7 @@
                         <td>{{$no++}}</td>
                         <td>{{$results['waktu_ubah']}}</td>
 						<td>{{$results['nama_hw']}}</td>
+						<td>{{$results['kode_asset']}}</td>
 						<td>{{$results['nama_lokasi_lama']}}</td>
 						<td>{{$results['nama_lokasi_baru']}}</td>
 						<td>{{$results['nama_departemen_lama']}}</td>
