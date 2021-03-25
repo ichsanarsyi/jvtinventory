@@ -24,6 +24,11 @@ Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
 Route::get('/hardware/addhw', [HardwareController::class, 'add']);
 
+//Print&Save Daftar Hardware
+Route::get('/hardware/print', [HardwareController::class, 'print'])->name('printhardware');
+Route::get('/hardware/savepdf', [HardwareController::class, 'savepdf'])->name('pdfhardware');
+Route::get('/hardware/saveexcel', [HardwareController::class, 'saveexcel'])->name('excelhardware');
+
 //CRUD Software:
 Route::get('/software', [SoftwareController::class, 'index'])->name('software');
 Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail']);

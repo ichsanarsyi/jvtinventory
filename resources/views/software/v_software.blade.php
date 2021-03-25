@@ -50,13 +50,13 @@
             </tfoot>
             <thead>
               <tr>
-                <th>No</th>
-                <th>Nama Software</th>
-                <th>Merk</th>
-                <th>Jenis Lisensi</th>
-                <th>Versi</th>
-                <th>Masa Aktif Lisensi</th>
-                <th class="no-sort">Aksi</th>
+                <th class="text-center">No</th>
+                <th class="text-center">Nama Software</th>
+                <th class="text-center">Merk</th>
+                <th class="text-center">Jenis Lisensi</th>
+                <th class="text-center">Versi</th>
+                <th class="text-center">Masa Aktif Lisensi</th>
+                <th class="text-center">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +83,7 @@
                         {{$data->day_left}} Hari Tersisa
                       </span>
                     </td>
-                    <td>
+                    <td  class="text-center">
                       @if (auth()->user()->level == 'Admin') 
                       <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                       <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_sw }}"><i class="fa fa-trash fa-fw"></i>

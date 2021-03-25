@@ -17,11 +17,22 @@
         @endif
       <div class="box box-primary">
         <div class="box-header with-border">
-            <div class="row">
-                <div class="col-md-1" style="margin-right: 20px">
-                    <a href="/hardware/addhw/" class="btn btn-md btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
-                </div> 
-            </div>
+            <a href="/hardware/addhw/" class="btn btn-md btn-primary">
+                <i class="fa fa-plus-circle fa-fw"></i>
+                Tambah
+            </a>
+            <a href="/hardware/saveexcel/" target="_blank" class="btn btn-default pull-right">
+                <i class="fa fa-file-excel-o fa-fw"></i>
+                Simpan sebagai Excel
+            </a>
+            <a href="/hardware/savepdf/" target="_blank" class="btn btn-default pull-right">
+                <i class="fa fa-file-pdf-o fa-fw"></i>
+                Simpan sebagai PDF
+            </a>
+            <a href="/hardware/print/" target="_blank" class="btn btn-default pull-right">
+                <i class="fa fa-print fa-fw"></i>
+                Print
+            </a>
         </div>     
         <!-- /.box-header -->
         <div class="box-body">
@@ -39,13 +50,13 @@
             </tfoot>
             <thead>
             <tr>
-              <th>No</th>
-              <th>Kode Asset</th>
-              <th>Nama Hardware</th>
-              <th>Merk</th>
-              <th>Seri</th>
-              <th>Kategori</th>
-              <th>Aksi</th>
+              <th class="text-center">No</th>
+              <th class="text-center">Kode Asset</th>
+              <th class="text-center">Nama Hardware</th>
+              <th class="text-center">Merk</th>
+              <th class="text-center">Seri</th>
+              <th class="text-center">Kategori</th>
+              <th class="text-center">Aksi</th>
             </tr>
             </thead>
             <tbody>
@@ -70,7 +81,7 @@
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->nama_kategori_hw}}
                     </td>
-                    <td>
+                    <td class="text-center">
                         @if (auth()->user()->level == 'Admin') 
                         <a href="/hardware/edithw/{{ $data->id_hw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                         <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_hw }}"><i class="fa fa-trash fa-fw"></i>

@@ -34,18 +34,17 @@
                   </tfoot>
                 <thead>
 					<tr>
-						<th>No</th>
-						<th>Waktu Ubah</th>
-						<th>Nama Hardware</th>
-						<th>Kode Asset</th>
-						<th>Lokasi Lama</th>
-						<th>Lokasi Baru</th>
-						<th>Departemen<br>Lama</th>
-						<th>Departemen<br>Baru</th>
-						<th>Tgl Batas<br>Garansi Lama</th>
-						<th>Tgl Batas<br>Garansi Baru</th>
-						<th>Staff Lama</th>
-						<th>Staff Baru</th>
+						<th class="text-center">No</th>
+						<th class="text-center">Waktu Ubah</th>
+						<th class="text-center">Nama Hardware</th>
+						<th class="text-center">Lokasi Lama</th>
+						<th class="text-center">Lokasi Baru</th>
+						<th class="text-center">Departemen<br>Lama</th>
+						<th class="text-center">Departemen<br>Baru</th>
+						<th class="text-center">Tgl Batas<br>Garansi Lama</th>
+						<th class="text-center">Tgl Batas<br>Garansi Baru</th>
+						<th class="text-center">Staff Lama</th>
+						<th class="text-center">Staff Baru</th>
 					</tr>
 				</thead>
 				<tbody>

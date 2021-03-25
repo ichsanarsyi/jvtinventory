@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\Controller;
 use App\Models\HardwareModel;
+use App\Exports\HardwareExport;
+
+use PDF;
+use Excel;
 
 class HardwareController extends Controller
 {
@@ -197,5 +202,46 @@ class HardwareController extends Controller
         $this->HardwareModel->deleteData($id_hw);
         return redirect()->route('hardware')->with('pesan', 'Data berhasil dihapus.');
     }
+
+    public function print()
+    {
+        $data = [
+            'hardware' => $this->HardwareModel->allData(),
+            'merk' => $this->HardwareModel->allMerk(),
+            'kategori' => $this->HardwareModel->allKategori(),
+            'kondisi' => $this->HardwareModel->allKondisi(),
+            'lokasi' => $this->HardwareModel->allLokasi(),
+            'departemen' => $this->HardwareModel->allDepartemen(),
+            'staff' => $this->HardwareModel->allstaff()
+        ];
+        return view('hardware.v_printhw', $data);
+    }
     
+    public function savepdf()
+    {
+        $data = [
+            'hardware' => $this->HardwareModel->allData(),
+            'merk' => $this->HardwareModel->allMerk(),
+            'kategori' => $this->HardwareModel->allKategori(),
+            'kondisi' => $this->HardwareModel->allKondisi(),
+            'lokasi' => $this->HardwareModel->allLokasi(),
+            'departemen' => $this->HardwareModel->allDepartemen(),
+            'staff' => $this->HardwareModel->allstaff()
+        ];
+
+        set_time_limit(300);
+        $pdf = PDF::loadView('hardware.v_pdfhw', $data)->setPaper('A4','landscape')
+        ;
+
+        // download PDF file with download method
+        //return $pdf->download('DaftarSoftware.pdf');
+        //Browser's PDFviewer
+        return $pdf->stream();
+    }
+
+    public function saveexcel()
+    {
+        return Excel::download(new HardwareExport,'DaftarHardware.xlsx');
+    }
+
 }  

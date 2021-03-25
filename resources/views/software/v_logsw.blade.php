@@ -30,13 +30,13 @@
 				  </tfoot>
 				<thead>
 					<tr>
-						<th>No</th>
-						<th>Waktu Ubah</th>
-						<th>Nama Hardware</th>
-						<th>Tanggal<br>Pembelian Lama</th>
-						<th>Tanggal<br>Pembelian Baru</th>
-						<th>Tanggal Batas<br>Lisensi Lama</th>
-						<th>Tanggal Batas<br>Lisensi Baru</th>
+						<th class="text-center">No</th>
+						<th class="text-center">Waktu Ubah</th>
+						<th class="text-center">Nama Hardware</th>
+						<th class="text-center">Tanggal<br>Pembelian Lama</th>
+						<th class="text-center">Tanggal<br>Pembelian Baru</th>
+						<th class="text-center">Tanggal Batas<br>Lisensi Lama</th>
+						<th class="text-center">Tanggal Batas<br>Lisensi Baru</th>
 					</tr>
 				</thead>
 				<tbody>
