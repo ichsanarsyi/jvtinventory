@@ -33,10 +33,10 @@
 						<th>No</th>
 						<th>Waktu Ubah</th>
 						<th>Nama Hardware</th>
-						<th>Tgl Pembelian Lama</th>
-						<th>Tgl Pembelian Baru</th>
-						<th>Tgl Batas Lisensi Lama</th>
-						<th>Tgl Batas Lisensi Baru</th>
+						<th>Tanggal<br>Pembelian Lama</th>
+						<th>Tanggal<br>Pembelian Baru</th>
+						<th>Tanggal Batas<br>Lisensi Lama</th>
+						<th>Tanggal Batas<br>Lisensi Baru</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,10 +46,10 @@
 						<td>{{$no++}}</td>
                         <td>{{$data->waktu_ubah}}</td>
 						<td>{{$data->nama_sw}}</td>
-                        <td>{{$data->tgl_pembelian_lama}}</td>
-                        <td>{{$data->tgl_pembelian_baru}}</td>
-                        <td>{{$data->tgl_batas_lisensi_lama}}</td>
-                        <td>{{$data->tgl_batas_lisensi_baru}}</td>                  
+                        <td>{{date('d M Y', strtotime($data->tgl_pembelian_lama))}}</td>
+                        <td>{{date('d M Y', strtotime($data->tgl_pembelian_baru))}}</td>
+                        <td>{{date('d M Y', strtotime($data->tgl_batas_lisensi_lama))}}</td>
+                        <td>{{date('d M Y', strtotime($data->tgl_batas_lisensi_baru))}}</td>                  
 					</tr>
 					@endforeach
 				</tbody>

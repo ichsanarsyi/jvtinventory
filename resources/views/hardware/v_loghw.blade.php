@@ -15,7 +15,7 @@
 			<!-- /.box-tools -->
 		  </div>
 		  <!-- /.box-header -->
-		  <div class="box-body">
+		  <div class="box-body" style="overflow: auto;">
 			<table id="tbl_log" class="display table order-column table-hover">
                 <tfoot>
                     <tr>
@@ -40,10 +40,10 @@
 						<th>Kode Asset</th>
 						<th>Lokasi Lama</th>
 						<th>Lokasi Baru</th>
-						<th>Departemen Lama</th>
-						<th>Departemen Baru</th>
-						<th>Tgl Batas Garansi Lama</th>
-						<th>Tgl Batas Garansi Baru</th>
+						<th>Departemen<br>Lama</th>
+						<th>Departemen<br>Baru</th>
+						<th>Tgl Batas<br>Garansi Lama</th>
+						<th>Tgl Batas<br>Garansi Baru</th>
 						<th>Staff Lama</th>
 						<th>Staff Baru</th>
 					</tr>
@@ -53,15 +53,15 @@
                     @foreach ($loghardware as $results)
 					<tr style="cursor: pointer;" onclick="window.location='/hardware/detailhw/{{$results['id_hw_lama']}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         <td>{{$no++}}</td>
-                        <td>{{$results['waktu_ubah']}}</td>
-						<td>{{$results['nama_hw']}}</td>
+                        <td>{{ date('d M Y - h:i:s', strtotime($results['waktu_ubah'])) }}</td>
+						<td>{{$results['nama_hw']}} {{$results['nama_merk_hw']}} {{$results['seri_hw']}}</td>
 						<td>{{$results['kode_asset']}}</td>
 						<td>{{$results['nama_lokasi_lama']}}</td>
 						<td>{{$results['nama_lokasi_baru']}}</td>
 						<td>{{$results['nama_departemen_lama']}}</td>
 						<td>{{$results['nama_departemen_baru']}}</td>
-						<td>{{$results['tgl_batas_garansi_lama']}}</td>
-						<td>{{$results['tgl_batas_garansi_baru']}}</td>
+						<td>{{ date('d M Y', strtotime($results['tgl_batas_garansi_lama'])) }}</td>
+						<td>{{ date('d M Y', strtotime($results['tgl_batas_garansi_baru'])) }}</td>
 						<td>{{$results['nama_staff_lama']}}</td>
 						<td>{{$results['nama_staff_baru']}}</td>                        
 					</tr>
