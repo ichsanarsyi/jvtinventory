@@ -30,7 +30,8 @@ class HardwareModel extends Model
         ,'tbl_staff.nama_staff AS nama_staff_lama'
         ,'tgl_batas_garansi_lama'
         ,'tgl_batas_garansi_baru'
-        ,'log_hardware.waktu_ubah')
+        ,'log_hardware.waktu_ubah'
+        ,'tbl_hardware.kode_asset')
         ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'log_hardware.id_hw_lama')
         ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'log_hardware.id_lokasi_lama')
         ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'log_hardware.id_departemen_lama')
