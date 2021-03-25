@@ -47,6 +47,8 @@ class HardwareController extends Controller
         $newarr['id_hw_lama']=$data->id_hw_lama;
         $newarr['kode_asset']=$data->kode_asset;
         $newarr['nama_hw']=$data->nama_hw;
+        $newarr['nama_merk_hw']=$data->nama_merk_hw;
+        $newarr['seri_hw']=$data->seri_hw;
         $newarr['nama_lokasi_lama']=$data->nama_lokasi_lama;
         $newarr['nama_lokasi_baru']=$databaru[$key]->nama_lokasi_baru;
         $newarr['nama_departemen_lama']=$data->nama_departemen_lama;

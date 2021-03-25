@@ -23,16 +23,16 @@ class HardwareModel extends Model
     public function logDataLama()
     {
         return DB::table('log_hardware')
-        ->select('log_hardware.id_hw_lama'
+        ->select('*'
+        ,'log_hardware.id_hw_lama'
         ,'tbl_hardware.nama_hw AS nama_hw'
         ,'tbl_lokasi.nama_lokasi AS nama_lokasi_lama'
         ,'tbl_departemen.nama_departemen AS nama_departemen_lama'
         ,'tbl_staff.nama_staff AS nama_staff_lama'
         ,'tgl_batas_garansi_lama'
-        ,'tgl_batas_garansi_baru'
-        ,'log_hardware.waktu_ubah'
-        ,'tbl_hardware.kode_asset')
+        ,'tgl_batas_garansi_baru')
         ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'log_hardware.id_hw_lama')
+        ->leftJoin('tbl_merk_hw', 'tbl_merk_hw.id_merk_hw', '=', 'tbl_hardware.id_merk_hw')
         ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'log_hardware.id_lokasi_lama')
         ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'log_hardware.id_departemen_lama')
         ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'log_hardware.id_staff_lama')

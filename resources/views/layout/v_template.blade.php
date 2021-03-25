@@ -63,18 +63,19 @@
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
     }
 
-    table#tbl_software.dataTable tbody tr:hover {
+    table#tbl_software.dataTable tbody tr:hover, table #tbl_hardware tbody tr.odd:hover {
     color: rgb(0, 94, 165);
     background-color: rgb(231, 237, 242);
-    font-weight: 500;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
     }
 
-    table#tbl_hardware.dataTable tbody tr:hover {
+    table#tbl_hardware.dataTable tbody tr:hover, table #tbl_hardware tbody tr.odd:hover {
     color: rgb(0, 94, 165);
     background-color: rgb(231, 237, 242);
-    font-weight: 500;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
+    }
+    table#tbl_log.dataTable thead th, table#tbl_log.dataTable tbody td{
+      white-space: nowrap;
     }
 
 </style>
@@ -145,14 +146,11 @@
                 <p>
                   {{ Auth::user()->name }} <br>{{ Auth::user()->email }} 
                 </p>
-                <p><small class="">Member sejak {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d-m-Y h:i:s A') : '-' }}</small></p>
+                <p><small class="">Member sejak {{ isset(Auth::user()->created_at) ? Auth::user()->created_at->format('d M Y h:i:s A') : '-' }}</small></p>
               </li>
               <!-- Menu Body -->
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
                 <div class="pull-right">
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
