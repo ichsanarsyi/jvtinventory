@@ -272,7 +272,7 @@
   $(document).ready(function() {
     $('#tbl_hardware').DataTable( {
           initComplete: function () {            
-              this.api().columns([2,3,4,5]).every( function () {
+              this.api().columns([3,4,5]).every( function () {
                   var column = this;
                   var select = $('<select class="f" style="width:100%;"><option value="">Show All</option></select>')
                       .appendTo( $(column.footer()).empty() )

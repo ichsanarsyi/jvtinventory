@@ -54,7 +54,7 @@
                 <tr>
                     <td>{{$no++}}</td>
                     <td>{{$data->kode_asset}}</td>
-                    <td>{{$data->nama_hw}}</td>
+                    <td>{{$data->nama_hw}} {{$data->nama_merk_hw}} {{$data->seri_hw}}</td>
                     <td>{{$data->nama_merk_hw}}</td>
                     <td>{{$data->seri_hw}}</td>
                     <td>{{$data->nama_kategori_hw}}</td>
