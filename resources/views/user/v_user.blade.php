@@ -20,7 +20,7 @@
             <div class="box-header with-border">
                 <div class="row">
                     <div class="col-md-1" style="margin-right: 20px">
-                        <a href="{{ route('register') }}" class="btn btn-md btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah User</a>
+                        <a class="btn btn-md btn-primary" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw"></i>Tambah User</a>
                     </div> 
                 </div>
             </div>
@@ -69,6 +69,83 @@
     </div>
 </div>
 <!-- /.box -->
+
+<!-- Modal Add -->
+<div class="modal fade" id="modal-add">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Tambah User</h4>
+        </div>
+        
+        <form method="POST" action="{{ route('register') }}">
+            @csrf
+        <div class="modal-body"> 
+          <div class="form-group has-feedback">
+            <input autofocus name="name" class="form-control" placeholder="Nama" value="{{ old('name') }}">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            @error('name')
+            <span class="invalid-feedback text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+    
+          <div class="form-group has-feedback">
+            <input type="email" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            @error('email')
+            <span class="invalid-feedback text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+    
+          <div class="form-group has-feedback">
+            <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            @error('password')
+            <span class="invalid-feedback text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+    
+          <div class="form-group has-feedback">
+            <input id="password" name="password_confirmation" type="password" class="form-control" placeholder="Konfirmasi Password">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            @error('password')
+            <span class="invalid-feedback text-danger" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+            @enderror
+          </div>
+    
+          <div class="form-group">
+            <select id="level" name="level" class="form-control select2" style="width: 100%;">
+                <option value="Admin">Admin</option>
+                <option value="User">User</option>
+            </select>
+            <span class="invalid-feedback text-danger" role="alert">
+                @error('level')
+                {{ $message }}
+                @enderror
+            </span>
+          </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary pull-right">Register</button>
+        </div>
+        </form>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->  
 
 <!-- Modal Edit -->
 @foreach ($user as $data)

@@ -64,7 +64,7 @@
         <input autofocus type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         @error('email')
-        <span class="invalid-feedback" role="alert">
+        <span class="invalid-feedback text-danger" role="alert">
             <strong>{{ $message }}</strong>
         </span>
     @enderror
@@ -73,7 +73,7 @@
         <input id="password" name="password" type="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         @error('password')
-        <span class="invalid-feedback" role="alert">
+        <span class="invalid-feedback  text-danger" role="alert">
             <strong>{{ $message }}</strong>
         </span>
     @enderror

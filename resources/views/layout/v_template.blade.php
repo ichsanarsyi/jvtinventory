@@ -418,11 +418,11 @@ $('select.select2').on('select2:closing', function (e) {
 {{-- Script User sedang login - Hilangkan Aksi --}}
 <script>
   $('#tbl_user').on('draw.dt',function(){
-  $( ".btn" ).not( "#btndeleteuser{{ Auth::user()->id }}, #btnedituser{{ Auth::user()->id }}" )
+  $( ".btn" ).not( "#btndeleteuser1, #btnedituser1" )
     .css( "visibility", "visible" );
-  var textTd = document.getElementById("cellaksi{{Auth::user()->id}}");
-  textTd.innerHTML = '<i class="fa fa-circle text-success"></i> User sedang Login';
-  document.getElementById("cellaksi{{Auth::user()->id}}").style.color = "green";
+  // var textTd = document.getElementById("cellaksi{{Auth::user()->id}}");
+  // textTd.innerHTML = '<i class="fa fa-circle text-success"></i> User sedang Login';
+  // document.getElementById("cellaksi{{Auth::user()->id}}").style.color = "green";
   })
 </script>
 
