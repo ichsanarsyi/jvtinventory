@@ -50,7 +50,7 @@
 				<tbody>
 					<?php $no=1; ?>
                     @foreach ($loghardware as $results)
-					<tr style="cursor: pointer;" onclick="window.location='/hardware/detailhw/{{$results['id_hw_lama']}}';">
+					<tr style="cursor: pointer;" onclick="window.location='/hardware/detailhw/{{$results['id_hw_lama']}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         <td>{{$no++}}</td>
                         <td>{{$results['waktu_ubah']}}</td>
 						<td>{{$results['nama_hw']}}</td>

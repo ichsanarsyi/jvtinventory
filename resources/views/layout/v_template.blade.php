@@ -62,7 +62,21 @@
     font-weight: 500;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
     }
- 
+
+    table#tbl_software.dataTable tbody tr:hover {
+    color: rgb(0, 94, 165);
+    background-color: rgb(231, 237, 242);
+    font-weight: 500;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
+    }
+
+    table#tbl_hardware.dataTable tbody tr:hover {
+    color: rgb(0, 94, 165);
+    background-color: rgb(231, 237, 242);
+    font-weight: 500;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
+    }
+
 </style>
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

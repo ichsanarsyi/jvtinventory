@@ -51,15 +51,26 @@
             <tbody>
             <?php $no=1; ?>
             @foreach ($hardware as $data)
-                <tr>
-                    <td>{{$no++}}</td>
-                    <td>{{$data->kode_asset}}</td>
-                    <td>{{$data->nama_hw}}</td>
-                    <td>{{$data->nama_merk_hw}}</td>
-                    <td>{{$data->seri_hw}}</td>
-                    <td>{{$data->nama_kategori_hw}}</td>
+                <tr style="cursor: pointer;" onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';">
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                        {{$no++}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                        {{$data->kode_asset}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                        {{$data->nama_hw}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                        {{$data->nama_merk_hw}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                        {{$data->seri_hw}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                        {{$data->nama_kategori_hw}}
+                    </td>
                     <td>
-                        <a href="/hardware/detailhw/{{ $data->id_hw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
                         @if (auth()->user()->level == 'Admin') 
                         <a href="/hardware/edithw/{{ $data->id_hw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                         <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_hw }}"><i class="fa fa-trash fa-fw"></i>

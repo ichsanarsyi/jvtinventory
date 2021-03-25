@@ -42,7 +42,7 @@
 				<tbody>
 					<?php $no=1; ?>
                     @foreach ($logsoftware as $data)
-					<tr style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw_lama}}';">
+					<tr style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw_lama}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
 						<td>{{$no++}}</td>
                         <td>{{$data->waktu_ubah}}</td>
 						<td>{{$data->nama_sw}}</td>
