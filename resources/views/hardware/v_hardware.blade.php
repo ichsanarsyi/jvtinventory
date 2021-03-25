@@ -34,7 +34,6 @@
                   <th></th>
                   <th></th>
                   <th></th>
-                  <th></th>
                 </tr>
             </tfoot>
             <thead>
@@ -45,7 +44,9 @@
               <th>Merk</th>
               <th>Seri</th>
               <th>Kategori</th>
+              @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
+              @endif
             </tr>
             </thead>
             <tbody>
@@ -70,14 +71,14 @@
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->nama_kategori_hw}}
                     </td>
+                    @if (auth()->user()->level == 'Admin') 
                     <td>
-                        @if (auth()->user()->level == 'Admin') 
                         <a href="/hardware/edithw/{{ $data->id_hw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                         <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_hw }}"><i class="fa fa-trash fa-fw"></i>
                             Delete
                         </button>
-                        @endif
                     </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

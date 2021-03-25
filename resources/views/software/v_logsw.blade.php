@@ -16,7 +16,7 @@
 		  </div>
 		  <!-- /.box-header -->
 		  <div class="box-body">
-			<table id="tbl_log" class="display table order-column table-hover">
+			<table id="tbl_log_sw" class="display table order-column table-hover">
 				<tfoot>
 					<tr>
 					<th></th>

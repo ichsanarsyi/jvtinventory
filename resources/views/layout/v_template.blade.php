@@ -56,7 +56,7 @@
 	  font-weight: normal;
     }
 
-    table#tbl_log.dataTable tbody tr:hover {
+    table#tbl_log_hw.dataTable tbody tr:hover, table#tbl_log_sw.dataTable tbody tr:hover {
     color: rgb(0, 94, 165);
     background-color: rgb(231, 237, 242);
     font-weight: 500;
@@ -74,7 +74,7 @@
     background-color: rgb(231, 237, 242);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
     }
-    table#tbl_log.dataTable thead th, table#tbl_log.dataTable tbody td{
+    table#tbl_log_hw.dataTable thead th, table#tbl_log_hw.dataTable tbody td{
       white-space: nowrap;
     }
 
@@ -338,7 +338,7 @@
           columnDefs: [{ type: 'natural', targets: 0 }],
       } );
 
-      $('#tbl_log').DataTable( {
+      $('#tbl_log_hw,#tbl_log_sw').DataTable( {
           initComplete: function () {            
               this.api().columns([2,]).every( function () {
                   var column = this;
@@ -363,7 +363,9 @@
           lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
       } );
   } );
+
   
+
   $(document).ready(function($) {
     $('.f').select2();
     $('.dataTables_length select').select2();

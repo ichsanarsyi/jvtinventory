@@ -15,9 +15,9 @@
 			<!-- /.box-tools -->
 		  </div>
 		  <!-- /.box-header -->
-		  <div class="box-body" style="overflow: auto;">
-			<table id="tbl_log" class="display table order-column table-hover">
-                <tfoot>
+		  <div class="box-body" style="overflow-x: scroll;">
+			<table id="tbl_log_hw" class="display table order-column table-hover scrollx">
+				<tfoot>
                     <tr>
                     <th></th>
                     <th></th>
