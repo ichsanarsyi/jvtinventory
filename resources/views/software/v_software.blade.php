@@ -37,8 +37,8 @@
         <!-- /.box-header -->
         <div class="box-body">            
           <table id="tbl_software" class="display table table-bordered table-hover">
-              <tfoot>
-                <tr>
+            <tfoot>
+              <tr>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -46,41 +46,50 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                </tr>
-              </tfoot>
+              </tr>
+            </tfoot>
             <thead>
-            <tr>
-              <th>No</th>
-              <th>Nama Software</th>
-              <th>Merk</th>
-              <th>Jenis Lisensi</th>
-              <th>Versi</th>
-              <th>Masa Aktif Lisensi</th>
-              <th>Aksi</th>
-            </tr>
+              <tr>
+                <th>No</th>
+                <th>Nama Software</th>
+                <th>Merk</th>
+                <th>Jenis Lisensi</th>
+                <th>Versi</th>
+                <th>Masa Aktif Lisensi</th>
+                <th class="no-sort">Aksi</th>
+              </tr>
             </thead>
             <tbody>
             <?php $no=1; ?>
             @foreach ($software as $data)
-                <tr>
-                    <td>{{$no++}}</td>
-                    <td>{{$data->nama_sw}}</td>
-                    <td>{{$data->nama_merk_sw}}</td>
-                    <td>{{$data->jenis_lisensi}}</td>
-                    <td>{{$data->versi_sw}}</td>
-                    <td>
+                <tr style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw}}';">
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                      {{$no++}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                      {{$data->nama_sw}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                      {{$data->nama_merk_sw}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                      {{$data->jenis_lisensi}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                      {{$data->versi_sw}}
+                    </td>
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       <span style="padding-right:30%;" class="pull-right">
                         {{$data->day_left}} Hari Tersisa
                       </span>
                     </td>
                     <td>
-                        <a href="/software/detailsw/{{ $data->id_sw }}" class="btn btn-xs btn-primary"><i class="fa fa-info-circle fa-fw"></i>Detail</a>
-                        @if (auth()->user()->level == 'Admin') 
-                        <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
-                        <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_sw }}"><i class="fa fa-trash fa-fw"></i>
-                            Delete
-                        </button>
-                        @endif
+                      @if (auth()->user()->level == 'Admin') 
+                      <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
+                      <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_sw }}"><i class="fa fa-trash fa-fw"></i>
+                          Delete
+                      </button>
+                      @endif
                     </td>
                 </tr>
             @endforeach
