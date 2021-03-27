@@ -335,7 +335,9 @@
           },
           stateSave: true,
           lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
-          columnDefs: [{ type: 'natural', targets: 0 }],
+          columnDefs: [
+            { type: 'natural', targets: 0 }
+            ],
       } );
 
       $('#tbl_log').DataTable( {

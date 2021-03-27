@@ -56,7 +56,7 @@
               <th class="text-center">Merk</th>
               <th class="text-center">Seri</th>
               <th class="text-center">Kategori</th>
-              <th class="text-center">Aksi</th>
+              <th class="text-center" data-orderable="false">Aksi</th>
             </tr>
             </thead>
             <tbody>

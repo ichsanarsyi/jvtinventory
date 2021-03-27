@@ -56,7 +56,7 @@
                 <th class="text-center">Jenis Lisensi</th>
                 <th class="text-center">Versi</th>
                 <th class="text-center">Masa Aktif Lisensi</th>
-                <th class="text-center">Aksi</th>
+                <th class="text-center" data-orderable="false">Aksi</th>
               </tr>
             </thead>
             <tbody>

@@ -11,7 +11,19 @@
 	<div class="col-md-12">
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">
-			<h3 class="box-title">Log Hardware</h3>
+			<h3 class="box-title">Log Hardware</h3>			
+            <a href="/hardware/saveexcel/" target="_blank" class="btn btn-xs btn-default pull-right">
+                <i class="fa fa-file-excel-o fa-fw"></i>
+                Simpan sebagai Excel
+            </a>
+            <a href="/hardware/savepdf/" target="_blank" class="btn btn-xs btn-default pull-right">
+                <i class="fa fa-file-pdf-o fa-fw"></i>
+                Simpan sebagai PDF
+            </a>
+            <a href="/hardware/print/" target="_blank" class="btn btn-xs btn-default pull-right">
+                <i class="fa fa-print fa-fw"></i>
+                Print
+            </a>
 			<!-- /.box-tools -->
 		  </div>
 		  <!-- /.box-header -->
@@ -37,6 +49,7 @@
 						<th class="text-center">No</th>
 						<th class="text-center">Waktu Ubah</th>
 						<th class="text-center">Nama Hardware</th>
+						<th class="text-center">Kode Asset</th>
 						<th class="text-center">Lokasi Lama</th>
 						<th class="text-center">Lokasi Baru</th>
 						<th class="text-center">Departemen<br>Lama</th>
