@@ -12,15 +12,15 @@
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">
 			<h3 class="box-title">Log Hardware</h3>			
-            <a href="/hardware/saveexcel/" target="_blank" class="btn btn-xs btn-default pull-right">
+            <a href="{{ Route('excelloghw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
                 <i class="fa fa-file-excel-o fa-fw"></i>
                 Simpan sebagai Excel
             </a>
-            <a href="/hardware/savepdf/" target="_blank" class="btn btn-xs btn-default pull-right">
+            <a href="{{ Route('pdfloghw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
                 <i class="fa fa-file-pdf-o fa-fw"></i>
                 Simpan sebagai PDF
             </a>
-            <a href="/hardware/print/" target="_blank" class="btn btn-xs btn-default pull-right">
+            <a href="{{ Route('printloghw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
                 <i class="fa fa-print fa-fw"></i>
                 Print
             </a>
