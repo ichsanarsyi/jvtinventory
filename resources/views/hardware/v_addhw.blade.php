@@ -207,7 +207,7 @@
             <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Tambah Merk Hardware</h4>
         </div>
-        <form action="insertmerkinhw" method="POST" enctype="multipart/form-data">
+        <form action="/hardware/addhw/insertmerkinhw" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
             <div class="form-group">

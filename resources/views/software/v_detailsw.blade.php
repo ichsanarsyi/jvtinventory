@@ -12,12 +12,14 @@
 				<a href="{{ url('software') }}" class="btn btn-primary"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 			</div>
 		</div>
+		@if (auth()->user()->level == 'Admin') 
 		<div class="col col-md-6">
 			<div class="form-group">
 				<a onclick="window.location='/software/editsw/{{$software->id_sw}}';" class="btn btn-warning pull-right"><i class="fa fa-edit fa-fw"></i>Edit</a>
 			</div>
 		</div>
-        <div class="col-xs-12">
+		@endif
+        <div class="col-md-12">
 			<div class="box box-primary text-info box-solid">
 				<div class="box-header with-border">
 					<h3 class="box-title">Detail : {{ $software->nama_sw }}</h3>
@@ -25,41 +27,41 @@
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
-					<table class="table table-hover">
+					<table class="table table-striped table-hover">
 						<tr>
-							<th width="200px">Nama Software</th>
+							<th width="170px">Nama Software</th>
 							<th width="20px">:</th>
 							<th>{{ $software->nama_sw }}</th>
 						</tr>
 						<tr>
-							<th width="200px">Merk Software</th>
+							<th width="170px">Merk Software</th>
 							<th width="20px">:</th>
-							<th>{{ $software->nama_merk_sw }}</th>
+							<td>{{ $software->nama_merk_sw }}</td>
 						</tr>
 						<tr>
-							<th width="200px">Jenis Lisensi</th>
+							<th width="170px">Jenis Lisensi</th>
 							<th width="20px">:</th>
-							<th>{{ $software->jenis_lisensi }}</th>
+							<td>{{ $software->jenis_lisensi }}</td>
 						</tr>
 						<tr>
-							<th width="200px">Harga Software</th>
+							<th width="170px">Harga Software</th>
 							<th width="20px">:</th>
-							<th>@currency($software->harga_sw)</th>
+							<td>@currency($software->harga_sw)</td>
 						</tr>
 						<tr>
-							<th width="200px">Deskripsi Software</th>
+							<th width="170px">Deskripsi Software</th>
 							<th width="20px">:</th>
-							<th>{{ $software->deskripsi_sw }}</th>
+							<td>{{ $software->deskripsi_sw }}</td>
 						</tr>
 						<tr>
-							<th width="200px">Versi Software</th>
+							<th width="170px">Versi Software</th>
 							<th width="20px">:</th>
-							<th>{{ $software->versi_sw }}</th>
+							<td>{{ $software->versi_sw }}</td>
 						</tr>
 						<tr>
-							<th width="200px">Nama Hardware</th>
+							<th width="170px">Nama Hardware</th>
 							<th width="20px">:</th>
-							<th><a href="/hardware/detailhw/{{ $software->id_hw }}">{{ $software->nama_hw }}</a></th>
+							<td><a href="/hardware/detailhw/{{ $software->id_hw }}">{{ $software->nama_hw }}</a></td>
 						</tr>
 					</table>
 				</div>						

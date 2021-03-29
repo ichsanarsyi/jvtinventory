@@ -32,7 +32,7 @@ class UserController extends Controller
         
         Request()->validate([
             'name' => 'required',
-            'email' => 'required'
+            'email' => ['required', 'string', 'email', 'max:255'],
         ],[
             'name.required' => 'Nama User wajib diisi',
             'email.required' => 'Email User wajib diisi',
@@ -43,7 +43,11 @@ class UserController extends Controller
             'email' => Request()->email,
             'level' => Request()->level,
         ];
-
+        if (!empty(Request()->password)) 
+        $data['password'] = Hash::make(Request()->password);
+        if (!empty(Request()->password))
+        Request()->validate(['password' => ['string', 'min:8', 'confirmed']]);
+        
         $this->UserModel->editData($id, $data);       
         return redirect()->route('user')->with('pesan', 'Data berhasil diedit.');
 

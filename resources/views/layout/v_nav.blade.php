@@ -14,7 +14,7 @@
             <li class="header">MAIN NAVIGATION</li>
             <li class="{{ Request::segment(1) === 'hardware' ? 'active' : null }}">
               <a href="/hardware">
-                  <i class="glyphicon glyphicon-lock"></i> <span>Hardware</span>
+                  <i class="fa fa-briefcase"></i> <span>Hardware</span>
               </a>
             </li>
             <li class="{{ Request::segment(1) === 'software' ? 'active' : null }}">

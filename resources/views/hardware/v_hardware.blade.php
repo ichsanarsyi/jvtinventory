@@ -34,6 +34,9 @@
                   <th></th>
                   <th></th>
                   <th></th>
+                  @if (auth()->user()->level == 'Admin') 
+                  <th></th>
+                  @endif
                 </tr>
             </tfoot>
             <thead>

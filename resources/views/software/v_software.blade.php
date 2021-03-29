@@ -45,6 +45,9 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                @if (auth()->user()->level == 'Admin') 
+                <th></th>
+                @endif
               </tr>
             </tfoot>
             <thead>
@@ -81,7 +84,7 @@
                       {{$data->versi_sw}}
                     </td>
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      <span style="padding-right:30%;" class="pull-right">
+                      <span id="jenislisensi{{$data->id_jenis_lisensi}}" style="padding-right:30%; visibility: hidden;" class="pull-right">
                         {{$data->day_left}} Hari Tersisa
                       </span>
                     </td>

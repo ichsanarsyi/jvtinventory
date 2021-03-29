@@ -24,9 +24,10 @@ class MerkhwController extends Controller
     public function insert()
     {
         Request()->validate([
-            'nama_merk_hw' => 'required'
+            'nama_merk_hw' => ['required', 'unique:tbl_merk_hw'],
         ],[
-            'nama_merk_hw.required' => 'Merk Hardware wajib diisi'
+            'nama_merk_hw.required' => 'Merk Hardware wajib diisi',
+            'nama_merk_hw.unique' => 'Merk Hardware tersebut sudah ada.'
         ]);
         
         $data=[

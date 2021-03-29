@@ -7,18 +7,18 @@
 @endsection
 @section('content')
 <div class="row">
-
 	<div class="col col-sm-6">
 		<div class="form-group">
 			<a href="{{ url('hardware') }}" class="btn btn-primary"><i class="fa fa-chevron-circle-left fa-fw"></i>Kembali</a>
 		</div>
 	</div>
+	@if (auth()->user()->level == 'Admin') 
 	<div class="col col-sm-6">
 		<div class="form-group">
 			<a onclick="window.location='/hardware/edithw/{{$hardware->id_hw}}';" class="btn btn-warning pull-right"><i class="fa fa-edit fa-fw"></i>Edit</a>
 		</div>
 	</div>
-
+	@endif
 	<div class="col-md-12">
 		<div class="box box-primary text-info box-solid">
 		  <div class="box-header with-border">
@@ -31,7 +31,7 @@
 				<tr>
 					<th width="170px">Nama Hardware</th>
 					<th width="20px">:</th>
-					<td>{{ $hardware->nama_hw }}</td>
+					<th>{{$hardware->nama_hw}} {{$hardware->nama_merk_hw}} {{$hardware->seri_hw}}</th>
 				</tr>
 				<tr>
 					<th width="170px">Merk Hardware</th>
@@ -66,7 +66,7 @@
 				<tr>
 					<th width="170px">Kondisi</th>
 					<th width="20px">:</th>
-					<td><span class="{{$hardware->text_kondisi}}"><i class="fa {{$hardware->icon_kondisi}} fa-fw"></i> {{ $hardware->nama_kondisi }}</span></td>
+					<td><span class="{{$hardware->text_kondisi}}">{{ $hardware->nama_kondisi }} <i class="fa {{$hardware->icon_kondisi}} fa-fw"></i></span></td>
 				</tr>
 				<tr>
 					<th width="170px">Deskripsi</th>
@@ -137,7 +137,7 @@
 	  <!-- /.box-header -->
 	  <div class="box-body" align=center>
 		<div class="col">
-			<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($hardware->tgl_batas_garansi)) }} <small style="color: red"> <br>{{ $hardware->day_left }} Hari Tersisa</small>
+			<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($hardware->tgl_batas_garansi)) }} <small style="color: red"> <br>{{ ($hardware->day_left == 0 ? 'Telah melebihi masa Batas Garansi' : $hardware->day_left.' Hari Tersisa')}}</small>
 		</div>
 	  </div>
 	  <!-- /.box-body -->

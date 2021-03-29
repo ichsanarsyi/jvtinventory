@@ -18,7 +18,7 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Nama Software</label>                                
+								<label>Nama Software<span style="color:red;">*</span></label>                                
 								<input autofocus name="nama_sw" class="form-control" value="{{ old('nama_sw') }}">
 								<div class="text-danger">
 									@error('nama_sw')
@@ -41,7 +41,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Jenis Lisensi</label>
+								<label>Jenis Lisensi<span style="color:red;">*</span></label>
                                 <select id="lisensi" name="id_jenis_lisensi" class="form-control select2" style="width: 100%;">
 									<option value="{{ old('id_jenis_lisensi') }}"></option>
 									@foreach ($lisensi as $data)

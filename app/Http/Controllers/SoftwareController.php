@@ -65,19 +65,19 @@ class SoftwareController extends Controller
     {
         Request()->validate([
             'nama_sw' => 'required',
-            'id_merk_sw' => 'required',
+            // 'id_merk_sw' => 'required',
             'id_jenis_lisensi' => 'required',
-            'tgl_pembelian' => 'required',
-            'harga_sw' => 'required|numeric',
-            'kode_lisensi' => 'required',
-            'deskripsi_sw' => 'required',
-            'versi_sw' => 'required',
-            'id_hw' => 'required'
+            // 'tgl_batas_lisensi' => 'required',
+            'harga_sw' => 'numeric',
+            // 'kode_lisensi' => 'required',
+            // 'deskripsi_sw' => 'required',
+            // 'versi_sw' => 'required',
+            // 'id_hw' => 'required'
         ],[
             'nama_sw.required' => 'Nama Software wajib diisi',
             'id_merk_sw.required' => 'Merk Software wajib diisi',
             'id_jenis_lisensi.required' => 'Jenis Lisensi Software wajib diisi',
-            'tgl_pembelian.required' => 'Tanggal Pembelian Software wajib diisi',
+            'tgl_batas_lisensi.required' => 'Tanggal Batas Software wajib diisi',
             'harga_sw.required' => 'Harga Software wajib diisi',
             'harga_sw.numeric' => 'Harga Software berupa angka',
             'kode_lisensi.required' => 'Kode lisensi wajib diisi',
@@ -123,14 +123,14 @@ class SoftwareController extends Controller
     {
         Request()->validate([
             'nama_sw' => 'required',
-            'tgl_pembelian' => 'required',
-            'harga_sw' => 'required|numeric',
-            'kode_lisensi' => 'required',
-            'deskripsi_sw' => 'required',
-            'versi_sw' => 'required'
+            // 'tgl_batas_lisensi' => 'required',
+            'harga_sw' => 'numeric',
+            // 'kode_lisensi' => 'required',
+            // 'deskripsi_sw' => 'required',
+            // 'versi_sw' => 'required'
         ],[
             'nama_sw.required' => 'Nama Software wajib diisi',
-            'tgl_pembelian.required' => 'Tanggal Pembelian Software wajib diisi',
+            'tgl_batas_lisensi.required' => 'Tanggal Batas Lisensi Software wajib diisi',
             'harga_sw.required' => 'Harga Software wajib diisi',
             'harga_sw.numeric' => 'Harga Software berupa angka',
             'kode_lisensi.required' => 'Kode lisensi wajib diisi',

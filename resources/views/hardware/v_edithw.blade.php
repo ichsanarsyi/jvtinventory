@@ -13,13 +13,13 @@
 
 			<!-- /.box-header -->
             <div class="box-body">
-				<form action="/hardware/updatehw/{{ $hardware->id_hw }}" method="POST" enctype="multipart/form-data">
+				<form id="formedit" action="/hardware/updatehw/{{ $hardware->id_hw }}" method="POST" enctype="multipart/form-data">
 					@csrf
 					
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Nama Hardware</label>
+								<label>Nama Hardware<span style="color:red;">*</span></label>
 								<input name="nama_hw" class="form-control" value="{{ $hardware->nama_hw }}">
 								<div class="text-danger">
 									@error('nama_hw')
@@ -28,7 +28,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-									<label>Merk Hardware</label>
+									<label>Merk Hardware<span style="color:red;">*</span></label>
 									<div class="row">
 										<div class="form-group">
 											<div class="col-sm-11">
@@ -55,7 +55,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Kategori</label>
+								<label>Kategori<span style="color:red;">*</span></label>
 								<select name="id_kategori_hw" class="form-control select2" style="width: 100%;">
 									<option selected disabled value="">Pilih Kategori</option>
 									@foreach ($kategori as $data)
@@ -133,7 +133,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Tanggal Beli Hardware</label>
+								<label>Tanggal Beli Hardware<span style="color:red;">*</span></label>
 								<div class="input-group date">									
 									<input name="tgl_beli_hw" type="text" class="form-control pull-right" id="datepicker1" value="{{ $hardware->tgl_beli_hw }}">
 									<div class="input-group-addon">
@@ -147,7 +147,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Tanggal Batas Garansi</label>
+								<label>Tanggal Batas Garansi<span style="color:red;">*</span></label>
 								<div class="input-group date">									
 									<input name="tgl_batas_garansi" type="text" class="form-control pull-right" id="datepicker2" value="{{ $hardware->tgl_batas_garansi }}">
 									<div class="input-group-addon">
