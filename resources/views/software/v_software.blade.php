@@ -33,9 +33,42 @@
               <i class="fa fa-print fa-fw"></i>
               Print
             </a>
-        </div>
+        </div>        
+        {{-- <div class="advanced-search-body">
+        <form id = "joiningDateSearch">
+          @csrf
+          <div class="container">
+              <div class="container-fluid">
+                <div class="form-group row-12">
+                  <label for="fromdate" class="col-form-label col-sm-2">Dari Tanggal</label>
+                  <div class="col-sm-3">
+                    <input type="date" class="form-control input-sm" id="fromdate" name="fromdate" required>
+                  </div>
+                  <label for="todate" class="col-form-label col-sm-2">Sampai Tanggal</label>
+                  <div class="col-sm-3">
+                    <input type="date" class="form-control input-sm" id="todate" name="todate" required>
+                  </div>
+                  <div class="col-sm-2">
+                    <button id="filterdate" type="button" class="btn fa fa-search"></button>
+                  </div>
+                </div>
+              </div>            
+          </div>
+        </form>
+        </div> --}}
         <!-- /.box-header -->
-        <div class="box-body">            
+        <div class="box-body">
+          {{-- <table border="0" cellspacing="5" cellpadding="5">
+            <tbody>
+              <tr>
+                <td><input type="text" id="min" name="min" placeholder="Dari Tanggal"></td>
+              </tr>
+              <tr>
+                <td><input type="text" id="max" name="max" placeholder="Sampai Tanggal"></td>
+              </tr>
+            </tbody>
+          </table> --}}
+          {{-- <div class="divider"></div>             --}}
           <table id="tbl_software" class="display table table-bordered table-hover">
             <tfoot>
               <tr>
@@ -58,6 +91,7 @@
                 <th class="text-center">Merk</th>
                 <th class="text-center">Jenis Lisensi</th>
                 <th class="text-center">Versi</th>
+                <th class="text-center">Tanggal Beli</th>
                 <th class="text-center">Masa Aktif Lisensi</th>
                 @if (auth()->user()->level == 'Admin') 
                 <th class="no-sort text-center">Aksi</th>

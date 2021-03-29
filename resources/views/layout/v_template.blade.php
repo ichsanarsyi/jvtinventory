@@ -26,6 +26,16 @@
        folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="{{asset('template')}}/dist/css/skins/_all-skins.min.css">
 
+  {{-- coba include online --}}
+  {{-- <link href="https://cdn.datatables.net/scroller/2.0.1/css/scroller.dataTables.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.datatables.net/scroller/2.0.1/js/dataTables.scroller.js"></script>
+  <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>    
+  <script src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script> --}}
+
   <style>
 
     body{
@@ -79,6 +89,14 @@
     }
 
 </style>
+{{-- <!-- DataTable-DateTime -->
+<script src="{{asset('template/')}}/bower_components/datatables.net/js/dataTables.dateTime.min.js"></script>
+<!-- Moment -->
+<script src="{{asset('template/')}}/bower_components/datatables.net/js/moment.js"></script> --}}
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="https://cdn.datatables.net/datetime/1.0.2/js/dataTables.dateTime.min.js"></script> --}}
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -107,7 +125,9 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
-
+      <a class="navbar-brand">
+        {{-- @yield('headertitle') --}}
+      </a>
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Notifications -->
@@ -313,6 +333,7 @@
 <script src="{{asset('template/')}}/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('template/')}}/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+
 {{-- Avatar Letterpic --}}
 <script>
   $(".letterpic").letterpic({
@@ -344,17 +365,135 @@
       columnDefs : [{'orderable': {{ (Auth::user()->level == 'Admin' ? 'false':'true')}},  'targets':-1}]
     })
     //use select2
-    $('.select2').select2()
+    $('.select2').select2();
     //use Datepicker
     $('#datepicker1').datepicker({
       autoclose: true
-    })
+    });
     $('#datepicker2').datepicker({
       autoclose: true
-    })
+    });
+    $('#fromdate').datepicker({
+      autoclose: true
+    });
+    $('#todate').datepicker({
+      autoclose: true
+    });
+    $('#min').datepicker({
+      autoclose: true
+    });
+    $('#max').datepicker({
+      autoclose: true
+    });
   })
 </script>
 
+{{-- Filter by Date tbl_software [Gagal] --}}
+{{-- <script type="text/javascript">
+  $document.ready(function(){
+    
+    $('#tbl_software').DataTable({
+      "dom": 'lrtip',
+      "drawCallback": function( settings ) {
+      console.log("DataTables has redrawn the table");
+
+      // var selected = this.api().rows({page: 'current', selected: true}).count();
+      // var all = this.api().rows({page: 'current'}).count();
+      
+      // if (selected > 0 && selected === all) {
+      //   $('#tbl_software thead tr').addClass('checked');
+      // }
+      // else {
+      //   $('#tbl_software thead tr').removeClass('checked');
+      // }
+ 
+      },  
+
+      order: [0],
+        columnDefs: [            
+          // {
+          //   "orderable": false,
+          //   "targets": 0
+          // },
+          {
+            targets: [5],
+            type: 'date'
+          }
+        ],
+      select: {
+            select: true,
+            style: 'multi',
+           // Restricting Selection
+            selector: 'tr>td:nth-child(1)'
+          },
+    }); 
+
+    // $('#tbl_software').on('click','td.checkbox-control', function () {
+    //   $(this).parent().toggleClass('checked');
+    // });
+
+    // $('#tbl_software').on('click','th.checkbox-control', function () {
+    
+    //   $(this).parent().toggleClass('checked');
+      
+    //   if ($(this).parent().is( ".checked" )) {
+    //     table.rows( {page: 'current'} ).select(); 
+    //   } else {
+    //     table.rows( {page: 'current'} ).deselect();        
+    //   }
+      
+    //   table.rows({selected:true}).every(function() {
+    //     $(this.node()).addClass('checked');
+    //   });
+      
+    //   table.rows({selected:false}).every(function() {
+    //     $(this.node()).removeClass('checked');
+    //   });
+
+    // });
+
+    $.fn.dataTable.ext.search.push(
+    function (settings, data, dataIndex) {          
+      var valid = true;
+      var min = moment($("#fromdate").val());
+      if (!min.isValid()) { min = null; }
+      console.log(min);
+
+      var max = moment($("#todate").val());
+      if (!max.isValid()) { max = null; }
+
+      if (min === null && max === null) {
+          // no filter applied or no date columns
+          valid = true;
+      }
+      else {
+        $.each(settings.aoColumns, function (i, col) {          
+            if (col.type == "date") {
+              var cDate = moment(data[i],'YYY/MM/DD');
+              console.log(cDate);            
+              if (cDate.isValid()) {
+                if (max !== null && max.isBefore(cDate)) {
+                    valid = false;
+                }
+                if (min !== null && cDate.isBefore(min)) {
+                    valid = false;
+                }
+              }
+              else {
+                valid = false;
+              }
+            }
+        });
+      }
+      return valid;
+    });
+
+    $("#filterdate").click(function () {
+      $('#tbl_software').DataTable().draw();
+    });
+
+  });
+</script> --}}
 
 {{-- [Works] filter per kolom HW & SW --}}
 <script>
@@ -589,6 +728,49 @@ $('form').on('keydown', 'input, select', function(e) {
       });
   });
 </script>
+
+
+{{-- filter bydate --}}
+{{-- <script type="text/javascript">
+  var minDate, maxDate;
+   
+   // Custom filtering function which will search data in column four between two values
+   $.fn.dataTable.ext.search.push(
+       function( settings, data, dataIndex ) {
+           var min = minDate.val();
+           var max = maxDate.val();
+           var date = new Date( data[5] );
+    
+           if (
+               ( min === null && max === null ) ||
+               ( min === null && date <= max ) ||
+               ( min <= date   && max === null ) ||
+               ( min <= date   && date <= max )
+           ) {
+               return true;
+           }
+           return false;
+       }
+   );
+    
+   $(document).ready(function() {
+       // Create date inputs
+       minDate = new DateTime($('#min'), {
+           format: 'MMMM Do YYYY'
+       });
+       maxDate = new DateTime($('#max'), {
+           format: 'MMMM Do YYYY'
+       });
+    
+       // DataTables initialisation
+       var table = $('#tbl_software').DataTable();
+    
+       // Refilter the table
+       $('#min, #max').on('change', function () {
+           table.draw();
+       });
+   });
+</script> --}}
 
 {{-- Percobaan di bawah ini --}}
 {{-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> --}}
