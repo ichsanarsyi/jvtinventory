@@ -11,6 +11,8 @@ class HardwareModel extends Model
     public function allData()
     {
         return DB::table('tbl_hardware')
+        ->select('*', DB::raw('IFNULL( tbl_hardware.kode_asset, "-") as kode_asset'),
+        DB::raw('IFNULL( tbl_hardware.seri_hw, "-") as seri_hw'))
         ->leftJoin('tbl_merk_hw', 'tbl_merk_hw.id_merk_hw', '=', 'tbl_hardware.id_merk_hw')
         ->leftJoin('tbl_kategori_hw', 'tbl_kategori_hw.id_kategori_hw', '=', 'tbl_hardware.id_kategori_hw')
         ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'tbl_hardware.id_lokasi')
@@ -19,6 +21,7 @@ class HardwareModel extends Model
         ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'tbl_hardware.id_staff')
         ->leftJoin('hardware_day_left', 'hardware_day_left.id_hw', '=', 'tbl_hardware.id_hw')
         ->get();
+        
     }
     
     public function logDataLama()
@@ -55,6 +58,12 @@ class HardwareModel extends Model
     public function detailData($id_hw)
     {
         return DB::table('tbl_hardware')
+        ->select('*', DB::raw('IFNULL( tbl_hardware.kode_asset, "-") as kode_asset')
+        , DB::raw('IFNULL( nama_departemen, "-") as nama_departemen')
+        , DB::raw('IFNULL( nama_lokasi, "-") as nama_lokasi')
+        , DB::raw('IFNULL( nama_kondisi, "-") as nama_kondisi')
+        , DB::raw('IFNULL( tbl_hardware.seri_hw, "-") as seri_hw')
+        , DB::raw('IFNULL( tbl_hardware.deskripsi_hw, "- Tidak ada Deskripsi -") as deskripsi_hw'))
         ->leftJoin('tbl_merk_hw', 'tbl_merk_hw.id_merk_hw', '=', 'tbl_hardware.id_merk_hw')
         ->leftJoin('tbl_kategori_hw', 'tbl_kategori_hw.id_kategori_hw', '=', 'tbl_hardware.id_kategori_hw')
         ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'tbl_hardware.id_lokasi')

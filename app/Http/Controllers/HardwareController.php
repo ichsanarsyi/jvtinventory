@@ -156,8 +156,8 @@ class HardwareController extends Controller
         Request()->validate([
             'nama_hw' => 'required',
             //'id_merk_hw' => 'required',
-            'seri_hw' => 'required',
-            //'id_kategori_hw' => 'required',
+            // 'seri_hw' => 'required',
+            'id_kategori_hw' => 'required',
             //'kode_asset' => 'required',
             //'id_kondisi' => 'required',
             'harga_hw' => 'required',

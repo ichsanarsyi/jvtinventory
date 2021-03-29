@@ -80,7 +80,7 @@
           <h4 class="modal-title">Tambah User</h4>
         </div>
         
-        <form method="POST" action="{{ route('register') }}">
+        <form id="formAddUser" method="POST" action="{{ route('register') }}">
             @csrf
         <div class="modal-body"> 
           <div class="form-group has-feedback">
@@ -157,26 +157,30 @@
                 <span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">Edit User</h4>
             </div>
-            <form action="/user/updateuser/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+            <form id="formEditUser" action="/user/updateuser/{{ $data->id }}" method="POST">
             @csrf
             <div class="modal-body">            
-                <div class="form-group">
+                <div class="form-group has-feedback">
                     <label>Nama User</label>                                
                     <input autofocus="autofocus" name="name" class="form-control" value="{{ $data->name }}">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     <div class="text-danger">
                         @error('name')
                         {{ $message }}
                         @enderror
                     </div>
                 </div>        
-                <div class="form-group">
+                <div class="form-group has-feedback">
                     <label>Email</label>                                
-                    <input name="email" class="form-control" value="{{ $data->email }}">
+                    <input id="email" name="email" type="email" class="form-control" value="{{ $data->email }}">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    @error('email')
                     <div class="text-danger">
                         @error('email')
                         {{ $message }}
                         @enderror
                     </div>
+                    @enderror
                 </div>           
                 <div class="form-group">
                     <label>Level</label>
@@ -190,6 +194,26 @@
                         @enderror
                     </div>
                 </div> 
+                <div class="form-group has-feedback">
+                    <label>Ubah Password (Optional)</label>
+                    <input id="password" name="password" type="password" class="form-control" placeholder="Password Baru">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <div class="text-danger">
+                        @error('password')
+                        {{ $message }}
+                        @enderror
+                    </div>
+                  </div>
+            
+                  <div class="form-group has-feedback">
+                    <input id="password" name="password_confirmation" type="password" class="form-control" placeholder="Konfirmasi Password Baru">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    <div class="text-danger">
+                        @error('password')
+                        {{ $message }}
+                        @enderror
+                    </div>
+                  </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>

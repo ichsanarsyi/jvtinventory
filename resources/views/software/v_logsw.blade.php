@@ -3,7 +3,8 @@
 @section('title','Riwayat Perubahan')
 <h3 style="margin:-0px;">
     @yield('title')
-</h3>
+</h3><br>
+<p><span style="font-weight: bold;" class="text-info">Catatan:</span> Baris baru akan dibuat ketika hanya terjadi perubahan pada data <span class="text-info">Tanggal Pembelian</span> dan <span class="text-info">Tanggal Batas Lisensi.</span></p>
 @endsection
 @section('content')
 
@@ -28,7 +29,7 @@
 		  </div>
 		  <!-- /.box-header -->
 		  <div class="box-body">
-			<table id="tbl_log" class="display table order-column table-hover">
+			<table id="tbl_log_sw" class="display table order-column table-hover">
 				<tfoot>
 					<tr>
 					<th></th>

@@ -45,18 +45,24 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                @if (auth()->user()->level == 'Admin') 
                 <th></th>
+                @endif
               </tr>
             </tfoot>
             <thead>
               <tr>
+
                 <th class="text-center">No</th>
                 <th class="text-center">Nama Software</th>
                 <th class="text-center">Merk</th>
                 <th class="text-center">Jenis Lisensi</th>
                 <th class="text-center">Versi</th>
                 <th class="text-center">Masa Aktif Lisensi</th>
-                <th class="text-center" data-orderable="false">Aksi</th>
+                @if (auth()->user()->level == 'Admin') 
+                <th class="no-sort text-center">Aksi</th>
+                @endif
+
               </tr>
             </thead>
             <tbody>
@@ -79,18 +85,19 @@
                       {{$data->versi_sw}}
                     </td>
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      <span style="padding-right:30%;" class="pull-right">
+                      <span id="jenislisensi{{$data->id_jenis_lisensi}}" style="padding-right:30%; visibility: hidden;" class="pull-right">
                         {{$data->day_left}} Hari Tersisa
                       </span>
                     </td>
-                    <td  class="text-center">
-                      @if (auth()->user()->level == 'Admin') 
+
+                    @if (auth()->user()->level == 'Admin') 
+                    <td class="text-center">
                       <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                       <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_sw }}"><i class="fa fa-trash fa-fw"></i>
                           Delete
                       </button>
-                      @endif
                     </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>

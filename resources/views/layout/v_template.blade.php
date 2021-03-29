@@ -56,7 +56,7 @@
 	  font-weight: normal;
     }
 
-    table#tbl_log.dataTable tbody tr:hover {
+    table#tbl_log_hw.dataTable tbody tr:hover, table#tbl_log_sw.dataTable tbody tr:hover {
     color: rgb(0, 94, 165);
     background-color: rgb(231, 237, 242);
     font-weight: 500;
@@ -74,7 +74,7 @@
     background-color: rgb(231, 237, 242);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075), 0 2px 2px rgba(1, 20, 50, 0.6);
     }
-    table#tbl_log.dataTable thead th, table#tbl_log.dataTable tbody td{
+    table#tbl_log_hw.dataTable thead th, table#tbl_log_hw.dataTable tbody td{
       white-space: nowrap;
     }
 
@@ -111,28 +111,54 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Notifications -->
+
+          <?php
+              $batasHariHardware = DB::select("SELECT * FROM hardware_day_left WHERE day_left < 10 ORDER BY day_left ASC");
+              // $countH = DB::select("SELECT * FROM hardware_day_left WHERE day_left < 10")->count();
+              $batasHariSoftware = DB::select("SELECT * FROM software_day_left WHERE day_left < 10 ORDER BY day_left ASC");
+              // $countS = [DB::select("SELECT * FROM software_day_left WHERE day_left < 10")->count()];
+              $count = 0;
+          ?>
+
           <li class="dropdown notifications-menu">
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-danger">10</span>
+              <span id="countNotif" class="label label-warning"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+            <ul class="dropdown-menu .dropdown-menu">
+              <li class="header">Pengingat</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
+                  @foreach ($batasHariHardware as $batasH)
                   <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> Masa lisensi antivirus A akan segera berakhir dalam waktu X
+                    <a href="/hardware/detailhw/{{$batasH->id_hw}}">
+                      <i class="fa fa-briefcase"></i> Batas Garansi {{$batasH->nama_hw}} berakhir {{ $batasH->day_left}} Hari Lagi
                     </a>
                   </li>
+                  <?php $count = $count + 1 ?>
                   <!-- end notification -->
+                  @endforeach
+                  @foreach ($batasHariSoftware as $batasS)
+                  <li>
+                    <a href="/software/detailsw/{{$batasS->id_sw}}">
+                      <i class="fa fa-cloud"></i> Batas Lisensi {{$batasS->nama_sw}} berakhir {{ $batasS->day_left}} Hari Lagi
+                    </a>
+                  </li>
+                  <?php $count = $count + 1 ?>
+                  <!-- end notification -->
+                  @endforeach
+                  <script>
+                    var textTd = document.getElementById("countNotif");
+                    textTd.innerHTML = '<?php echo $count ?>';
+                  </script>
                 </ul>
               </li>
-              <li class="footer"><a href="#">View all</a></li>
+              <li class="footer"><a href="" data-toggle="modal" data-target="#modal-show">View all</a></li>
             </ul>
           </li>
+
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -154,7 +180,7 @@
                 <div class="pull-right">
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
-                    <button type="submit" class="btn btn-danger btn-flat">Log out</button>
+                    <button href="{{ route('logout') }}" class="btn btn-danger btn-flat">Log out</button>
                   </form>
                 </div>
               </li>
@@ -165,6 +191,55 @@
     </nav>
   </header>
 
+  <!-- Modal Merk Show Notif -->
+  <div class="modal fade" id="modal-show">
+  <div class="modal-dialog modal-big">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Notifikasi</h4>
+      </div>
+      <div class="modal-body text-dark">
+        <div class="row">
+          <div class="col col-sm-12">
+          <table class="table table-striped table-hover">
+            <tr style="text-align: center;">
+              <td>
+               <span> Hardware
+              <td>
+            </tr>
+          @foreach ($batasHariHardware as $batasH)
+          <tr style="width: 100%;">
+            <td style="cursor: pointer;" onclick="window.location='/hardware/detailhw/{{$batasH->id_hw}}';">
+              <i class="fa fa-briefcase"> </i>  <span style="font-weight: bold;"> {{$batasH->nama_hw}} {{$batasH->nama_merk_hw}} {{$batasH->seri_hw}} -</span> Batas Garansi berakhir {{ $batasH->day_left}} Hari Lagi
+            <td>
+          </tr>
+          @endforeach
+          <tr style="text-align: center;">
+            <td>
+               <span> Software
+            <td>
+          </tr>
+          @foreach ($batasHariSoftware as $batasS)
+          <tr style="width: 100%;">
+            <td style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$batasS->id_sw}}';">
+              <i class="fa fa-cloud"> </i>  <span style="font-weight: bold;"> {{$batasS->nama_sw}} -</span> Batas Lisensi berakhir {{ $batasS->day_left}} Hari Lagi
+            <td>
+          </tr>
+          @endforeach
+          <!-- end notification -->
+          </table>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->  
   <!-- =============================================== -->
 
     <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -196,8 +271,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.3.12
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-    reserved.
+    <strong>Contact Person :</a></strong> 088888888888 (Alvin) - 089999999999 (Ichsan)
   </footer>
 
   <!-- Control Sidebar -->
@@ -251,7 +325,7 @@
 <script>
  $(function() {
     //Autofocus SearchBox
-    $("#tbl_user,#tbl_jenis_lisensi,#tbl_merk_sw,#tbl_merk_hw,#tbl_kategori_hw,#tbl_departemen,#tbl_staff,#tbl_kondisi,#tbl_lokasi").DataTable({
+    $("#tbl_jenis_lisensi,#tbl_merk_sw,#tbl_merk_hw,#tbl_kategori_hw,#tbl_departemen,#tbl_staff,#tbl_kondisi,#tbl_lokasi").DataTable({
       initComplete: function () {
         $('#tbl_user_filter [type="search"]').focus()
         $('#tbl_jenis_lisensi_filter [type="search"]').focus()
@@ -266,6 +340,9 @@
       stateSave: true,
       lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
     });
+    $("#tbl_user").DataTable({
+      columnDefs : [{'orderable': {{ (Auth::user()->level == 'Admin' ? 'false':'true')}},  'targets':-1}]
+    })
     //use select2
     $('.select2').select2()
     //use Datepicker
@@ -283,7 +360,10 @@
 <script>
   $(document).ready(function() {
     $('#tbl_hardware').DataTable( {
-          initComplete: function () {            
+      initComplete: function () {            
+            // if ({{Auth::user()->level == 'Admin'}} == true) {          
+            //   hideAksi.unshift({columnDefs : [{ 'orderable': false, 'targets': 6 }]});
+            // }
               this.api().columns([3,4,5]).every( function () {
                   var column = this;
                   var select = $('<select class="f" style="width:100%;"><option value="">Show All</option></select>')
@@ -307,8 +387,8 @@
           },
           stateSave: true,
           lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
-          // columnDefs: [{ type: 'natural', targets: 0 }],
-      } );
+          columnDefs : [{'orderable': {{ (Auth::user()->level == 'Admin' ? 'false':'true')}},  'targets':-1}]
+        } );
   
       $('#tbl_software').DataTable( {
           initComplete: function () {            
@@ -335,12 +415,11 @@
           },
           stateSave: true,
           lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
-          columnDefs: [
-            { type: 'natural', targets: 0 }
-            ],
+          columnDefs: [{ type: 'natural', targets: 0 }],
+          columnDefs : [{'orderable': {{ (Auth::user()->level == 'Admin' ? 'false':'true')}},  'targets':-1}]
       } );
 
-      $('#tbl_log').DataTable( {
+      $('#tbl_log_hw,#tbl_log_sw').DataTable( {
           initComplete: function () {            
               this.api().columns([2,]).every( function () {
                   var column = this;
@@ -363,19 +442,40 @@
               $('#tbl_log_filter [type="search"]').focus()   
           },
           lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
+          order: [[ 1, "desc" ]]
       } );
   } );
+
   
+
   $(document).ready(function($) {
     $('.f').select2();
     $('.dataTables_length select').select2();
   });
   </script>
 
+{{-- Hide Tanggal One-Time Purchase --}}
 <script>
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
+  $( "#jenislisensi1,#jenislisensi2")
+  .css( "visibility", "visible" );
+  var textTd = document.getElementById("jenislisensi2");
+  textTd.innerHTML = '-';
+  document.getElementById("jenislisensi2").style.color = "#202080";
+</script>
+
+{{-- Tidak bisa submit sebelum ubah --}}
+<script>
+  $('form').not('#logout-form')
+  .each(function() {
+      $(this).data('serialized', $(this).serialize())
   })
+  .on('change input', 'input, select', function(e) {
+      var $form = $(this).closest("form");
+    var state = $form.serialize() === $form.data('serialized');    
+    $form.find('input:submit, button:submit').prop('disabled', state);
+  })
+  .find('input:submit, button:submit')
+  .prop('disabled', true);
 </script>
 
 {{-- Script Untuk mengingat status "Collapse" sidebar Navigation --}}
@@ -429,7 +529,7 @@ $('select.select2').on('select2:closing', function (e) {
 
 </script>
 
-{{-- Script User sedang login - Hilangkan Aksi --}}
+{{-- Script Super User - Hilangkan Aksi --}}
 <script>
   $('#tbl_user').on('draw.dt',function(){
   $( ".btn" ).not( "#btndeleteuser1, #btnedituser1" )
@@ -466,9 +566,6 @@ $('form').on('keydown', 'input, select', function(e) {
   });
 </script>
 
-<script>
-
-</script>
 {{-----------------------------------------------}}
 
 {{-- Jika Modal Error Auto Muncul --}}
@@ -479,14 +576,6 @@ $('form').on('keydown', 'input, select', function(e) {
 })
 </script>
 @endif
-{{-- 
-<script>
-  jQuery(document).ready(function($) {
-    $(".clickable-row").click(function() {
-        window.location = $(this).data("href");
-    });
-});
-</script> --}}
 
 {{-- disable datepicker2 jika pilihan onetime subscribtion --}}
 <script type="text/javascript">

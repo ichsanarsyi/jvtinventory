@@ -25,9 +25,10 @@ class MerkswController extends Controller
     public function insert()
     {
         Request()->validate([
-            'nama_merk_sw' => 'required'
+            'nama_merk_sw' => ['required', 'unique:tbl_merk_sw'],
         ],[
-            'nama_merk_sw.required' => 'Merk Software wajib diisi'
+            'nama_merk_sw.required' => 'Merk Software wajib diisi',
+            'nama_merk_sw.unique' => 'Merk Software tersebut sudah ada.'
         ]);
         
         $data=[

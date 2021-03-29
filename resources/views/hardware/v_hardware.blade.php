@@ -45,18 +45,24 @@
                   <th></th>
                   <th></th>
                   <th></th>
+                  @if (auth()->user()->level == 'Admin') 
                   <th></th>
+                  @endif
                 </tr>
             </tfoot>
             <thead>
             <tr>
+
               <th class="text-center">No</th>
               <th class="text-center">Kode Asset</th>
               <th class="text-center">Nama Hardware</th>
               <th class="text-center">Merk</th>
               <th class="text-center">Seri</th>
               <th class="text-center">Kategori</th>
-              <th class="text-center" data-orderable="false">Aksi</th>
+              @if (auth()->user()->level == 'Admin') 
+              <th class="text-center">Aksi</th>
+              @endif
+
             </tr>
             </thead>
             <tbody>
@@ -81,14 +87,15 @@
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->nama_kategori_hw}}
                     </td>
+
+                    @if (auth()->user()->level == 'Admin') 
                     <td class="text-center">
-                        @if (auth()->user()->level == 'Admin') 
                         <a href="/hardware/edithw/{{ $data->id_hw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                         <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_hw }}"><i class="fa fa-trash fa-fw"></i>
                             Delete
                         </button>
-                        @endif
                     </td>
+                    @endif
                 </tr>
             @endforeach
             </tbody>
