@@ -2,19 +2,19 @@
 
 namespace App\Exports;
 
-use App\Models\SoftwareModel;
+use App\Models\HardwareModel;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 //styling excel lewat sini tidak berfungsi
 
-class SoftwareExport implements FromView
+class HardwareExport implements FromView
 {
     public function view(): View
     {
-        $software = new SoftwareModel();
+        $hardware = new HardwareModel();
 
-        return view('software.v_excelsw', [
-            'software' => $software->allData()
+        return view('hardware.v_excelhw', [
+            'hardware' => $hardware->allData()
         ]);
     }
 }

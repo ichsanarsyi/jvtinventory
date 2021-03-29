@@ -7,14 +7,14 @@ use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 //styling excel lewat sini tidak berfungsi
 
-class SoftwareExport implements FromView
+class SoftwareLogExport implements FromView
 {
     public function view(): View
     {
-        $software = new SoftwareModel();
+        $logsoftware = new SoftwareModel();
 
-        return view('software.v_excelsw', [
-            'software' => $software->allData()
+        return view('software.v_excellogsw', [
+            'logsoftware' => $logsoftware->logData()
         ]);
     }
 }

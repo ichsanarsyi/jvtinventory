@@ -19,6 +19,7 @@ class HardwareModel extends Model
         ->leftJoin('tbl_kondisi', 'tbl_kondisi.id_kondisi', '=', 'tbl_hardware.id_kondisi')
         ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'tbl_hardware.id_departemen')
         ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'tbl_hardware.id_staff')
+        ->leftJoin('hardware_day_left', 'hardware_day_left.id_hw', '=', 'tbl_hardware.id_hw')
         ->get();
         
     }

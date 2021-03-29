@@ -17,19 +17,19 @@
         @endif
       <div class="box box-primary">
         <div class="box-header with-border text-blue">
-            <a href="/software/addsw/" class="btn btn-primary">
+            <a href="{{ Route('addsw') }}" class="btn btn-primary">
               <i class="fa fa-plus-circle fa-fw"></i>
               Tambah
             </a>
-            <a href="/software/saveexcel/" target="_blank" class="btn btn-default pull-right">
+            <a href="{{ Route('excelsw') }}/" target="_blank" class="btn btn-default pull-right">
               <i class="fa fa-file-excel-o fa-fw"></i>
               Simpan sebagai Excel
             </a>
-            <a href="/software/savepdf/" target="_blank" class="btn btn-default pull-right">
+            <a href="{{ Route('pdfsw') }}" target="_blank" class="btn btn-default pull-right">
               <i class="fa fa-file-pdf-o fa-fw"></i>
               Simpan sebagai PDF
             </a>
-            <a href="/software/print/" target="_blank" class="btn btn-default pull-right">
+            <a href="{{ Route('printsw') }}" target="_blank" class="btn btn-default pull-right">
               <i class="fa fa-print fa-fw"></i>
               Print
             </a>
@@ -52,14 +52,15 @@
             </tfoot>
             <thead>
               <tr>
-                <th>No</th>
-                <th>Nama Software</th>
-                <th>Merk</th>
-                <th>Jenis Lisensi</th>
-                <th>Versi</th>
-                <th>Masa Aktif Lisensi</th>
+
+                <th class="text-center">No</th>
+                <th class="text-center">Nama Software</th>
+                <th class="text-center">Merk</th>
+                <th class="text-center">Jenis Lisensi</th>
+                <th class="text-center">Versi</th>
+                <th class="text-center">Masa Aktif Lisensi</th>
                 @if (auth()->user()->level == 'Admin') 
-                <th class="no-sort">Aksi</th>
+                <th class="no-sort text-center">Aksi</th>
                 @endif
 
               </tr>
@@ -88,8 +89,9 @@
                         {{$data->day_left}} Hari Tersisa
                       </span>
                     </td>
+
                     @if (auth()->user()->level == 'Admin') 
-                    <td>
+                    <td class="text-center">
                       <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                       <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_sw }}"><i class="fa fa-trash fa-fw"></i>
                           Delete

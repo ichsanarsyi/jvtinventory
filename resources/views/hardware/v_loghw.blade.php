@@ -12,7 +12,19 @@
 	<div class="col-md-12">
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">
-			<h3 class="box-title">Log Hardware</h3>
+			<h3 class="box-title">Log Hardware</h3>			
+            <a href="{{ Route('excelloghw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
+                <i class="fa fa-file-excel-o fa-fw"></i>
+                Simpan sebagai Excel
+            </a>
+            <a href="{{ Route('pdfloghw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
+                <i class="fa fa-file-pdf-o fa-fw"></i>
+                Simpan sebagai PDF
+            </a>
+            <a href="{{ Route('printloghw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
+                <i class="fa fa-print fa-fw"></i>
+                Print
+            </a>
 			<!-- /.box-tools -->
 		  </div>
 		  <!-- /.box-header -->
@@ -35,18 +47,18 @@
                   </tfoot>
                 <thead>
 					<tr>
-						<th>No</th>
-						<th>Waktu Ubah</th>
-						<th>Nama Hardware</th>
-						<th>Kode Asset</th>
-						<th>Lokasi Lama</th>
-						<th>Lokasi Baru</th>
-						<th>Departemen<br>Lama</th>
-						<th>Departemen<br>Baru</th>
-						<th>Tgl Batas<br>Garansi Lama</th>
-						<th>Tgl Batas<br>Garansi Baru</th>
-						<th>Staff Lama</th>
-						<th>Staff Baru</th>
+						<th class="text-center">No</th>
+						<th class="text-center">Waktu Ubah</th>
+						<th class="text-center">Nama Hardware</th>
+						<th class="text-center">Kode Asset</th>
+						<th class="text-center">Lokasi Lama</th>
+						<th class="text-center">Lokasi Baru</th>
+						<th class="text-center">Departemen<br>Lama</th>
+						<th class="text-center">Departemen<br>Baru</th>
+						<th class="text-center">Tgl Batas<br>Garansi Lama</th>
+						<th class="text-center">Tgl Batas<br>Garansi Baru</th>
+						<th class="text-center">Staff Lama</th>
+						<th class="text-center">Staff Baru</th>
 					</tr>
 				</thead>
 				<tbody>

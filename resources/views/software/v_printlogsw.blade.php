@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2 class="page-header">
-          JVT Inventory | Daftar Software
+          JVT Inventory | Log Perubahan Software
           <small class="pull-right">
             <p>Tanggal, Waktu: 
                 @php
@@ -46,37 +46,29 @@
       <div class="col-xs-12 table-responsive">
         <table class="table table-striped table-bordered">
           <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama Software</th>
-            <th>Merk</th>
-            <th>Jenis Lisensi</th>
-            <th>Harga</th>
-            <th>Versi</th>
-            <th>Nama Hardware</th>
-            <th>Tanggal Pembelian</th>
-            <th>Tanggal Batas Lisensi</th>
-            <th>Masa Aktif Lisensi</th>
-            <th>Kode Lisensi</th>
-          </tr>
+            <tr>
+              <th class="text-center">No</th>
+              <th class="text-center">Waktu Ubah</th>
+              <th class="text-center">Nama Software</th>
+              <th class="text-center">Tanggal<br>Pembelian Lama</th>
+              <th class="text-center">Tanggal<br>Pembelian Baru</th>
+              <th class="text-center">Tanggal Batas<br>Lisensi Lama</th>
+              <th class="text-center">Tanggal Batas<br>Lisensi Baru</th>
+            </tr>
           </thead>
           <tbody>
               @php
                   $no=1;
               @endphp
-              @foreach ($software as $data)
+              @foreach ($logsoftware as $data)
                 <tr>
-                    <td>{{$no++}}</td>
-                    <td>{{$data->nama_sw}}</td>
-                    <td>{{$data->nama_merk_sw}}</td>
-                    <td>{{$data->jenis_lisensi}}</td>
-                    <td>@currency($data->harga_sw)</td>
-                    <td>{{$data->versi_sw}}</td>
-                    <td>{{$data->nama_hw}}</td>
-                    <td>{{$data->tgl_pembelian}}</td>
-                    <td>{{$data->tgl_batas_lisensi}}</td>
-                    <td>{{$data->day_left}} Hari Tersisa</td>
-                    <td>{{$data->kode_lisensi}}</td>
+                  <td>{{$no++}}</td>
+                  <td>{{$data->waktu_ubah}}</td>
+                  <td>{{$data->nama_sw}}</td>
+                  <td>{{date('d M Y', strtotime($data->tgl_pembelian_lama))}}</td>
+                  <td>{{date('d M Y', strtotime($data->tgl_pembelian_baru))}}</td>
+                  <td>{{date('d M Y', strtotime($data->tgl_batas_lisensi_lama))}}</td>
+                  <td>{{date('d M Y', strtotime($data->tgl_batas_lisensi_baru))}}</td>           
                 </tr>
               @endforeach                    
           </tbody>

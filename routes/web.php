@@ -20,21 +20,25 @@ Route::get('/', [HomeController::class, 'index']);
 
 //CRUD Hardware:
 Route::get('/hardware', [HardwareController::class, 'index'])->name('hardware');
-Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
+Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail'])->name('detailhw');
 Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
-Route::get('/hardware/addhw', [HardwareController::class, 'add']);
+Route::get('/hardware/addhw', [HardwareController::class, 'add'])->name('addhw');
+
+//Print&Save Daftar Hardware
+Route::get('/hardware/print', [HardwareController::class, 'print'])->name('printhw');
+Route::get('/hardware/savepdf', [HardwareController::class, 'savepdf'])->name('pdfhw');
+Route::get('/hardware/saveexcel', [HardwareController::class, 'saveexcel'])->name('excelhw');
 
 //CRUD Software:
 Route::get('/software', [SoftwareController::class, 'index'])->name('software');
-Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail']);
+Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail'])->name('detailsw');
 Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
-Route::get('/software/addsw', [SoftwareController::class, 'add']);
+Route::get('/software/addsw', [SoftwareController::class, 'add'])->name('addsw');
 
 //Print&Save Daftar Software
-Route::get('/software/print', [SoftwareController::class, 'print'])->name('printsoftware');
-Route::get('/software/savepdf', [SoftwareController::class, 'savepdf'])->name('pdfsoftware');
-Route::get('/software/saveexcel', [SoftwareController::class, 'saveexcel'])->name('excelsoftware');
-Route::get('/software/htmlexcel', [SoftwareController::class, 'tableexcel']); //preview
+Route::get('/software/print', [SoftwareController::class, 'print'])->name('printsw');
+Route::get('/software/savepdf', [SoftwareController::class, 'savepdf'])->name('pdfsw');
+Route::get('/software/saveexcel', [SoftwareController::class, 'saveexcel'])->name('excelsw');
 
 //CRUD Lisensi Software:
 Route::get('/masterdata/lisensisw', [LisensiController::class, 'index'])->name('lisensi');
@@ -80,16 +84,22 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/user/deleteuser/{id}', [UserController::class, 'delete']);
     
     //Hak Akses update+edit+delete Hardware 
-    Route::get('/log/hardware', [HardwareController::class, 'detailLog']);
     Route::post('/hardware/updatehw/{id_hw}', [HardwareController::class, 'update']);
     Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
     Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
+    Route::get('/log/hardware', [HardwareController::class, 'detailLog']);
+    Route::get('/log/hardware/print', [HardwareController::class, 'printlog'])->name('printloghw');
+    Route::get('/log/hardware/savepdf', [HardwareController::class, 'savepdflog'])->name('pdfloghw');
+    Route::get('/log/hardware/saveexcel', [HardwareController::class, 'saveexcellog'])->name('excelloghw');
     
     //Hak Akses update+edit+delete Software
-    Route::get('/log/software', [SoftwareController::class, 'detailLog']);
     Route::post('/software/updatesw/{id_sw}', [SoftwareController::class, 'update']);
     Route::get('/software/deletesw/{id_sw}', [SoftwareController::class, 'delete']);
     Route::get('/software/editsw/{id_sw}', [SoftwareController::class, 'edit']);
+    Route::get('/log/software', [SoftwareController::class, 'detailLog']);
+    Route::get('/log/software/print', [SoftwareController::class, 'printlog'])->name('printlogsw');
+    Route::get('/log/software/savepdf', [SoftwareController::class, 'savepdflog'])->name('pdflogsw');
+    Route::get('/log/software/saveexcel', [SoftwareController::class, 'saveexcellog'])->name('excellogsw');
     
     //Hak Akses update+delete Lisensi Software
     Route::post('/masterdata/lisensisw/updatelisensi/{id_jenis_lisensi}', [LisensiController::class, 'update']);
