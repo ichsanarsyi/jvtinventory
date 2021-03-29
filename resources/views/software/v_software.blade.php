@@ -85,7 +85,6 @@
             </tfoot>
             <thead>
               <tr>
-
                 <th class="text-center">No</th>
                 <th class="text-center">Nama Software</th>
                 <th class="text-center">Merk</th>
@@ -96,7 +95,6 @@
                 @if (auth()->user()->level == 'Admin') 
                 <th class="no-sort text-center">Aksi</th>
                 @endif
-
               </tr>
             </thead>
             <tbody>
@@ -119,14 +117,21 @@
                       {{$data->versi_sw}}
                     </td>
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                      {{$data->tgl_pembelian}}
+                    </td>
+                    {{-- <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                      {{$data->day_left}} Hari Tersisa
+                    </td> --}}
+                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       <span id="jenislisensi{{$data->id_jenis_lisensi}}" style="padding-right:30%; visibility: hidden;" class="pull-right">
                         {{$data->day_left}} Hari Tersisa
                       </span>
                     </td>
-
                     @if (auth()->user()->level == 'Admin') 
                     <td class="text-center">
-                      <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
+                      <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>
+                        Edit
+                      </a>
                       <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_sw }}"><i class="fa fa-trash fa-fw"></i>
                           Delete
                       </button>

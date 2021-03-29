@@ -34,7 +34,7 @@ Route::get('/software', [SoftwareController::class, 'index'])->name('software');
 Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail'])->name('detailsw');
 Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
 Route::get('/software/addsw', [SoftwareController::class, 'add'])->name('addsw');
-Route::get('/software/filterdate', [SoftwareController::class, 'filterbydate'])->name('filterbydate'); //coba filter date
+// Route::get('/software/filterdate', [SoftwareController::class, 'filterbydate'])->name('filterbydate'); //coba filter date
 
 //Print&Save Daftar Software
 Route::get('/software/print', [SoftwareController::class, 'print'])->name('printsw');
@@ -48,12 +48,12 @@ Route::post('/masterdata/lisensisw/insertlisensi', [LisensiController::class, 'i
 //CRUD Merk Software:
 Route::get('/masterdata/merksw', [MerkswController::class, 'index'])->name('merksw');
 Route::post('/masterdata/merksw/insertmerksw', [MerkswController::class, 'insert']);
+Route::post('/software/insertmerkinsw', [MerkswController::class, 'insert2'])->name('insertmerkinsw');
 
 //CRUD Merk Hardware:
 Route::get('/masterdata/merkhw', [MerkhwController::class, 'index'])->name('merkhw');
 Route::post('/masterdata/merkhw/insertmerkhw', [MerkhwController::class, 'insert']);
-Route::post('/hardware/addhw/insertmerkinhw', [MerkhwController::class, 'insert2']);
-Route::post('/hardware/edithw/insertmerkinhw', [MerkhwController::class, 'insert3']);
+Route::post('/hardware/insertmerkinhw', [MerkhwController::class, 'insert2'])->name('insertmerkinhw');
 
 //CRUD Kategori Hardware:
 Route::get('/masterdata/kategorihw', [KategorihwController::class, 'index'])->name('kategorihw');
