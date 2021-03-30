@@ -117,7 +117,6 @@
                       {{ ($data->versi_sw == '' ? '-' :$data->versi_sw)}}
                     </td>
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-
                       <span style="padding-right:30%;" class="pull-right">
                         {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
                       </span>
@@ -127,6 +126,10 @@
                       <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
                       {{$data->tgl_pembelian}}
                     </td>
+                    <td  data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                      <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>
+                        Edit
+                      </a>
                       <button type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id_sw }}"><i class="fa fa-trash fa-fw"></i>
                           Delete
                       </button>
