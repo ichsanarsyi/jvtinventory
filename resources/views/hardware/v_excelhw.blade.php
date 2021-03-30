@@ -17,11 +17,11 @@
         <th style="border:1px solid black;" align="center" width="20">Merk</th>
         <th style="border:1px solid black;" align="center" width="15">Seri</th>
         <th style="border:1px solid black;" align="center" width="15">Kategori</th>
-        <th style="border:1px solid black;" align="center" width="15">Harga</th>
-        <th style="border:1px solid black;" align="center" width="20">Departemen</th>
+        <th style="border:1px solid black;" align="center" width="25">Harga</th>
+        <th style="border:1px solid black;" align="center" width="30">Departemen</th>
         <th style="border:1px solid black;" align="center" width="20">Lokasi</th>
-        <th style="border:1px solid black;" align="center" width="10">Kondisi</th>
-        <th style="border:1px solid black;" align="center" width="15">Staff</th>
+        <th style="border:1px solid black;" align="center" width="15">Kondisi</th>
+        <th style="border:1px solid black;" align="center" width="25">Staff</th>
         <th style="border:1px solid black;" align="center" width="25">Tanggal Pembelian</th>
         <th style="border:1px solid black;" align="center" width="25">Tanggal Batas Garansi</th>            
         <th style="border:1px solid black;" align="center" width="25">Durasi Sisa Garansi</th>
@@ -46,7 +46,13 @@
             <td style="border:1px solid black;">{{$data->nama_staff}}</td>
             <td style="border:1px solid black;">{{$data->tgl_beli_hw}}</td>
             <td style="border:1px solid black;">{{$data->tgl_batas_garansi}}</td>
-            <td style="border:1px solid black;">{{$data->day_left}} Hari Tersisa</td>
+            <td style="border:1px solid black;">
+              @if (($data->day_left) == "0")
+                -
+              @else                  
+                {{$data->day_left}} Hari Tersisa
+              @endif
+            </td>
           </tr>
         @endforeach                    
     </tbody>

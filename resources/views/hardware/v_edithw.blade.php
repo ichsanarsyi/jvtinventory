@@ -19,6 +19,29 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
+								<label>Merk Hardware<span style="color:red;">*</span></label>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-sm-11">
+											<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
+												<option selected value="">- Tidak Dipilih -</option>
+												@foreach ($merk as $data)
+													<option value="{{ $data->id_merk_hw }}"{{ ($hardware->id_merk_hw == $data->id_merk_hw ? 'selected="selected"' :'')}}>{{ $data->nama_merk_hw }}</option>
+												@endforeach
+											</select>
+										</div>
+										<div class="col-sm-1">
+										<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add" data-toggle="tooltip" data-placement="top" title="Tambah Merk Hardware"><i class="fa fa-plus-circle fa-fw"></i></button>
+										</div>
+									</div>
+								</div>										
+								<div class="text-danger">
+									@error('nama_merk_hw')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
+							<div class="form-group">
 								<label>Nama Hardware<span style="color:red;">*</span></label>
 								<input name="nama_hw" class="form-control" value="{{ $hardware->nama_hw }}">
 								<div class="text-danger">
@@ -26,24 +49,6 @@
 										{{ $message }}
 									@enderror
 								</div>
-							</div>
-							<div class="form-group">
-									<label>Merk Hardware<span style="color:red;">*</span></label>
-									<div class="row">
-										<div class="form-group">
-											<div class="col-sm-11">
-												<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
-													<option selected value="">- Tidak Dipilih -</option>
-													@foreach ($merk as $data)
-														<option value="{{ $data->id_merk_hw }}"{{ ($hardware->id_merk_hw == $data->id_merk_hw ? 'selected="selected"' :'')}}>{{ $data->nama_merk_hw }}</option>
-													@endforeach
-												</select>
-											</div>
-											<div class="col-sm-1">
-											<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add" data-toggle="tooltip" data-placement="top" title="Tambah Merk Hardware"><i class="fa fa-plus-circle fa-fw"></i></button>
-											</div>
-										</div>
-									</div>
 							</div>
 							<div class="form-group">
 								<label>Seri Hardware</label>
@@ -217,11 +222,6 @@
             <div class="form-group">
                 <label>Nama Merk Hardware</label>                                
                 <input autofocus="autofocus" name="nama_merk_hw" class="form-control" value="{{ old('nama_merk_hw') }}">
-                <div class="text-danger">
-                    @error('nama_merk_hw')
-                        {{ $message }}
-                    @enderror
-                </div>
             </div>
         </div>
         <div class="modal-footer">

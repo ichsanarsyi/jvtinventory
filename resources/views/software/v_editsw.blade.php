@@ -36,6 +36,11 @@
 									@error('id_merk_sw')
 										{{ $message }}
 									@enderror
+								</div>								
+								<div class="text-danger">
+									@error('nama_merk_sw')
+										{{ $message }}
+									@enderror
 								</div>
 							</div>
 							<div class="form-group">
@@ -176,11 +181,6 @@
 					<div class="form-group">
 						<label>Nama Merk Software</label>                                
 						<input autofocus="autofocus" name="nama_merk_sw" class="form-control" value="{{ old('nama_merk_sw') }}">
-						<div class="text-danger">
-							@error('nama_merk_sw')
-								{{ $message }}
-							@enderror
-						</div>
 					</div>
 				</div>
 				<div class="modal-footer">

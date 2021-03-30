@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Print Hardware | JVT Inventory</title>
-  <!-- favicon2 -->
-  <link rel="icon" href="{{ URL::asset('favicon2.png') }}" type="image/x-icon"/>
   <style>
     table {
       font-size: 10px;
@@ -81,9 +79,15 @@
           <td>{{$data->nama_staff}}</td>
           <td>{{$data->tgl_beli_hw}}</td>
           <td>{{$data->tgl_batas_garansi}}</td>
-          <td>{{$data->day_left}} Hari Tersisa</td>
+          <td>
+            @if (($data->day_left) == "0")
+              -
+            @else                  
+              {{$data->day_left}} Hari Tersisa
+            @endif
+          </td>
       </tr>
-    @endforeach   
+      @endforeach   
     </table>
 </body>
 </html>

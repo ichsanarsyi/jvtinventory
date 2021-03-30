@@ -34,7 +34,8 @@ class HardwareController extends Controller
             abort(404);
         }
         $data = [
-            'hardware' => $this->HardwareModel->detailData($id_hw)
+            'hardware' => $this->HardwareModel->detailData($id_hw),
+            'software' => $this->HardwareModel->swData($id_hw)
         ];
         return view('hardware.v_detailhw', $data);
     }
@@ -230,12 +231,9 @@ class HardwareController extends Controller
         ];
 
         set_time_limit(300);
-        $pdf = PDF::loadView('hardware.v_pdfhw', $data)->setPaper('A4','landscape')
-        ;
+        $pdf = PDF::loadView('hardware.v_pdfhw', $data)
+        ->setPaper('A4','landscape');
 
-        // download PDF file with download method
-        //return $pdf->download('DaftarSoftware.pdf');
-        //Browser's PDFviewer
         return $pdf->stream();
     }
 

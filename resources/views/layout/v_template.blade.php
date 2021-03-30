@@ -704,13 +704,13 @@ $('form').on('keydown', 'input, select', function(e) {
 {{-----------------------------------------------}}
 
 {{-- Jika Modal Error Auto Muncul --}}
-@if (Session::has('errors'))
+{{-- @if (Session::has('errors'))
 <script>
   $(document).ready(function(){
     $('#modal-add').modal({show: true});
 })
 </script>
-@endif
+@endif --}}
 
 {{-- disable datepicker2 jika pilihan onetime subscribtion --}}
 <script type="text/javascript">

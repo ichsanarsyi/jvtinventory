@@ -4,8 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Print Software | JVT Inventory</title>
-  <!-- favicon2 -->
-  <link rel="icon" href="{{ URL::asset('favicon2.png') }}" type="image/x-icon"/>
   <style>
     table {
       font-size: 10px;
@@ -73,18 +71,15 @@
             <td>{{$data->versi_sw}}</td>
             <td>{{$data->nama_hw}}</td>
             <td>{{$data->tgl_pembelian}}</td>
-            <td>{{$data->tgl_batas_lisensi}}</td>
             <td>
-              <span style="padding-right:30%;" class="pull-right">
-                {{ ($data->id_jenis_lisensi == 2 ? '' :$data->day_left.' Hari Tersisa')}}
-              </span>
+              {{ ($data->tgl_batas_lisensi=='' ? '-':$data->tgl_batas_lisensi) }}
             </td>
-            
-
+            <td>
+              {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
+            </td>
             <td>{{$data->kode_lisensi}}</td>
         </tr>
       @endforeach   
     </table>
 </body>
-
 </html>

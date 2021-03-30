@@ -82,7 +82,13 @@
                     <td>{{$data->nama_staff}}</td>
                     <td>{{$data->tgl_beli_hw}}</td>
                     <td>{{$data->tgl_batas_garansi}}</td>
-                    <td>{{$data->day_left}} Hari Tersisa</td>
+                    <td>
+                      @if (($data->day_left) == "0")
+                        -
+                      @else                  
+                        {{$data->day_left}} Hari Tersisa
+                      @endif
+                    </td>
                 </tr>
               @endforeach                    
           </tbody>
