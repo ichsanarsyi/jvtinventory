@@ -46,7 +46,7 @@
 					<tr style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw_lama}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
 						<td>{{$no++}}</td>
                         <td>{{$data->waktu_ubah}}</td>
-						<td>{{$data->nama_sw}}</td>
+						<td>{{ ($data->nama_sw == '' ? '- deleted -' :$data->nama_sw)}}</td>
                         <td>{{date('d M Y', strtotime($data->tgl_pembelian_lama))}}</td>
                         <td>{{date('d M Y', strtotime($data->tgl_pembelian_baru))}}</td>
                         <td>{{date('d M Y', strtotime($data->tgl_batas_lisensi_lama))}}</td>

@@ -65,7 +65,7 @@
               <td style="border:1px solid black;">{{$data->tgl_batas_lisensi}}</td>
               <td style="border:1px solid black;">
                   <span style="padding-right:30%;" class="pull-right">
-                      {{$data->day_left}} Hari Tersisa
+                    {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
                   </span>
               </td>
               <td style="border:1px solid black;">{{$data->kode_lisensi}}</td>

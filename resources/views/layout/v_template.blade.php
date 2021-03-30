@@ -454,15 +454,6 @@
   });
   </script>
 
-{{-- Hide Tanggal One-Time Purchase --}}
-<script>
-  $( "#jenislisensi1,#jenislisensi2")
-  .css( "visibility", "visible" );
-  var textTd = document.getElementById("jenislisensi2");
-  textTd.innerHTML = '-';
-  document.getElementById("jenislisensi2").style.color = "#202080";
-</script>
-
 {{-- Tidak bisa submit sebelum ubah --}}
 <script>
   $('form').not('#logout-form')

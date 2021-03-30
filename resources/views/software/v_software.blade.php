@@ -81,11 +81,11 @@
                       {{$data->jenis_lisensi}}
                     </td>
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      {{$data->versi_sw}}
+                      {{ ($data->versi_sw == '' ? '-' :$data->versi_sw)}}
                     </td>
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      <span id="jenislisensi{{$data->id_jenis_lisensi}}" style="padding-right:30%; visibility: hidden;" class="pull-right">
-                        {{$data->day_left}} Hari Tersisa
+                      <span style="padding-right:30%;" class="pull-right">
+                        {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
                       </span>
                     </td>
                     @if (auth()->user()->level == 'Admin') 

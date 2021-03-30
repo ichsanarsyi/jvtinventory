@@ -11,6 +11,7 @@ class SoftwareModel extends Model
     public function allData()
     {
         return DB::table('tbl_software')
+        ->select('*','tbl_software.nama_sw AS nama_sw', 'tbl_software.id_sw AS id_sw')
         ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
         ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
         ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'tbl_software.id_hw')
@@ -21,6 +22,7 @@ class SoftwareModel extends Model
     public function detailData($id_sw)
     {
         return DB::table('tbl_software')
+        ->select('*','tbl_software.nama_sw AS nama_sw', 'tbl_software.id_sw AS id_sw')
         ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
         ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
         ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'tbl_software.id_hw')
