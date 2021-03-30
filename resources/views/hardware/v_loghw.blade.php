@@ -52,7 +52,7 @@
 				<tbody>
 					<?php $no=1; ?>
                     @foreach ($loghardware as $results)
-					<tr style="cursor: pointer;" onclick="window.location='/hardware/detailhw/{{$results['id_hw_lama']}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+					<tr class="{{ ($results['nama_hw'] == '' ? 'text-danger' :'')}}" style="cursor: pointer;" onclick="window.location='/hardware/detailhw/{{$results['id_hw_lama']}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         <td>{{$no++}}</td>
                         <td>{{ date('d M Y - h:i:s', strtotime($results['waktu_ubah'])) }}</td>
 						<td>{{$results['nama_hw']}} {{$results['nama_merk_hw']}} {{$results['seri_hw']}}</td>

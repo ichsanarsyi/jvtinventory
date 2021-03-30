@@ -608,6 +608,17 @@
   .prop('disabled', true);
 </script>
 
+{{-- Mendisable Row Kolom Aksi --}}
+{{-- <script>
+$(function() {
+  $('#tbl_hardware td').on('click', function() {
+    if ($(this).index() == 6) {
+      return false;
+    }
+  });
+});
+</script> --}}
+
 {{-- Script Untuk mengingat status "Collapse" sidebar Navigation --}}
 <script type="text/javascript">
     (function ($) {
@@ -659,16 +670,6 @@ $('select.select2').on('select2:closing', function (e) {
 
 </script>
 
-{{-- Script Super User - Hilangkan Aksi --}}
-<script>
-  $('#tbl_user').on('draw.dt',function(){
-  $( ".btn" ).not( "#btndeleteuser1, #btnedituser1" )
-    .css( "visibility", "visible" );
-  // var textTd = document.getElementById("cellaksi{{Auth::user()->id}}");
-  // textTd.innerHTML = '<i class="fa fa-circle text-success"></i> User sedang Login';
-  // document.getElementById("cellaksi{{Auth::user()->id}}").style.color = "green";
-  })
-</script>
 
 {{-- Script untuk Enter tidak Submit --}}
 <script>

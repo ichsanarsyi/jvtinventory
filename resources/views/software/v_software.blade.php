@@ -93,7 +93,7 @@
                 <th class="text-center">Tanggal Beli</th>
                 <th class="text-center">Masa Aktif Lisensi</th>
                 @if (auth()->user()->level == 'Admin') 
-                <th class="no-sort">Aksi</th>
+                <th class="text-center">Aksi</th>
                 @endif
               </tr>
             </thead>
@@ -116,16 +116,15 @@
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{ ($data->versi_sw == '' ? '-' :$data->versi_sw)}}
                     </td>
+                    <td>
+                      {{$data->tgl_pembelian}}
+                    </td>
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      <span style="padding-right:30%;" class="pull-right">
+                      <span style="padding-right:20%;" class="pull-right">
                         {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
                       </span>
                     </td>
                     @if (auth()->user()->level == 'Admin') 
-                    <td>
-                      <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>Edit</a>
-                      {{$data->tgl_pembelian}}
-                    </td>
                     <td  data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>
                         Edit
