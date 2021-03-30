@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\MerkhwModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class MerkhwController extends Controller
 {
@@ -41,9 +42,10 @@ class MerkhwController extends Controller
     public function insert2()
     {
         Request()->validate([
-            'nama_merk_hw' => 'required'
+            'nama_merk_hw' => ['required', 'unique:tbl_merk_hw'],
         ],[
-            'nama_merk_hw.required' => 'Merk Hardware wajib diisi'
+            'nama_merk_hw.required' => 'Merk Hardware wajib diisi',
+            'nama_merk_hw.unique' => 'Merk Hardware tersebut sudah ada.'
         ]);
         
         $data=[
@@ -51,22 +53,7 @@ class MerkhwController extends Controller
         ];
         
         $this->MerkhwModel->addData($data);
-        return redirect()->to('hardware/addhw');
-    }
-    public function insert3()
-    {
-        Request()->validate([
-            'nama_merk_hw' => 'required'
-        ],[
-            'nama_merk_hw.required' => 'Merk Hardware wajib diisi'
-        ]);
-        
-        $data=[
-            'nama_merk_hw' => Request()->nama_merk_hw    
-        ];
-        
-        $this->MerkhwModel->addData($data);
-        return redirect()->to('hardware/');
+        return redirect()->back();
     }
 
     public function update($id_merk_hw)

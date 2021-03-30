@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -67,5 +68,18 @@ class SoftwareModel extends Model
     public function deleteData($id_sw)
     {
         return DB::table('tbl_software')->where('id_sw', $id_sw)->delete();
+    }
+
+    public function filterbydate($fromdate, $todate)
+    {
+        return DB::table('tbl_software')
+        ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
+        ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
+        ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'tbl_software.id_hw')
+        ->leftJoin('software_day_left', 'software_day_left.id_sw', '=', 'tbl_software.id_sw')
+        // ->select()
+        ->where('tgl_pembelian', '>=', $fromdate)
+        ->where('tgl_pembelian', '<=', $todate)
+        ->get();
     }
 }
