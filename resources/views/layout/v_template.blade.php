@@ -552,6 +552,7 @@
               $('#tbl_software_filter [type="search"]').focus()
               
           },
+
           stateSave: true,
           lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
           columnDefs: [{ type: 'natural', targets: 0 }],

@@ -26,7 +26,7 @@ Route::get('/hardware/addhw', [HardwareController::class, 'add']);
 
 //CRUD Software:
 Route::get('/software', [SoftwareController::class, 'index'])->name('software');
-Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail']);
+Route::get('/software/detailsw/{id_sw}/{id_merk_hw}', [SoftwareController::class, 'detail'])->name('detailsw');
 Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
 Route::get('/software/addsw', [SoftwareController::class, 'add'])->name('addsw');
 // Route::get('/software/filterdate', [SoftwareController::class, 'filterbydate'])->name('filterbydate'); //coba filter date

@@ -50,9 +50,31 @@ class SoftwareModel extends Model
         return DB::table('tbl_jenis_lisensi')->get();
     }
 
-    public function allHardware()
+    public function allHardware($id_kategori_hw5,$id_kategori_hw6)
     {
-        return DB::table('tbl_hardware')->get();
+        return DB::table('tbl_hardware')
+        ->select('*', DB::raw('IFNULL( tbl_hardware.kode_asset, "-") as kode_asset'),
+        DB::raw('IFNULL( tbl_hardware.seri_hw, "-") as seri_hw'))
+        ->leftJoin('tbl_merk_hw', 'tbl_merk_hw.id_merk_hw', '=', 'tbl_hardware.id_merk_hw')
+        ->leftJoin('tbl_kategori_hw', 'tbl_kategori_hw.id_kategori_hw', '=', 'tbl_hardware.id_kategori_hw')
+        ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'tbl_hardware.id_lokasi')
+        ->leftJoin('tbl_kondisi', 'tbl_kondisi.id_kondisi', '=', 'tbl_hardware.id_kondisi')
+        ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'tbl_hardware.id_departemen')
+        ->leftJoin('tbl_staff', 'tbl_staff.id_staff', '=', 'tbl_hardware.id_staff')
+        ->leftJoin('hardware_day_left', 'hardware_day_left.id_hw', '=', 'tbl_hardware.id_hw')
+        ->where('tbl_hardware.id_kategori_hw',$id_kategori_hw5)
+        ->orWhere('tbl_hardware.id_kategori_hw',$id_kategori_hw6)
+        ->get();
+    }
+
+    public function allMerkHw($id_merk_hw)
+    {
+        // return DB::table('tbl_merk_hw')->get();
+        // return DB::select('select * from tbl_merk_hw where id_merk_hw = :id_merk_hw', ['id_merk_hw' => $id_merk_hw]);
+        return DB::table('tbl_merk_hw')
+        ->select('nama_merk_hw')
+        ->where('tbl_merk_hw.id_merk_hw',$id_merk_hw)
+        ->first();
     }
 
     public function addData($data)

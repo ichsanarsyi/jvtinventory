@@ -61,7 +61,7 @@
 						<tr>
 							<th width="170px">Nama Hardware</th>
 							<th width="20px">:</th>
-							<td><a href="/hardware/detailhw/{{ $software->id_hw }}">{{ $software->nama_hw }}</a></td>
+							<td><a href="/hardware/detailhw/{{ $software->id_hw }}">{{ $software->nama_hw }}  {{ $merkhw->nama_merk_hw }} {{$software->seri_hw}}</a></td>
 						</tr>
 					</table>
 				</div>						
