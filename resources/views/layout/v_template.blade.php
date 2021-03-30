@@ -197,7 +197,7 @@
               <!-- Menu Body -->
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-right">
+                <div class="text-center">
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                     <button href="{{ route('logout') }}" class="btn btn-danger btn-flat">Log out</button>
