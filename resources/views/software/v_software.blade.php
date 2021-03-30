@@ -17,19 +17,19 @@
         @endif
       <div class="box box-primary">
         <div class="box-header with-border text-blue">
-            <a href="{{ Route('addsw') }}" class="btn btn-primary">
+            <a href="/software/addsw/" class="btn btn-primary">
               <i class="fa fa-plus-circle fa-fw"></i>
               Tambah
             </a>
-            <a href="{{ Route('excelsw') }}/" target="_blank" class="btn btn-default pull-right">
+            <a href="/software/saveexcel/" target="_blank" class="btn btn-default pull-right">
               <i class="fa fa-file-excel-o fa-fw"></i>
               Simpan sebagai Excel
             </a>
-            <a href="{{ Route('pdfsw') }}" target="_blank" class="btn btn-default pull-right">
+            <a href="/software/savepdf/" target="_blank" class="btn btn-default pull-right">
               <i class="fa fa-file-pdf-o fa-fw"></i>
               Simpan sebagai PDF
             </a>
-            <a href="{{ Route('printsw') }}" target="_blank" class="btn btn-default pull-right">
+            <a href="/software/print/" target="_blank" class="btn btn-default pull-right">
               <i class="fa fa-print fa-fw"></i>
               Print
             </a>
@@ -93,7 +93,7 @@
                 <th class="text-center">Tanggal Beli</th>
                 <th class="text-center">Masa Aktif Lisensi</th>
                 @if (auth()->user()->level == 'Admin') 
-                <th class="no-sort text-center">Aksi</th>
+                <th class="text-center">Aksi</th>
                 @endif
               </tr>
             </thead>
@@ -114,21 +114,18 @@
                       {{$data->jenis_lisensi}}
                     </td>
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      {{$data->versi_sw}}
+                      {{ ($data->versi_sw == '' ? '-' :$data->versi_sw)}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td>
                       {{$data->tgl_pembelian}}
                     </td>
-                    {{-- <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      {{$data->day_left}} Hari Tersisa
-                    </td> --}}
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      <span id="jenislisensi{{$data->id_jenis_lisensi}}" style="padding-right:30%; visibility: hidden;" class="pull-right">
-                        {{$data->day_left}} Hari Tersisa
+                      <span style="padding-right:20%;" class="pull-right">
+                        {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
                       </span>
                     </td>
                     @if (auth()->user()->level == 'Admin') 
-                    <td class="text-center">
+                    <td  data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       <a href="/software/editsw/{{ $data->id_sw }}" class="btn btn-xs btn-warning"><i class="fa fa-edit fa-fw"></i>
                         Edit
                       </a>

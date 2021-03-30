@@ -12,19 +12,7 @@
 	<div class="col-md-12">
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">
-			<h3 class="box-title">Log Software</h3>			
-            <a href="{{ Route('excellogsw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
-                <i class="fa fa-file-excel-o fa-fw"></i>
-                Simpan sebagai Excel
-            </a>
-            <a href="{{ Route('pdflogsw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
-                <i class="fa fa-file-pdf-o fa-fw"></i>
-                Simpan sebagai PDF
-            </a>
-            <a href="{{ Route('printlogsw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
-                <i class="fa fa-print fa-fw"></i>
-                Print
-            </a>
+			<h3 class="box-title">Log Software</h3>
 			<!-- /.box-tools -->
 		  </div>
 		  <!-- /.box-header -->
@@ -43,22 +31,22 @@
 				  </tfoot>
 				<thead>
 					<tr>
-						<th class="text-center">No</th>
-						<th class="text-center">Waktu Ubah</th>
-						<th class="text-center">Nama Software</th>
-						<th class="text-center">Tanggal<br>Pembelian Lama</th>
-						<th class="text-center">Tanggal<br>Pembelian Baru</th>
-						<th class="text-center">Tanggal Batas<br>Lisensi Lama</th>
-						<th class="text-center">Tanggal Batas<br>Lisensi Baru</th>
+						<th>No</th>
+						<th>Waktu Ubah</th>
+						<th>Nama Hardware</th>
+						<th>Tanggal<br>Pembelian Lama</th>
+						<th>Tanggal<br>Pembelian Baru</th>
+						<th>Tanggal Batas<br>Lisensi Lama</th>
+						<th>Tanggal Batas<br>Lisensi Baru</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php $no=1; ?>
                     @foreach ($logsoftware as $data)
-					<tr style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw_lama}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+					<tr class="{{ ($data->nama_sw == '' ? 'text-danger' :'')}}" style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw_lama}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
 						<td>{{$no++}}</td>
                         <td>{{$data->waktu_ubah}}</td>
-						<td>{{$data->nama_sw}}</td>
+						<td>{{ ($data->nama_sw == '' ? '- Software Telah Dihapus -' :$data->nama_sw)}}</td>
                         <td>{{date('d M Y', strtotime($data->tgl_pembelian_lama))}}</td>
                         <td>{{date('d M Y', strtotime($data->tgl_pembelian_baru))}}</td>
                         <td>{{date('d M Y', strtotime($data->tgl_batas_lisensi_lama))}}</td>

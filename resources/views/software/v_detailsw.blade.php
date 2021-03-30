@@ -51,12 +51,12 @@
 						<tr>
 							<th width="170px">Deskripsi Software</th>
 							<th width="20px">:</th>
-							<td>{{ $software->deskripsi_sw }}</td>
+							<td>{{ ($software->deskripsi_sw == '' ? '-' :$software->deskripsi_sw)}}</td>
 						</tr>
 						<tr>
 							<th width="170px">Versi Software</th>
 							<th width="20px">:</th>
-							<td>{{ $software->versi_sw }}</td>
+							<td>{{ ($software->versi_sw == '' ? '-' :$software->versi_sw)}}</td>
 						</tr>
 						<tr>
 							<th width="170px">Nama Hardware</th>

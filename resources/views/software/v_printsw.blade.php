@@ -44,7 +44,7 @@
     <!-- Table row -->
     <div class="row">
       <div class="col-xs-12 table-responsive">
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped">
           <thead>
           <tr>
             <th>No</th>
@@ -75,7 +75,11 @@
                     <td>{{$data->nama_hw}}</td>
                     <td>{{$data->tgl_pembelian}}</td>
                     <td>{{$data->tgl_batas_lisensi}}</td>
-                    <td>{{$data->day_left}} Hari Tersisa</td>
+                    <td>
+                        <span style="padding-right:30%;" class="pull-right">
+                            {{$data->day_left}} Hari Tersisa
+                        </span>
+                    </td>
                     <td>{{$data->kode_lisensi}}</td>
                 </tr>
               @endforeach                    

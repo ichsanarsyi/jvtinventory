@@ -51,10 +51,10 @@
                             <td>{{$data->level}}</td>
                             @if ((auth()->user()->level == 'Admin'))
                             <td id="cellaksi{{$data->id}}">
-                                <button id="btnedituser{{$data->id}}" style="visibility:hidden" type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id }}"><i class="fa fa-edit fa-fw"></i>
+                                <button id="btnedituser{{$data->id}}" style="{{ ($data->id == 1 ? ' visibility:hidden' :'')}}" type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#modal-edit{{ $data->id }}"><i class="fa fa-edit fa-fw"></i>
                                     Edit
                                 </button>
-                                <button id="btndeleteuser{{$data->id}}" style="visibility:hidden" type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id }}"><i class="fa fa-trash fa-fw"></i>
+                                <button id="btndeleteuser{{$data->id}}" style="{{ ($data->id == 1 ? ' visibility:hidden' :'')}}" type="button" class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal-delete{{ $data->id }}"><i class="fa fa-trash fa-fw"></i>
                                     Delete
                                 </button>
                             </td>

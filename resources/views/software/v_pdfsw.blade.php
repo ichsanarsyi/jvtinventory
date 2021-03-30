@@ -75,13 +75,16 @@
             <td>{{$data->tgl_pembelian}}</td>
             <td>{{$data->tgl_batas_lisensi}}</td>
             <td>
-                <span style="padding-right:30%;" class="pull-right">
-                    {{$data->day_left}} Hari Tersisa
-                </span>
+              <span style="padding-right:30%;" class="pull-right">
+                {{ ($data->id_jenis_lisensi == 2 ? '' :$data->day_left.' Hari Tersisa')}}
+              </span>
             </td>
+            
+
             <td>{{$data->kode_lisensi}}</td>
         </tr>
       @endforeach   
     </table>
 </body>
+
 </html>

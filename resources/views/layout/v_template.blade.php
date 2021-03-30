@@ -593,15 +593,6 @@
   });
   </script>
 
-{{-- Hide Tanggal One-Time Purchase --}}
-<script>
-  $( "#jenislisensi1,#jenislisensi2")
-  .css( "visibility", "visible" );
-  var textTd = document.getElementById("jenislisensi2");
-  textTd.innerHTML = '-';
-  document.getElementById("jenislisensi2").style.color = "#202080";
-</script>
-
 {{-- Tidak bisa submit sebelum ubah --}}
 <script>
   $('form').not('#logout-form')
@@ -616,6 +607,17 @@
   .find('input:submit, button:submit')
   .prop('disabled', true);
 </script>
+
+{{-- Mendisable Row Kolom Aksi --}}
+{{-- <script>
+$(function() {
+  $('#tbl_hardware td').on('click', function() {
+    if ($(this).index() == 6) {
+      return false;
+    }
+  });
+});
+</script> --}}
 
 {{-- Script Untuk mengingat status "Collapse" sidebar Navigation --}}
 <script type="text/javascript">
@@ -668,16 +670,6 @@ $('select.select2').on('select2:closing', function (e) {
 
 </script>
 
-{{-- Script Super User - Hilangkan Aksi --}}
-<script>
-  $('#tbl_user').on('draw.dt',function(){
-  $( ".btn" ).not( "#btndeleteuser1, #btnedituser1" )
-    .css( "visibility", "visible" );
-  // var textTd = document.getElementById("cellaksi{{Auth::user()->id}}");
-  // textTd.innerHTML = '<i class="fa fa-circle text-success"></i> User sedang Login';
-  // document.getElementById("cellaksi{{Auth::user()->id}}").style.color = "green";
-  })
-</script>
 
 {{-- Script untuk Enter tidak Submit --}}
 <script>
