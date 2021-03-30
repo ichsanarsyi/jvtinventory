@@ -95,22 +95,22 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-							<div class="col-sm-6">
 							<div class="form-group">
 								<label>Harga</label>
-								<div class="input-group">
-									<div class="input-group-addon">
-										<b>Rp</b>
-									</div>
-									<input name="harga_hw" class="form-control uang" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ old('harga_hw') }}">
-								</div>								
-								<div class="text-danger">
-									@error('harga_hw')
+									<div class="input-group">
+										<div class="input-group-addon">
+											<b>Rp</b>
+										</div>
+										<input name="harga_hw" class="form-control uang" onkeypress="return event.charCode >= 48 && event.charCode <=57" value="{{ old('harga_hw') }}">
+									</div>								
+									<div class="text-danger">
+										@error('harga_hw')
 										{{ $message }}
-									@enderror
+										@enderror
+									</div>
 								</div>
-							</div>
+						</div>
+							<div class="col-sm-6">
 							<div class="form-group">
 								<label>Lokasi</label>
 								<select name="id_lokasi" class="form-control select2" style="width: 100%;" >
@@ -177,6 +177,15 @@
 								</select>
 								<div class="text-danger">
 									@error('id_staff')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Deskripsi</label>
+								<input name="deskripsi_hw" class="form-control" value="{{ old('deskripsi_hw') }}">
+								<div class="text-danger">
+									@error('deskripsi_hw')
 										{{ $message }}
 									@enderror
 								</div>

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\SoftwareModel;
 use App\Exports\SoftwareExport;
+use App\Exports\SoftwareLogExport;
 
 use PDF;
 use Excel;
@@ -187,12 +188,7 @@ class SoftwareController extends Controller
         ];
 
         set_time_limit(300);
-        $pdf = PDF::loadView('software.v_pdfsw', $data)->setPaper('A4','landscape')
-        ;
-
-        // download PDF file with download method
-        //return $pdf->download('DaftarSoftware.pdf');
-        //Browser's PDFviewer
+        $pdf = PDF::loadView('software.v_pdfsw', $data)->setPaper('A4','landscape');
         return $pdf->stream();
     }
 
@@ -201,65 +197,28 @@ class SoftwareController extends Controller
         return Excel::download(new SoftwareExport,'DaftarSoftware.xlsx');
     }
 
-    //preview
-    public function tableexcel()
+    public function printlog()
     {
         $data = [
-            'software' => $this->SoftwareModel->allData(),
-            'merk' => $this->SoftwareModel->allMerk(),
-            'lisensi' => $this->SoftwareModel->allLisensi()
+            'logsoftware' => $this->SoftwareModel->logData(),
+        ];
+        return view('software.v_printlogsw', $data);
+    }
+    
+    public function savepdflog()
+    {
+        $data = [
+            'logsoftware' => $this->SoftwareModel->logData(),
         ];
 
-        return view('software.v_excelsw', $data);
+        set_time_limit(300);
+        $pdf = PDF::loadView('software.v_pdflogsw', $data)->setPaper('A4','landscape');
+        return $pdf->stream();
     }
 
-    public function filterbydate(Request $request)
+    public function saveexcellog()
     {
-        $software = DB::table('tbl_software')->whereBetween('tgl_pembelian', [$request->get('fromdate'), $request->get('todate')])->get();
-
-        return redirect()->route('software.v_software', compact('software'));        
-        // $data = [
-        //     'software' => $this->SoftwareModel->filterbydate(),
-        //     'merk' => $this->SoftwareModel->allMerk(),
-        //     'lisensi' => $this->SoftwareModel->allLisensi()
-        // ];
-        // return view('software.v_software', $data);
-                    
-        // $fromdate = Request()->tgl_pembelian;                 
-        // $todate = Request()->tgl_pembelian;  
-        
-        // $data = [
-        //         'software' => $this->SoftwareModel->filterbydate($fromdate, $todate),
-        //         'merk' => $this->SoftwareModel->allMerk(),
-        //         'lisensi' => $this->SoftwareModel->allLisensi()
-        //     ];
-
-        // return view('software.v_software', $data);
-
-        // $this->SoftwareModel->filterbydate($fromdate, $todate);
-        // return view('software.v_software', compact('query', 'software', 'merk', 'lisensi'));
-        // return redirect()->route('software');
-
-        // $fromDate = $request->input('fromDate');
-        // $toDate = $request->input('toDate');
-
-        // $query = DB::table('tbl_software')
-        //     ->where('tgl_pembelian', '>=', $fromDate)
-        //     ->where('tgl_pembelian', '<=', $toDate)
-        //     ->get();
-        
-        // $software = DB::table('tbl_software')
-        //     ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
-        //     ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
-        //     ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'tbl_software.id_hw')
-        //     ->leftJoin('software_day_left', 'software_day_left.id_sw', '=', 'tbl_software.id_sw')
-        //     ->get();
-
-        // $merk = DB::table('tbl_merk_sw')->get();
-
-        // $lisensi = DB::table('tbl_jenis_lisensi')->get();
-
-        // return view('software.v_software', compact('query', 'software', 'merk', 'lisensi'));
+        return Excel::download(new SoftwareLogExport,'LogPerubahanSoftware.xlsx');
     }
 
 }

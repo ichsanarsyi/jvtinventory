@@ -6,19 +6,7 @@
   <title>Print Software | JVT Inventory</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- favicon2 -->
-  <link rel="icon" href="{{ URL::asset('favicon2.png') }}" type="image/x-icon"/>
-  {{-- <style>
-    table {
-      font-family: 'Times New Roman', Times, serif;
-      border-collapse: collapse;
-    }
 
-    td, th {
-      border: 1px solid #000000;
-      padding: 8px;
-    }
-  </style> --}}
 </head>
 <body>
   <table style="border:1px solid black; border-collapse:collapse;">

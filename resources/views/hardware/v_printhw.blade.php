@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Print Software | JVT Inventory</title>
+  <title>Print Hardware | JVT Inventory</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- favicon2 -->
@@ -28,7 +28,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h2 class="page-header">
-          JVT Inventory | Daftar Software
+          JVT Inventory | Daftar Hardware
           <small class="pull-right">
             <p>Tanggal, Waktu: 
                 @php
@@ -44,39 +44,45 @@
     <!-- Table row -->
     <div class="row">
       <div class="col-xs-12 table-responsive">
-        <table class="table table-striped table-bordered">
+        <table class="table table-striped">
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama Software</th>
-            <th>Merk</th>
-            <th>Jenis Lisensi</th>
-            <th>Harga</th>
-            <th>Versi</th>
+            <th>Kode Asset</th>
             <th>Nama Hardware</th>
+            <th>Merk</th>
+            <th>Seri</th>
+            <th>Kategori</th>
+            <th>Harga</th>
+            <th>Departemen</th>
+            <th>Lokasi</th>
+            <th>Kondisi</th>
+            <th>Staff</th>
             <th>Tanggal Pembelian</th>
-            <th>Tanggal Batas Lisensi</th>
-            <th>Masa Aktif Lisensi</th>
-            <th>Kode Lisensi</th>
+            <th>Tanggal Batas Garansi</th>            
+            <th>Durasi Sisa Garansi</th>
           </tr>
           </thead>
           <tbody>
               @php
                   $no=1;
               @endphp
-              @foreach ($software as $data)
+              @foreach ($hardware as $data)
                 <tr>
                     <td>{{$no++}}</td>
-                    <td>{{$data->nama_sw}}</td>
-                    <td>{{$data->nama_merk_sw}}</td>
-                    <td>{{$data->jenis_lisensi}}</td>
-                    <td>@currency($data->harga_sw)</td>
-                    <td>{{$data->versi_sw}}</td>
+                    <td>{{$data->kode_asset}}</td>
                     <td>{{$data->nama_hw}}</td>
-                    <td>{{$data->tgl_pembelian}}</td>
-                    <td>{{$data->tgl_batas_lisensi}}</td>
+                    <td>{{$data->nama_merk_hw}}</td>
+                    <td>{{$data->seri_hw}}</td>
+                    <td>{{$data->nama_kategori_hw}}</td>
+                    <td>@currency($data->harga_hw)</td>
+                    <td>{{$data->nama_departemen}}</td>
+                    <td>{{$data->nama_lokasi}}</td>
+                    <td>{{$data->nama_kondisi}}</td>
+                    <td>{{$data->nama_staff}}</td>
+                    <td>{{$data->tgl_beli_hw}}</td>
+                    <td>{{$data->tgl_batas_garansi}}</td>
                     <td>{{$data->day_left}} Hari Tersisa</td>
-                    <td>{{$data->kode_lisensi}}</td>
                 </tr>
               @endforeach                    
           </tbody>
