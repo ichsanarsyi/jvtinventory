@@ -211,7 +211,7 @@
     </nav>
   </header>
 
-  <!-- Modal Merk Show Notif -->
+  <!-- Modal Show Notif -->
   <div class="modal fade" id="modal-show">
   <div class="modal-dialog modal-big">
     <div class="modal-content">
