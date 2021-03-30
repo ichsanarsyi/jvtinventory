@@ -12,9 +12,6 @@
 	<div class="col-md-12">
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">
-<<<<<<< HEAD
-			<h3 class="box-title">Log Hardware</h3>
-=======
 			<h3 class="box-title">Log Hardware</h3>			
             <a href="/hardware/saveexcel/" target="_blank" class="btn btn-xs btn-default pull-right">
                 <i class="fa fa-file-excel-o fa-fw"></i>
@@ -28,7 +25,6 @@
                 <i class="fa fa-print fa-fw"></i>
                 Print
             </a>
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
 			<!-- /.box-tools -->
 		  </div>
 		  <!-- /.box-header -->

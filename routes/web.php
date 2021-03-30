@@ -26,15 +26,6 @@ Route::get('/hardware', [HardwareController::class, 'index'])->name('hardware');
 Route::get('/hardware/detailhw/{id_hw}', [HardwareController::class, 'detail']);
 Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
 Route::get('/hardware/addhw', [HardwareController::class, 'add']);
-<<<<<<< HEAD
-
-//CRUD Software:
-Route::get('/software', [SoftwareController::class, 'index'])->name('software');
-Route::get('/software/detailsw/{id_sw}/{id_merk_hw}', [SoftwareController::class, 'detail'])->name('detailsw');
-Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
-Route::get('/software/addsw', [SoftwareController::class, 'add'])->name('addsw');
-// Route::get('/software/filterdate', [SoftwareController::class, 'filterbydate'])->name('filterbydate'); //coba filter date
-=======
 
 //Print&Save Daftar Hardware
 Route::get('/hardware/print', [HardwareController::class, 'print'])->name('printhardware');
@@ -46,7 +37,6 @@ Route::get('/software', [SoftwareController::class, 'index'])->name('software');
 Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail']);
 Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
 Route::get('/software/addsw', [SoftwareController::class, 'add']);
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
 
 //Print&Save Daftar Software
 Route::get('/software/print', [SoftwareController::class, 'print'])->name('printsoftware');

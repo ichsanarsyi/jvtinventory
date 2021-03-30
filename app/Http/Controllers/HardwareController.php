@@ -5,13 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\HardwareModel;
-<<<<<<< HEAD
-=======
 use App\Exports\HardwareExport;
 
 use PDF;
 use Excel;
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
 
 class HardwareController extends Controller
 {
@@ -204,9 +201,6 @@ class HardwareController extends Controller
         $this->HardwareModel->deleteData($id_hw);
         return redirect()->route('hardware')->with('pesan', 'Data berhasil dihapus.');
     }
-<<<<<<< HEAD
-    
-=======
 
     public function print()
     {
@@ -249,5 +243,4 @@ class HardwareController extends Controller
         return Excel::download(new HardwareExport,'DaftarHardware.xlsx');
     }
 
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
 }  

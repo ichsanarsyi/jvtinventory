@@ -211,58 +211,6 @@ class SoftwareController extends Controller
         ];
 
         return view('software.v_excelsw', $data);
-<<<<<<< HEAD
-    }
-
-    public function filterbydate(Request $request)
-    {
-        $software = DB::table('tbl_software')->whereBetween('tgl_pembelian', [$request->get('fromdate'), $request->get('todate')])->get();
-
-        return redirect()->route('software.v_software', compact('software'));        
-        // $data = [
-        //     'software' => $this->SoftwareModel->filterbydate(),
-        //     'merk' => $this->SoftwareModel->allMerk(),
-        //     'lisensi' => $this->SoftwareModel->allLisensi()
-        // ];
-        // return view('software.v_software', $data);
-                    
-        // $fromdate = Request()->tgl_pembelian;                 
-        // $todate = Request()->tgl_pembelian;  
-        
-        // $data = [
-        //         'software' => $this->SoftwareModel->filterbydate($fromdate, $todate),
-        //         'merk' => $this->SoftwareModel->allMerk(),
-        //         'lisensi' => $this->SoftwareModel->allLisensi()
-        //     ];
-
-        // return view('software.v_software', $data);
-
-        // $this->SoftwareModel->filterbydate($fromdate, $todate);
-        // return view('software.v_software', compact('query', 'software', 'merk', 'lisensi'));
-        // return redirect()->route('software');
-
-        // $fromDate = $request->input('fromDate');
-        // $toDate = $request->input('toDate');
-
-        // $query = DB::table('tbl_software')
-        //     ->where('tgl_pembelian', '>=', $fromDate)
-        //     ->where('tgl_pembelian', '<=', $toDate)
-        //     ->get();
-        
-        // $software = DB::table('tbl_software')
-        //     ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
-        //     ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
-        //     ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'tbl_software.id_hw')
-        //     ->leftJoin('software_day_left', 'software_day_left.id_sw', '=', 'tbl_software.id_sw')
-        //     ->get();
-
-        // $merk = DB::table('tbl_merk_sw')->get();
-
-        // $lisensi = DB::table('tbl_jenis_lisensi')->get();
-
-        // return view('software.v_software', compact('query', 'software', 'merk', 'lisensi'));
-=======
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
     }
 
 }

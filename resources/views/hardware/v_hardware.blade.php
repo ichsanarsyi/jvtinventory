@@ -17,13 +17,6 @@
         @endif
       <div class="box box-primary">
         <div class="box-header with-border">
-<<<<<<< HEAD
-            <div class="row">
-                <div class="col-md-1" style="margin-right: 20px">
-                    <a href="/hardware/addhw/" class="btn btn-md btn-primary"><i class="fa fa-plus-circle fa-fw"></i>Tambah</a>
-                </div> 
-            </div>
-=======
             <a href="/hardware/addhw/" class="btn btn-md btn-primary">
                 <i class="fa fa-plus-circle fa-fw"></i>
                 Tambah
@@ -40,7 +33,6 @@
                 <i class="fa fa-print fa-fw"></i>
                 Print
             </a>
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
         </div>     
         <!-- /.box-header -->
         <div class="box-body">

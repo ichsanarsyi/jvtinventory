@@ -12,9 +12,6 @@
 	<div class="col-md-12">
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">
-<<<<<<< HEAD
-			<h3 class="box-title">Log Software</h3>
-=======
 			<h3 class="box-title">Log Software</h3>			
             <a href="/hardware/saveexcel/" target="_blank" class="btn btn-xs btn-default pull-right">
                 <i class="fa fa-file-excel-o fa-fw"></i>
@@ -28,7 +25,6 @@
                 <i class="fa fa-print fa-fw"></i>
                 Print
             </a>
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
 			<!-- /.box-tools -->
 		  </div>
 		  <!-- /.box-header -->
@@ -47,15 +43,6 @@
 				  </tfoot>
 				<thead>
 					<tr>
-<<<<<<< HEAD
-						<th>No</th>
-						<th>Waktu Ubah</th>
-						<th>Nama Hardware</th>
-						<th>Tanggal<br>Pembelian Lama</th>
-						<th>Tanggal<br>Pembelian Baru</th>
-						<th>Tanggal Batas<br>Lisensi Lama</th>
-						<th>Tanggal Batas<br>Lisensi Baru</th>
-=======
 						<th class="text-center">No</th>
 						<th class="text-center">Waktu Ubah</th>
 						<th class="text-center">Nama Hardware</th>
@@ -63,7 +50,6 @@
 						<th class="text-center">Tanggal<br>Pembelian Baru</th>
 						<th class="text-center">Tanggal Batas<br>Lisensi Lama</th>
 						<th class="text-center">Tanggal Batas<br>Lisensi Baru</th>
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
 					</tr>
 				</thead>
 				<tbody>
