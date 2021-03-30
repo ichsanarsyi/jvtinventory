@@ -13,15 +13,15 @@
 		<div class="box box-primary box-solid">
 		  <div class="box-header with-border">
 			<h3 class="box-title">Log Software</h3>			
-            <a href="/hardware/saveexcel/" target="_blank" class="btn btn-xs btn-default pull-right">
+            <a href="{{ Route('excellogsw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
                 <i class="fa fa-file-excel-o fa-fw"></i>
                 Simpan sebagai Excel
             </a>
-            <a href="/hardware/savepdf/" target="_blank" class="btn btn-xs btn-default pull-right">
+            <a href="{{ Route('pdflogsw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
                 <i class="fa fa-file-pdf-o fa-fw"></i>
                 Simpan sebagai PDF
             </a>
-            <a href="/hardware/print/" target="_blank" class="btn btn-xs btn-default pull-right">
+            <a href="{{ Route('printlogsw') }}" target="_blank" class="btn btn-xs btn-default pull-right">
                 <i class="fa fa-print fa-fw"></i>
                 Print
             </a>
@@ -45,7 +45,7 @@
 					<tr>
 						<th class="text-center">No</th>
 						<th class="text-center">Waktu Ubah</th>
-						<th class="text-center">Nama Hardware</th>
+						<th class="text-center">Nama Software</th>
 						<th class="text-center">Tanggal<br>Pembelian Lama</th>
 						<th class="text-center">Tanggal<br>Pembelian Baru</th>
 						<th class="text-center">Tanggal Batas<br>Lisensi Lama</th>

@@ -16,24 +16,23 @@
           </div>
         @endif
       <div class="box box-primary">
-        <div class="box-header with-border text-blue">
-            <a href="/software/addsw/" class="btn btn-primary">
-              <i class="fa fa-plus-circle fa-fw"></i>
-              Tambah
-            </a>
-            <a href="/software/saveexcel/" target="_blank" class="btn btn-default pull-right">
-              <i class="fa fa-file-excel-o fa-fw"></i>
-              Simpan sebagai Excel
-            </a>
-            <a href="/software/savepdf/" target="_blank" class="btn btn-default pull-right">
-              <i class="fa fa-file-pdf-o fa-fw"></i>
-              Simpan sebagai PDF
-            </a>
-            <a href="/software/print/" target="_blank" class="btn btn-default pull-right">
-              <i class="fa fa-print fa-fw"></i>
-              Print
-            </a>
-        </div>        
+        <div class="box-header with-border">
+          <a href="{{ Route('addsw') }}" class="btn btn-primary">
+            <i class="fa fa-plus-circle fa-fw"></i>
+            Tambah
+          </a>
+          <a href="{{ Route('excelsw') }}/" target="_blank" class="btn btn-default pull-right">
+            <i class="fa fa-file-excel-o fa-fw"></i>
+            Simpan sebagai Excel
+          </a>
+          <a href="{{ Route('pdfsw') }}" target="_blank" class="btn btn-default pull-right">
+            <i class="fa fa-file-pdf-o fa-fw"></i>
+            Simpan sebagai PDF
+          </a>
+          <a href="{{ Route('printsw') }}" target="_blank" class="btn btn-default pull-right">
+            <i class="fa fa-print fa-fw"></i>
+            Print
+          </a>     
         {{-- <div class="advanced-search-body">
         <form id = "joiningDateSearch">
           @csrf

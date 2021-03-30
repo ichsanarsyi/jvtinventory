@@ -17,19 +17,19 @@
         @endif
       <div class="box box-primary">
         <div class="box-header with-border">
-            <a href="/hardware/addhw/" class="btn btn-md btn-primary">
+            <a href="{{ Route('addhw') }}" class="btn btn-md btn-primary">
                 <i class="fa fa-plus-circle fa-fw"></i>
                 Tambah
             </a>
-            <a href="/hardware/saveexcel/" target="_blank" class="btn btn-default pull-right">
+            <a href="{{ Route('excelhw') }}" target="_blank" class="btn btn-default pull-right">
                 <i class="fa fa-file-excel-o fa-fw"></i>
                 Simpan sebagai Excel
             </a>
-            <a href="/hardware/savepdf/" target="_blank" class="btn btn-default pull-right">
+            <a href="{{ Route('pdfhw') }}" target="_blank" class="btn btn-default pull-right">
                 <i class="fa fa-file-pdf-o fa-fw"></i>
                 Simpan sebagai PDF
             </a>
-            <a href="/hardware/print/" target="_blank" class="btn btn-default pull-right">
+            <a href="{{ Route('printhw') }}" target="_blank" class="btn btn-default pull-right">
                 <i class="fa fa-print fa-fw"></i>
                 Print
             </a>

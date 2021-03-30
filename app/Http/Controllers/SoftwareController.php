@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Models\SoftwareModel;
 use App\Exports\SoftwareExport;
+use App\Exports\SoftwareLogExport;
 
 use PDF;
 use Excel;
@@ -187,12 +188,7 @@ class SoftwareController extends Controller
         ];
 
         set_time_limit(300);
-        $pdf = PDF::loadView('software.v_pdfsw', $data)->setPaper('A4','landscape')
-        ;
-
-        // download PDF file with download method
-        //return $pdf->download('DaftarSoftware.pdf');
-        //Browser's PDFviewer
+        $pdf = PDF::loadView('software.v_pdfsw', $data)->setPaper('A4','landscape');
         return $pdf->stream();
     }
 
@@ -201,16 +197,28 @@ class SoftwareController extends Controller
         return Excel::download(new SoftwareExport,'DaftarSoftware.xlsx');
     }
 
-    //preview
-    public function tableexcel()
+    public function printlog()
     {
         $data = [
-            'software' => $this->SoftwareModel->allData(),
-            'merk' => $this->SoftwareModel->allMerk(),
-            'lisensi' => $this->SoftwareModel->allLisensi()
+            'logsoftware' => $this->SoftwareModel->logData(),
+        ];
+        return view('software.v_printlogsw', $data);
+    }
+    
+    public function savepdflog()
+    {
+        $data = [
+            'logsoftware' => $this->SoftwareModel->logData(),
         ];
 
-        return view('software.v_excelsw', $data);
+        set_time_limit(300);
+        $pdf = PDF::loadView('software.v_pdflogsw', $data)->setPaper('A4','landscape');
+        return $pdf->stream();
+    }
+
+    public function saveexcellog()
+    {
+        return Excel::download(new SoftwareLogExport,'LogPerubahanSoftware.xlsx');
     }
 
 }
