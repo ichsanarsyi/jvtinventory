@@ -74,13 +74,13 @@
                         {{$data->kode_asset}}
                     </td>
                     <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                        {{$data->nama_hw}} {{$data->nama_merk_hw}} {{$data->seri_hw}}
+                        {{$data->nama_hw}} {{ ($data->nama_merk_hw == '' ? '':$data->nama_merk_hw)}} {{ ($data->seri_hw == '' ? '':$data->seri_hw)}}
                     </td>
                     <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                        {{$data->nama_merk_hw}}
+                        {{ ($data->nama_merk_hw == '' ? '-':$data->nama_merk_hw)}}
                     </td>
                     <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                        {{$data->seri_hw}}
+                        {{ ($data->seri_hw == '' ? '-':$data->seri_hw)}}
                     </td>
                     <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->nama_kategori_hw}}

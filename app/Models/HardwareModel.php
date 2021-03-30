@@ -11,8 +11,7 @@ class HardwareModel extends Model
     public function allData()
     {
         return DB::table('tbl_hardware')
-        ->select('*', DB::raw('IFNULL( tbl_hardware.kode_asset, "-") as kode_asset'),
-        DB::raw('IFNULL( tbl_hardware.seri_hw, "-") as seri_hw'))
+        ->select('*', DB::raw('IFNULL( tbl_hardware.kode_asset, "-") as kode_asset'))
         ->leftJoin('tbl_merk_hw', 'tbl_merk_hw.id_merk_hw', '=', 'tbl_hardware.id_merk_hw')
         ->leftJoin('tbl_kategori_hw', 'tbl_kategori_hw.id_kategori_hw', '=', 'tbl_hardware.id_kategori_hw')
         ->leftJoin('tbl_lokasi', 'tbl_lokasi.id_lokasi', '=', 'tbl_hardware.id_lokasi')

@@ -73,11 +73,11 @@ class SoftwareController extends Controller
             // 'id_merk_sw' => 'required',
             'id_jenis_lisensi' => 'required',
             // 'tgl_batas_lisensi' => 'required',
-            'harga_sw' => 'numeric',
+            
             // 'kode_lisensi' => 'required',
             // 'deskripsi_sw' => 'required',
             // 'versi_sw' => 'required',
-            // 'id_hw' => 'required'
+            'id_hw' => 'required'
         ],[
             'nama_sw.required' => 'Nama Software wajib diisi',
             'id_merk_sw.required' => 'Merk Software wajib diisi',
@@ -103,7 +103,10 @@ class SoftwareController extends Controller
             'versi_sw' => Request()->versi_sw,
             'id_hw' => Request()->id_hw          
         ];
-        
+
+        if (!empty(Request()->harga_sw))
+        Request()->validate(['harga_sw' => 'numeric',]);
+
         $this->SoftwareModel->addData($data);
         return redirect()->route('software')->with('pesan', 'Data berhasil ditambahkan.');
 
