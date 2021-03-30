@@ -8,7 +8,6 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- favicon2 -->
   <link rel="icon" href="{{ URL::asset('favicon2.png') }}" type="image/x-icon"/>
-<<<<<<< HEAD
   {{-- <style>
     table {
       font-family: 'Times New Roman', Times, serif;
@@ -20,8 +19,7 @@
       padding: 8px;
     }
   </style> --}}
-=======
->>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
+
 </head>
 <body>
   <table style="border:1px solid black; border-collapse:collapse;">
