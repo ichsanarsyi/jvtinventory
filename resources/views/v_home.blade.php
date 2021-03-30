@@ -24,7 +24,7 @@
         @endif
     </div>
     <div class="col-md-4 pull-right">
-        <div class="box box-default">
+        <div class="box box-info">
             <div class="box-header with-border">
                 <i class="fa fa-bullhorn"></i>
                 <h3 class="box-title">Catatan</h3>
