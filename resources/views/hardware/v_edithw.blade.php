@@ -40,7 +40,7 @@
 												</select>
 											</div>
 											<div class="col-sm-1">
-											<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw"></i></button>
+											<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add" data-toggle="tooltip" data-placement="top" title="Tambah Merk Hardware"><i class="fa fa-plus-circle fa-fw"></i></button>
 											</div>
 										</div>
 									</div>
@@ -200,7 +200,7 @@
             <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Tambah Merk Hardware</h4>
         </div>
-        <form action="insertmerkinhw/" method="POST" enctype="multipart/form-data">
+        <form action="{{ Route('insertmerkinhw') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
             <div class="form-group">

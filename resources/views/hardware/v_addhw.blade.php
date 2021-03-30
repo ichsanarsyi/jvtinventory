@@ -34,12 +34,12 @@
 										<select name="id_merk_hw" class="form-control select2" style="width: 100%;">
 											<option value="">{{ old('id_merk_hw') }}</option>
 											@foreach ($merk as $data)
-												<option value="{{ $data->id_merk_hw }}">{{ $data->nama_merk_hw }}</option>
+												<option value="{{ $data->id_merk_hw }}" {{ (old('id_merk_hw') == $data->id_merk_hw ? 'selected="selected"' : '') }}>{{ $data->nama_merk_hw }}</option>
 											@endforeach
 										</select>
 										</div>
 										<div class="col-sm-1">
-										<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw"></i></button>
+										<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Tambah Merk Hardware"></i></button>
 										</div>
 									</div>
 								</div>
@@ -63,7 +63,7 @@
 								<select name="id_kategori_hw" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_kategori_hw') }}</option>
 									@foreach ($kategori as $data)
-										<option value="{{ $data->id_kategori_hw }}">{{ $data->nama_kategori_hw }}</option>
+										<option value="{{ $data->id_kategori_hw }}" {{ (old('id_kategori_hw') == $data->id_kategori_hw ? 'selected="selected"' : '') }}>{{ $data->nama_kategori_hw }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -86,7 +86,7 @@
 								<select name="id_kondisi" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_kondisi') }}</option>
 									@foreach ($kondisi as $data)
-										<option value="{{ $data->id_kondisi }}">{{ $data->nama_kondisi }}</option>
+										<option value="{{ $data->id_kondisi }}" {{ (old('id_kondisi') == $data->id_kondisi ? 'selected="selected"' : '') }}>{{ $data->nama_kondisi }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -116,7 +116,7 @@
 								<select name="id_lokasi" class="form-control select2" style="width: 100%;" >
 									<option value="">{{ old('id_lokasi') }}</option>
 									@foreach ($lokasi as $data)
-										<option value="{{ $data->id_lokasi }}">{{ $data->nama_lokasi }}</option>
+										<option value="{{ $data->id_lokasi }}" {{ (old('id_lokasi') == $data->id_lokasi ? 'selected="selected"' : '') }}>{{ $data->nama_lokasi }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -130,7 +130,7 @@
 								<select name="id_departemen" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_departemen') }}</option>
 									@foreach ($departemen as $data)
-										<option value="{{ $data->id_departemen }}">{{ $data->nama_departemen }}</option>
+										<option value="{{ $data->id_departemen }}" {{ (old('id_departemen') == $data->id_departemen ? 'selected="selected"' : '') }}>{{ $data->nama_departemen }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -172,7 +172,7 @@
 								<select name="id_staff" class="form-control select2" style="width: 100%;">
 									<option value="">{{ old('id_staff') }}</option>
 									@foreach ($staff as $data)
-										<option value="{{ $data->id_staff }}">{{ $data->nama_staff }}</option>
+										<option value="{{ $data->id_staff }}" {{ (old('id_staff') == $data->id_staff ? 'selected="selected"' : '') }}>{{ $data->nama_staff }}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">
@@ -207,7 +207,7 @@
             <span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title">Tambah Merk Hardware</h4>
         </div>
-        <form action="/hardware/addhw/insertmerkinhw" method="POST" enctype="multipart/form-data">
+        <form action="{{ Route('insertmerkinhw') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
             <div class="form-group">

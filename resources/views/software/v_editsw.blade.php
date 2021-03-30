@@ -17,23 +17,32 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Nama Software<span style="color:red;">*</span></label>                                
-								<input name="nama_sw" class="form-control" value="{{ $software->nama_sw }}">
+								<label>Merk Software<span style="color:red;">*</span></label>
+								<div class="row">
+									<div class="form-group">
+										<div class="col-sm-11">
+											<select name="id_merk_sw" class="form-control select2" style="width: 100%;">
+												@foreach ($merk as $data)
+													<option value="{{ $data->id_merk_sw }}"{{ ($software->id_merk_sw == $data->id_merk_sw ? 'selected="selected"' :'')}}>{{ $data->nama_merk_sw }}</option>
+												@endforeach
+											</select>	
+										</div>
+										<div class="col-sm-1">
+											<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add" data-toggle="tooltip" data-placement="top" title="Tambah Merk Software"><i class="fa fa-plus-circle fa-fw"></i></button>
+										</div>
+									</div>
+								</div>					
 								<div class="text-danger">
-									@error('nama_sw')
+									@error('id_merk_sw')
 										{{ $message }}
 									@enderror
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Merk Software</label>
-                                <select name="id_merk_sw" class="form-control select2" style="width: 100%;">
-									@foreach ($merk as $data)
-										<option value="{{ $data->id_merk_sw }}"{{ ($software->id_merk_sw == $data->id_merk_sw ? 'selected="selected"' :'')}}>{{ $data->nama_merk_sw }}</option>
-									@endforeach
-								</select>								
+								<label>Nama Software<span style="color:red;">*</span></label>                                
+								<input name="nama_sw" class="form-control" value="{{ $software->nama_sw }}">
 								<div class="text-danger">
-									@error('id_merk_sw')
+									@error('nama_sw')
 										{{ $message }}
 									@enderror
 								</div>
@@ -152,4 +161,37 @@
 			</div>
 		</div>
 	</div>
+	<!-- Modal Merk Add -->
+	<div class="modal fade" id="modal-add">
+		<div class="modal-dialog modal-sm">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Tambah Merk Software</h4>
+				</div>
+				<form action="{{ Route('insertmerkinsw') }}" method="POST" enctype="multipart/form-data">
+				@csrf
+				<div class="modal-body">            
+					<div class="form-group">
+						<label>Nama Merk Software</label>                                
+						<input autofocus="autofocus" name="nama_merk_sw" class="form-control" value="{{ old('nama_merk_sw') }}">
+						<div class="text-danger">
+							@error('nama_merk_sw')
+								{{ $message }}
+							@enderror
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+				<button type="submit" class="btn btn-primary">Save</button>
+				</div>
+				</form>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->  
 @endsection
