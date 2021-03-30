@@ -90,8 +90,6 @@
 									@enderror
 								</div>
 							</div>
-						</div>
-						<div class="col-sm-6">
 							<div class="form-group">
 								<label>Harga</label>
 								<div class="input-group">
@@ -102,11 +100,15 @@
 								</div>
 								<div class="text-danger">
 									@error('harga_hw')
-										{{ $message }}
+									{{ $message }}
 									@enderror
 								</div>
 							</div>
-							<div class="form-group">
+						</div>
+
+						{{-- ================== Sebelah Kanan ================ --}}
+						<div class="col-sm-6">
+						<div class="form-group">
 								<label>Lokasi</label>
 								<select name="id_lokasi" class="form-control select2" style="width: 100%;" >
 									@foreach ($lokasi as $data)
@@ -169,6 +171,15 @@
 								</select>
 								<div class="text-danger">
 									@error('id_staff')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>
+							<div class="form-group">
+								<label>Deskripsi</label>
+								<input name="deskripsi_hw" class="form-control" value="{{ $hardware->deskripsi_hw }}">
+								<div class="text-danger">
+									@error('deskripsi_hw')
 										{{ $message }}
 									@enderror
 								</div>

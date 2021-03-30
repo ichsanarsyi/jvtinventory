@@ -113,7 +113,7 @@
 <div class="wrapper">
   <header class="main-header">
     <!-- Logo -->
-    <a href="/" class="logo">
+    <a href="/home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><i class="fa fa-home"></i></span>
       <!-- logo for regular state and mobile devices -->
@@ -289,9 +289,9 @@
   <!-- /.content-wrapper -->
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.12
+      <b>S1 Teknik Komputer - UNDIP</b>
     </div>
-    <strong>Contact Person :</a></strong> 088888888888 (Alvin) - 089999999999 (Ichsan)
+    <strong>JVT Inventory -</a></strong> Projek Kerja Praktik 2021
   </footer>
 
   <!-- Control Sidebar -->
@@ -362,7 +362,10 @@
       lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
     });
     $("#tbl_user").DataTable({
-      columnDefs : [{'orderable': {{ (Auth::user()->level == 'Admin' ? 'false':'true')}},  'targets':-1}]
+      columnDefs : [{'orderable': {{ (Auth::user()->level == 'Admin' ? 'false':'true')}},  'targets':-1}],
+      initComplete: function () {
+      $('#tbl_user_filter [type="search"]').focus()
+      },
     })
     //use select2
     $('.select2').select2();
@@ -600,7 +603,7 @@
   .each(function() {
       $(this).data('serialized', $(this).serialize())
   })
-  .on('change input', 'input, select', function(e) {
+  .on('change input', 'input, select, textarea', function(e) {
       var $form = $(this).closest("form");
     var state = $form.serialize() === $form.data('serialized');    
     $form.find('input:submit, button:submit').prop('disabled', state);

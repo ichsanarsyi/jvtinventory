@@ -16,7 +16,10 @@ use App\Http\Controllers\EmailController;
 use App\Http\Controllers\KondisiController;
 
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index'])->name('catatan');
+
+//CRUD Catatan:
+Route::post('/home/insertcatatan', [HomeController::class, 'insert']);
 
 //CRUD Hardware:
 Route::get('/hardware', [HardwareController::class, 'index'])->name('hardware');
@@ -74,7 +77,8 @@ Route::post('/masterdata/kondisi/insertkondisi', [KondisiController::class, 'ins
 Auth::routes();
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    //Route::get('/kirim-email', [RegisterController::class, 'index'])->name('create');
+    Route::post('/home/updatecatatan/{id_catatan}', [HomeController::class, 'update']);
+    Route::get('/home/deletecatatan/{id_catatan}', [HomeController::class, 'delete']);
     //Hak Akses Crud User
     Route::get('/user', [UserController::class, 'index'])->name('user');
     Route::post('/user/updateuser/{id}', [UserController::class, 'update']);
