@@ -79,7 +79,7 @@
 							<div class="form-group">
 								<label>Tanggal Batas Lisensi</label>
 								<div class="input-group date">									
-									<input name="tgl_batas_lisensi" type="text" class="form-control pull-right" id="datepicker2" value="{{ old('tgl_batas_lisensi') }}" disabled="">
+									<input name="tgl_batas_lisensi" type="text" class="form-control pull-right" id="datepicker2" value="{{ old('tgl_batas_lisensi') }}" >
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
 									</div>
@@ -138,7 +138,7 @@
                                 <select name="id_hw" class="form-control select2" style="width: 100%;">
 									<option value="{{ old('id_hw') }}"></option>
 									@foreach ($hardware as $data)
-										<option value="{{$data->id_hw}}"  {{ (old('id_hw') == $data->id_hw ? 'selected="selected"' : '') }}>{{ $data->nama_hw }}</option>
+										<option value="{{$data->id_hw}}"  {{ (old('id_hw') == $data->id_hw ? 'selected="selected"' : '') }}>{{ $data->nama_hw }} {{$data->nama_merk_hw}} {{$data->seri_hw}}</option>
 									@endforeach	
 									
 								</select>

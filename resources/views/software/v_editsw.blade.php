@@ -135,7 +135,7 @@
 								<label>Nama Hardware</label>
                                 <select name="id_hw" class="form-control select2" style="width: 100%;">
 									@foreach ($hardware as $data)
-										<option value="{{ $data->id_hw }}"{{ ($software->id_hw == $data->id_hw ? 'selected="selected"' :'')}}>{{ $data->nama_hw }}</option>
+										<option value="{{ $data->id_hw }}"{{ ($software->id_hw == $data->id_hw ? 'selected="selected"' :'')}}>{{ $data->nama_hw }} {{$data->nama_merk_hw}} {{$data->seri_hw}}</option>
 									@endforeach
 								</select>
 								<div class="text-danger">

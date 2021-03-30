@@ -100,7 +100,7 @@
             <tbody>
             <?php $no=1; ?>
             @foreach ($software as $data)
-                <tr style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw}}';">
+                <tr style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw}}/{{$data->id_merk_hw}}';">
                     <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{$no++}}
                     </td>

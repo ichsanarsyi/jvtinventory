@@ -40,24 +40,27 @@ class SoftwareController extends Controller
         return view('software.v_logsw', $data);
     }
 
-    public function detail($id_sw)
+    public function detail($id_sw, $id_merk_hw)
     {
         if (!$this->SoftwareModel->detailData($id_sw))
         {
             abort(404);
         }
         $data = [
-            'software' => $this->SoftwareModel->detailData($id_sw)
+            'software' => $this->SoftwareModel->detailData($id_sw),
+            'merkhw' => $this->SoftwareModel->allMerkHw($id_merk_hw)
         ];
         return view('software.v_detailsw', $data);
     }
 
     public function add()
     {
+        $id_kategori_hw5 = "5";
+        $id_kategori_hw6 = "6";
         $data = [
             'merk' => $this->SoftwareModel->allMerk(),
             'lisensi' => $this->SoftwareModel->allLisensi(),
-            'hardware' => $this->SoftwareModel->allHardware()
+            'hardware' => $this->SoftwareModel->allHardware($id_kategori_hw5,$id_kategori_hw6)
         ];
         return view('software.v_addsw', $data);
     }
@@ -111,11 +114,13 @@ class SoftwareController extends Controller
         {
             abort(404);
         }
+        $id_kategori_hw5 = "5";
+        $id_kategori_hw6 = "6";
         $data = [
             'software' => $this->SoftwareModel->detailData($id_sw),
             'merk' => $this->SoftwareModel->allMerk(),
             'lisensi' => $this->SoftwareModel->allLisensi(),
-            'hardware' => $this->SoftwareModel->allHardware()
+            'hardware' => $this->SoftwareModel->allHardware($id_kategori_hw5,$id_kategori_hw6)
         ];
         return view('software.v_editsw', $data);
     }
@@ -152,7 +157,7 @@ class SoftwareController extends Controller
             'id_hw' => Request()->id_hw                 
         ];
         
-        $this->SoftwareModel->editData($id_sw, $data);       
+        $this->SoftwareModel->editData($id_sw, $data);
         return redirect()->route('software')->with('pesan', 'Data berhasil diedit.');
 
     }
