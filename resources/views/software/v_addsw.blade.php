@@ -29,7 +29,7 @@
 											</select>
 										</div>
 										<div class="col-sm-1">
-											<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"  data-toggle="tooltip" data-placement="top" title="Tambah Merk Software"><i class="fa fa-plus-circle fa-fw"></i></button>
+											<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add" data-toggle="tooltip" data-placement="top" title="Tambah Merk Software"><i class="fa fa-plus-circle fa-fw"></i></button>
 										</div>
 									</div>
 								</div>							

@@ -30,7 +30,7 @@
 										</select>
 										</div>
 										<div class="col-sm-1">
-										<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"><i class="fa fa-plus-circle fa-fw" data-toggle="tooltip" data-placement="top" title="Tambah Merk Hardware"></i></button>
+										<button type="button" class="btn btn-default pull-right" data-toggle="modal" data-target="#modal-add"  data-toggle="tooltip" data-placement="top" title="Tambah Merk Hardware"><i class="fa fa-plus-circle fa-fw"></i></button>
 										</div>
 									</div>
 								</div>
@@ -78,7 +78,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Kode Asset</label>
+								<label>Kode Asset<span style="color:red;">*</span></label>
 								<input name="kode_asset" class="form-control" value="{{ old('kode_asset') }}">
 								<div class="text-danger">
 									@error('kode_asset')

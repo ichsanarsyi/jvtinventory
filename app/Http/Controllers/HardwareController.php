@@ -90,7 +90,7 @@ class HardwareController extends Controller
             'id_merk_hw' => 'required',
             // 'seri_hw' => 'required',
             'id_kategori_hw' => 'required',
-            //'kode_asset' => 'required',
+            'kode_asset' => ['required', 'unique:tbl_hardware'],
             //'id_kondisi' => 'required',
             // 'harga_hw' => 'required',
             // 'id_lokasi' => 'required',
@@ -104,6 +104,8 @@ class HardwareController extends Controller
             'id_merk_hw.required' => 'Merk Hardware wajib diisi',
             'seri_hw.required' => 'Seri Hardware wajib diisi',
             'id_kategori_hw.required' => 'Kategori wajib diisi',
+            'kode_asset.required' => 'Kode Asset Hardware wajib diisi',
+            'kode_asset.unique' => 'Kode Asset Hardware tersebut sudah ada',
             'harga_hw.required' => 'Harga Hardware wajib diisi',
             'harga_hw.numeric' => 'Harga Hardware berupa angka',
             'lokasi.required' => 'Lokasi wajib diisi',
@@ -125,6 +127,7 @@ class HardwareController extends Controller
             'id_departemen' => Request()->id_departemen,
             'tgl_beli_hw' => Request()->tgl_beli_hw,
             'tgl_batas_garansi' => Request()->tgl_batas_garansi,
+            'deskripsi_hw' => Request()->deskripsi_hw,
             'id_staff' => Request()->id_staff            
         ];
         
@@ -158,7 +161,7 @@ class HardwareController extends Controller
             //'id_merk_hw' => 'required',
             // 'seri_hw' => 'required',
             'id_kategori_hw' => 'required',
-            //'kode_asset' => 'required',
+            'kode_asset' => 'required',
             //'id_kondisi' => 'required',
             'harga_hw' => 'required',
             //'id_lokasi' => 'required',
@@ -170,7 +173,7 @@ class HardwareController extends Controller
         ],[
             'nama_hw.required' => 'Nama Hardware wajib diisi',
             'seri_hw.required' => 'Seri Hardware wajib diisi',
-            //'kode_asset.required' => 'Kode Asset Hardware wajib diisi',
+            'kode_asset.required' => 'Kode Asset Hardware wajib diisi',
             'harga_hw.required' => 'Harga Hardware wajib diisi',
             'harga_hw.numeric' => 'Harga Hardware berupa angka',
             'tgl_beli_hw.required' => 'Tanggal Beli Hardware wajib diisi',
@@ -190,6 +193,7 @@ class HardwareController extends Controller
             'id_departemen' => Request()->id_departemen,
             'tgl_beli_hw' => Request()->tgl_beli_hw,
             'tgl_batas_garansi' => Request()->tgl_batas_garansi,
+            'deskripsi_hw' => Request()->deskripsi_hw,
             'id_staff' => Request()->id_staff       
         ];
         

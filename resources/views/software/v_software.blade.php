@@ -89,7 +89,6 @@
                 <th class="text-center">Merk</th>
                 <th class="text-center">Jenis Lisensi</th>
                 <th class="text-center">Versi</th>
-                <th class="text-center">Tanggal Beli</th>
                 <th class="text-center">Masa Aktif Lisensi</th>
                 @if (auth()->user()->level == 'Admin') 
                 <th class="text-center">Aksi</th>
@@ -114,9 +113,6 @@
                     </td>
                     <td onclick="window.location='/software/detailsw/{{$data->id_sw}}/{{ $data->id_merk_hw }}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{ ($data->versi_sw == '' ? '-' :$data->versi_sw)}}
-                    </td>
-                    <td onclick="window.location='/software/detailsw/{{$data->id_sw}}/{{ $data->id_merk_hw }}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
-                      {{$data->tgl_pembelian}}
                     </td>
                     <td onclick="window.location='/software/detailsw/{{$data->id_sw}}/{{ $data->id_merk_hw }}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       <span style="padding-right:20%;" class="pull-right">

@@ -74,7 +74,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Kode Asset</label>
+								<label>Kode Asset<span style="color:red;">*</span></label>
 								<input name="kode_asset" class="form-control" value="{{ $hardware->kode_asset }}">
 								<div class="text-danger">
 									@error('kode_asset')
