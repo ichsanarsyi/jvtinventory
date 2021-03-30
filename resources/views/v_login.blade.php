@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Log in - JVT Inventory</title>
+  <title>Login | JVT Inventory</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- favicon2 -->
@@ -34,6 +34,27 @@
     border-color: #eeeeee;
     box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075), 0 0 8px rgba(255, 255, 255, 0.6);
     }
+
+  .button {
+    border: none;
+    color: rgba(0, 0, 0, 0.4);
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button-login {
+    background-color: rgba(0, 0, 0, 0.4); 
+    color: #eeeeee; 
+    border: 1px solid #eeeeee;
+  }
+
+  .button-login:hover {
+    background-color: #eeeeee;
+    color: black;
+  }
 
   .login-page{
     background: linear-gradient(66deg, rgba(142,21,185,1) 0%, rgba(50,18,80,1) 39%, rgba(47,30,91,1) 59%, rgba(0,212,255,1) 100%);
@@ -95,7 +116,8 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block">Log In</button>
+          {{-- <button type="submit" class="btn bg-primary btn-block">Log In</button> --}}
+          <button type="submit" class="btn button button-login btn-block">Log In</button>
         </div>
         <!-- /.col -->
       </div>
