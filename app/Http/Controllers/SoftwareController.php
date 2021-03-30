@@ -211,6 +211,7 @@ class SoftwareController extends Controller
         ];
 
         return view('software.v_excelsw', $data);
+<<<<<<< HEAD
     }
 
     public function filterbydate(Request $request)
@@ -260,6 +261,8 @@ class SoftwareController extends Controller
         // $lisensi = DB::table('tbl_jenis_lisensi')->get();
 
         // return view('software.v_software', compact('query', 'software', 'merk', 'lisensi'));
+=======
+>>>>>>> parent of dd7b5a84 (Print All Log SW-HW)
     }
 
 }
