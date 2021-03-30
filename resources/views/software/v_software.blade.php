@@ -100,26 +100,26 @@
             <tbody>
             <?php $no=1; ?>
             @foreach ($software as $data)
-                <tr style="cursor: pointer;" onclick="window.location='/software/detailsw/{{$data->id_sw}}';">
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                <tr style="cursor: pointer;">
+                    <td onclick="window.location='/software/detailsw/{{$data->id_sw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{$no++}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/software/detailsw/{{$data->id_sw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{$data->nama_sw}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/software/detailsw/{{$data->id_sw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{$data->nama_merk_sw}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/software/detailsw/{{$data->id_sw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{$data->jenis_lisensi}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/software/detailsw/{{$data->id_sw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{ ($data->versi_sw == '' ? '-' :$data->versi_sw)}}
                     </td>
-                    <td>
+                    <td onclick="window.location='/software/detailsw/{{$data->id_sw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       {{$data->tgl_pembelian}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/software/detailsw/{{$data->id_sw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                       <span style="padding-right:20%;" class="pull-right">
                         {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
                       </span>

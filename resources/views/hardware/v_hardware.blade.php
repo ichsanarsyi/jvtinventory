@@ -55,23 +55,23 @@
             <tbody>
             <?php $no=1; ?>
             @foreach ($hardware as $data)
-                <tr style="cursor: pointer;" onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';">
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                <tr style="cursor: pointer;">
+                    <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$no++}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->kode_asset}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->nama_hw}} {{$data->nama_merk_hw}} {{$data->seri_hw}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->nama_merk_hw}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->seri_hw}}
                     </td>
-                    <td data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+                    <td onclick="window.location='/hardware/detailhw/{{$data->id_hw}}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
                         {{$data->nama_kategori_hw}}
                     </td>
                     @if (auth()->user()->level == 'Admin') 
