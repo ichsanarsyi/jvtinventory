@@ -584,7 +584,7 @@
               } );
               $('#tbl_log_filter [type="search"]').focus()   
           },
-          lengthMenu: [[10, 20, 40, -1], [10, 20, 40, "All"]],
+          lengthMenu: [[5, 10, 20, 40, -1], [5, 10, 20, 40, "All"]],
           order: [[ 1, "desc" ]]
       } );
   } );

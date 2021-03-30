@@ -139,7 +139,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Nama Hardware</label>
+								<label>Asal Device<span style="color:red;">*</span></label>
                                 <select name="id_hw" class="form-control select2" style="width: 100%;">
 									<option value="{{ old('id_hw') }}"></option>
 									@foreach ($hardware as $data)
