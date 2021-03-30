@@ -19,7 +19,10 @@
 		</div>
 	</div>
 	@endif
-	<div class="col-md-12">
+</div>
+
+<div class="row">		
+	<div class=" {{ ((($hardware->id_kategori_hw == '5')||($hardware->id_kategori_hw == '6')) ? 'col-md-6' : 'col-md-12') }}">
 		<div class="box box-primary text-info box-solid">
 		  <div class="box-header with-border">
 			<h3 class="box-title">Detail : {{ $hardware->nama_hw }}</h3>
@@ -78,13 +81,50 @@
 		  <!-- /.box-body -->
 		</div>
 		<!-- /.box -->
-	  </div>
+	</div>
+	@if (($hardware->id_kategori_hw == '5')||($hardware->id_kategori_hw == '6'))
+	<div class="col-md-6">
+		<div class="box box-primary box-solid">
+			<div class="box-header with-border">
+				<h3 class="box-title">Daftar Software Terinstal</h3>
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				<table id="tbl_software" class="display table table-striped table-hover">
+					<thead>
+					  <tr>
+						<th class="text-center">No</th>
+						<th class="text-center">Nama Software</th>
+						<th class="text-center">Versi</th>
+					  </tr>
+					</thead>
+					<tbody>
+					<?php $no=1; ?>
+					@foreach ($software as $data)
+						<tr style="cursor: pointer;">
+							<td onclick="window.location='/software/detailsw/{{$data->id_sw}}/{{ $data->id_merk_hw }}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+							  {{$no++}}
+							</td>
+							<td onclick="window.location='/software/detailsw/{{$data->id_sw}}/{{ $data->id_merk_hw }}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+							  {{$data->nama_sw}}
+							</td>
+							<td onclick="window.location='/software/detailsw/{{$data->id_sw}}/{{ $data->id_merk_hw }}';" data-toggle="tooltip" data-placement="top" title="Klik untuk detail">
+							  {{ ($data->versi_sw == '' ? '-' :$data->versi_sw)}}
+							</td>
+						</tr>
+					@endforeach
+					</tbody>
+				  </table>
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>	
+	@endif
 </div>
 
 <div class="row">
-	<div class="col-md-2">
-	</div>
-	<div class="col-md-2">
+	<div class="col-md-3">
 	<div class="box box-primary box-solid">
 	  <div class="box-header with-border">
 		<h3 class="box-title">Kode Asset</h3>
@@ -99,7 +139,7 @@
 	</div>
 	<!-- /.box -->
   </div>
-  <div class="col-md-2">
+  <div class="col-md-3">
 	<div class="box box-primary box-solid">
 	  <div class="box-header with-border">
 		<h3 class="box-title">Staff</h3>
@@ -137,12 +177,14 @@
 	  <!-- /.box-header -->
 	  <div class="box-body" align=center>
 		<div class="col">
-			<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($hardware->tgl_batas_garansi)) }} <small style="color: red"> <br>{{ ($hardware->day_left == 0 ? 'Telah melebihi masa Batas Garansi' : $hardware->day_left.' Hari Tersisa')}}</small>
+			<span class="h4 font-weight-bold mb-0">{{ date('d F Y', strtotime($hardware->tgl_batas_garansi)) }} <small style="color: red">
+				 <br>{{ ($hardware->day_left == 0 ? 'Telah melebihi masa Batas Garansi' : $hardware->day_left.' Hari Tersisa')}}
+			</small>
 		</div>
 	  </div>
 	  <!-- /.box-body -->
 	</div>
 	<!-- /.box -->
-</div>
+	</div>
 </div>
 @endsection

@@ -109,7 +109,7 @@
 					<div class="col">
 						<span class="h4 font-weight-bold mb-0">									
 							@if (($software->tgl_batas_lisensi)=="")
-								Tanpa Batas
+								-
 							@else
 								{{ date('d F Y', strtotime($software->tgl_batas_lisensi)) }}
 								<small style="color: red"> 

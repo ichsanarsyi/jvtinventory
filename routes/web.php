@@ -15,7 +15,7 @@ use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\KondisiController;
 
-
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index'])->name('catatan');
 
 //CRUD Catatan:
@@ -34,7 +34,7 @@ Route::get('/hardware/saveexcel', [HardwareController::class, 'saveexcel'])->nam
 
 //CRUD Software:
 Route::get('/software', [SoftwareController::class, 'index'])->name('software');
-Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detail'])->name('detailsw');
+Route::get('/software/detailsw/{id_sw}/{id_merk_hw}', [SoftwareController::class, 'detail'])->name('detailsw');
 Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
 Route::get('/software/addsw', [SoftwareController::class, 'add'])->name('addsw');
 

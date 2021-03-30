@@ -73,6 +73,17 @@ class HardwareModel extends Model
         ->leftJoin('hardware_day_left', 'hardware_day_left.id_hw', '=', 'tbl_hardware.id_hw')
         ->where('tbl_hardware.id_hw', $id_hw)->first();
     }
+
+    public function swData($id_hw)
+    {
+        return DB::table('tbl_software')
+        ->select('*','tbl_software.nama_sw AS nama_sw', 'tbl_software.id_sw AS id_sw')
+        ->leftJoin('tbl_merk_sw', 'tbl_merk_sw.id_merk_sw', '=', 'tbl_software.id_merk_sw')
+        ->leftJoin('tbl_jenis_lisensi', 'tbl_jenis_lisensi.id_jenis_lisensi', '=', 'tbl_software.id_jenis_lisensi')
+        ->leftJoin('tbl_hardware', 'tbl_hardware.id_hw', '=', 'tbl_software.id_hw')
+        ->leftJoin('software_day_left', 'software_day_left.id_sw', '=', 'tbl_software.id_sw')
+        ->where('tbl_software.id_hw', $id_hw)->get();
+    }
     
     public function allHardware()
     {

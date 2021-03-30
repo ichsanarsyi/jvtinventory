@@ -50,11 +50,11 @@
               <td style="border:1px solid black;">{{$data->versi_sw}}</td>
               <td style="border:1px solid black;">{{$data->nama_hw}}</td>
               <td style="border:1px solid black;">{{$data->tgl_pembelian}}</td>
-              <td style="border:1px solid black;">{{$data->tgl_batas_lisensi}}</td>
               <td style="border:1px solid black;">
-                  <span style="padding-right:30%;" class="pull-right">
-                    {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
-                  </span>
+                {{ ($data->tgl_batas_lisensi=='' ? '-' :$data->tgl_batas_lisensi) }}
+              </td>
+              <td style="border:1px solid black;">
+                {{ ($data->id_jenis_lisensi == 2 ? '-' :$data->day_left.' Hari Tersisa')}}
               </td>
               <td style="border:1px solid black;">{{$data->kode_lisensi}}</td>
           </tr>

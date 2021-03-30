@@ -74,8 +74,20 @@
                     <td>{{$data->versi_sw}}</td>
                     <td>{{$data->nama_hw}}</td>
                     <td>{{$data->tgl_pembelian}}</td>
-                    <td>{{$data->tgl_batas_lisensi}}</td>
-                    <td>{{$data->day_left}} Hari Tersisa</td>
+                    <td>
+                      @if (($data->tgl_batas_lisensi)=="")
+                        -
+                      @else
+                        {{$data->tgl_batas_lisensi}}
+                      @endif
+                    </td>
+                    <td>
+                      @if (($data->tgl_batas_lisensi)=="")
+                        -
+                      @else
+                        {{$data->day_left}} Hari Tersisa
+                      @endif
+                    </td>
                     <td>{{$data->kode_lisensi}}</td>
                 </tr>
               @endforeach                    

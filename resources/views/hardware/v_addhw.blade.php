@@ -18,15 +18,6 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label>Nama Hardware<span style="color:red;">*</span></label>
-								<input autofocus name="nama_hw" class="form-control" value="{{ old('nama_hw') }}">
-								<div class="text-danger">
-									@error('nama_hw')
-										{{ $message }}
-									@enderror
-								</div>
-							</div>
-							<div class="form-group">
 								<label>Merk Hardware<span style="color:red;">*</span></label>
 								<div class="row">
 									<div class="form-group">
@@ -45,6 +36,20 @@
 								</div>
 								<div class="text-danger">
 									@error('id_merk_hw')
+										{{ $message }}
+									@enderror
+								</div>								
+								<div class="text-danger">
+									@error('nama_merk_hw')
+										{{ $message }}
+									@enderror
+								</div>
+							</div>							
+							<div class="form-group">
+								<label>Nama Hardware<span style="color:red;">*</span></label>
+								<input name="nama_hw" class="form-control" value="{{ old('nama_hw') }}">
+								<div class="text-danger">
+									@error('nama_hw')
 										{{ $message }}
 									@enderror
 								</div>
@@ -222,11 +227,6 @@
             <div class="form-group">
                 <label>Nama Merk Hardware</label>                                
                 <input autofocus="autofocus" name="nama_merk_hw" class="form-control" value="{{ old('nama_merk_hw') }}">
-                <div class="text-danger">
-                    @error('nama_merk_hw')
-                        {{ $message }}
-                    @enderror
-                </div>
             </div>
         </div>
         <div class="modal-footer">
