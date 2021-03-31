@@ -29,10 +29,6 @@
                 <i class="fa fa-file-pdf-o fa-fw"></i>
                 Simpan sebagai PDF
             </a>
-            <a href="{{ Route('printhw') }}" target="_blank" class="btn btn-default pull-right">
-                <i class="fa fa-print fa-fw"></i>
-                Print
-            </a>
         </div>     
         <!-- /.box-header -->
         <div class="box-body">

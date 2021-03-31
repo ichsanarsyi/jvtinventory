@@ -28,11 +28,7 @@
           <a href="{{ Route('pdfsw') }}" target="_blank" class="btn btn-default pull-right">
             <i class="fa fa-file-pdf-o fa-fw"></i>
             Simpan sebagai PDF
-          </a>
-          <a href="{{ Route('printsw') }}" target="_blank" class="btn btn-default pull-right">
-            <i class="fa fa-print fa-fw"></i>
-            Print
-          </a>     
+          </a>    
         {{-- <div class="advanced-search-body">
         <form id = "joiningDateSearch">
           @csrf

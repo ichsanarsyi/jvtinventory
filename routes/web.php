@@ -28,7 +28,6 @@ Route::post('/hardware/inserthw', [HardwareController::class, 'insert']);
 Route::get('/hardware/addhw', [HardwareController::class, 'add'])->name('addhw');
 
 //Print&Save Daftar Hardware
-Route::get('/hardware/print', [HardwareController::class, 'print'])->name('printhw');
 Route::get('/hardware/savepdf', [HardwareController::class, 'savepdf'])->name('pdfhw');
 Route::get('/hardware/saveexcel', [HardwareController::class, 'saveexcel'])->name('excelhw');
 
@@ -40,7 +39,6 @@ Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
 Route::get('/software/addsw', [SoftwareController::class, 'add'])->name('addsw');
 
 //Print&Save Daftar Software
-Route::get('/software/print', [SoftwareController::class, 'print'])->name('printsw');
 Route::get('/software/savepdf', [SoftwareController::class, 'savepdf'])->name('pdfsw');
 Route::get('/software/saveexcel', [SoftwareController::class, 'saveexcel'])->name('excelsw');
 
@@ -93,7 +91,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/hardware/deletehw/{id_hw}', [HardwareController::class, 'delete']);
     Route::get('/hardware/edithw/{id_hw}', [HardwareController::class, 'edit']);
     Route::get('/log/hardware', [HardwareController::class, 'detailLog']);
-    Route::get('/log/hardware/print', [HardwareController::class, 'printlog'])->name('printloghw');
     Route::get('/log/hardware/savepdf', [HardwareController::class, 'savepdflog'])->name('pdfloghw');
     Route::get('/log/hardware/saveexcel', [HardwareController::class, 'saveexcellog'])->name('excelloghw');
     
@@ -102,7 +99,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/software/deletesw/{id_sw}', [SoftwareController::class, 'delete']);
     Route::get('/software/editsw/{id_sw}', [SoftwareController::class, 'edit']);
     Route::get('/log/software', [SoftwareController::class, 'detailLog']);
-    Route::get('/log/software/print', [SoftwareController::class, 'printlog'])->name('printlogsw');
     Route::get('/log/software/savepdf', [SoftwareController::class, 'savepdflog'])->name('pdflogsw');
     Route::get('/log/software/saveexcel', [SoftwareController::class, 'saveexcellog'])->name('excellogsw');
     
