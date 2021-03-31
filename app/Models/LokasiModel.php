@@ -11,8 +11,6 @@ class LokasiModel extends Model
     public function allData()
     {
         return DB::table('tbl_lokasi')
-        ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'tbl_lokasi.id_departemen_lokasi')
-        ->orderBy('tbl_departemen.id_departemen', 'asc')
         ->get();
     }
     
@@ -25,7 +23,6 @@ class LokasiModel extends Model
     public function editData($id_lokasi, $data)
     {
         return DB::table('tbl_lokasi')
-        ->leftJoin('tbl_departemen', 'tbl_departemen.id_departemen', '=', 'tbl_lokasi.id_departemen_lokasi')
         ->where('id_lokasi', $id_lokasi)->update($data);
     }
     
