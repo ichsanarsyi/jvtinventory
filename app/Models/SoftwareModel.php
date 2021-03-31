@@ -69,8 +69,6 @@ class SoftwareModel extends Model
 
     public function allMerkHw($id_merk_hw)
     {
-        // return DB::table('tbl_merk_hw')->get();
-        // return DB::select('select * from tbl_merk_hw where id_merk_hw = :id_merk_hw', ['id_merk_hw' => $id_merk_hw]);
         return DB::table('tbl_merk_hw')
         ->select('nama_merk_hw')
         ->where('tbl_merk_hw.id_merk_hw',$id_merk_hw)

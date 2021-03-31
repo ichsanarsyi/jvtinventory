@@ -35,6 +35,7 @@ Route::get('/hardware/saveexcel', [HardwareController::class, 'saveexcel'])->nam
 //CRUD Software:
 Route::get('/software', [SoftwareController::class, 'index'])->name('software');
 Route::get('/software/detailsw/{id_sw}/{id_merk_hw}', [SoftwareController::class, 'detail'])->name('detailsw');
+Route::get('/software/detailsw/{id_sw}', [SoftwareController::class, 'detailsimple']);
 Route::post('/software/insertsw', [SoftwareController::class, 'insert']);
 Route::get('/software/addsw', [SoftwareController::class, 'add'])->name('addsw');
 

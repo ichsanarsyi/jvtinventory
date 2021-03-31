@@ -54,6 +54,18 @@ class SoftwareController extends Controller
         return view('software.v_detailsw', $data);
     }
 
+    public function detailsimple($id_sw)
+    {
+        if (!$this->SoftwareModel->detailData($id_sw))
+        {
+            abort(404);
+        }
+        $data = [
+            'software' => $this->SoftwareModel->detailData($id_sw)
+        ];
+        return view('software.v_detailswsimple', $data);
+    }
+
     public function add()
     {
         $id_kategori_hw5 = "5";
