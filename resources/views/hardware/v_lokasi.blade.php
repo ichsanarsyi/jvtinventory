@@ -28,7 +28,6 @@
             <tr>
               <th>No</th>
               <th>ID Lokasi</th>
-              <th>Asal Departemen</th>
               <th>Nama Lokasi</th>
               @if (auth()->user()->level == 'Admin') 
               <th>Aksi</th>
@@ -42,7 +41,6 @@
                 <tr>
                     <td>{{$no++}}</td>
                     <td>{{$data->id_lokasi}}</td>
-                    <td>{{$data->nama_departemen}}</td>
                     <td>{{$data->nama_lokasi}}</td>
                     @if (auth()->user()->level == 'Admin') 
                     <td>
@@ -90,18 +88,6 @@
                   </div>
               </div>
           </div>
-            <label>Departemen</label>
-            <select name="id_departemen" class="form-control select2" style="width: 100%;">
-              <option value="">{{ old('id_departemen') }}</option>
-              @foreach ($departemen as $data)
-                <option value="{{ $data->id_departemen }}">{{ $data->nama_departemen }}</option>
-              @endforeach
-            </select>
-            <div class="text-danger">
-              @error('departemen')
-                {{ $message }}
-              @enderror
-            </div>
           </div>  
         <div class="modal-footer">
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
@@ -136,20 +122,6 @@
                         {{ $message }}
                     @enderror
                 </div>
-            </div>
-            <div class="form-group">
-              <label>Departemen</label>
-              <select name="id_departemen" class="form-control select2" style="width: 100%;">
-                <option disabled selected value="{{ $data->id_departemen_lokasi }}">{{ $data->nama_departemen }}</option>
-                @foreach ($departemen as $data)
-                 <option value="{{ $data->id_departemen }}">{{ $data->nama_departemen }}</option>
-                @endforeach
-              </select>
-              <div class="text-danger">
-                @error('id_departemen')
-                  {{ $message }}
-                @enderror
-              </div>
             </div>
         </div>
         <div class="modal-footer">
