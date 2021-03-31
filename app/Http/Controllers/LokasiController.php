@@ -39,15 +39,12 @@ class LokasiController extends Controller
     {
         Request()->validate([
             'nama_lokasi' => 'required',
-            'id_departemen' => 'required'
         ],[
             'nama_lokasi.required' => 'Lokasi Hardware wajib diisi',
-            'id_departemen.required' => 'Departemen Hardware wajib dipilih'
         ]);
         
         $data=[
             'nama_lokasi' => Request()->nama_lokasi,
-            'id_departemen_lokasi' => Request()->id_departemen_lokasi
         ];
         
         $this->LokasiModel->addData($data);
@@ -65,7 +62,6 @@ class LokasiController extends Controller
         
         $data=[
             'nama_lokasi' => Request()->nama_lokasi,
-            'id_departemen_lokasi' => Request()->id_departemen
         ];
         
         $this->LokasiModel->editData($id_lokasi, $data);       
