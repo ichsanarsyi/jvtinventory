@@ -72,13 +72,13 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Tambah Merk Hardware</h4>
+          <h4 class="modal-title">Tambah Departemen</h4>
         </div>
         <form action="/masterdata/departemen/insertdepartemen" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
             <div class="form-group">
-                <label>Nama Merk Hardware</label>                                
+                <label>Nama Departemen</label>                                
                 <input autofocus="autofocus" name="nama_departemen" class="form-control" value="{{ old('nama_departemen') }}">
                 <div class="text-danger">
                     @error('nama_departemen')
@@ -107,13 +107,13 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">Edit Merk Hardware</h4>
+          <h4 class="modal-title">Edit Departemen</h4>
         </div>
         <form action="/masterdata/departemen/updatedepartemen/{{ $data->id_departemen }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-body">            
             <div class="form-group">
-                <label>Nama Merk Hardware</label>                                
+                <label>Nama Departemen</label>                                
                 <input autofocus="autofocus" name="nama_departemen" class="form-control" value="{{ $data->nama_departemen }}">
                 <div class="text-danger">
                     @error('nama_departemen')
@@ -143,10 +143,10 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Hapus Merk Hardware {{ $data->nama_departemen }}</h4>
+                    <h4 class="modal-title">Hapus Departemen {{ $data->nama_departemen }}</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Apakah Anda yakin ingin menghapus merk Hardware {{ $data->nama_departemen }}?</p>
+                    <p>Apakah Anda yakin ingin menghapus Departemen {{ $data->nama_departemen }}?</p>
                 </div>
                 <div class="modal-footer">
                     <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
