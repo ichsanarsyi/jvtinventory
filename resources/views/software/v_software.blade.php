@@ -138,20 +138,42 @@
   </div>
   <!-- /.row -->
 @foreach($software as $data)
-    <div class="modal modal-danger fade" id="modal-delete{{ $data->id_sw }}">
+
+{{-- <div class="modal modal-default fade" id="modal-delete{{ $data->id_hw }}">
+  <div class="modal-dialog bg-danger modal-sm">
+      <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title text-danger"><i class="fa fa-exclamation-triangle fa-fw"></i> Hapus Data {{ $data->nama_hw }}</h4>
+          </div>
+          <div class="modal-body">
+              <p>Apakah Anda yakin ingin menghapus data {{ $data->nama_hw }}?</p>
+          </div>
+          <div class="modal-footer bg-light">
+              <a autofocus href="" data-dismiss="modal" class="btn btn-default pull-left">Cancel</a>
+              <a href="/hardware/deletehw/{{ $data->id_hw }}" class="btn btn-danger">Delete</a>
+          </div>
+      </div>
+      <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div> --}}
+
+    <div class="modal modal-default fade" id="modal-delete{{ $data->id_sw }}">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Hapus Data {{ $data->nama_sw }}</h4>
+                    <h4 class="modal-title text-danger"> <i class="fa fa-exclamation-triangle fa-fw"></i> Hapus Data {{ $data->nama_sw }}</h4>
                 </div>
                 <div class="modal-body">
                     <p>Apakah Anda yakin ingin menghapus data {{ $data->nama_sw }}?</p>
                 </div>
                 <div class="modal-footer">
-                    <a autofocus href="" data-dismiss="modal" class="btn btn-danger pull-left">Tidak</a>
-                    <a href="/software/deletesw/{{ $data->id_sw }}" class="btn btn-danger">Ya</a>
+                    <a autofocus href="" data-dismiss="modal" class="btn btn-default pull-left">Cancel</a>
+                    <a href="/software/deletesw/{{ $data->id_sw }}" class="btn btn-danger">Delete</a>
                 </div>
             </div>
             <!-- /.modal-content -->

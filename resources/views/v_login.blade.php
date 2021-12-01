@@ -31,8 +31,8 @@
 </head>
 <style>
   button:focus, .form-control:focus, select, .select2-container *:focus{
-    border-color: #eeeeee;
-    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075), 0 0 8px rgba(255, 255, 255, 0.6);
+    border-color: rgb(35, 137, 206);
+    box-shadow: 0px 0px 4px rgb(35, 137, 206, 0.8), 0 0 8px rgba(255, 255, 255);
     }
 
   .button {
@@ -46,18 +46,18 @@
   }
 
   .button-login {
-    background-color: rgba(0, 0, 0, 0.4); 
+    background-color: rgb(35, 137, 206); 
     color: #eeeeee; 
     border: 1px solid #eeeeee;
   }
 
   .button-login:hover {
-    background-color: #eeeeee;
-    color: black;
+    background-color:  rgb(58, 160, 228);
+    color: #eeeeee;
   }
 
   .login-page{
-    background: linear-gradient(66deg, rgba(142,21,185,1) 0%, rgba(50,18,80,1) 39%, rgba(47,30,91,1) 59%, rgba(0,212,255,1) 100%);
+    background-color: #e8edf1;
     backdrop-filter: blur(10px);
     background-size: cover;
     -webkit-backdrop-filter: blur(6px);
@@ -66,8 +66,10 @@
     position: absolute;
   }
   .login-box-body{
-    background: rgba(255,255,255,0.2);
+    background: rgb(250, 250, 250);
     border-radius: 8px;
+    padding: 1.5em;
+    box-shadow: 0px 4px 10px rgba(2, 2, 2, 0.2)
   }
 
   .form-control{
@@ -78,20 +80,20 @@
   <div class="bg-image"></div>
 <div class="login-box">
   <div class="login-logo">
-    <a style="color: white" href="/"><b>Login</b> - JVT Inventory</a>
+    <a style="color: rgb(15, 15, 15)" href="/"><b>JVT</b> - Inventory</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p style="color:rgb(223, 223, 223);" class="login-box-msg">Log In untuk masuk ke JVT Inventory</p>
+    <p style="color:rgb(15, 15, 15);" class="login-box-msg">Log In untuk masuk ke JVT Inventory</p>
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
       <div class="form-group has-feedback">
-        <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email" style="background: rgba(0, 0, 0, 0.4); color: white;">
+        <input type="email" name="email" class="form-control" value="{{ old('email') }}" placeholder="Email" style="background: #eeeeee; color: #151515;">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input id="password" name="password" type="password" class="form-control" placeholder="Password" style="background: rgba(0, 0, 0, 0.4); color: white;">
+        <input id="password" name="password" type="password" class="form-control" placeholder="Password" style="background: #eeeeee; color: #151515;">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         @error('email')
         <br>
